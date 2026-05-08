@@ -759,7 +759,7 @@ a {
 
 @media (max-width: 768px) {
   body {
-    padding-bottom: calc(108px + env(safe-area-inset-bottom));
+    padding-bottom: calc(116px + env(safe-area-inset-bottom));
   }
 
   .control-dock {
@@ -818,26 +818,30 @@ a {
   }
 
   .section-card {
-    padding: 24px 16px;
+    padding: 22px 14px;
     border-radius: 24px;
     margin-bottom: 16px;
   }
 
   .section-card h2 {
-    font-size: 30px;
+    font-size: 28px;
+    line-height: 1.12;
   }
 
   .section-card h3 {
-    font-size: 24px;
+    font-size: 22px;
+    line-height: 1.18;
   }
 
   .section-card h4 {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 1.2;
   }
 
   .key-info-grid,
   .overview-grid,
   .content-grid,
+  .content-grid.two-col,
   .home-shortcuts,
   .budget-summary-strip,
   .itinerary-meta-grid,
@@ -856,6 +860,35 @@ a {
   .link-block,
   .itinerary-card {
     padding: 18px 16px;
+  }
+
+  .lead,
+  .budget-original,
+  .bullet-desc,
+  .check-desc,
+  .info-value,
+  .timeline-desc {
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .bullet-title,
+  .check-title,
+  .route-title {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .bullet-card {
+    padding: 14px 0;
+  }
+
+  .summary-value,
+  .mini-stat-value,
+  .budget-main,
+  .price-value,
+  .itinerary-meta-value {
+    font-size: 20px;
   }
 
   .timeline-card,
@@ -880,16 +913,16 @@ a {
 
   .bottom-nav {
     position: fixed;
-    left: 8px;
-    right: 8px;
+    left: 10px;
+    right: 10px;
     bottom: calc(8px + env(safe-area-inset-bottom));
     z-index: 180;
     display: flex;
-    gap: 6px;
+    gap: 8px;
     overflow-x: auto;
-    padding: 8px;
-    border-radius: 20px;
-    background: rgba(255, 250, 245, 0.95);
+    padding: 10px;
+    border-radius: 24px;
+    background: rgba(255, 252, 248, 0.97);
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: var(--shadow-lg);
     backdrop-filter: blur(12px);
@@ -902,9 +935,11 @@ a {
 
   .bottom-nav-item {
     flex: 0 0 auto;
-    min-width: 76px;
-    padding: 9px 6px;
-    font-size: 11px;
+    min-width: 82px;
+    min-height: 46px;
+    padding: 10px 10px;
+    font-size: 12px;
+    white-space: nowrap;
     text-align: center;
   }
 }
@@ -928,7 +963,35 @@ a {
     font-size: 34px;
   }
 
+  .hero-kicker {
+    font-size: 11px;
+  }
+
+  .hero-subtitle,
+  .hero-dates,
+  .destinations {
+    line-height: 1.55;
+  }
+
   .section-card h2 {
     font-size: 26px;
+  }
+
+  .section-card h3 {
+    font-size: 20px;
+  }
+
+  .section-card h4 {
+    font-size: 17px;
+  }
+
+  .control-group {
+    padding: 7px;
+  }
+
+  .pill-btn {
+    min-height: 40px;
+    padding: 8px 10px;
+    font-size: 12px;
   }
 }
