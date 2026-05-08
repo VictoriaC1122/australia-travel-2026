@@ -72,7 +72,7 @@ const t = {
     itineraryLead: "先照你現在的訂單把骨架排好，留一點彈性，不做那種從早衝到晚的滿版行程。",
     budgetKicker: "Budget",
     budgetTitle: "預算",
-    budgetLead: "這頁現在是半實際、半預抓。飯店和租車用已訂金額，其它還能再慢慢修。",
+    budgetLead: "這頁現在是半實際、半預抓。每個項目都有註明是實際還是預抓，飯店和租車已用實際金額，其它再慢慢補。",
     notesKicker: "Notes",
     notesTitle: "清單 / 連結",
     notesLead: "最後一頁就放出發前真的會反覆打開的東西，少翻頁。",
@@ -88,6 +88,8 @@ const t = {
     budgetItemHeading: "項目",
     budgetOriginalHeading: "AUD",
     budgetNoteHeading: "備註",
+    budgetStatusActual: "實際",
+    budgetStatusEstimated: "預抓",
     totalTripCostLabel: "兩人總預估",
     totalTripCostNote: "含機票、住宿、城際交通、餐食與門票",
     averageDailyLabel: "平均每日",
@@ -168,7 +170,7 @@ const t = {
     itineraryLead: "This version follows your current bookings, keeps things readable, and leaves breathing room instead of turning every day into a sprint.",
     budgetKicker: "Budget",
     budgetTitle: "Budget",
-    budgetLead: "This page is now half actual and half estimated. Hotels and car rental use real booking amounts; the rest can still be adjusted.",
+    budgetLead: "This page is now half actual and half estimated. Each item is marked clearly, with hotels and the car rental using real amounts and the rest still adjustable.",
     notesKicker: "Notes",
     notesTitle: "Checklist / Links",
     notesLead: "The last page keeps the things you will actually reopen before departure in one place.",
@@ -184,6 +186,8 @@ const t = {
     budgetItemHeading: "Item",
     budgetOriginalHeading: "AUD",
     budgetNoteHeading: "Note",
+    budgetStatusActual: "Actual",
+    budgetStatusEstimated: "Estimate",
     totalTripCostLabel: "Estimated total for two",
     totalTripCostNote: "Flights, stays, intercity transport, food, and tickets",
     averageDailyLabel: "Average per day",
@@ -309,7 +313,7 @@ const data = {
       duration: { "zh-Hant": "5/24 11:00 取車", en: "Pickup on May 24, 11:00" },
       start: { "zh-Hant": "墨爾本機場", en: "Melbourne Airport" },
       destination: { "zh-Hant": "Toyota Corolla 或同級", en: "Toyota Corolla or similar" },
-      cost: { "zh-Hant": "NT$5,468｜付款待補", en: "NT$5,468 | payment pending" },
+      cost: { "zh-Hant": "NT$5,468｜已付款", en: "NT$5,468 | paid" },
       desc: { "zh-Hant": "這台車很適合拿來跑近郊、自駕景點或 5/26 的郊區日，市區段則可以保留步行節奏。", en: "The car is a good match for nearby scenic plans, suburbs, or the dedicated drive day while the city sections can stay walkable." },
       image: "./assets/corolla-rental-card.svg",
       imageAlt: { "zh-Hant": "Toyota Corolla 租車插畫", en: "Toyota Corolla rental illustration" },
@@ -430,15 +434,15 @@ const data = {
     },
   ],
   budgetRows: [
-    { item: { "zh-Hant": "國際機票", en: "International flights" }, aud: 1000, note: { "zh-Hant": "先用兩人約 NT$20,700 換算", en: "Assumes about NT$20,700 total for two" }, booked: true },
-    { item: { "zh-Hant": "墨爾本住宿 3 晚", en: "Melbourne stay, 3 nights" }, aud: 789.3, note: { "zh-Hant": "Dorsett Melbourne｜5/24 - 5/27｜NT$16,339", en: "Dorsett Melbourne | May 24 - May 27 | NT$16,339" }, booked: true },
-    { item: { "zh-Hant": "雪梨住宿 2 晚", en: "Sydney stay, 2 nights" }, aud: 899.6, note: { "zh-Hant": "索菲特達令港｜5/27 - 5/29｜NT$18,621", en: "Sofitel Darling Harbour | May 27 - May 29 | NT$18,621" }, booked: true },
-    { item: { "zh-Hant": "墨爾本 → 雪梨國內線", en: "Melbourne to Sydney domestic flight" }, aud: 260, note: { "zh-Hant": "JQ514 已訂，但截圖未顯示票價，先保留估算", en: "JQ514 is booked, but the fare was not shown in the screenshot, so this stays estimated" } },
-    { item: { "zh-Hant": "墨爾本租車", en: "Melbourne rental car" }, aud: 264.2, note: { "zh-Hant": "Toyota Corolla 或同級｜NT$5,468｜付款待補", en: "Toyota Corolla or similar | NT$5,468 | payment pending" }, booked: true },
-    { item: { "zh-Hant": "機場 / 市區交通與停車", en: "Airport, city transport, and parking" }, aud: 180, note: { "zh-Hant": "含雪梨機場線、墨爾本停車或加油彈性", en: "Includes Sydney airport rail plus Melbourne parking or fuel cushion" } },
-    { item: { "zh-Hant": "餐食", en: "Food" }, aud: 700, note: { "zh-Hant": "兩人 6 天舒服吃法", en: "Comfortable dining pace for two" } },
-    { item: { "zh-Hant": "一日遊 / 門票", en: "Day tour / tickets" }, aud: 360, note: { "zh-Hant": "抓一個代表性日遊", en: "Assumes one signature day trip" } },
-    { item: { "zh-Hant": "購物與彈性", en: "Shopping and cushion" }, aud: 350, note: { "zh-Hant": "留給臨時加點或戰利品", en: "Flex for extras and souvenirs" } },
+    { item: { "zh-Hant": "國際機票", en: "International flights" }, aud: 1000, note: { "zh-Hant": "先用兩人約 NT$20,700 換算", en: "Assumes about NT$20,700 total for two" }, booked: true, status: "estimated" },
+    { item: { "zh-Hant": "墨爾本住宿 3 晚", en: "Melbourne stay, 3 nights" }, aud: 789.3, note: { "zh-Hant": "Dorsett Melbourne｜5/24 - 5/27｜NT$16,339", en: "Dorsett Melbourne | May 24 - May 27 | NT$16,339" }, booked: true, status: "actual" },
+    { item: { "zh-Hant": "雪梨住宿 2 晚", en: "Sydney stay, 2 nights" }, aud: 899.6, note: { "zh-Hant": "索菲特達令港｜5/27 - 5/29｜NT$18,621", en: "Sofitel Darling Harbour | May 27 - May 29 | NT$18,621" }, booked: true, status: "actual" },
+    { item: { "zh-Hant": "墨爾本 → 雪梨國內線", en: "Melbourne to Sydney domestic flight" }, aud: 260, note: { "zh-Hant": "JQ514 已訂，但截圖未顯示票價，先保留估算", en: "JQ514 is booked, but the fare was not shown in the screenshot, so this stays estimated" }, status: "estimated" },
+    { item: { "zh-Hant": "墨爾本租車", en: "Melbourne rental car" }, aud: 264.2, note: { "zh-Hant": "Toyota Corolla 或同級｜NT$5,468｜已付款", en: "Toyota Corolla or similar | NT$5,468 | paid" }, booked: true, status: "actual" },
+    { item: { "zh-Hant": "機場 / 市區交通與停車", en: "Airport, city transport, and parking" }, aud: 180, note: { "zh-Hant": "含雪梨機場線、墨爾本停車或加油彈性", en: "Includes Sydney airport rail plus Melbourne parking or fuel cushion" }, status: "estimated" },
+    { item: { "zh-Hant": "餐食", en: "Food" }, aud: 700, note: { "zh-Hant": "兩人 6 天舒服吃法", en: "Comfortable dining pace for two" }, status: "estimated" },
+    { item: { "zh-Hant": "一日遊 / 門票", en: "Day tour / tickets" }, aud: 360, note: { "zh-Hant": "抓一個代表性日遊", en: "Assumes one signature day trip" }, status: "estimated" },
+    { item: { "zh-Hant": "購物與彈性", en: "Shopping and cushion" }, aud: 350, note: { "zh-Hant": "留給臨時加點或戰利品", en: "Flex for extras and souvenirs" }, status: "estimated" },
   ],
   checklistGroups: [
     {
@@ -892,6 +896,7 @@ function renderBudget() {
   const perPersonAud = totalAud / 2;
   const averageDailyAud = totalAud / 6;
   const flexibleAud = totalAud - bookedAud;
+  const getStatusLabel = (item) => (item.status === "actual" ? t[state.lang].budgetStatusActual : t[state.lang].budgetStatusEstimated);
 
   dom.budgetSelectedHeading.textContent = state.currency;
 
@@ -917,7 +922,7 @@ function renderBudget() {
     .map(
       (item) => `
         <tr>
-          <td>${getText(item.item)}</td>
+          <td>${getText(item.item)} <span class="route-chip">${getStatusLabel(item)}</span></td>
           <td>${formatCurrency(item.aud, "TWD")}</td>
           <td>${formatCurrency(item.aud, "AUD")}</td>
           <td>${getText(item.note)}</td>
@@ -930,7 +935,10 @@ function renderBudget() {
     .map(
       (item) => `
         <article class="budget-card">
-          <div class="summary-label">${getText(item.item)}</div>
+          <div class="flight-topline">
+            <div class="summary-label">${getText(item.item)}</div>
+            <span class="route-chip">${getStatusLabel(item)}</span>
+          </div>
           <div class="budget-card-metrics">
             <div>
               <div class="price-label">TWD</div>
