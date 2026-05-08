@@ -2,6 +2,7 @@
   --font-ui: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
   --font-en-ui: "Manrope", "Helvetica Neue", Arial, sans-serif;
   --font-en-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-doodle: "Yomogi", "Noto Sans TC", sans-serif;
   --ocean-900: #3c6677;
   --ocean-700: #5f8ea3;
   --ocean-500: #93b8c7;
@@ -726,6 +727,123 @@ a {
   display: grid;
   gap: 14px;
   margin-top: 16px;
+}
+
+.photo-journal-panel {
+  margin-top: 16px;
+}
+
+.photo-journal-lead {
+  max-width: 30rem;
+}
+
+.photo-journal-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.photo-journal-card {
+  display: grid;
+  gap: 10px;
+}
+
+.photo-journal-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  box-shadow: 0 18px 34px rgba(108, 122, 129, 0.12);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.photo-journal-frame::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.62);
+  border-radius: 20px;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.photo-journal-image {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.photo-journal-card.featured .photo-journal-image {
+  height: 360px;
+}
+
+.photo-journal-doodles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.photo-note {
+  position: absolute;
+  max-width: 168px;
+  color: #fffefb;
+  font-family: var(--font-doodle);
+  font-size: 18px;
+  line-height: 1.35;
+  text-shadow:
+    0 1px 0 rgba(50, 58, 60, 0.18),
+    0 0 8px rgba(44, 56, 65, 0.16);
+}
+
+.photo-note span {
+  position: relative;
+  display: inline-block;
+  padding: 4px 0;
+}
+
+.photo-note span::before {
+  content: "";
+  position: absolute;
+  inset: -6px -10px;
+  border: 1.6px solid rgba(255, 255, 255, 0.88);
+  border-radius: 28px 20px 26px 18px;
+  opacity: 0.9;
+}
+
+.photo-note::before {
+  content: "";
+  position: absolute;
+  left: var(--line-left);
+  top: var(--line-top);
+  width: var(--line-width);
+  border-top: 1.6px dashed rgba(255, 255, 255, 0.9);
+  transform: rotate(var(--line-rotate));
+  transform-origin: left center;
+}
+
+.photo-note::after {
+  content: "✦";
+  position: absolute;
+  right: -10px;
+  top: -12px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
+}
+
+.photo-note.overall span::before {
+  border-radius: 18px 26px 20px 28px;
+}
+
+.photo-note.overall::after {
+  content: "♡";
+  right: -8px;
+  top: -10px;
+  font-size: 15px;
+}
+
+.photo-journal-meta {
+  padding: 0 4px;
 }
 
 .souvenir-grid {
@@ -1560,6 +1678,36 @@ a {
     gap: 12px;
   }
 
+  .photo-journal-grid {
+    gap: 12px;
+  }
+
+  .photo-journal-frame {
+    border-radius: 22px;
+  }
+
+  .photo-journal-frame::before {
+    inset: 9px;
+    border-radius: 18px;
+  }
+
+  .photo-journal-image {
+    height: 212px;
+  }
+
+  .photo-journal-card.featured .photo-journal-image {
+    height: 310px;
+  }
+
+  .photo-note {
+    max-width: 140px;
+    font-size: 15px;
+  }
+
+  .photo-note span::before {
+    inset: -5px -8px;
+  }
+
   .accordion-body {
     gap: 12px;
   }
@@ -1637,6 +1785,10 @@ a {
   .hotel-spotlight-fallback .hotel-spotlight-image-link {
     height: 168px;
     min-height: 168px;
+  }
+
+  .photo-journal-meta {
+    padding: 0 2px;
   }
 
   .souvenir-image {
@@ -1978,6 +2130,15 @@ a {
   .map-day-routes {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .photo-journal-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: start;
+  }
+
+  .photo-journal-card.featured {
+    grid-row: span 2;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2236,6 +2397,15 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .photo-journal-grid {
+    grid-template-columns: 1.25fr 0.75fr;
+    align-items: start;
+  }
+
+  .photo-journal-card.featured {
+    grid-row: span 2;
+  }
+
   .souvenir-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2246,6 +2416,10 @@ a {
 
   .hotel-spotlight-fallback .hotel-spotlight-image-link {
     min-height: 220px;
+  }
+
+  .photo-journal-image {
+    height: 220px;
   }
 
   .souvenir-image {

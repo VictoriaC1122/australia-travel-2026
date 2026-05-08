@@ -47,8 +47,11 @@ const t = {
     navSouvenirs: "名產",
     navNotes: "清單",
     overviewKicker: "Overview",
-    overviewTitle: "這趟大概這樣玩",
-    overviewLead: "前半段待在墨爾本，後半段換到雪梨，行程主線就照這樣走。",
+    overviewTitle: "這趟怎麼走",
+    overviewLead: "墨爾本先住穩，後面把雪梨港灣和散步收進來。",
+    overviewSnapshotKicker: "Travel Notes",
+    overviewSnapshotTitle: "這趟想收進相簿的畫面",
+    overviewSnapshotLead: "把最期待的幾個畫面先放在前面，打開就比較有出發感。",
     shortcutFlights: "航班",
     shortcutFlightsNote: "先看時間和航廈",
     shortcutItinerary: "每日行程",
@@ -162,7 +165,10 @@ const t = {
     navNotes: "Checklist",
     overviewKicker: "Overview",
     overviewTitle: "How this trip flows",
-    overviewLead: "The first half stays in Melbourne, then the second half shifts to Sydney.",
+    overviewLead: "Melbourne first, then Sydney harbour days.",
+    overviewSnapshotKicker: "Travel Notes",
+    overviewSnapshotTitle: "The frames worth looking forward to",
+    overviewSnapshotLead: "A few image-first moments so the page opens with more mood and less explanation.",
     shortcutFlights: "Flights",
     shortcutFlightsNote: "Check times and terminals first",
     shortcutItinerary: "Daily plan",
@@ -292,6 +298,105 @@ const data = {
     { title: { "zh-Hant": "前半段是墨爾本", en: "Melbourne comes first" }, desc: { "zh-Hant": "抵達後先住 Dorsett Melbourne，再接自駕和市區安排。", en: "The trip starts with Dorsett Melbourne, then moves into the Melbourne days." } },
     { title: { "zh-Hant": "第 4 天飛雪梨", en: "Day four goes to Sydney" }, desc: { "zh-Hant": "5/27 用 JQ514 接到雪梨。", en: "JQ514 takes the trip into Sydney on May 27." } },
     { title: { "zh-Hant": "預算頁已分開實際和預估", en: "The budget page separates actual and estimated items" }, desc: { "zh-Hant": "飯店和租車用實際金額，其它另外標示。", en: "Hotels and the car use actual amounts, while the rest is labeled separately." } },
+  ],
+  overviewPhotoJournal: [
+    {
+      featured: true,
+      title: { "zh-Hant": "雪梨歌劇院", en: "Sydney Opera House" },
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sydney%20Opera%20House%20from%20the%20Rocks.jpg",
+      alt: { "zh-Hant": "雪梨歌劇院與海港景色", en: "Sydney Opera House with the harbour" },
+      notes: [
+        {
+          text: { "zh-Hant": "最想看到的就是這個角度", en: "this is the view" },
+          top: "12%",
+          left: "7%",
+          lineWidth: "74px",
+          lineRotate: "18deg",
+          lineLeft: "100%",
+          lineTop: "64%",
+        },
+        {
+          text: { "zh-Hant": "海的顏色很剛好", en: "the water tone..." },
+          top: "58%",
+          left: "8%",
+          lineWidth: "58px",
+          lineRotate: "-12deg",
+          lineLeft: "92%",
+          lineTop: "42%",
+        },
+        {
+          text: { "zh-Hant": "白白的殼在發光", en: "glowing shells" },
+          top: "20%",
+          right: "8%",
+          lineWidth: "66px",
+          lineRotate: "155deg",
+          lineLeft: "-62px",
+          lineTop: "68%",
+        },
+        {
+          text: { "zh-Hant": "今天有點幸福～", en: "this feels so good" },
+          top: "74%",
+          right: "9%",
+          lineWidth: "52px",
+          lineRotate: "188deg",
+          lineLeft: "-48px",
+          lineTop: "28%",
+          overall: true,
+        },
+      ],
+    },
+    {
+      featured: false,
+      title: { "zh-Hant": "墨爾本散步感", en: "Melbourne city mood" },
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Degraves%20Street%20Melbourne.jpg",
+      alt: { "zh-Hant": "墨爾本街景與咖啡氣氛", en: "Melbourne laneway and cafe mood" },
+      notes: [
+        {
+          text: { "zh-Hant": "喜歡這種慢慢走的感覺", en: "slow city mood" },
+          top: "10%",
+          left: "8%",
+          lineWidth: "58px",
+          lineRotate: "16deg",
+          lineLeft: "100%",
+          lineTop: "64%",
+        },
+        {
+          text: { "zh-Hant": "咖啡一定要喝", en: "coffee stop!" },
+          top: "72%",
+          right: "9%",
+          lineWidth: "44px",
+          lineRotate: "196deg",
+          lineLeft: "-42px",
+          lineTop: "30%",
+        },
+      ],
+    },
+    {
+      featured: false,
+      title: { "zh-Hant": "十二門徒岩", en: "Twelve Apostles" },
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Twelve%20Apostles%2C%20Great%20Ocean%20Road%2C%20Victoria%2C%20Australia.jpg",
+      alt: { "zh-Hant": "十二門徒岩海岸景色", en: "The Twelve Apostles coastline" },
+      notes: [
+        {
+          text: { "zh-Hant": "風景應該會很誇張", en: "this one will hit" },
+          top: "12%",
+          left: "8%",
+          lineWidth: "62px",
+          lineRotate: "20deg",
+          lineLeft: "100%",
+          lineTop: "70%",
+        },
+        {
+          text: { "zh-Hant": "海風感覺會很強", en: "windy in a good way" },
+          top: "70%",
+          right: "8%",
+          lineWidth: "50px",
+          lineRotate: "188deg",
+          lineLeft: "-46px",
+          lineTop: "34%",
+        },
+      ],
+    },
   ],
   flights: [
     {
@@ -567,6 +672,7 @@ const data = {
   ],
   budgetRows: [
     { item: { "zh-Hant": "國際機票", en: "International flights" }, aud: 1000, note: { "zh-Hant": "先用兩人約 NT$20,700 換算", en: "Assumes about NT$20,700 total for two" }, booked: true, status: "estimated" },
+    { item: { "zh-Hant": "澳洲簽證 / ETA", en: "Australia ETA" }, aud: 40, note: { "zh-Hant": "官方 ETA App 服務費 A$20 / 人，兩人先抓 A$40", en: "Official ETA app service fee is A$20 per person, so A$40 for two" }, status: "estimated" },
     { item: { "zh-Hant": "墨爾本住宿 3 晚", en: "Melbourne stay, 3 nights" }, aud: 789.3, note: { "zh-Hant": "Dorsett Melbourne｜5/24 - 5/27｜NT$16,339", en: "Dorsett Melbourne | May 24 - May 27 | NT$16,339" }, booked: true, status: "actual" },
     { item: { "zh-Hant": "雪梨住宿 2 晚", en: "Sydney stay, 2 nights" }, aud: 899.6, note: { "zh-Hant": "索菲特達令港｜5/27 - 5/29｜NT$18,621", en: "Sofitel Darling Harbour | May 27 - May 29 | NT$18,621" }, booked: true, status: "actual" },
     { item: { "zh-Hant": "墨爾本 → 雪梨國內線", en: "Melbourne to Sydney domestic flight" }, aud: 260, note: { "zh-Hant": "JQ514 已訂，但截圖未顯示票價，先保留估算", en: "JQ514 is booked, but the fare was not shown in the screenshot, so this stays estimated" }, status: "estimated" },
@@ -844,6 +950,7 @@ function cacheDom() {
   dom.keyInfoBar = document.getElementById("keyInfoBar");
   dom.quickInfoGrid = document.getElementById("quickInfoGrid");
   dom.overviewMiniChecklist = document.getElementById("overviewMiniChecklist");
+  dom.overviewPhotoJournal = document.getElementById("overviewPhotoJournal");
   dom.overviewRecommendations = document.getElementById("overviewRecommendations");
   dom.importantAlerts = document.getElementById("importantAlerts");
   dom.overviewNotes = document.getElementById("overviewNotes");
@@ -967,6 +1074,47 @@ function renderOverviewMiniChecklist() {
             </span>
           </span>
         </label>
+      `
+    )
+    .join("");
+}
+
+function renderOverviewPhotoJournal() {
+  if (!dom.overviewPhotoJournal) return;
+
+  dom.overviewPhotoJournal.innerHTML = data.overviewPhotoJournal
+    .map(
+      (item) => `
+        <article class="photo-journal-card ${item.featured ? "featured" : ""}">
+          <div class="photo-journal-frame">
+            <img class="photo-journal-image" src="${item.image}" alt="${getText(item.alt)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+            <div class="photo-journal-doodles" aria-hidden="true">
+              ${item.notes
+                .map(
+                  (note) => `
+                    <div
+                      class="photo-note ${note.overall ? "overall" : ""}"
+                      style="
+                        top: ${note.top};
+                        ${note.left ? `left: ${note.left};` : ""}
+                        ${note.right ? `right: ${note.right};` : ""}
+                        --line-width: ${note.lineWidth};
+                        --line-rotate: ${note.lineRotate};
+                        --line-left: ${note.lineLeft};
+                        --line-top: ${note.lineTop};
+                      "
+                    >
+                      <span>${getText(note.text)}</span>
+                    </div>
+                  `
+                )
+                .join("")}
+            </div>
+          </div>
+          <div class="photo-journal-meta">
+            <div class="route-title">${getText(item.title)}</div>
+          </div>
+        </article>
       `
     )
     .join("");
@@ -1443,6 +1591,7 @@ function renderAll() {
   renderKeyInfo();
   renderQuickInfo();
   renderOverviewMiniChecklist();
+  renderOverviewPhotoJournal();
   renderOverview();
   renderFlights();
   renderStays();
