@@ -1,7 +1,13 @@
 :root {
+  --font-ui: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-en-ui: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --font-en-display: "Cormorant Garamond", "Times New Roman", serif;
   --ocean-900: #3c6677;
   --ocean-700: #5f8ea3;
   --ocean-500: #93b8c7;
+  --sky-300: #b7d5e2;
+  --sky-200: #d7e8f0;
+  --sky-100: #edf6fa;
   --sand-500: #cfa98c;
   --sand-300: #e7d0bf;
   --leaf-500: #9c8f83;
@@ -40,21 +46,95 @@ body {
     radial-gradient(circle at 55% 0%, rgba(231, 208, 191, 0.16), transparent 24%),
     linear-gradient(180deg, #fbf4ec 0%, #f7efe4 44%, #e9f2f7 100%);
   color: var(--text-900);
-  font-family: "Noto Serif TC", serif;
+  font-family: var(--font-ui);
   font-size: 16px;
-  line-height: 1.68;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-variant-numeric: tabular-nums;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: "Manrope", "Noto Serif TC", sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+html[lang="en"] body {
+  font-family: var(--font-en-ui);
+  letter-spacing: 0;
+}
+
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] h4 {
+  font-family: var(--font-en-display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+html[lang="en"] .hero-kicker,
+html[lang="en"] .section-label,
+html[lang="en"] .panel-kicker,
+html[lang="en"] .summary-label,
+html[lang="en"] .mini-stat-label,
+html[lang="en"] .price-label,
+html[lang="en"] .date-label,
+html[lang="en"] .info-label,
+html[lang="en"] .itinerary-meta-label,
+html[lang="en"] .compact-label,
+html[lang="en"] .link-button-meta,
+html[lang="en"] .map-open-link,
+html[lang="en"] .budget-filter-btn,
+html[lang="en"] .pill-btn,
+html[lang="en"] .nav-item,
+html[lang="en"] .bottom-nav-item,
+html[lang="en"] .hero-chip,
+html[lang="en"] .pill,
+html[lang="en"] .day-chip,
+html[lang="en"] .city-chip,
+html[lang="en"] .route-chip,
+html[lang="en"] .progress-pill {
+  font-family: var(--font-en-ui);
+  letter-spacing: 0.04em;
+}
+
+html[lang="en"] .hero h1 {
+  letter-spacing: -0.035em;
+}
+
+html[lang="en"] .hero-subtitle,
+html[lang="en"] .lead,
+html[lang="en"] .budget-original,
+html[lang="en"] .bullet-desc,
+html[lang="en"] .check-desc,
+html[lang="en"] .info-value,
+html[lang="en"] .timeline-desc,
+html[lang="en"] .hero-destinations,
+html[lang="en"] .hotel-spotlight-subname {
+  font-family: var(--font-en-ui);
+  letter-spacing: 0.005em;
+}
+
+html[lang="en"] .summary-value,
+html[lang="en"] .mini-stat-value,
+html[lang="en"] .budget-main,
+html[lang="en"] .price-value,
+html[lang="en"] .itinerary-meta-value,
+html[lang="en"] .flight-route,
+html[lang="en"] .flight-time,
+html[lang="en"] .route-title,
+html[lang="en"] .bullet-title,
+html[lang="en"] .check-title {
+  font-family: var(--font-en-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 button,
@@ -82,7 +162,7 @@ a {
   z-index: 999;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--ocean-700), var(--leaf-500), var(--sunrise-500));
+  background: linear-gradient(90deg, var(--ocean-500), #a8cbda, var(--sunrise-500));
   transform: scaleX(0);
   transform-origin: left center;
   will-change: transform;
@@ -174,9 +254,9 @@ a {
 }
 
 .pill-btn.active {
-  background: linear-gradient(135deg, var(--ocean-700), #7da7b7);
-  color: #fff;
-  box-shadow: 0 8px 18px rgba(95, 142, 163, 0.22);
+  background: linear-gradient(135deg, var(--sky-200), #c8e0eb);
+  color: var(--ocean-900);
+  box-shadow: 0 8px 18px rgba(147, 184, 199, 0.26);
 }
 
 .hero-shell {
@@ -195,24 +275,25 @@ a {
 
 .hero-kicker {
   margin-bottom: 10px;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-ui);
   font-size: 11px;
   line-height: 1.2;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(125, 98, 84, 0.9);
 }
 
 .hero h1 {
   font-size: 32px;
-  line-height: 1.04;
+  line-height: 1.08;
+  font-weight: 800;
 }
 
 .hero-subtitle {
   margin-top: 10px;
   font-size: 15px;
-  line-height: 1.56;
+  line-height: 1.62;
   color: var(--text-700);
 }
 
@@ -234,9 +315,9 @@ a {
   min-height: 32px;
   padding: 0 12px;
   border-radius: 999px;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-ui);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .hero-chip {
@@ -357,9 +438,9 @@ a {
 .panel-kicker {
   margin-bottom: 12px;
   color: var(--text-500);
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-ui);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -382,7 +463,7 @@ a {
 .timeline-desc {
   color: var(--text-700);
   font-size: 15px;
-  line-height: 1.68;
+  line-height: 1.72;
 }
 
 .lead {
@@ -488,7 +569,7 @@ a {
 .check-input:checked + .mini-check-body .mini-check-mark,
 .check-input:checked + .check-body .check-mark {
   border-color: transparent;
-  background: linear-gradient(135deg, var(--ocean-700), var(--ocean-500));
+  background: linear-gradient(135deg, #b8d7e3, #d8ebf2);
 }
 
 .home-shortcut {
@@ -505,7 +586,7 @@ a {
 }
 
 .home-shortcut-label {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-ui);
   font-size: 16px;
   font-weight: 700;
 }
@@ -607,6 +688,10 @@ a {
   border-top: 1px solid var(--line);
 }
 
+.flight-card .info-value {
+  line-height: 1.74;
+}
+
 .price-stack {
   display: grid;
   gap: 12px;
@@ -641,6 +726,60 @@ a {
   display: grid;
   gap: 14px;
   margin-top: 16px;
+}
+
+.souvenir-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.souvenir-card {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(95, 142, 163, 0.1);
+  background: linear-gradient(180deg, rgba(255, 251, 247, 0.96), rgba(244, 248, 249, 0.9));
+  box-shadow: 0 12px 24px rgba(108, 122, 129, 0.08);
+}
+
+.souvenir-image-link {
+  display: block;
+}
+
+.souvenir-image {
+  display: block;
+  width: 100%;
+  height: 196px;
+  object-fit: cover;
+}
+
+.souvenir-body {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+.souvenir-heading {
+  display: grid;
+  gap: 4px;
+}
+
+.souvenir-subname {
+  color: var(--text-500);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.souvenir-note {
+  color: var(--text-900);
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+.souvenir-meta {
+  display: grid;
+  gap: 2px;
 }
 
 .hotel-spotlight-card {
@@ -681,6 +820,46 @@ a {
   gap: 8px;
 }
 
+.hotel-spotlight-heading {
+  display: grid;
+  gap: 4px;
+}
+
+.hotel-spotlight-subname {
+  color: var(--text-500);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.hotel-spotlight-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hotel-star-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 11px;
+  border-radius: 999px;
+  background: rgba(221, 191, 159, 0.18);
+  color: rgba(128, 94, 66, 0.96);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hotel-feature {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(245, 249, 251, 0.94), rgba(253, 250, 246, 0.94));
+  border: 1px solid rgba(147, 184, 199, 0.12);
+  color: var(--ocean-900);
+  font-size: 14px;
+  line-height: 1.64;
+  font-weight: 600;
+}
+
 .hotel-spotlight-link {
   display: inline-flex;
   align-items: center;
@@ -691,9 +870,9 @@ a {
   border-radius: 999px;
   background: rgba(95, 142, 163, 0.1);
   color: var(--ocean-900);
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-ui);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .timeline-card,
@@ -818,11 +997,11 @@ a {
 .itinerary-timeline-time {
   padding-top: 1px;
   color: var(--ocean-700);
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-ui);
   font-size: 12px;
   line-height: 1.3;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 .itinerary-timeline-dot {
@@ -894,19 +1073,53 @@ a {
   margin: 20px 0 14px;
 }
 
+.budget-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.budget-filter-btn {
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(95, 142, 163, 0.12);
+  color: var(--text-700);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.budget-filter-btn.active {
+  background: linear-gradient(135deg, rgba(215, 232, 240, 0.96), rgba(236, 246, 250, 0.92));
+  border-color: rgba(147, 184, 199, 0.3);
+  color: var(--ocean-900);
+  box-shadow: 0 8px 16px rgba(147, 184, 199, 0.18);
+}
+
 .budget-highlight-card {
   padding: 16px;
 }
 
 .budget-highlight-primary {
-  background: linear-gradient(145deg, rgba(15, 91, 115, 0.95), rgba(43, 131, 152, 0.88));
-  color: #f8fbfc;
+  background:
+    radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.42), transparent 24%),
+    linear-gradient(145deg, rgba(202, 228, 239, 0.96), rgba(180, 214, 228, 0.92));
+  color: var(--ocean-900);
 }
 
 .budget-highlight-primary .bullet-title,
 .budget-highlight-primary .budget-main,
 .budget-highlight-primary .budget-original {
-  color: #f8fbfc;
+  color: var(--ocean-900);
+}
+
+.budget-highlight-primary .summary-label,
+.budget-highlight-primary .lead {
+  color: rgba(60, 102, 119, 0.82);
 }
 
 .budget-main {
@@ -979,9 +1192,9 @@ a {
 
 .link-button-meta {
   color: var(--ocean-700);
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-ui);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .map-actions {
@@ -1014,25 +1227,35 @@ a {
 }
 
 .map-day-button {
-  display: flex;
+  display: grid;
+  gap: 4px;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   min-height: 54px;
   padding: 10px 14px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid rgba(95, 142, 163, 0.1);
   color: var(--text-900);
-  font-family: "Manrope", sans-serif;
-  font-size: 13px;
+  font-family: var(--font-ui);
+  font-size: 13.5px;
   line-height: 1.35;
-  font-weight: 700;
+  font-weight: 600;
+}
+
+.map-drive-time,
+.map-card-time {
+  color: var(--ocean-700);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 600;
 }
 
 .map-day-button.active,
 .map-card.active .map-card-button {
-  background: linear-gradient(135deg, rgba(95, 142, 163, 0.16), rgba(221, 191, 159, 0.18));
-  border-color: rgba(95, 142, 163, 0.2);
+  background: linear-gradient(135deg, rgba(215, 232, 240, 0.92), rgba(236, 246, 250, 0.9));
+  border-color: rgba(147, 184, 199, 0.32);
+  color: var(--ocean-900);
 }
 
 .map-layout {
@@ -1058,9 +1281,9 @@ a {
 
 .map-open-link {
   color: var(--ocean-700);
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-ui);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .map-frame-wrap {
@@ -1086,7 +1309,7 @@ a {
   bottom: calc(10px + env(safe-area-inset-bottom));
   z-index: 220;
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: 4px;
   padding: 8px 7px;
   border-radius: 24px;
@@ -1106,18 +1329,18 @@ a {
   padding: 6px 1px;
   border-radius: 16px;
   color: var(--text-500);
-  font-family: "Manrope", sans-serif;
-  font-size: 10px;
-  font-weight: 700;
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  font-weight: 600;
   letter-spacing: 0.01em;
   cursor: pointer;
   transition: transform 0.16s ease, background 0.16s ease, color 0.16s ease;
 }
 
 .bottom-nav-item.active {
-  color: #fffaf6;
-  background: linear-gradient(135deg, var(--ocean-700), var(--ocean-500));
-  box-shadow: 0 8px 18px rgba(47, 116, 141, 0.24);
+  color: var(--ocean-900);
+  background: linear-gradient(135deg, var(--sky-200), #c8e1eb);
+  box-shadow: 0 8px 18px rgba(147, 184, 199, 0.24);
   transform: translateY(-1px);
 }
 
@@ -1146,7 +1369,7 @@ a {
 }
 
 .bottom-nav-item.active .tab-icon {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.52);
 }
 
 .bottom-nav-item:active .tab-icon {
@@ -1187,10 +1410,14 @@ a {
 }
 
 @media (max-width: 767px) {
+  .container {
+    padding: 0 12px calc(124px + env(safe-area-inset-bottom));
+  }
+
   .control-dock {
     position: relative;
     z-index: 3;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   .compact-control {
@@ -1205,6 +1432,40 @@ a {
     min-height: 34px;
     padding: 0 10px;
     font-size: 12px;
+  }
+
+  .pill-btn.active {
+    font-size: 12.5px;
+  }
+
+  .hero-shell {
+    padding: 16px 15px 14px;
+    border-radius: 26px;
+  }
+
+  .hero-chip-row {
+    gap: 7px;
+    margin-top: 12px;
+  }
+
+  .hero-destinations {
+    margin-top: 12px;
+    font-size: 12.5px;
+    line-height: 1.66;
+  }
+
+  .hero-visual {
+    margin-top: 12px;
+    border-radius: 20px;
+  }
+
+  .hero-summary-grid {
+    gap: 9px;
+    margin-top: 12px;
+  }
+
+  .summary-card {
+    padding: 13px 12px;
   }
 
   .summary-card,
@@ -1226,6 +1487,52 @@ a {
     backdrop-filter: none;
   }
 
+  .page-section {
+    margin-bottom: 16px;
+  }
+
+  .section-card {
+    padding: 18px 15px;
+    border-radius: 22px;
+  }
+
+  .section-card + .section-card {
+    margin-top: 14px;
+  }
+
+  .content-grid,
+  .overview-grid,
+  .home-shortcuts,
+  .quick-info-grid,
+  .budget-summary-strip,
+  .flight-grid,
+  .route-card-list,
+  .timeline-list,
+  .accordion-list,
+  .checklist-groups,
+  .link-card-list,
+  .budget-card-list,
+  .itinerary-meta-grid {
+    gap: 10px;
+  }
+
+  .key-info-card,
+  .content-panel,
+  .mini-stat-card,
+  .flight-card,
+  .route-card,
+  .timeline-card,
+  .itinerary-card,
+  .budget-card,
+  .budget-highlight-card,
+  .checklist-group-card,
+  .link-block,
+  .quick-info-card,
+  .alert-card {
+    padding: 16px 14px;
+    border-radius: 18px;
+  }
+
   .map-day-routes {
     grid-template-columns: 1fr;
   }
@@ -1241,6 +1548,8 @@ a {
 
   .section-card h2 {
     max-width: 12ch;
+    font-size: 22px;
+    line-height: 1.16;
   }
 
   .hotel-spotlight-body,
@@ -1255,10 +1564,275 @@ a {
     gap: 12px;
   }
 
+  .lead,
+  .budget-original,
+  .bullet-desc,
+  .check-desc,
+  .info-value,
+  .timeline-desc {
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .summary-value,
+  .mini-stat-value,
+  .budget-main {
+    font-size: 17px;
+    line-height: 1.38;
+  }
+
+  .home-shortcut {
+    min-height: 82px;
+    padding: 14px;
+  }
+
+  .home-shortcut-label {
+    font-size: 15px;
+  }
+
+  .home-shortcut-note {
+    font-size: 12.5px;
+    line-height: 1.58;
+  }
+
+  .alert-card,
+  .mini-stat-card,
+  .quick-info-card {
+    min-height: 0;
+  }
+
+  .flight-topline,
+  .itinerary-summary-header,
+  .checklist-group-top,
+  .route-top {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .airline-badge {
+    width: 120px;
+  }
+
+  .flight-route {
+    font-size: 20px;
+    line-height: 1.12;
+  }
+
+  .flight-time {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .info-line {
+    gap: 5px;
+    padding-top: 11px;
+  }
+
+  .flight-card .info-value {
+    font-size: 13.5px;
+    line-height: 1.72;
+  }
+
+  .hotel-spotlight-image,
+  .hotel-spotlight-fallback .hotel-spotlight-image-link {
+    height: 168px;
+    min-height: 168px;
+  }
+
+  .souvenir-image {
+    height: 176px;
+  }
+
+  .souvenir-body {
+    padding: 13px;
+  }
+
+  .souvenir-subname {
+    font-size: 12.5px;
+  }
+
+  .souvenir-note {
+    font-size: 14px;
+    line-height: 1.68;
+  }
+
+  .hotel-spotlight-body {
+    padding: 13px;
+  }
+
+  .hotel-spotlight-subname {
+    font-size: 12.5px;
+  }
+
+  .hotel-star-chip {
+    min-height: 28px;
+    padding: 0 10px;
+    font-size: 11.5px;
+  }
+
+  .hotel-feature {
+    padding: 9px 11px;
+    border-radius: 13px;
+    font-size: 13px;
+    line-height: 1.62;
+  }
+
+  .timeline-card {
+    grid-template-columns: 52px 1fr;
+    gap: 10px;
+  }
+
+  .timeline-time {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .route-card-image {
+    height: 168px;
+    border-radius: 16px;
+  }
+
+  .route-spec-grid {
+    gap: 8px;
+  }
+
+  .route-spec-card {
+    padding: 11px;
+    border-radius: 14px;
+  }
+
   .itinerary-timeline-content,
   .itinerary-meta-card,
   .itinerary-focus-card {
     padding: 13px;
+  }
+
+  .accordion-summary {
+    min-height: 114px;
+    gap: 8px;
+  }
+
+  .accordion-summary h3 {
+    font-size: 21px;
+    line-height: 1.2;
+  }
+
+  .itinerary-dayline {
+    gap: 12px;
+  }
+
+  .itinerary-dayline::before {
+    left: 53px;
+  }
+
+  .itinerary-timeline-item {
+    grid-template-columns: 44px 14px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .itinerary-timeline-time {
+    font-size: 11px;
+    line-height: 1.34;
+  }
+
+  .itinerary-timeline-dot {
+    width: 12px;
+    height: 12px;
+    margin-top: 5px;
+    box-shadow: 0 0 0 4px rgba(250, 245, 238, 0.96);
+  }
+
+  .itinerary-timeline-content {
+    gap: 4px;
+    border-radius: 16px;
+  }
+
+  .budget-card-metrics {
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .budget-filter-row {
+    margin-top: 12px;
+    gap: 7px;
+  }
+
+  .budget-filter-btn {
+    min-height: 36px;
+    padding: 0 13px;
+    font-size: 12.5px;
+  }
+
+  .checklist-list,
+  .link-list {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .large-link-button {
+    min-height: 56px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    align-items: flex-start;
+  }
+
+  .map-actions,
+  .map-day-routes-wrap,
+  .map-layout {
+    margin-top: 16px;
+  }
+
+  .map-day-button {
+    min-height: 52px;
+    border-radius: 15px;
+    font-size: 13px;
+  }
+
+  .map-drive-time,
+  .map-card-time {
+    font-size: 11.5px;
+    line-height: 1.46;
+  }
+
+  .map-card {
+    gap: 8px;
+  }
+
+  .map-card-button {
+    min-height: 56px;
+  }
+
+  .map-frame-wrap,
+  #mapFrame {
+    min-height: 284px;
+    border-radius: 20px;
+  }
+
+  .bottom-nav {
+    left: 10px;
+    right: 10px;
+    gap: 3px;
+    padding: 7px 6px;
+    border-radius: 22px;
+    box-shadow: 0 16px 34px rgba(102, 113, 121, 0.16);
+  }
+
+  .bottom-nav-item {
+    min-height: 48px;
+    gap: 2px;
+    padding: 5px 1px;
+    font-size: 8.8px;
+    line-height: 1.15;
+  }
+
+  .tab-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tab-icon svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -1274,6 +1848,10 @@ a {
 
   .flight-route {
     font-size: 20px;
+  }
+
+  .flight-card .info-value {
+    font-size: 13px;
   }
 
   .accordion-summary h3 {
@@ -1349,6 +1927,24 @@ a {
     padding-right: 14px;
   }
 
+  .flight-card .info-value {
+    font-size: 12.5px;
+    line-height: 1.7;
+  }
+
+  .timeline-card {
+    grid-template-columns: 48px 1fr;
+  }
+
+  .itinerary-dayline::before {
+    left: 49px;
+  }
+
+  .itinerary-timeline-item {
+    grid-template-columns: 40px 12px minmax(0, 1fr);
+    gap: 9px;
+  }
+
   .bottom-nav {
     left: 8px;
     right: 8px;
@@ -1359,7 +1955,7 @@ a {
 
   .bottom-nav-item {
     min-height: 48px;
-    font-size: 9.5px;
+    font-size: 8.4px;
   }
 
   .tab-icon {
@@ -1447,8 +2043,9 @@ a {
   }
 
   .pill-btn.active {
-    background: linear-gradient(135deg, #b88655, #a7774d);
-    box-shadow: 0 10px 18px rgba(146, 105, 66, 0.24);
+    background: linear-gradient(135deg, #cfe5ef, #b9d7e4);
+    color: var(--ocean-900);
+    box-shadow: 0 10px 18px rgba(147, 184, 199, 0.24);
   }
 
   .hero-shell {
@@ -1463,7 +2060,7 @@ a {
 
   .hero h1 {
     font-size: 76px;
-    line-height: 0.96;
+    line-height: 1;
     letter-spacing: -0.04em;
     color: rgba(255, 248, 242, 0.98);
   }
@@ -1478,7 +2075,7 @@ a {
   .hero-kicker {
     margin-bottom: 18px;
     font-size: 14px;
-    letter-spacing: 0.24em;
+    letter-spacing: 0.2em;
     color: rgba(255, 244, 234, 0.8);
   }
 
@@ -1559,17 +2156,17 @@ a {
     padding: 0 22px;
     border-radius: 999px;
     color: rgba(132, 121, 111, 0.86);
-    font-family: "Manrope", sans-serif;
+    font-family: var(--font-ui);
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     transition: transform 0.16s ease, background 0.16s ease, color 0.16s ease;
   }
 
   .nav-item.active {
-    color: #fffaf5;
-    background: linear-gradient(135deg, #b88655, #a77548);
-    box-shadow: 0 14px 24px rgba(155, 111, 67, 0.22);
+    color: var(--ocean-900);
+    background: linear-gradient(135deg, #d7e8f0, #c3ddea);
+    box-shadow: 0 14px 24px rgba(147, 184, 199, 0.22);
   }
 
   .container {
@@ -1639,12 +2236,20 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .souvenir-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hotel-spotlight-image {
     height: 220px;
   }
 
   .hotel-spotlight-fallback .hotel-spotlight-image-link {
     min-height: 220px;
+  }
+
+  .souvenir-image {
+    height: 220px;
   }
 
   .budget-table-wrap {

@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
@@ -71,6 +71,7 @@
       <button class="nav-item" type="button" data-page-link="itinerary" aria-label="查看行程" data-i18n="navItinerary">行程</button>
       <button class="nav-item" type="button" data-page-link="map" aria-label="查看地圖" data-i18n="navMap">地圖</button>
       <button class="nav-item" type="button" data-page-link="budget" aria-label="查看預算" data-i18n="navBudget">預算</button>
+      <button class="nav-item" type="button" data-page-link="souvenirs" aria-label="查看名產" data-i18n="navSouvenirs">名產</button>
       <button class="nav-item" type="button" data-page-link="notes" aria-label="查看清單與連結" data-i18n="navNotes">清單</button>
     </nav>
 
@@ -105,7 +106,7 @@
             </button>
             <button class="home-shortcut" type="button" data-page-link="budget" aria-label="跳到預算">
               <span class="home-shortcut-label" data-i18n="shortcutBudget">預算</span>
-              <span class="home-shortcut-note" data-i18n="shortcutBudgetNote">實際花費和預抓都在這</span>
+              <span class="home-shortcut-note" data-i18n="shortcutBudgetNote">實際花費和預估都在這</span>
             </button>
             <button class="home-shortcut" type="button" data-page-link="notes" aria-label="跳到清單">
               <span class="home-shortcut-label" data-i18n="shortcutChecklist">清單</span>
@@ -194,7 +195,12 @@
         <article class="section-card">
           <div class="section-label" data-i18n="budgetKicker">Budget</div>
           <h2 data-i18n="budgetTitle">預算</h2>
-          <p class="lead" data-i18n="budgetLead">這頁現在是半實際、半預抓。飯店和租車用已訂金額，其它還能再慢慢修。</p>
+          <p class="lead" data-i18n="budgetLead">這頁現在是半實際、半預估。飯店和租車用已訂金額，其它還能再慢慢修。</p>
+          <div class="budget-filter-row">
+            <button class="budget-filter-btn active" type="button" data-budget-filter="all" aria-label="顯示全部預算項目">全部</button>
+            <button class="budget-filter-btn" type="button" data-budget-filter="actual" aria-label="只顯示實際預算項目">實際</button>
+            <button class="budget-filter-btn" type="button" data-budget-filter="estimated" aria-label="只顯示預估預算項目">預估</button>
+          </div>
           <div class="budget-summary-strip" id="budgetHighlights"></div>
           <div class="budget-table-wrap">
             <table class="budget-table" aria-label="Budget breakdown table">
@@ -233,6 +239,25 @@
             <div class="map-frame-wrap">
               <iframe id="mapFrame" title="Travel map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="page-section" id="section-souvenirs" data-page-panel="souvenirs">
+        <article class="section-card">
+          <div class="section-label" data-i18n="souvenirsKicker">Souvenirs</div>
+          <h2 data-i18n="souvenirsTitle">名產 / 值得買</h2>
+          <p class="lead" data-i18n="souvenirsLead">這頁整理的是這趟澳洲真的值得買、而且帶回去不會後悔的幾樣。以好買、辨識度高、送人也體面為主。</p>
+          <div class="souvenir-grid" id="souvenirsGrid"></div>
+          <div class="content-grid two-col">
+            <section class="content-panel">
+              <div class="panel-kicker" data-i18n="souvenirsTipsTitle">買法備忘</div>
+              <div class="bullet-stack" id="souvenirTips"></div>
+            </section>
+            <section class="content-panel">
+              <div class="panel-kicker" data-i18n="souvenirsSourcesTitle">資料方向</div>
+              <div class="bullet-stack" id="souvenirSources"></div>
+            </section>
           </div>
         </article>
       </section>
@@ -315,6 +340,17 @@
           </svg>
         </span>
         <span data-i18n="navBudget">預算</span>
+      </button>
+      <button class="bottom-nav-item" type="button" data-page-link="souvenirs" aria-label="前往名產">
+        <span class="tab-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M6 8.5H18L17 19.5H7L6 8.5Z" />
+            <path d="M9 8.5V7.5C9 5.84315 10.3431 4.5 12 4.5C13.6569 4.5 15 5.84315 15 7.5V8.5" />
+            <path d="M10 12.25H10.01" />
+            <path d="M14 12.25H14.01" />
+          </svg>
+        </span>
+        <span data-i18n="navSouvenirs">名產</span>
       </button>
       <button class="bottom-nav-item" type="button" data-page-link="notes" aria-label="前往清單">
         <span class="tab-icon" aria-hidden="true">
