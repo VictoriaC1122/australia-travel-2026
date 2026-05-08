@@ -61,6 +61,8 @@ button,
 a,
 input {
   font: inherit;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 button {
@@ -89,7 +91,7 @@ a {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 18px 14px 28px;
+  padding: 14px 12px 24px;
 }
 
 .hero-backdrop {
@@ -116,14 +118,14 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin: 0 auto 12px;
+  margin: 0 auto 10px;
   width: min(100%, 520px);
 }
 
 .compact-control {
   display: grid;
   gap: 6px;
-  padding: 10px;
+  padding: 9px;
   border-radius: var(--radius-md);
   background: rgba(255, 250, 245, 0.52);
   border: 1px solid rgba(255, 255, 255, 0.64);
@@ -177,7 +179,7 @@ a {
   z-index: 2;
   width: min(100%, 520px);
   margin: 0 auto;
-  padding: 20px 18px 18px;
+  padding: 18px 16px 16px;
   border-radius: 28px;
   background:
     linear-gradient(180deg, rgba(251, 245, 238, 0.97), rgba(239, 230, 219, 0.92)),
@@ -205,7 +207,7 @@ a {
 .hero-subtitle {
   margin-top: 10px;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.56;
   color: var(--text-700);
 }
 
@@ -241,12 +243,12 @@ a {
 .hero-destinations {
   margin-top: 14px;
   font-size: 13px;
-  line-height: 1.58;
+  line-height: 1.62;
   color: var(--text-700);
 }
 
 .hero-visual {
-  margin-top: 16px;
+  margin-top: 14px;
   overflow: hidden;
   border-radius: 22px;
   border: 1px solid rgba(255, 255, 255, 0.58);
@@ -265,7 +267,7 @@ a {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 16px;
+  margin-top: 14px;
 }
 
 .summary-card,
@@ -325,7 +327,7 @@ a {
 .container {
   width: min(100%, 1180px);
   margin: 0 auto;
-  padding: 0 12px calc(110px + env(safe-area-inset-bottom));
+  padding: 0 12px calc(118px + env(safe-area-inset-bottom));
 }
 
 .page-section {
@@ -335,11 +337,11 @@ a {
 }
 
 .section-card {
-  padding: 18px 16px;
+  padding: 20px 16px;
 }
 
 .section-card + .section-card {
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .section-label {
@@ -440,6 +442,7 @@ a {
 
 .quick-info-card {
   padding: 14px;
+  min-height: 88px;
 }
 
 .compact-checklist {
@@ -485,6 +488,7 @@ a {
 .home-shortcut {
   display: grid;
   gap: 4px;
+  min-height: 88px;
   padding: 16px;
   text-align: left;
   border-radius: 18px;
@@ -648,7 +652,7 @@ a {
 .hotel-spotlight-image {
   display: block;
   width: 100%;
-  height: 188px;
+  height: 176px;
   object-fit: cover;
 }
 
@@ -728,6 +732,7 @@ a {
   gap: 10px;
   list-style: none;
   cursor: pointer;
+  min-height: 126px;
 }
 
 .accordion-summary::-webkit-details-marker {
@@ -910,7 +915,7 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 14px;
-  min-height: 54px;
+  min-height: 58px;
   width: 100%;
   padding: 0 16px;
   border-radius: 18px;
@@ -995,6 +1000,7 @@ a {
 .map-card-button {
   display: grid;
   gap: 6px;
+  min-height: 64px;
 }
 
 .map-open-link {
@@ -1029,9 +1035,10 @@ a {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 4px;
-  padding: 8px;
+  padding: 8px 7px;
   border-radius: 24px;
-  background: rgba(251, 247, 242, 0.96);
+  background:
+    linear-gradient(180deg, rgba(252, 248, 243, 0.98), rgba(244, 238, 231, 0.94));
   border: 1px solid rgba(255, 255, 255, 0.72);
   box-shadow: 0 20px 44px rgba(102, 113, 121, 0.16);
   backdrop-filter: blur(16px);
@@ -1058,6 +1065,7 @@ a {
   color: #fffaf6;
   background: linear-gradient(135deg, var(--ocean-700), var(--ocean-500));
   box-shadow: 0 8px 18px rgba(47, 116, 141, 0.24);
+  transform: translateY(-1px);
 }
 
 .tab-icon {
@@ -1152,6 +1160,128 @@ a {
   .map-frame-wrap,
   #mapFrame {
     min-height: 300px;
+  }
+
+  .main-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero h1 {
+    font-size: 31px;
+  }
+
+  .summary-value,
+  .mini-stat-value {
+    font-size: 17px;
+  }
+
+  .flight-route {
+    font-size: 20px;
+  }
+
+  .accordion-summary h3 {
+    font-size: 20px;
+  }
+
+  .itinerary-focus-text,
+  .itinerary-meta-value {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 389px) {
+  .hero {
+    padding: 12px 10px 22px;
+  }
+
+  .hero-shell {
+    padding: 16px 14px 15px;
+    border-radius: 24px;
+  }
+
+  .control-dock {
+    gap: 6px;
+  }
+
+  .compact-control {
+    padding: 8px;
+  }
+
+  .compact-label,
+  .section-label,
+  .summary-label,
+  .mini-stat-label,
+  .price-label,
+  .date-label,
+  .info-label,
+  .itinerary-meta-label,
+  .panel-kicker {
+    font-size: 11px;
+  }
+
+  .hero-chip,
+  .pill,
+  .day-chip,
+  .city-chip,
+  .route-chip,
+  .progress-pill {
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
+  .section-card,
+  .content-panel,
+  .key-info-card,
+  .mini-stat-card,
+  .flight-card,
+  .route-card,
+  .timeline-card,
+  .itinerary-card,
+  .budget-card,
+  .budget-highlight-card,
+  .checklist-group-card,
+  .link-block,
+  .quick-info-card,
+  .alert-card {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .bottom-nav {
+    left: 8px;
+    right: 8px;
+    gap: 2px;
+    padding: 7px 6px;
+    border-radius: 22px;
+  }
+
+  .bottom-nav-item {
+    min-height: 48px;
+    font-size: 9.5px;
+  }
+
+  .tab-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tab-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 767px) {
+  .quick-info-grid,
+  .home-shortcuts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .map-day-routes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
