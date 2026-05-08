@@ -781,7 +781,7 @@ function renderStays() {
           (hotel) => `
             <article class="hotel-spotlight-card">
               <a class="hotel-spotlight-image-link" href="${hotel.href}" target="_blank" rel="noreferrer" aria-label="${getText(hotel.name)}">
-                <img class="hotel-spotlight-image" src="${hotel.image}" alt="${getText(hotel.name)}" loading="lazy" decoding="async" />
+                <img class="hotel-spotlight-image" src="${hotel.image}" alt="${getText(hotel.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.hotel-spotlight-card').classList.add('hotel-spotlight-fallback'); this.remove();" />
               </a>
               <div class="hotel-spotlight-body">
                 <div class="hotel-spotlight-top">

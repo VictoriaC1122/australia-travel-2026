@@ -340,6 +340,7 @@ a {
 
 .section-card {
   padding: 20px 16px;
+  overflow: clip;
 }
 
 .section-card + .section-card {
@@ -647,6 +648,14 @@ a {
   box-shadow: 0 12px 24px rgba(108, 122, 129, 0.08);
 }
 
+.hotel-spotlight-fallback .hotel-spotlight-image-link {
+  min-height: 176px;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(255, 248, 241, 0.9), transparent 22%),
+    radial-gradient(circle at 82% 76%, rgba(170, 199, 211, 0.28), transparent 24%),
+    linear-gradient(135deg, rgba(233, 214, 194, 0.92), rgba(232, 241, 246, 0.92));
+}
+
 .hotel-spotlight-image-link {
   display: block;
 }
@@ -770,6 +779,13 @@ a {
   font-size: 16px;
   line-height: 1.65;
   font-weight: 600;
+}
+
+.itinerary-summary-topline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .itinerary-dayline {
@@ -909,6 +925,11 @@ a {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   margin-top: 10px;
+}
+
+.budget-table td .route-chip {
+  margin-left: 10px;
+  vertical-align: middle;
 }
 
 .checklist-group-card {
@@ -1193,6 +1214,28 @@ a {
 
   .main-nav {
     display: none;
+  }
+
+  .section-card h2 {
+    max-width: 12ch;
+  }
+
+  .hotel-spotlight-body,
+  .recommend-card,
+  .budget-card,
+  .map-card,
+  .flight-card {
+    gap: 12px;
+  }
+
+  .accordion-body {
+    gap: 12px;
+  }
+
+  .itinerary-timeline-content,
+  .itinerary-meta-card,
+  .itinerary-focus-card {
+    padding: 13px;
   }
 }
 
@@ -1503,7 +1546,7 @@ a {
   }
 
   .container {
-    padding: 0 24px 52px;
+    padding: 0 24px 64px;
   }
 
   .page-section {
@@ -1515,11 +1558,20 @@ a {
   }
 
   .section-card {
-    padding: 30px;
+    padding: 34px 34px 32px;
+    border-radius: 28px;
+    box-shadow: 0 22px 42px rgba(107, 112, 117, 0.11);
   }
 
   .section-card h2 {
-    font-size: 30px;
+    font-size: 32px;
+    line-height: 1.08;
+  }
+
+  .section-card .lead {
+    font-size: 16px;
+    line-height: 1.76;
+    max-width: 52rem;
   }
 
   .content-grid.two-col,
@@ -1539,19 +1591,40 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .accordion-list,
+  .recommend-card-list {
+    gap: 16px;
+  }
+
   .timeline-card {
     grid-template-columns: 72px 1fr;
+  }
+
+  .timeline-card,
+  .route-card,
+  .flight-card,
+  .budget-card,
+  .recommend-card {
+    border-radius: 22px;
   }
 
   .hotel-spotlight-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .hotel-spotlight-image {
+    height: 220px;
+  }
+
+  .hotel-spotlight-fallback .hotel-spotlight-image-link {
+    min-height: 220px;
+  }
+
   .budget-table-wrap {
     display: block;
     overflow: hidden;
-    margin-top: 16px;
-    border-radius: 18px;
+    margin-top: 20px;
+    border-radius: 22px;
     border: 1px solid var(--line);
     background: var(--glass-strong);
   }
@@ -1574,6 +1647,10 @@ a {
     line-height: 1.68;
   }
 
+  .budget-table tr:last-child td {
+    border-bottom: 0;
+  }
+
   .budget-card-list {
     display: none;
   }
@@ -1581,10 +1658,20 @@ a {
   .map-layout {
     grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
     align-items: start;
+    gap: 18px;
   }
 
   .map-day-routes {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .map-card {
+    padding: 16px;
+  }
+
+  .map-frame-wrap,
+  #mapFrame {
+    min-height: 520px;
   }
 
   .bottom-nav {
@@ -1604,5 +1691,18 @@ a {
 
   .budget-summary-strip {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .hero-shell,
+  .container {
+    width: min(100%, 1200px);
+  }
+
+  .dashboard-grid {
+    gap: 18px;
+  }
+
+  .content-grid.two-col {
+    gap: 18px;
   }
 }
