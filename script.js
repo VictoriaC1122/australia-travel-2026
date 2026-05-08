@@ -70,6 +70,9 @@ const t = {
     itineraryKicker: "Itinerary",
     itineraryTitle: "每日行程",
     itineraryLead: "先照你現在的訂單把骨架排好，留一點彈性，不做那種從早衝到晚的滿版行程。",
+    itineraryActualKicker: "實際行程",
+    itineraryRecommendKicker: "推薦行程",
+    itineraryRecommendLead: "下面這組不是實際行程，只是如果你想換玩法時可以參考的推薦版本。",
     budgetKicker: "Budget",
     budgetTitle: "預算",
     budgetLead: "這頁現在是半實際、半預抓。每個項目都有註明是實際還是預抓，飯店和租車已用實際金額，其它再慢慢補。",
@@ -168,6 +171,9 @@ const t = {
     itineraryKicker: "Itinerary",
     itineraryTitle: "Day by day",
     itineraryLead: "This version follows your current bookings, keeps things readable, and leaves breathing room instead of turning every day into a sprint.",
+    itineraryActualKicker: "Actual itinerary",
+    itineraryRecommendKicker: "Recommended itinerary",
+    itineraryRecommendLead: "The set below is not your actual plan. It is only a recommended version in case you want an alternate flow.",
     budgetKicker: "Budget",
     budgetTitle: "Budget",
     budgetLead: "This page is now half actual and half estimated. Each item is marked clearly, with hotels and the car rental using real amounts and the rest still adjustable.",
@@ -433,6 +439,35 @@ const data = {
       ],
     },
   ],
+  recommendedItinerary: [
+    {
+      title: { "zh-Hant": "墨爾本推薦版：大洋路重點拍照日", en: "Melbourne recommendation: Great Ocean Road photo day" },
+      note: { "zh-Hant": "不是實際行程，只是推薦玩法。適合想把海岸線拍得更完整的一天。", en: "Not the actual itinerary, just a suggested version for a more photo-focused coast day." },
+      bullets: [
+        { "zh-Hant": "早上提早出發，先停 Memorial Arch、Lorne。", en: "Leave early and start with Memorial Arch and Lorne." },
+        { "zh-Hant": "中午留 Apollo Bay 或沿線小鎮午餐。", en: "Keep lunch around Apollo Bay or another coastal town." },
+        { "zh-Hant": "下午主拍十二門徒岩與 Loch Ard Gorge。", en: "Use the afternoon for the Twelve Apostles and Loch Ard Gorge." },
+      ],
+    },
+    {
+      title: { "zh-Hant": "墨爾本推薦版：Phillip Island 慢節奏版", en: "Melbourne recommendation: slower Phillip Island day" },
+      note: { "zh-Hant": "不是實際行程，只是推薦玩法。適合白天想留鬆一點、晚上看企鵝歸巢。", en: "Not the actual itinerary, just a suggested version for a gentler day ending with Penguin Parade." },
+      bullets: [
+        { "zh-Hant": "中午前後出發，不用排得像大洋路那麼早。", en: "Leave around late morning instead of treating it like the coast day." },
+        { "zh-Hant": "先走 San Remo、Nobbies 一帶海岸線。", en: "Start with San Remo and the Nobbies coastline." },
+        { "zh-Hant": "傍晚進企鵝歸巢園區，晚上再回墨爾本。", en: "Head into Penguin Parade by late afternoon and return after the evening session." },
+      ],
+    },
+    {
+      title: { "zh-Hant": "雪梨推薦版：歌劇院＋The Rocks＋海生館", en: "Sydney recommendation: Opera House, The Rocks, and aquarium" },
+      note: { "zh-Hant": "不是實際行程，只是推薦玩法。適合想把雪梨代表地標和拍照點一起收進來。", en: "Not the actual itinerary, just a suggested version if you want the classic Sydney icons in one flow." },
+      bullets: [
+        { "zh-Hant": "早餐選歌劇院 view 店，再接 Circular Quay。", en: "Start with an Opera House-view breakfast and then move into Circular Quay." },
+        { "zh-Hant": "中午把 The Rocks 或港邊散步排進來。", en: "Use midday for The Rocks or a longer harbour walk." },
+        { "zh-Hant": "下午再接 SEA LIFE Sydney Aquarium。", en: "Move into SEA LIFE Sydney Aquarium in the afternoon." },
+      ],
+    },
+  ],
   budgetRows: [
     { item: { "zh-Hant": "國際機票", en: "International flights" }, aud: 1000, note: { "zh-Hant": "先用兩人約 NT$20,700 換算", en: "Assumes about NT$20,700 total for two" }, booked: true, status: "estimated" },
     { item: { "zh-Hant": "墨爾本住宿 3 晚", en: "Melbourne stay, 3 nights" }, aud: 789.3, note: { "zh-Hant": "Dorsett Melbourne｜5/24 - 5/27｜NT$16,339", en: "Dorsett Melbourne | May 24 - May 27 | NT$16,339" }, booked: true, status: "actual" },
@@ -567,6 +602,7 @@ function cacheDom() {
   dom.moveDayTimeline = document.getElementById("moveDayTimeline");
   dom.moveOptions = document.getElementById("moveOptions");
   dom.itineraryList = document.getElementById("itineraryList");
+  dom.recommendedItineraryList = document.getElementById("recommendedItineraryList");
   dom.budgetSelectedHeading = document.getElementById("budgetSelectedHeading");
   dom.budgetHighlights = document.getElementById("budgetHighlights");
   dom.budgetTableBody = document.getElementById("budgetTableBody");
@@ -885,6 +921,25 @@ function renderItinerary() {
             </article>
           </div>
         </details>
+      `
+    )
+    .join("");
+
+  if (!dom.recommendedItineraryList) return;
+
+  dom.recommendedItineraryList.innerHTML = data.recommendedItinerary
+    .map(
+      (item) => `
+        <article class="recommend-card">
+          <div class="flight-topline">
+            <div class="route-title">${getText(item.title)}</div>
+            <span class="route-chip">${t[state.lang].itineraryRecommendKicker}</span>
+          </div>
+          <div class="bullet-desc">${getText(item.note)}</div>
+          <div class="bullet-stack recommend-bullet-stack">
+            ${item.bullets.map((bullet) => `<article class="bullet-card"><div class="bullet-desc">${getText(bullet)}</div></article>`).join("")}
+          </div>
+        </article>
       `
     )
     .join("");
