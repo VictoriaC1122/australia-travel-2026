@@ -1,0 +1,7 @@
+<svg width="240" height="72" viewBox="0 0 240 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="72" rx="18" fill="#FFF8F3"/>
+  <rect x="1" y="1" width="238" height="70" rx="17" stroke="#E9D2BE"/>
+  <path d="M44 21L48.8 31.2L60 32.6L51.8 40.3L54 51L44 45.6L34 51L36.2 40.3L28 32.6L39.2 31.2L44 21Z" fill="#F39B4A"/>
+  <text x="79" y="31" fill="#4C4946" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0.12em">JETSTAR</text>
+  <text x="79" y="50" fill="#766E68" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800">JQ</text>
+</svg>

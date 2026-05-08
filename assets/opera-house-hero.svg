@@ -1,0 +1,40 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="48" fill="url(#bg)"/>
+  <g opacity="0.9" filter="url(#blur)">
+    <ellipse cx="230" cy="126" rx="266" ry="144" fill="#F6C7A8"/>
+    <ellipse cx="994" cy="110" rx="240" ry="124" fill="#87BDD4"/>
+  </g>
+  <path d="M0 466C112 444 194 432 315 434C449 436 532 487 659 496C799 506 944 452 1079 436C1119 431 1159 428 1200 428V720H0V466Z" fill="url(#sea)"/>
+  <path d="M0 538C145 518 275 520 401 541C556 568 643 617 776 611C943 604 1062 532 1200 527V720H0V538Z" fill="#2E8AA5" fill-opacity="0.32"/>
+  <path d="M783 483C775 452 752 420 717 386C698 403 691 436 695 480L783 483Z" fill="#FFF9F2"/>
+  <path d="M677 486C666 434 631 380 578 326C550 353 540 406 548 482L677 486Z" fill="#FFF8F0"/>
+  <path d="M543 490C530 445 492 398 438 349C411 377 401 426 410 487L543 490Z" fill="#FFF7EE"/>
+  <path d="M773 493C761 448 725 409 673 376C653 399 646 441 651 490L773 493Z" fill="#F4EFE8"/>
+  <path d="M663 495C648 436 607 384 547 332C524 360 516 418 522 491L663 495Z" fill="#F7F2EB"/>
+  <path d="M522 498C507 449 466 409 409 367C387 394 379 439 384 495L522 498Z" fill="#F2E8DE"/>
+  <path d="M354 520H834L870 547H314L354 520Z" fill="#E9D3BD"/>
+  <rect x="309" y="547" width="570" height="17" rx="8.5" fill="#D1AF90"/>
+  <rect x="0" y="560" width="1200" height="160" fill="url(#foam)"/>
+  <path d="M223 621C327 598 436 592 523 604C621 617 675 651 763 653C845 655 930 621 1012 614" stroke="#EBF7FB" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <path d="M0 650C79 637 167 635 249 649C338 665 398 690 498 692C612 694 719 649 816 645C922 640 1029 671 1125 682" stroke="#BDE3EF" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+  <defs>
+    <filter id="blur" x="-76" y="-58" width="1368" height="348" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="22" result="effect1_foregroundBlur_1_2"/>
+    </filter>
+    <linearGradient id="bg" x1="600" y1="0" x2="600" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAE7D6"/>
+      <stop offset="0.56" stop-color="#F7E5D7"/>
+      <stop offset="1" stop-color="#DCEFF5"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="600" y1="428" x2="600" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5DA4BC"/>
+      <stop offset="1" stop-color="#1B617A"/>
+    </linearGradient>
+    <linearGradient id="foam" x1="600" y1="560" x2="600" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#79B7CA" stop-opacity="0"/>
+      <stop offset="1" stop-color="#1C5F79" stop-opacity="0.22"/>
+    </linearGradient>
+  </defs>
+</svg>

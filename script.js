@@ -5,7 +5,7 @@ const STORAGE_KEYS = {
   page: "australia-handbook-page",
 };
 
-const PAGE_IDS = ["overview", "flights", "stays", "itinerary", "budget", "notes"];
+const PAGE_IDS = ["overview", "flights", "stays", "itinerary", "map", "budget", "notes"];
 const MOBILE_BREAKPOINT = 768;
 
 const state = {
@@ -18,6 +18,10 @@ const rates = {
   AUD: { symbol: "A$", audPerUnit: 1 },
   TWD: { symbol: "NT$", audPerUnit: 20.7 },
 };
+
+const dom = {};
+let progressFrame = 0;
+let resizeFrame = 0;
 
 const t = {
   "zh-Hant": {
@@ -34,6 +38,7 @@ const t = {
     navFlights: "航班",
     navStays: "住宿",
     navItinerary: "行程",
+    navMap: "地圖",
     navBudget: "預算",
     navNotes: "清單",
     overviewKicker: "Overview",
@@ -71,6 +76,11 @@ const t = {
     notesKicker: "Notes",
     notesTitle: "清單 / 連結",
     notesLead: "最後一頁就放出發前真的會反覆打開的東西，少翻頁。",
+    mapKicker: "Map",
+    mapTitle: "地圖",
+    mapLead: "把每天會跑到的重點放成可以切換的大圖地圖，找路和整理節奏都比較直覺。",
+    mapDayLabel: "每日路線",
+    mapRouteLink: "開啟完整路線",
     quickInfoTitle: "快速資訊",
     compactChecklistTitle: "出發前確認",
     checklistTitle: "行前清單",
@@ -92,6 +102,9 @@ const t = {
     estimatedCostLabel: "預估花費",
     transportLabel: "交通",
     reminderLabel: "提醒",
+    timelineTitle: "時間軸",
+    timelineFocusLabel: "今日重點",
+    timelineTipLabel: "小提醒",
     checklistProgress: "完成",
     openLink: "開啟",
     dateText: "日期",
@@ -100,6 +113,12 @@ const t = {
     fromLabel: "出發",
     toLabel: "抵達",
     costCardLabel: "花費",
+    specsLabel: "規格",
+    pickupLabel: "取車",
+    seatsLabel: "座位",
+    luggageLabel: "行李",
+    transmissionLabel: "變速",
+    fuelLabel: "動力",
   },
   en: {
     languageSwitcher: "Language",
@@ -115,6 +134,7 @@ const t = {
     navFlights: "Flights",
     navStays: "Stay",
     navItinerary: "Plan",
+    navMap: "Map",
     navBudget: "Budget",
     navNotes: "Checklist",
     overviewKicker: "Overview",
@@ -152,6 +172,11 @@ const t = {
     notesKicker: "Notes",
     notesTitle: "Checklist / Links",
     notesLead: "The last page keeps the things you will actually reopen before departure in one place.",
+    mapKicker: "Map",
+    mapTitle: "Map",
+    mapLead: "Switch between the key places on a larger travel map so route planning feels more visual.",
+    mapDayLabel: "Daily routes",
+    mapRouteLink: "Open full route",
     quickInfoTitle: "Quick info",
     compactChecklistTitle: "Before you go",
     checklistTitle: "Pre-trip checklist",
@@ -173,6 +198,9 @@ const t = {
     estimatedCostLabel: "Estimated cost",
     transportLabel: "Transport",
     reminderLabel: "Reminder",
+    timelineTitle: "Timeline",
+    timelineFocusLabel: "Focus",
+    timelineTipLabel: "Tip",
     checklistProgress: "done",
     openLink: "Open",
     dateText: "Date",
@@ -181,6 +209,12 @@ const t = {
     fromLabel: "From",
     toLabel: "To",
     costCardLabel: "Cost",
+    specsLabel: "Specs",
+    pickupLabel: "Pickup",
+    seatsLabel: "Seats",
+    luggageLabel: "Luggage",
+    transmissionLabel: "Transmission",
+    fuelLabel: "Fuel",
   },
 };
 
@@ -199,41 +233,59 @@ const data = {
     { label: { "zh-Hant": "墨爾本交通", en: "Melbourne transport" }, value: { "zh-Hant": "Toyota Corolla 已租", en: "Toyota Corolla booked" } },
   ],
   keyInfo: [
-    { label: { "zh-Hant": "去程落地", en: "Arrival" }, value: { "zh-Hant": "5/24 10:40 墨爾本", en: "May 24 · 10:40 · Melbourne" }, note: { "zh-Hant": "第一天別排太滿", en: "Keep day one light" } },
+    { label: { "zh-Hant": "去程落地", en: "Arrival" }, value: { "zh-Hant": "5/24 10:40 墨爾本", en: "May 24 · 10:40 · Melbourne" }, note: { "zh-Hant": "第一天走輕鬆版", en: "A lighter first day works well" } },
     { label: { "zh-Hant": "最關鍵移動", en: "Main transfer" }, value: { "zh-Hant": "5/27 13:00 墨爾本 → 雪梨", en: "May 27 · 13:00 · MEL to SYD" }, note: { "zh-Hant": "Jetstar JQ514，14:25 抵達", en: "Jetstar JQ514, landing at 14:25" } },
     { label: { "zh-Hant": "回程起飛", en: "Departure" }, value: { "zh-Hant": "5/29 22:10 雪梨", en: "May 29 · 22:10 · Sydney" }, note: { "zh-Hant": "最後一天還能再玩半天", en: "You still keep most of the final day" } },
   ],
   overviewRecommendations: [
-    { tag: { "zh-Hant": "墨爾本", en: "Melbourne" }, title: { "zh-Hant": "前三晚都住 Dorsett Melbourne", en: "Three nights at Dorsett Melbourne" }, desc: { "zh-Hant": "5/24 到 5/27 都待在同一間飯店，前半段行程可以很穩，不需要搬行李。", en: "You stay in one hotel from May 24 to May 27, so the first half stays steady and easy." } },
+    { tag: { "zh-Hant": "墨爾本", en: "Melbourne" }, title: { "zh-Hant": "前三晚都住 Dorsett Melbourne", en: "Three nights at Dorsett Melbourne" }, desc: { "zh-Hant": "5/24 到 5/27 都待在同一間飯店，前半段節奏會很穩，也比較好整理每天的移動。", en: "Staying in one hotel from May 24 to May 27 keeps the first half steady and easier to navigate." } },
     { tag: { "zh-Hant": "自駕日", en: "Drive day" }, title: { "zh-Hant": "有租車，墨爾本段可以走自駕版", en: "The Melbourne segment can be self-drive now" }, desc: { "zh-Hant": "5/24 11:00 就在機場取車，近郊、海岸或郊區日的自由度會高很多。", en: "The airport pickup at 11:00 gives you much more flexibility for nearby scenic plans." } },
     { tag: { "zh-Hant": "雪梨", en: "Sydney" }, title: { "zh-Hant": "最後兩晚住達令港，收尾很好排", en: "The Sydney finish stays easy from Darling Harbour" }, desc: { "zh-Hant": "5/27 到 5/29 住達令港，港灣、購物和去機場的節奏都會很順。", en: "Staying at Darling Harbour from May 27 to May 29 keeps the harbour, shopping, and airport run simple." } },
   ],
   importantAlerts: [
-    { title: { "zh-Hant": "這趟不要天天換飯店", en: "Do not switch hotels every day" }, desc: { "zh-Hant": "這趟本來就已經是開口票，只住兩間飯店最省力，不需要再讓自己一直搬行李。", en: "The trip already has an open-jaw ticket, so keeping it to two hotels is the cleanest move." } },
-    { title: { "zh-Hant": "5/27 的 JQ514 已經很剛好", en: "JQ514 on May 27 is already well timed" }, desc: { "zh-Hant": "2026/05/27 13:00 從 MEL 起飛、14:25 到 SYD，不早不晚，剛好能接雪梨下午。", en: "It leaves MEL at 13:00 and lands in SYD at 14:25, which is a strong fit for the day." } },
-    { title: { "zh-Hant": "5/29 白天還能排，但晚上別拖", en: "The final day is usable, but do not push the evening" }, desc: { "zh-Hant": "白天還是可以安排，只要傍晚記得回飯店拿行李，再往機場走就好。", en: "You can still use the day, as long as you return for bags and head to the airport in good time." } },
-    { title: { "zh-Hant": "租車對郊區比較有價值", en: "The rental car is more useful outside the CBD" }, desc: { "zh-Hant": "墨爾本市中心停車不便宜，所以車子比較適合拿來跑郊區或海岸，不用每段都開。", en: "CBD parking is not cheap, so the car is more useful for suburbs and scenic routes than for every city stop." } },
+    { title: { "zh-Hant": "住宿分成兩段", en: "Two hotel bases" }, desc: { "zh-Hant": "這次住宿落在墨爾本和雪梨兩段，行李和移動節奏都比較清楚。", en: "The hotel setup splits cleanly between Melbourne and Sydney, which keeps the travel rhythm clear." } },
+    { title: { "zh-Hant": "5/27 的 JQ514 時間很順", en: "JQ514 fits the day nicely" }, desc: { "zh-Hant": "2026/05/27 13:00 從 MEL 起飛、14:25 到 SYD，接雪梨下午的安排很自然。", en: "The 13:00 departure from MEL and 14:25 arrival into SYD make the Sydney afternoon flow naturally." } },
+    { title: { "zh-Hant": "5/29 白天還有活動空間", en: "The final day still has usable time" }, desc: { "zh-Hant": "白天可以留給市區散步或午餐，傍晚回飯店拿行李後再往機場走。", en: "The daytime can stay open for a city walk or lunch before heading back for bags and the airport." } },
+    { title: { "zh-Hant": "租車適合放在郊區日", en: "The car works best for scenic days" }, desc: { "zh-Hant": "車子很適合拿來跑近郊、海岸或 5/26 的自駕日，市中心則可以保留步行節奏。", en: "The car is strongest for scenic routes, coastal drives, or the dedicated drive day while the CBD can stay walkable." } },
   ],
   overviewNotes: [
     { title: { "zh-Hant": "先慢後亮", en: "Soft opening, stronger finish" }, desc: { "zh-Hant": "剛到先進 Dorsett Melbourne 安頓，前半段留給墨爾本和自駕彈性，後半段再把雪梨港灣慢慢走完。", en: "You settle into Melbourne first, keep the front half flexible, and finish slowly with Sydney harbour." } },
-    { title: { "zh-Hant": "換城市放在第 4 天剛剛好", en: "Day four is a good time to switch cities" }, desc: { "zh-Hant": "現在兩邊住宿日期和 JQ514 已經接起來了，所以 5/27 換城不會亂。", en: "The hotel dates and JQ514 now line up cleanly, so the move day should feel controlled." } },
+    { title: { "zh-Hant": "第 4 天換城市很順", en: "Day four is a smooth move day" }, desc: { "zh-Hant": "兩邊住宿日期和 JQ514 已經接起來了，5/27 的換城節奏很完整。", en: "The hotel dates and JQ514 now line up well, so May 27 reads as a clean move day." } },
     { title: { "zh-Hant": "預算可以改成半實際版", en: "The budget can now be half actual" }, desc: { "zh-Hant": "墨爾本飯店、雪梨飯店和租車都有實際數字，剩下餐費、門票和 Jetstar 票價再慢慢補。", en: "Both hotels and the car now have real numbers, leaving meals, tickets, and the Jetstar fare to refine later." } },
   ],
   flights: [
-    { label: { "zh-Hant": "去程", en: "Outbound" }, route: "TPE → MEL", date: "2026-05-23 / 2026-05-24", time: "23:30 → 10:40", cabin: { "zh-Hant": "CI 0057", en: "CI 0057" }, airport: { "zh-Hant": "桃園第 2 航廈 → 墨爾本第 2 航廈", en: "Taoyuan T2 → Melbourne T2" } },
-    { label: { "zh-Hant": "中段", en: "Domestic" }, route: "MEL → SYD", date: "2026-05-27", time: "13:00 → 14:25", cabin: { "zh-Hant": "Jetstar JQ514", en: "Jetstar JQ514" }, airport: { "zh-Hant": "MEL 第 4 航廈 → SYD 國內 T2", en: "MEL T4 → SYD Domestic T2" } },
-    { label: { "zh-Hant": "回程", en: "Return" }, route: "SYD → TPE", date: "2026-05-29 / 2026-05-30", time: "22:10 → 05:40", cabin: { "zh-Hant": "CI 0052", en: "CI 0052" }, airport: { "zh-Hant": "雪梨第 1 航廈 → 桃園第 2 航廈", en: "Sydney T1 → Taoyuan T2" } },
+    { label: { "zh-Hant": "去程", en: "Outbound" }, route: "TPE → MEL", date: "2026-05-23 / 2026-05-24", time: "23:30 → 10:40", cabin: { "zh-Hant": "CI 0057", en: "CI 0057" }, airport: { "zh-Hant": "桃園第 2 航廈 → 墨爾本第 2 航廈", en: "Taoyuan T2 → Melbourne T2" }, airline: { "zh-Hant": "中華航空", en: "China Airlines" }, logo: "./assets/airline-ci-badge.svg" },
+    { label: { "zh-Hant": "中段", en: "Domestic" }, route: "MEL → SYD", date: "2026-05-27", time: "13:00 → 14:25", cabin: { "zh-Hant": "Jetstar JQ514", en: "Jetstar JQ514" }, airport: { "zh-Hant": "MEL 第 4 航廈 → SYD 國內 T2", en: "MEL T4 → SYD Domestic T2" }, airline: { "zh-Hant": "Jetstar", en: "Jetstar" }, logo: "./assets/airline-jetstar-badge.svg" },
+    { label: { "zh-Hant": "回程", en: "Return" }, route: "SYD → TPE", date: "2026-05-29 / 2026-05-30", time: "22:10 → 05:40", cabin: { "zh-Hant": "CI 0052", en: "CI 0052" }, airport: { "zh-Hant": "雪梨第 1 航廈 → 桃園第 2 航廈", en: "Sydney T1 → Taoyuan T2" }, airline: { "zh-Hant": "中華航空", en: "China Airlines" }, logo: "./assets/airline-ci-badge.svg" },
   ],
   flightNotes: [
     { title: { "zh-Hant": "抵達日就先走輕鬆版", en: "Keep arrival day gentle" }, desc: { "zh-Hant": "你 2026/05/24 10:40 才到墨爾本，通關加取車後進市區，大概就是中午附近。", en: "You land at 10:40 on May 24, so after immigration and car pickup it will be around midday." } },
     { title: { "zh-Hant": "JQ514 已經幫你留出雪梨下午", en: "JQ514 still leaves part of Sydney day one" }, desc: { "zh-Hant": "2026/05/27 13:00 墨爾本起飛、14:25 到雪梨，晚上還能安排一段達令港或港灣散步。", en: "The 13:00 departure and 14:25 arrival still leave room for a light harbour walk." } },
-    { title: { "zh-Hant": "最後一天保留國際線緩衝", en: "Protect the final international buffer" }, desc: { "zh-Hant": "雪梨國際線還是建議抓 3 小時緩衝，所以 5/29 晚上別把行程壓得太滿。", en: "A three-hour buffer is still the safer move for the Sydney international departure." } },
+    { title: { "zh-Hant": "最後一天預留機場緩衝", en: "Leave airport buffer on the final day" }, desc: { "zh-Hant": "雪梨國際線可以預留 3 小時左右的緩衝，晚上的節奏會更從容。", en: "Leaving around a three-hour buffer for the Sydney international departure keeps the evening calmer." } },
     { title: { "zh-Hant": "取車時間會影響第一天節奏", en: "The car pickup shapes day one" }, desc: { "zh-Hant": "2026/05/24 11:00 在墨爾本機場取車，代表你一落地就有自駕彈性，但也要同步考慮停車。", en: "The 11:00 airport pickup gives you flexibility immediately, but it also means parking matters from the start." } },
   ],
   stayPlan: {
     title: { "zh-Hant": "已訂住宿分配", en: "Booked stay split" },
     subtitle: { "zh-Hant": "兩邊住宿都補齊了，這頁就直接放實際訂單內容，不再用假設版。", en: "Both city stays are now known, so this page can show the real setup instead of placeholders." },
     chips: [{ "zh-Hant": "Dorsett Melbourne", en: "Dorsett Melbourne" }, { "zh-Hant": "Sofitel Sydney Darling Harbour", en: "Sofitel Sydney Darling Harbour" }, { "zh-Hant": "日期已接好", en: "Dates already aligned" }],
+    hotels: [
+      {
+        name: { "zh-Hant": "Dorsett Melbourne", en: "Dorsett Melbourne" },
+        dates: { "zh-Hant": "5/24 - 5/27", en: "May 24 - May 27" },
+        price: { "zh-Hant": "NT$16,339", en: "NT$16,339" },
+        note: { "zh-Hant": "市中心 base，前半段住這裡最穩。", en: "A steady central base for the first half of the trip." },
+        image: "https://www.dorsetthotels.com/images/dorsett-melbourne/gallery/exterior/exteriormagic-thumb.webp",
+        href: "https://www.dorsetthotels.com/dorsett-melbourne/",
+      },
+      {
+        name: { "zh-Hant": "Sofitel Sydney Darling Harbour", en: "Sofitel Sydney Darling Harbour" },
+        dates: { "zh-Hant": "5/27 - 5/29", en: "May 27 - May 29" },
+        price: { "zh-Hant": "NT$18,621", en: "NT$18,621" },
+        note: { "zh-Hant": "港景很強，最後兩晚收尾會很漂亮。", en: "A strong harbour-view finish for the final two nights." },
+        image: "https://www.ahstatic.com/photos/9729_ho_00_p_1024x768.jpg",
+        href: "https://all.accor.com/hotel/9729/index.en.shtml",
+      },
+    ],
     notes: [
       { title: { "zh-Hant": "墨爾本", en: "Melbourne" }, value: { "zh-Hant": "Dorsett Melbourne｜5/24 - 5/27｜NT$16,339", en: "Dorsett Melbourne | May 24 - May 27 | NT$16,339" } },
       { title: { "zh-Hant": "雪梨", en: "Sydney" }, value: { "zh-Hant": "索菲特達令港｜5/27 - 5/29｜NT$18,621", en: "Sofitel Darling Harbour | May 27 - May 29 | NT$18,621" } },
@@ -243,7 +295,7 @@ const data = {
   cityRhythm: [
     { title: { "zh-Hant": "墨爾本住市區，步行很好用", en: "Melbourne works well as a central walking base" }, desc: { "zh-Hant": "Dorsett Melbourne 很適合前半段待市區，但因為你有租車，停車和還車時間還是要先抓好。", en: "Dorsett Melbourne is strong for the city half, but the rental car adds parking and return timing to think through." } },
     { title: { "zh-Hant": "雪梨住達令港，最後兩天好接", en: "Darling Harbour makes the Sydney finish smooth" }, desc: { "zh-Hant": "住達令港的好處就是港灣、購物和去機場都很好接，不容易把最後兩天排亂。", en: "Darling Harbour keeps the harbour, shopping, and airport transfer close enough to stay calm." } },
-    { title: { "zh-Hant": "最後一晚直接睡雪梨", en: "Sleeping in Sydney before departure removes stress" }, desc: { "zh-Hant": "最後一晚已經在雪梨，不需要當天再從外地趕國際機場。", en: "You already sleep in Sydney on the final night, so you avoid a same-day long transfer." } },
+    { title: { "zh-Hant": "最後一晚住在雪梨", en: "The final night is already in Sydney" }, desc: { "zh-Hant": "最後一晚留在雪梨，回程前的移動會更單純。", en: "Staying in Sydney on the final night keeps the departure day simpler." } },
   ],
   moveDayTimeline: [
     { time: "09:00", title: { "zh-Hant": "墨爾本退房 / 還車", en: "Check out and return the car" }, desc: { "zh-Hant": "如果車一路用到 5/27，早上先把還車處理完，再進航廈會比較安心。", en: "If you keep the car through May 27, returning it before entering the terminal is cleaner." } },
@@ -251,16 +303,131 @@ const data = {
     { time: "16:30", title: { "zh-Hant": "入住達令港後輕鬆散步", en: "Check in and take an easy harbour-side walk" }, desc: { "zh-Hant": "先到索菲特達令港放行李，剩下就看精神去港灣或在達令港附近慢慢走。", en: "Drop the bags at Sofitel Darling Harbour first, then keep the rest of the afternoon easy." } },
   ],
   moveOptions: [
-    { title: { "zh-Hant": "Jetstar JQ514", en: "Jetstar JQ514" }, duration: { "zh-Hant": "1 小時 25 分", en: "1 hr 25 min" }, start: { "zh-Hant": "MEL 第 4 航廈", en: "MEL Terminal 4" }, destination: { "zh-Hant": "SYD 國內 T2", en: "SYD Domestic T2" }, cost: { "zh-Hant": "票價未補，但班機已確認", en: "Fare not added yet, flight confirmed" }, desc: { "zh-Hant": "這段已經是實際訂到的班機，不是暫抓的建議。", en: "This is the actual booked intercity flight, not a placeholder option." } },
-    { title: { "zh-Hant": "Sixt 租車", en: "Sixt rental car" }, duration: { "zh-Hant": "5/24 11:00 取車", en: "Pickup on May 24, 11:00" }, start: { "zh-Hant": "墨爾本機場", en: "Melbourne Airport" }, destination: { "zh-Hant": "Toyota Corolla 或同級", en: "Toyota Corolla or similar" }, cost: { "zh-Hant": "NT$5,468｜付款待補", en: "NT$5,468 | payment pending" }, desc: { "zh-Hant": "這台車最適合拿來跑近郊、自駕景點或 5/26 的郊區日，市區反而不用硬開。", en: "The car is best for nearby scenic plans, suburbs, or the dedicated drive day rather than constant CBD driving." } },
+    { title: { "zh-Hant": "Jetstar JQ514", en: "Jetstar JQ514" }, duration: { "zh-Hant": "1 小時 25 分", en: "1 hr 25 min" }, start: { "zh-Hant": "MEL 第 4 航廈", en: "MEL Terminal 4" }, destination: { "zh-Hant": "SYD 國內 T2", en: "SYD Domestic T2" }, cost: { "zh-Hant": "票價未補，但班機已確認", en: "Fare not added yet, flight confirmed" }, desc: { "zh-Hant": "這段已經是實際班機，時間和住宿銜接都已經對上。", en: "This is the booked intercity flight, already aligned with the hotel schedule." } },
+    {
+      title: { "zh-Hant": "Sixt 租車", en: "Sixt rental car" },
+      duration: { "zh-Hant": "5/24 11:00 取車", en: "Pickup on May 24, 11:00" },
+      start: { "zh-Hant": "墨爾本機場", en: "Melbourne Airport" },
+      destination: { "zh-Hant": "Toyota Corolla 或同級", en: "Toyota Corolla or similar" },
+      cost: { "zh-Hant": "NT$5,468｜付款待補", en: "NT$5,468 | payment pending" },
+      desc: { "zh-Hant": "這台車很適合拿來跑近郊、自駕景點或 5/26 的郊區日，市區段則可以保留步行節奏。", en: "The car is a good match for nearby scenic plans, suburbs, or the dedicated drive day while the city sections can stay walkable." },
+      image: "./assets/corolla-rental-card.svg",
+      imageAlt: { "zh-Hant": "Toyota Corolla 租車插畫", en: "Toyota Corolla rental illustration" },
+      specs: [
+        { label: { "zh-Hant": "座位", en: "Seats" }, value: { "zh-Hant": "5 人", en: "5 seats" } },
+        { label: { "zh-Hant": "行李", en: "Luggage" }, value: { "zh-Hant": "3 件行李", en: "3 bags" } },
+        { label: { "zh-Hant": "變速", en: "Transmission" }, value: { "zh-Hant": "自排", en: "Automatic" } },
+        { label: { "zh-Hant": "動力", en: "Fuel" }, value: { "zh-Hant": "空調｜油電混合", en: "A/C | Hybrid" } },
+      ],
+    },
   ],
   itinerary: [
-    { day: { "zh-Hant": "Day 1", en: "Day 1" }, date: "2026-05-24", city: { "zh-Hant": "Melbourne", en: "Melbourne" }, plan: { "zh-Hant": "落地墨爾本，取車後入住 Dorsett Melbourne", en: "Arrive in Melbourne, pick up the car, and check in at Dorsett Melbourne" }, location: { "zh-Hant": "墨爾本機場 / Dorsett Melbourne / Southbank", en: "Melbourne Airport / Dorsett Melbourne / Southbank" }, costAud: 190, transport: { "zh-Hant": "機場取車 + 市區移動", en: "Airport car pickup + city movement" }, reminder: { "zh-Hant": "如果當天累，就留 Southbank、Flinders Street 和晚餐就好，不要硬塞。", en: "If you feel tired, keep it to Southbank, Flinders Street, and dinner." }, open: true },
-    { day: { "zh-Hant": "Day 2", en: "Day 2" }, date: "2026-05-25", city: { "zh-Hant": "Melbourne", en: "Melbourne" }, plan: { "zh-Hant": "墨爾本市區、巷弄、咖啡與市場日", en: "Melbourne CBD, laneways, coffee, and market day" }, location: { "zh-Hant": "Queen Victoria Market / Degraves Street / Fitzroy / Carlton", en: "Queen Victoria Market / Degraves Street / Fitzroy / Carlton" }, costAud: 180, transport: { "zh-Hant": "步行為主，車盡量少開", en: "Mostly walking, with minimal driving" }, reminder: { "zh-Hant": "有車不代表市區一定要開，這天把車停好慢慢走反而比較舒服。", en: "Having a car does not mean you should drive the CBD all day." } },
-    { day: { "zh-Hant": "Day 3", en: "Day 3" }, date: "2026-05-26", city: { "zh-Hant": "Victoria", en: "Victoria" }, plan: { "zh-Hant": "最適合安排自駕郊區日", en: "Best day for the self-drive scenic plan" }, location: { "zh-Hant": "大洋路 / 莫寧頓 / Yarra Valley 三選一", en: "Great Ocean Road / Mornington / Yarra Valley" }, costAud: 360, transport: { "zh-Hant": "租車自駕", en: "Self-drive with the rental car" }, reminder: { "zh-Hant": "既然有 Corolla，這天做成自駕版會比跟團更划算也更自由。", en: "Since you have the Corolla, a self-drive day makes more sense than a guided one." } },
-    { day: { "zh-Hant": "Day 4", en: "Day 4" }, date: "2026-05-27", city: { "zh-Hant": "Sydney", en: "Sydney" }, plan: { "zh-Hant": "還車後搭 JQ514 飛雪梨，入住索菲特達令港", en: "Return the car, fly to Sydney on JQ514, and check in at Sofitel Darling Harbour" }, location: { "zh-Hant": "MEL T4 / SYD T2 / Darling Harbour", en: "MEL T4 / SYD T2 / Darling Harbour" }, costAud: 230, transport: { "zh-Hant": "租車還車 + 國內線 + 雪梨市區交通", en: "Car return + domestic flight + Sydney transfer" }, reminder: { "zh-Hant": "這天下午不要再貪心，把達令港和港灣走一小段就夠了。", en: "Keep this afternoon light and let Darling Harbour do the work." } },
-    { day: { "zh-Hant": "Day 5", en: "Day 5" }, date: "2026-05-28", city: { "zh-Hant": "Sydney", en: "Sydney" }, plan: { "zh-Hant": "邦代到 Coogee 海岸步道", en: "Bondi to Coogee coastal walk" }, location: { "zh-Hant": "Bondi / Tamarama / Bronte / Coogee", en: "Bondi / Tamarama / Bronte / Coogee" }, costAud: 160, transport: { "zh-Hant": "巴士 + 步行", en: "Bus + walking" }, reminder: { "zh-Hant": "海風大，帶薄外套和太陽眼鏡。", en: "Bring a light layer and sunglasses." } },
-    { day: { "zh-Hant": "Day 6", en: "Day 6" }, date: "2026-05-29", city: { "zh-Hant": "Sydney", en: "Sydney" }, plan: { "zh-Hant": "雪梨最後半天，晚上回機場", en: "Final Sydney half-day, then head to the airport" }, location: { "zh-Hant": "QVB / Hyde Park / Darling Harbour / 雪梨機場", en: "QVB / Hyde Park / Darling Harbour / Sydney Airport" }, costAud: 150, transport: { "zh-Hant": "市區步行 + 機場線", en: "City walking + airport train" }, reminder: { "zh-Hant": "國際線晚班機仍建議預留 3 小時報到。", en: "Keep a 3-hour buffer for the international departure." } },
+    {
+      day: { "zh-Hant": "Day 1", en: "Day 1" },
+      date: "2026-05-24",
+      city: { "zh-Hant": "Melbourne", en: "Melbourne" },
+      plan: { "zh-Hant": "落地墨爾本，取車後入住 Dorsett Melbourne", en: "Arrive in Melbourne, pick up the car, and check in at Dorsett Melbourne" },
+      focus: { "zh-Hant": "把節奏放慢，今天只做落地、取車、入住和第一段散步。", en: "Keep the first day gentle with arrival, pickup, check-in, and one easy walk." },
+      location: { "zh-Hant": "墨爾本機場 / Dorsett Melbourne / Southbank", en: "Melbourne Airport / Dorsett Melbourne / Southbank" },
+      costAud: 190,
+      transport: { "zh-Hant": "機場取車 + 市區移動", en: "Airport car pickup + city movement" },
+      reminder: { "zh-Hant": "如果當天想走輕鬆一點，留 Southbank、Flinders Street 和晚餐就很剛好。", en: "If you want a lighter first day, Southbank, Flinders Street, and dinner already make a nice rhythm." },
+      timeline: [
+        { time: { "zh-Hant": "10:40", en: "10:40" }, title: { "zh-Hant": "抵達墨爾本", en: "Land in Melbourne" }, note: { "zh-Hant": "先過關、領行李，讓身體跟上時差。", en: "Clear immigration, get bags, and ease into the day." } },
+        { time: { "zh-Hant": "11:00", en: "11:00" }, title: { "zh-Hant": "在機場取車", en: "Pick up the rental car" }, note: { "zh-Hant": "Toyota Corolla 或同級，順手確認導航和保險文件。", en: "Collect the Toyota Corolla or similar and check navigation plus insurance." } },
+        { time: { "zh-Hant": "13:00", en: "13:00" }, title: { "zh-Hant": "前往 Dorsett Melbourne 放行李", en: "Head to Dorsett Melbourne and drop bags" }, note: { "zh-Hant": "先安頓好，午後行程才會輕鬆。", en: "Settle in first so the rest of the day stays easy." } },
+        { time: { "zh-Hant": "16:00", en: "16:00" }, title: { "zh-Hant": "Southbank / Flinders Street 散步", en: "Easy Southbank / Flinders Street walk" }, note: { "zh-Hant": "看狀態加一杯咖啡或河岸晚餐就夠。", en: "Add a coffee or riverside dinner only if you feel up for it." } },
+      ],
+      open: true,
+    },
+    {
+      day: { "zh-Hant": "Day 2", en: "Day 2" },
+      date: "2026-05-25",
+      city: { "zh-Hant": "Melbourne", en: "Melbourne" },
+      plan: { "zh-Hant": "大洋路＋十二門徒岩", en: "Great Ocean Road and the Twelve Apostles" },
+      focus: { "zh-Hant": "這天把墨爾本最經典的海岸線留完整，主角就是十二門徒岩。", en: "Give the full day to Melbourne's most iconic coastline and let the Twelve Apostles lead it." },
+      location: { "zh-Hant": "Great Ocean Road / 十二門徒岩", en: "Great Ocean Road / Twelve Apostles" },
+      costAud: 320,
+      transport: { "zh-Hant": "租車自駕｜海岸線", en: "Self-drive | coastal route" },
+      reminder: { "zh-Hant": "這天會是墨爾本段最長的一天，回程留給海岸線慢慢收尾。", en: "This will be the longest Melbourne day, so let the return drive close the coast at an easy pace." },
+      timeline: [
+        { time: { "zh-Hant": "07:30", en: "07:30" }, title: { "zh-Hant": "從墨爾本出發", en: "Leave Melbourne" }, note: { "zh-Hant": "早餐後直接上路，今天整體會跑比較遠。", en: "Set off after breakfast because this is the longest drive day." } },
+        { time: { "zh-Hant": "10:30", en: "10:30" }, title: { "zh-Hant": "Memorial Arch / Lorne 一帶停靠", en: "Pause around Memorial Arch / Lorne" }, note: { "zh-Hant": "這段先用觀景點和海邊小鎮把大洋路的節奏打開。", en: "Open the coast day with one lookout and a seaside-town pause." } },
+        { time: { "zh-Hant": "12:30", en: "12:30" }, title: { "zh-Hant": "Apollo Bay 午餐", en: "Lunch in Apollo Bay" }, note: { "zh-Hant": "中午留在海邊小鎮，不用硬趕。", en: "Keep lunch in a relaxed coastal town instead of rushing through." } },
+        { time: { "zh-Hant": "15:30", en: "15:30" }, title: { "zh-Hant": "十二門徒岩", en: "Twelve Apostles" }, note: { "zh-Hant": "下午的海色和岩岸線條很好拍，這裡就是今天主景。", en: "The afternoon light is especially good here, and this is the star stop of the day." } },
+        { time: { "zh-Hant": "16:30", en: "16:30" }, title: { "zh-Hant": "Loch Ard Gorge", en: "Loch Ard Gorge" }, note: { "zh-Hant": "如果體力還可以，順手把旁邊這段岩岸也收進來。", en: "If energy is still good, add this nearby cliff-and-cove stop." } },
+        { time: { "zh-Hant": "20:30", en: "20:30" }, title: { "zh-Hant": "回到墨爾本", en: "Return to Melbourne" }, note: { "zh-Hant": "回程晚一點很正常，晚餐簡單收尾就很好。", en: "A later return is normal, so a simple dinner is the right finish." } },
+      ],
+    },
+    {
+      day: { "zh-Hant": "Day 3", en: "Day 3" },
+      date: "2026-05-26",
+      city: { "zh-Hant": "Phillip Island", en: "Phillip Island" },
+      plan: { "zh-Hant": "企鵝歸巢", en: "Penguin Parade" },
+      focus: { "zh-Hant": "白天保留輕鬆一點，晚上把主角留給企鵝歸巢。", en: "Keep the daytime gentler and let the evening build toward the Penguin Parade." },
+      location: { "zh-Hant": "Phillip Island / Penguin Parade", en: "Phillip Island / Penguin Parade" },
+      costAud: 260,
+      transport: { "zh-Hant": "租車自駕｜Phillip Island", en: "Self-drive | Phillip Island" },
+      reminder: { "zh-Hant": "企鵝歸巢時間會跟季節一起變，這天回墨爾本也會比較晚。", en: "Parade times shift with the season, so this is naturally a later return to Melbourne." },
+      timeline: [
+        { time: { "zh-Hant": "10:00", en: "10:00" }, title: { "zh-Hant": "往 Phillip Island 出發", en: "Drive toward Phillip Island" }, note: { "zh-Hant": "今天不用像大洋路那麼早，白天可以留得比較鬆。", en: "This day can start later than the Great Ocean Road drive." } },
+        { time: { "zh-Hant": "12:30", en: "12:30" }, title: { "zh-Hant": "San Remo / 海邊午餐", en: "San Remo / seaside lunch" }, note: { "zh-Hant": "先用海邊午餐把節奏帶進島上，不需要排太滿。", en: "Ease into the island day with a coastal lunch instead of overloading the afternoon." } },
+        { time: { "zh-Hant": "14:30", en: "14:30" }, title: { "zh-Hant": "Nobbies Boardwalk", en: "Nobbies Boardwalk" }, note: { "zh-Hant": "下午先看海岸線和風景，和晚上的企鵝歸巢會很順。", en: "A boardwalk stop fits naturally before the evening penguin experience." } },
+        { time: { "zh-Hant": "17:30", en: "17:30" }, title: { "zh-Hant": "抵達企鵝歸巢園區", en: "Arrive at Penguin Parade" }, note: { "zh-Hant": "傍晚把節奏收慢，先找好座位和動線。", en: "Slow down at sunset and get settled before the parade begins." } },
+        { time: { "zh-Hant": "19:00", en: "19:00" }, title: { "zh-Hant": "企鵝歸巢", en: "Penguin Parade" }, note: { "zh-Hant": "這晚就把重點留給企鵝上岸，回程自然會晚一些。", en: "Let the evening belong to the penguins coming ashore, even if the return gets late." } },
+      ],
+    },
+    {
+      day: { "zh-Hant": "Day 4", en: "Day 4" },
+      date: "2026-05-27",
+      city: { "zh-Hant": "Sydney", en: "Sydney" },
+      plan: { "zh-Hant": "還車後搭 JQ514 飛雪梨，入住索菲特達令港", en: "Return the car, fly to Sydney on JQ514, and check in at Sofitel Darling Harbour" },
+      focus: { "zh-Hant": "今天以換城為主，下午留給達令港和第一段港灣散步。", en: "Let the city transfer lead the day and keep the afternoon for Darling Harbour." },
+      location: { "zh-Hant": "MEL T4 / SYD T2 / Darling Harbour", en: "MEL T4 / SYD T2 / Darling Harbour" },
+      costAud: 230,
+      transport: { "zh-Hant": "租車還車 + 國內線 + 雪梨市區交通", en: "Car return + domestic flight + Sydney transfer" },
+      reminder: { "zh-Hant": "這天下午留給達令港和港邊散步，節奏會很剛好。", en: "An easy Darling Harbour afternoon already fits the day well." },
+      timeline: [
+        { time: { "zh-Hant": "09:00", en: "09:00" }, title: { "zh-Hant": "退房並處理還車", en: "Check out and return the car" }, note: { "zh-Hant": "先把租車收乾淨，進航廈心情會差很多。", en: "Finishing the car return early makes the airport leg much easier." } },
+        { time: { "zh-Hant": "13:00", en: "13:00" }, title: { "zh-Hant": "搭乘 Jetstar JQ514", en: "Board Jetstar JQ514" }, note: { "zh-Hant": "MEL 第 4 航廈出發，14:25 抵達雪梨。", en: "Depart from MEL Terminal 4 and arrive in Sydney at 14:25." } },
+        { time: { "zh-Hant": "16:00", en: "16:00" }, title: { "zh-Hant": "前往 Sofitel Sydney Darling Harbour", en: "Head to Sofitel Sydney Darling Harbour" }, note: { "zh-Hant": "先 check-in，行李放好再出門。", en: "Check in first and drop the bags before going back out." } },
+        { time: { "zh-Hant": "18:00", en: "18:00" }, title: { "zh-Hant": "達令港輕鬆散步＋晚餐", en: "Easy Darling Harbour walk and dinner" }, note: { "zh-Hant": "今天只留港邊走走就很夠。", en: "A short harbour walk is enough for this day." } },
+      ],
+    },
+    {
+      day: { "zh-Hant": "Day 5", en: "Day 5" },
+      date: "2026-05-28",
+      city: { "zh-Hant": "Sydney", en: "Sydney" },
+      plan: { "zh-Hant": "歌劇院 view 早餐＋雪梨歌劇院＋海生館", en: "Opera House-view breakfast, the Opera House, and SEA LIFE" },
+      focus: { "zh-Hant": "今天把港灣代表景色和一段室內行程排在一起，拍照和節奏都很好。", en: "Pair the signature harbour views with one indoor stop so the day stays photogenic and balanced." },
+      location: { "zh-Hant": "Wahlburgers Opera Quays / MCA Cafe / Sydney Opera House / SEA LIFE Sydney Aquarium", en: "Wahlburgers Opera Quays / MCA Cafe / Sydney Opera House / SEA LIFE Sydney Aquarium" },
+      costAud: 220,
+      transport: { "zh-Hant": "步行 + 輕軌 / 市區交通", en: "Walking + light rail / city transport" },
+      reminder: { "zh-Hant": "早餐點和歌劇院都很適合早一點到，光線和人潮都會漂亮很多。", en: "An earlier start works especially well for both breakfast and the Opera House light." },
+      timeline: [
+        { time: { "zh-Hant": "08:00", en: "08:00" }, title: { "zh-Hant": "歌劇院 view 早餐", en: "Opera House view breakfast" }, note: { "zh-Hant": "早餐首選 Wahlburgers Opera Quays；想拍更有展館感的港景，可以改成 MCA Cafe。", en: "Start with Wahlburgers Opera Quays, or switch to MCA Cafe for a more gallery-like harbour brunch." } },
+        { time: { "zh-Hant": "10:00", en: "10:00" }, title: { "zh-Hant": "雪梨歌劇院 / Circular Quay", en: "Sydney Opera House / Circular Quay" }, note: { "zh-Hant": "早餐後順著港邊走，歌劇院和碼頭可以一起收進來。", en: "Walk the harbour edge after breakfast and take in the Opera House and Circular Quay together." } },
+        { time: { "zh-Hant": "13:30", en: "13:30" }, title: { "zh-Hant": "SEA LIFE Sydney Aquarium", en: "SEA LIFE Sydney Aquarium" }, note: { "zh-Hant": "下午接室內行程，和早上的港灣風景會很平衡。", en: "An indoor afternoon balances the harbour-heavy morning nicely." } },
+        { time: { "zh-Hant": "18:00", en: "18:00" }, title: { "zh-Hant": "達令港晚餐 / 夜景", en: "Darling Harbour dinner / evening views" }, note: { "zh-Hant": "海生館就在達令港一帶，晚上接回飯店很順。", en: "The aquarium is right by Darling Harbour, so the evening return stays easy." } },
+      ],
+    },
+    {
+      day: { "zh-Hant": "Day 6", en: "Day 6" },
+      date: "2026-05-29",
+      city: { "zh-Hant": "Sydney", en: "Sydney" },
+      plan: { "zh-Hant": "雪梨最後半天，晚上回機場", en: "Final Sydney half-day, then head to the airport" },
+      focus: { "zh-Hant": "白天留給市區慢慢收尾，傍晚準時回飯店拿行李。", en: "Use the daytime for a soft city finish, then return for bags on time." },
+      location: { "zh-Hant": "QVB / Hyde Park / Darling Harbour / 雪梨機場", en: "QVB / Hyde Park / Darling Harbour / Sydney Airport" },
+      costAud: 150,
+      transport: { "zh-Hant": "市區步行 + 機場線", en: "City walking + airport train" },
+      reminder: { "zh-Hant": "晚班國際線可以抓約 3 小時報到緩衝。", en: "Leaving about a three-hour check-in buffer works well for the international departure." },
+      timeline: [
+        { time: { "zh-Hant": "09:30", en: "09:30" }, title: { "zh-Hant": "最後一段市區散步", en: "One last city walk" }, note: { "zh-Hant": "QVB、Hyde Park 或 The Rocks 選一區慢慢收尾。", en: "Pick one area like QVB, Hyde Park, or The Rocks for a relaxed final round." } },
+        { time: { "zh-Hant": "13:00", en: "13:00" }, title: { "zh-Hant": "午餐＋最後補買", en: "Lunch and final shopping" }, note: { "zh-Hant": "中午留在市中心活動，下午接回飯店會比較順。", en: "Keeping lunch and shopping central makes the transition back to the hotel smoother." } },
+        { time: { "zh-Hant": "17:30", en: "17:30" }, title: { "zh-Hant": "回飯店拿行李", en: "Return to the hotel for bags" }, note: { "zh-Hant": "把節奏拉回來，準備前往機場。", en: "Slow the day back down and get ready for the airport." } },
+        { time: { "zh-Hant": "19:00", en: "19:00" }, title: { "zh-Hant": "前往雪梨機場", en: "Head to Sydney Airport" }, note: { "zh-Hant": "晚班國際線還是保守抓三小時比較安心。", en: "A late international flight still deserves a full three-hour buffer." } },
+      ],
+    },
   ],
   budgetRows: [
     { item: { "zh-Hant": "國際機票", en: "International flights" }, aud: 1000, note: { "zh-Hant": "先用兩人約 NT$20,700 換算", en: "Assumes about NT$20,700 total for two" }, booked: true },
@@ -297,7 +464,7 @@ const data = {
         { id: "layer", title: { "zh-Hant": "薄外套", en: "Light layer" }, desc: { "zh-Hant": "5 月澳洲入秋，早晚偏涼。", en: "Australia is in autumn in May, so mornings and nights can feel cool." } },
         { id: "shoes", title: { "zh-Hant": "好走的鞋", en: "Walking shoes" }, desc: { "zh-Hant": "雪梨海岸步道會走比較久。", en: "The Sydney coastal walk is easier with good shoes." } },
         { id: "adapter", title: { "zh-Hant": "澳規轉接頭", en: "AU adapter" }, desc: { "zh-Hant": "澳洲插座和台灣不同。", en: "Australia uses a different plug type from Taiwan." } },
-        { id: "license", title: { "zh-Hant": "駕照 / 國際駕照", en: "Driver's license / IDP" }, desc: { "zh-Hant": "既然有租車，這個不要漏。", en: "Do not forget this if you are driving." } },
+        { id: "license", title: { "zh-Hant": "駕照 / 國際駕照", en: "Driver's license / IDP" }, desc: { "zh-Hant": "租車那天會用到，和取車文件放一起最方便。", en: "Keep this with the pickup documents for the rental day." } },
       ],
     },
   ],
@@ -315,7 +482,7 @@ const data = {
       title: { "zh-Hant": "住宿與交通", en: "Hotels and transport" },
       links: [
         { label: { "zh-Hant": "Dorsett Melbourne", en: "Dorsett Melbourne" }, href: "https://www.dorsetthotels.com/dorsett-melbourne/" },
-        { label: { "zh-Hant": "Sofitel Sydney Darling Harbour", en: "Sofitel Sydney Darling Harbour" }, href: "https://all.accor.com/hotel/8757/index.en.shtml" },
+        { label: { "zh-Hant": "Sofitel Sydney Darling Harbour", en: "Sofitel Sydney Darling Harbour" }, href: "https://all.accor.com/hotel/9729/index.en.shtml" },
         { label: { "zh-Hant": "Sixt 澳洲", en: "Sixt Australia" }, href: "https://www.sixt.com.au/" },
         { label: { "zh-Hant": "PTV 墨爾本交通", en: "PTV Melbourne" }, href: "https://www.ptv.vic.gov.au/" },
         { label: { "zh-Hant": "Transport NSW", en: "Transport NSW" }, href: "https://transportnsw.info/" },
@@ -328,7 +495,46 @@ const data = {
         { label: { "zh-Hant": "Sydney.com", en: "Sydney.com" }, href: "https://www.sydney.com/" },
       ],
     },
+    {
+      title: { "zh-Hant": "歌劇院 view 早餐", en: "Opera House view breakfast" },
+      links: [
+        { label: { "zh-Hant": "Wahlburgers Opera Quays", en: "Wahlburgers Opera Quays" }, href: "https://wahlburgers.com.au/locations/opera-quays/" },
+        { label: { "zh-Hant": "MCA Cafe", en: "MCA Cafe" }, href: "https://www.mca.com.au/visit/dining/" },
+        { label: { "zh-Hant": "Sydney Opera House", en: "Sydney Opera House" }, href: "https://www.sydneyoperahouse.com/" },
+        { label: { "zh-Hant": "SEA LIFE Sydney Aquarium", en: "SEA LIFE Sydney Aquarium" }, href: "https://www.visitsealife.com/sydney/" },
+      ],
+    },
+    {
+      title: { "zh-Hant": "景點官方", en: "Official attractions" },
+      links: [
+        { label: { "zh-Hant": "Twelve Apostles", en: "Twelve Apostles" }, href: "https://www.parks.vic.gov.au/places-to-see/sites/twelve-apostles" },
+        { label: { "zh-Hant": "Penguin Parade", en: "Penguin Parade" }, href: "https://www.penguins.org.au/attractions/penguin-parade/" },
+        { label: { "zh-Hant": "The Nobbies", en: "The Nobbies" }, href: "https://www.penguins.org.au/attractions/reserves/the-nobbies/" },
+      ],
+    },
   ],
+  map: {
+    fullRoute: {
+      href: "https://www.google.com/maps/dir/Melbourne+Airport/Dorsett+Melbourne/Twelve+Apostles+Victoria/Loch+Ard+Gorge/San+Remo+Victoria/Nobbies+Centre+Phillip+Island/Penguin+Parade+Phillip+Island/Sofitel+Sydney+Darling+Harbour/Wahlburgers+Opera+Quays/Sydney+Opera+House/SEA+LIFE+Sydney+Aquarium/Sydney+Airport",
+    },
+    dayRoutes: [
+      { label: { "zh-Hant": "Day 1 墨爾本落地", en: "Day 1 Melbourne arrival" }, embed: "https://www.google.com/maps?q=Melbourne+Airport+Dorsett+Melbourne+Southbank&output=embed" },
+      { label: { "zh-Hant": "Day 2 大洋路", en: "Day 2 Great Ocean Road" }, embed: "https://www.google.com/maps?q=Twelve+Apostles+Victoria+Loch+Ard+Gorge&output=embed" },
+      { label: { "zh-Hant": "Day 3 企鵝歸巢", en: "Day 3 Penguin Parade" }, embed: "https://www.google.com/maps?q=Penguin+Parade+Phillip+Island+Nobbies+Centre&output=embed" },
+      { label: { "zh-Hant": "Day 5 歌劇院早餐＋海生館", en: "Day 5 breakfast + aquarium" }, embed: "https://www.google.com/maps?q=Wahlburgers+Opera+Quays+Sydney+Opera+House+SEA+LIFE+Sydney+Aquarium&output=embed" },
+    ],
+    points: [
+      { title: { "zh-Hant": "Dorsett Melbourne", en: "Dorsett Melbourne" }, note: { "zh-Hant": "墨爾本 base", en: "Melbourne base" }, open: "https://www.google.com/maps/search/?api=1&query=Dorsett+Melbourne", embed: "https://www.google.com/maps?q=Dorsett+Melbourne&output=embed" },
+      { title: { "zh-Hant": "十二門徒岩", en: "Twelve Apostles" }, note: { "zh-Hant": "大洋路主景點", en: "Great Ocean Road highlight" }, open: "https://www.google.com/maps/search/?api=1&query=Twelve+Apostles+Victoria", embed: "https://www.google.com/maps?q=Twelve+Apostles+Victoria&output=embed" },
+      { title: { "zh-Hant": "Loch Ard Gorge", en: "Loch Ard Gorge" }, note: { "zh-Hant": "十二門徒岩旁的岩岸景點", en: "Cliff-and-cove stop near the Apostles" }, open: "https://www.google.com/maps/search/?api=1&query=Loch+Ard+Gorge", embed: "https://www.google.com/maps?q=Loch+Ard+Gorge&output=embed" },
+      { title: { "zh-Hant": "企鵝歸巢", en: "Penguin Parade" }, note: { "zh-Hant": "Phillip Island Nature Parks", en: "Phillip Island Nature Parks" }, open: "https://www.google.com/maps/search/?api=1&query=Penguin+Parade+Phillip+Island", embed: "https://www.google.com/maps?q=Penguin+Parade+Phillip+Island&output=embed" },
+      { title: { "zh-Hant": "Nobbies Centre", en: "Nobbies Centre" }, note: { "zh-Hant": "企鵝歸巢前的海岸線散步", en: "Coastal boardwalk before the parade" }, open: "https://www.google.com/maps/search/?api=1&query=Nobbies+Centre+Phillip+Island", embed: "https://www.google.com/maps?q=Nobbies+Centre+Phillip+Island&output=embed" },
+      { title: { "zh-Hant": "Wahlburgers Opera Quays", en: "Wahlburgers Opera Quays" }, note: { "zh-Hant": "歌劇院 view 早餐", en: "Opera House view breakfast" }, open: "https://www.google.com/maps/search/?api=1&query=Wahlburgers+Opera+Quays", embed: "https://www.google.com/maps?q=Wahlburgers+Opera+Quays&output=embed" },
+      { title: { "zh-Hant": "MCA Cafe", en: "MCA Cafe" }, note: { "zh-Hant": "另一個拍港灣 brunch 點", en: "Another harbour-view brunch stop" }, open: "https://www.google.com/maps/search/?api=1&query=MCA+Cafe+Sydney", embed: "https://www.google.com/maps?q=MCA+Cafe+Sydney&output=embed" },
+      { title: { "zh-Hant": "Sydney Opera House", en: "Sydney Opera House" }, note: { "zh-Hant": "雪梨代表地標", en: "Sydney icon" }, open: "https://www.google.com/maps/search/?api=1&query=Sydney+Opera+House", embed: "https://www.google.com/maps?q=Sydney+Opera+House&output=embed" },
+      { title: { "zh-Hant": "SEA LIFE Sydney Aquarium", en: "SEA LIFE Sydney Aquarium" }, note: { "zh-Hant": "達令港海生館", en: "Darling Harbour aquarium" }, open: "https://www.google.com/maps/search/?api=1&query=SEA+LIFE+Sydney+Aquarium", embed: "https://www.google.com/maps?q=SEA+LIFE+Sydney+Aquarium&output=embed" },
+    ],
+  },
 };
 
 function getText(entry) {
@@ -339,6 +545,34 @@ function getText(entry) {
 function formatCurrency(aud, currency = state.currency) {
   const meta = rates[currency];
   return `${meta.symbol}${Math.round(aud * meta.audPerUnit).toLocaleString()}`;
+}
+
+function cacheDom() {
+  dom.pageProgress = document.getElementById("pageProgress");
+  dom.heroSummary = document.getElementById("heroSummary");
+  dom.keyInfoBar = document.getElementById("keyInfoBar");
+  dom.quickInfoGrid = document.getElementById("quickInfoGrid");
+  dom.overviewMiniChecklist = document.getElementById("overviewMiniChecklist");
+  dom.overviewRecommendations = document.getElementById("overviewRecommendations");
+  dom.importantAlerts = document.getElementById("importantAlerts");
+  dom.overviewNotes = document.getElementById("overviewNotes");
+  dom.flightCards = document.getElementById("flightCards");
+  dom.flightNotes = document.getElementById("flightNotes");
+  dom.stayPlanCard = document.getElementById("stayPlanCard");
+  dom.cityRhythm = document.getElementById("cityRhythm");
+  dom.moveDayTimeline = document.getElementById("moveDayTimeline");
+  dom.moveOptions = document.getElementById("moveOptions");
+  dom.itineraryList = document.getElementById("itineraryList");
+  dom.budgetSelectedHeading = document.getElementById("budgetSelectedHeading");
+  dom.budgetHighlights = document.getElementById("budgetHighlights");
+  dom.budgetTableBody = document.getElementById("budgetTableBody");
+  dom.budgetCards = document.getElementById("budgetCards");
+  dom.mapList = document.getElementById("mapList");
+  dom.mapFrame = document.getElementById("mapFrame");
+  dom.mapDayRoutes = document.getElementById("mapDayRoutes");
+  dom.fullRouteLink = document.getElementById("fullRouteLink");
+  dom.checklistGroups = document.getElementById("checklistGroups");
+  dom.linksGrid = document.getElementById("linksGrid");
 }
 
 function checklistState() {
@@ -359,6 +593,7 @@ function updateDocumentTitle() {
     flights: getText({ "zh-Hant": "航班", en: "Flights" }),
     stays: getText({ "zh-Hant": "住宿", en: "Stay" }),
     itinerary: getText({ "zh-Hant": "行程", en: "Itinerary" }),
+    map: getText({ "zh-Hant": "地圖", en: "Map" }),
     budget: getText({ "zh-Hant": "預算", en: "Budget" }),
     notes: getText({ "zh-Hant": "清單", en: "Checklist" }),
   };
@@ -375,8 +610,7 @@ function renderI18n() {
 }
 
 function renderHero() {
-  const root = document.getElementById("heroSummary");
-  root.innerHTML = data.heroSummary
+  dom.heroSummary.innerHTML = data.heroSummary
     .map(
       (item) => `
         <article class="summary-card">
@@ -389,8 +623,7 @@ function renderHero() {
 }
 
 function renderKeyInfo() {
-  const root = document.getElementById("keyInfoBar");
-  root.innerHTML = data.keyInfo
+  dom.keyInfoBar.innerHTML = data.keyInfo
     .map(
       (item) => `
         <article class="key-info-card">
@@ -404,8 +637,7 @@ function renderKeyInfo() {
 }
 
 function renderQuickInfo() {
-  const root = document.getElementById("quickInfoGrid");
-  root.innerHTML = data.quickInfo
+  dom.quickInfoGrid.innerHTML = data.quickInfo
     .map(
       (item) => `
         <article class="quick-info-card">
@@ -418,7 +650,6 @@ function renderQuickInfo() {
 }
 
 function renderOverviewMiniChecklist() {
-  const root = document.getElementById("overviewMiniChecklist");
   const saved = checklistState();
   const items = [
     data.checklistGroups[0].items[0],
@@ -426,7 +657,7 @@ function renderOverviewMiniChecklist() {
     data.checklistGroups[1].items[2],
     data.checklistGroups[2].items[3],
   ];
-  root.innerHTML = items
+  dom.overviewMiniChecklist.innerHTML = items
     .map(
       (item) => `
         <label class="mini-check">
@@ -445,7 +676,7 @@ function renderOverviewMiniChecklist() {
 }
 
 function renderOverview() {
-  document.getElementById("overviewRecommendations").innerHTML = data.overviewRecommendations
+  dom.overviewRecommendations.innerHTML = data.overviewRecommendations
     .map(
       (item) => `
         <article class="mini-stat-card">
@@ -457,7 +688,7 @@ function renderOverview() {
     )
     .join("");
 
-  document.getElementById("importantAlerts").innerHTML = data.importantAlerts
+  dom.importantAlerts.innerHTML = data.importantAlerts
     .map(
       (item) => `
         <article class="alert-card">
@@ -468,16 +699,17 @@ function renderOverview() {
     )
     .join("");
 
-  document.getElementById("overviewNotes").innerHTML = data.overviewNotes
+  dom.overviewNotes.innerHTML = data.overviewNotes
     .map((item) => `<article class="bullet-card"><div class="bullet-title">${getText(item.title)}</div><div class="bullet-desc">${getText(item.desc)}</div></article>`)
     .join("");
 }
 
 function renderFlights() {
-  document.getElementById("flightCards").innerHTML = data.flights
+  dom.flightCards.innerHTML = data.flights
     .map(
       (flight) => `
         <article class="flight-card">
+          <img class="airline-badge" src="${flight.logo}" alt="${getText(flight.airline)}" loading="lazy" decoding="async" />
           <div class="flight-topline">
             <span class="day-chip">${getText(flight.label)}</span>
             <span class="date-label">${flight.date}</span>
@@ -492,17 +724,39 @@ function renderFlights() {
     )
     .join("");
 
-  document.getElementById("flightNotes").innerHTML = data.flightNotes
+  dom.flightNotes.innerHTML = data.flightNotes
     .map((item) => `<article class="bullet-card"><div class="bullet-title">${getText(item.title)}</div><div class="bullet-desc">${getText(item.desc)}</div></article>`)
     .join("");
 }
 
 function renderStays() {
   const stay = data.stayPlan;
-  document.getElementById("stayPlanCard").innerHTML = `
+  dom.stayPlanCard.innerHTML = `
     <h3>${getText(stay.title)}</h3>
     <p class="budget-original">${getText(stay.subtitle)}</p>
     <div class="pill-row">${stay.chips.map((chip) => `<span class="pill">${getText(chip)}</span>`).join("")}</div>
+    <div class="hotel-spotlight-list">
+      ${stay.hotels
+        .map(
+          (hotel) => `
+            <article class="hotel-spotlight-card">
+              <a class="hotel-spotlight-image-link" href="${hotel.href}" target="_blank" rel="noreferrer" aria-label="${getText(hotel.name)}">
+                <img class="hotel-spotlight-image" src="${hotel.image}" alt="${getText(hotel.name)}" loading="lazy" decoding="async" />
+              </a>
+              <div class="hotel-spotlight-body">
+                <div class="hotel-spotlight-top">
+                  <div class="route-title">${getText(hotel.name)}</div>
+                  <span class="route-chip">${getText(hotel.dates)}</span>
+                </div>
+                <div class="price-value">${getText(hotel.price)}</div>
+                <div class="bullet-desc">${getText(hotel.note)}</div>
+                <a class="hotel-spotlight-link" href="${hotel.href}" target="_blank" rel="noreferrer" aria-label="${getText(hotel.name)}">${t[state.lang].openLink}</a>
+              </div>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
     <div class="price-stack">
       ${stay.notes
         .map(
@@ -517,11 +771,11 @@ function renderStays() {
     </div>
   `;
 
-  document.getElementById("cityRhythm").innerHTML = data.cityRhythm
+  dom.cityRhythm.innerHTML = data.cityRhythm
     .map((item) => `<article class="bullet-card"><div class="bullet-title">${getText(item.title)}</div><div class="bullet-desc">${getText(item.desc)}</div></article>`)
     .join("");
 
-  document.getElementById("moveDayTimeline").innerHTML = data.moveDayTimeline
+  dom.moveDayTimeline.innerHTML = data.moveDayTimeline
     .map(
       (item) => `
         <article class="timeline-card">
@@ -535,10 +789,11 @@ function renderStays() {
     )
     .join("");
 
-  document.getElementById("moveOptions").innerHTML = data.moveOptions
+  dom.moveOptions.innerHTML = data.moveOptions
     .map(
       (item) => `
         <article class="route-card">
+          ${item.image ? `<img class="route-card-image" src="${item.image}" alt="${getText(item.imageAlt)}" loading="lazy" decoding="async" />` : ""}
           <div class="route-top">
             <div>
               <div class="route-title">${getText(item.title)}</div>
@@ -549,6 +804,16 @@ function renderStays() {
           <div class="info-line"><span class="info-label">${t[state.lang].fromLabel}</span><span class="info-value">${getText(item.start)}</span></div>
           <div class="info-line"><span class="info-label">${t[state.lang].toLabel}</span><span class="info-value">${getText(item.destination)}</span></div>
           <div class="info-line"><span class="info-label">${t[state.lang].costCardLabel}</span><span class="info-value">${getText(item.cost)}</span></div>
+          ${item.specs ? `<div class="route-spec-grid">${item.specs
+            .map(
+              (spec) => `
+                <div class="route-spec-card">
+                  <div class="info-label">${getText(spec.label)}</div>
+                  <div class="info-value">${getText(spec.value)}</div>
+                </div>
+              `
+            )
+            .join("")}</div>` : ""}
         </article>
       `
     )
@@ -556,7 +821,7 @@ function renderStays() {
 }
 
 function renderItinerary() {
-  document.getElementById("itineraryList").innerHTML = data.itinerary
+  dom.itineraryList.innerHTML = data.itinerary
     .map(
       (item) => `
         <details class="itinerary-card" ${item.open ? "open" : ""}>
@@ -571,6 +836,26 @@ function renderItinerary() {
             <h3>${getText(item.plan)}</h3>
           </summary>
           <div class="accordion-body">
+            <article class="itinerary-focus-card">
+              <div class="itinerary-meta-label">${t[state.lang].timelineFocusLabel}</div>
+              <div class="itinerary-focus-text">${getText(item.focus)}</div>
+            </article>
+            <div class="itinerary-dayline" aria-label="${t[state.lang].timelineTitle}">
+              ${item.timeline
+                .map(
+                  (slot) => `
+                    <article class="itinerary-timeline-item">
+                      <div class="itinerary-timeline-time">${getText(slot.time)}</div>
+                      <div class="itinerary-timeline-dot" aria-hidden="true"></div>
+                      <div class="itinerary-timeline-content">
+                        <div class="bullet-title">${getText(slot.title)}</div>
+                        <div class="timeline-desc">${getText(slot.note)}</div>
+                      </div>
+                    </article>
+                  `
+                )
+                .join("")}
+            </div>
             <div class="itinerary-meta-grid">
               <div class="itinerary-meta-card">
                 <div class="itinerary-meta-label">${t[state.lang].locationLabel}</div>
@@ -590,6 +875,10 @@ function renderItinerary() {
                 <div class="itinerary-meta-value">${getText(item.reminder)}</div>
               </div>
             </div>
+            <article class="alert-card itinerary-tip-card">
+              <div class="itinerary-meta-label">${t[state.lang].timelineTipLabel}</div>
+              <div class="bullet-desc">${getText(item.reminder)}</div>
+            </article>
           </div>
         </details>
       `
@@ -604,9 +893,9 @@ function renderBudget() {
   const averageDailyAud = totalAud / 6;
   const flexibleAud = totalAud - bookedAud;
 
-  document.getElementById("budgetSelectedHeading").textContent = state.currency;
+  dom.budgetSelectedHeading.textContent = state.currency;
 
-  document.getElementById("budgetHighlights").innerHTML = [
+  dom.budgetHighlights.innerHTML = [
     { label: t[state.lang].totalTripCostLabel, note: t[state.lang].totalTripCostNote, aud: totalAud, primary: true },
     { label: t[state.lang].averageDailyLabel, note: t[state.lang].averageDailyNote, aud: averageDailyAud },
     { label: t[state.lang].perPersonCostLabel, note: t[state.lang].perPersonCostNote, aud: perPersonAud },
@@ -624,7 +913,7 @@ function renderBudget() {
     )
     .join("");
 
-  document.getElementById("budgetTableBody").innerHTML = data.budgetRows
+  dom.budgetTableBody.innerHTML = data.budgetRows
     .map(
       (item) => `
         <tr>
@@ -637,7 +926,7 @@ function renderBudget() {
     )
     .join("");
 
-  document.getElementById("budgetCards").innerHTML = data.budgetRows
+  dom.budgetCards.innerHTML = data.budgetRows
     .map(
       (item) => `
         <article class="budget-card">
@@ -661,7 +950,7 @@ function renderBudget() {
 
 function renderChecklist() {
   const saved = checklistState();
-  document.getElementById("checklistGroups").innerHTML = data.checklistGroups
+  dom.checklistGroups.innerHTML = data.checklistGroups
     .map((group) => {
       const completed = group.items.filter((item) => saved[item.id]).length;
       return `
@@ -700,7 +989,7 @@ function renderChecklist() {
 }
 
 function renderLinks() {
-  document.getElementById("linksGrid").innerHTML = data.usefulLinks
+  dom.linksGrid.innerHTML = data.usefulLinks
     .map(
       (group) => `
         <article class="link-block">
@@ -723,6 +1012,37 @@ function renderLinks() {
     .join("");
 }
 
+function renderMap() {
+  if (!dom.mapList || !dom.mapFrame || !dom.mapDayRoutes || !dom.fullRouteLink) return;
+
+  dom.fullRouteLink.href = data.map.fullRoute.href;
+  dom.mapDayRoutes.innerHTML = data.map.dayRoutes
+    .map(
+      (route, index) => `
+        <button class="map-day-button ${index === 0 ? "active" : ""}" type="button" data-map-embed="${route.embed}" aria-label="${getText(route.label)}">
+          ${getText(route.label)}
+        </button>
+      `
+    )
+    .join("");
+
+  dom.mapList.innerHTML = data.map.points
+    .map(
+      (point) => `
+        <article class="map-card">
+          <button class="map-card-button" type="button" data-map-embed="${point.embed}" aria-label="${getText(point.title)}">
+            <div class="bullet-title">${getText(point.title)}</div>
+            <div class="bullet-desc">${getText(point.note)}</div>
+          </button>
+          <a class="map-open-link" href="${point.open}" target="_blank" rel="noreferrer" aria-label="${getText(point.title)}">${t[state.lang].openLink}</a>
+        </article>
+      `
+    )
+    .join("");
+
+  dom.mapFrame.src = data.map.dayRoutes[0].embed;
+}
+
 function renderAll() {
   renderI18n();
   renderHero();
@@ -734,6 +1054,7 @@ function renderAll() {
   renderStays();
   renderItinerary();
   renderBudget();
+  renderMap();
   renderChecklist();
   renderLinks();
 }
@@ -751,42 +1072,31 @@ function syncControls() {
   });
 }
 
-function bindControls() {
+function updateLanguage(nextLang) {
+  if (!nextLang || nextLang === state.lang) return;
+  state.lang = nextLang;
+  localStorage.setItem(STORAGE_KEYS.lang, state.lang);
   syncControls();
-
-  document.querySelectorAll("[data-lang]").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.lang = button.dataset.lang;
-      localStorage.setItem(STORAGE_KEYS.lang, state.lang);
-      syncControls();
-      renderAll();
-      bindChecklist();
-      syncPageNavigation();
-    });
-  });
-
-  document.querySelectorAll("[data-currency]").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.currency = button.dataset.currency;
-      localStorage.setItem(STORAGE_KEYS.currency, state.currency);
-      syncControls();
-      renderBudget();
-      renderItinerary();
-    });
-  });
+  renderAll();
+  syncPageNavigation();
 }
 
-function bindChecklist() {
-  document.querySelectorAll("[data-check]").forEach((input) => {
-    input.addEventListener("change", () => {
-      const next = checklistState();
-      next[input.dataset.check] = input.checked;
-      saveChecklist(next);
-      renderOverviewMiniChecklist();
-      renderChecklist();
-      bindChecklist();
-    });
-  });
+function updateCurrency(nextCurrency) {
+  if (!nextCurrency || nextCurrency === state.currency) return;
+  state.currency = nextCurrency;
+  localStorage.setItem(STORAGE_KEYS.currency, state.currency);
+  syncControls();
+  renderBudget();
+  renderItinerary();
+}
+
+function updateChecklistItem(id, checked) {
+  if (!id) return;
+  const next = checklistState();
+  next[id] = checked;
+  saveChecklist(next);
+  renderOverviewMiniChecklist();
+  renderChecklist();
 }
 
 function syncPageNavigation() {
@@ -824,23 +1134,57 @@ function setPage(page, { scroll = true } = {}) {
   }
 }
 
-function bindPageNavigation() {
-  document.querySelectorAll("[data-page-link]").forEach((button) => {
-    button.addEventListener("click", () => setPage(button.dataset.pageLink));
+function bindUIEvents() {
+  document.addEventListener("click", (event) => {
+    const langButton = event.target.closest("[data-lang]");
+    if (langButton) {
+      updateLanguage(langButton.dataset.lang);
+      return;
+    }
+
+    const currencyButton = event.target.closest("[data-currency]");
+    if (currencyButton) {
+      updateCurrency(currencyButton.dataset.currency);
+      return;
+    }
+
+    const pageButton = event.target.closest("[data-page-link]");
+    if (pageButton) {
+      setPage(pageButton.dataset.pageLink);
+      return;
+    }
+
+    const mapButton = event.target.closest("[data-map-embed]");
+    if (mapButton && dom.mapFrame) {
+      dom.mapFrame.src = mapButton.dataset.mapEmbed;
+      document.querySelectorAll(".map-day-button").forEach((node) => node.classList.toggle("active", node === mapButton));
+      document.querySelectorAll(".map-card").forEach((card) => card.classList.toggle("active", card.contains(mapButton)));
+    }
+  });
+
+  document.addEventListener("change", (event) => {
+    const checkInput = event.target.closest("[data-check]");
+    if (checkInput) updateChecklistItem(checkInput.dataset.check, checkInput.checked);
   });
 }
 
-function bindProgress() {
-  const bar = document.getElementById("pageProgress");
-  const update = () => {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const ratio = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-    bar.style.width = `${Math.min(Math.max(ratio, 0), 100)}%`;
-  };
+function updateProgress() {
+  if (!dom.pageProgress) return;
+  progressFrame = 0;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const ratio = scrollable > 0 ? Math.min(Math.max(window.scrollY / scrollable, 0), 1) : 0;
+  dom.pageProgress.style.transform = `scaleX(${ratio})`;
+}
 
-  update();
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
+function queueProgressUpdate() {
+  if (progressFrame) return;
+  progressFrame = window.requestAnimationFrame(updateProgress);
+}
+
+function bindProgress() {
+  updateProgress();
+  window.addEventListener("scroll", queueProgressUpdate, { passive: true });
+  window.addEventListener("resize", queueProgressUpdate, { passive: true });
 }
 
 function bindMobileSectionObserver() {
@@ -850,38 +1194,47 @@ function bindMobileSectionObserver() {
   const observer = new IntersectionObserver(
     (entries) => {
       if (!isMobileLayout()) return;
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      let nextPage = "";
+      let highestRatio = 0;
 
-      if (!visible) return;
-      const page = visible.target.dataset.pagePanel;
-      if (!page || page === state.page) return;
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || entry.intersectionRatio <= highestRatio) return;
+        highestRatio = entry.intersectionRatio;
+        nextPage = entry.target.dataset.pagePanel || "";
+      });
 
-      state.page = page;
-      localStorage.setItem(STORAGE_KEYS.page, page);
+      if (!nextPage || nextPage === state.page) return;
+      state.page = nextPage;
+      localStorage.setItem(STORAGE_KEYS.page, nextPage);
       syncPageNavigation();
       updateDocumentTitle();
     },
     {
-      threshold: [0.2, 0.4, 0.6],
-      rootMargin: "-10% 0px -50% 0px",
+      threshold: [0.25, 0.5, 0.75],
+      rootMargin: "-12% 0px -45% 0px",
     }
   );
 
   sections.forEach((section) => observer.observe(section));
 }
 
-function bindResize() {
-  window.addEventListener("resize", () => {
+function queueNavigationSync() {
+  if (resizeFrame) return;
+  resizeFrame = window.requestAnimationFrame(() => {
+    resizeFrame = 0;
     syncPageNavigation();
+    updateProgress();
   });
 }
 
+function bindResize() {
+  window.addEventListener("resize", queueNavigationSync, { passive: true });
+}
+
+cacheDom();
 renderAll();
-bindControls();
-bindChecklist();
-bindPageNavigation();
+bindUIEvents();
+syncControls();
 syncPageNavigation();
 bindProgress();
 bindMobileSectionObserver();

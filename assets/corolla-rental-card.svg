@@ -1,0 +1,33 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="44" fill="url(#bg)"/>
+  <ellipse cx="229" cy="144" rx="266" ry="144" fill="#E7D0BF" fill-opacity="0.72"/>
+  <ellipse cx="960" cy="118" rx="232" ry="124" fill="#BFD4DD" fill-opacity="0.78"/>
+  <path d="M0 506C112 479 233 470 345 488C494 513 571 573 710 580C863 587 1031 519 1200 510V720H0V506Z" fill="url(#sea)"/>
+  <path d="M188 447C211 372 274 322 377 298H648C718 298 777 319 827 361L913 434C932 450 925 479 899 479H237C203 479 177 480 188 447Z" fill="#F7F7F4"/>
+  <path d="M373 306H643C699 306 747 323 788 358L833 396H313L343 337C350 321 360 306 373 306Z" fill="#FBFBF8"/>
+  <path d="M389 324H626C668 324 705 336 738 360L776 388H347L369 345C374 336 381 329 389 324Z" fill="#87AFC0"/>
+  <rect x="314" y="402" width="519" height="24" rx="12" fill="#DCE8ED"/>
+  <circle cx="347" cy="492" r="71" fill="#384349"/>
+  <circle cx="347" cy="492" r="40" fill="#C9D4D9"/>
+  <circle cx="779" cy="492" r="71" fill="#384349"/>
+  <circle cx="779" cy="492" r="40" fill="#C9D4D9"/>
+  <path d="M282 425H228C213 425 201 437 201 452V459C201 470 210 479 221 479H282V425Z" fill="#F4F4F0"/>
+  <path d="M836 425H911C927 425 940 438 940 454V458C940 470 930 479 919 479H836V425Z" fill="#F4F4F0"/>
+  <path d="M325 426H806" stroke="#CAD7DD" stroke-width="6" stroke-linecap="round"/>
+  <path d="M355 336H474" stroke="#F5F8FA" stroke-width="5" stroke-linecap="round"/>
+  <path d="M556 336H681" stroke="#F5F8FA" stroke-width="5" stroke-linecap="round"/>
+  <path d="M100 586C214 572 338 570 435 583C552 599 630 630 754 629C894 628 1018 588 1125 580" stroke="#E9F5F8" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <text x="102" y="122" fill="#4C4946" font-family="Manrope, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.08em">MELBOURNE ROAD SETUP</text>
+  <text x="102" y="176" fill="#766E68" font-family="Noto Serif TC, serif" font-size="28">Toyota Corolla or similar · Sixt rental</text>
+  <defs>
+    <linearGradient id="bg" x1="600" y1="0" x2="600" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAF4ED"/>
+      <stop offset="0.56" stop-color="#F4ECE4"/>
+      <stop offset="1" stop-color="#DCEBF0"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="600" y1="506" x2="600" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7FA8B9"/>
+      <stop offset="1" stop-color="#5F8EA3"/>
+    </linearGradient>
+  </defs>
+</svg>
