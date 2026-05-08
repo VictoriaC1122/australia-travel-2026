@@ -170,16 +170,16 @@ const data = {
       value: { "zh-Hant": "6 天 5 夜", en: "6 days / 5 nights" },
     },
     {
-      label: { "zh-Hant": "進出城市", en: "Flight pattern" },
-      value: { "zh-Hant": "墨爾本進、雪梨出", en: "Into Melbourne, out of Sydney" },
+      label: { "zh-Hant": "住宿", en: "Hotels" },
+      value: { "zh-Hant": "Dorsett Melbourne + 索菲特達令港", en: "Dorsett Melbourne + Sofitel Darling Harbour" },
     },
     {
       label: { "zh-Hant": "中段移動", en: "Mid-trip move" },
-      value: { "zh-Hant": "建議 5/27 飛雪梨", en: "Fly to Sydney on May 27" },
+      value: { "zh-Hant": "JQ514 5/27 13:00", en: "JQ514 on May 27 at 13:00" },
     },
     {
-      label: { "zh-Hant": "行程風格", en: "Travel style" },
-      value: { "zh-Hant": "舒服散步 + 海岸 + 城市", en: "Relaxed city + coast + photos" },
+      label: { "zh-Hant": "墨爾本交通", en: "Melbourne transport" },
+      value: { "zh-Hant": "已租 Toyota Corolla", en: "Toyota Corolla booked" },
     },
   ],
   keyInfo: [
@@ -190,8 +190,8 @@ const data = {
     },
     {
       label: { "zh-Hant": "最推薦移動日", en: "Best move day" },
-      value: { "zh-Hant": "5/27 墨爾本 → 雪梨", en: "May 27 Melbourne to Sydney" },
-      note: { "zh-Hant": "用中午前班機最順", en: "A late-morning flight works best" },
+      value: { "zh-Hant": "5/27 13:00 墨爾本 → 雪梨", en: "May 27, 13:00 Melbourne to Sydney" },
+      note: { "zh-Hant": "Jetstar JQ514，14:25 抵達", en: "Jetstar JQ514, arriving at 14:25" },
     },
     {
       label: { "zh-Hant": "回程起飛", en: "Departure" },
@@ -202,18 +202,18 @@ const data = {
   overviewRecommendations: [
     {
       tag: { "zh-Hant": "墨爾本", en: "Melbourne" },
-      title: { "zh-Hant": "市區 + 巷弄咖啡排一天半", en: "Give the CBD and laneways 1.5 days" },
-      desc: { "zh-Hant": "剛落地先走輕鬆版，隔天再把維多利亞市場、巷弄和河岸串起來。", en: "Start gently after landing, then use the next full day for markets, laneways, and the river." },
+      title: { "zh-Hant": "已住 Dorsett Melbourne 三晚", en: "Three nights at Dorsett Melbourne" },
+      desc: { "zh-Hant": "5/24 到 5/27 住在市區，第一段行程可以很穩，不需要再搬行李。", en: "You are set in the city from May 24 to May 27, so the first part of the trip can stay stable." },
     },
     {
       tag: { "zh-Hant": "郊區日", en: "Scenic day" },
-      title: { "zh-Hant": "大洋路或企鵝島擇一", en: "Choose Great Ocean Road or Phillip Island" },
-      desc: { "zh-Hant": "6 天行程不建議兩個都塞，選一個代表性日遊會更舒服。", en: "For a 6-day trip, one signature day trip is the sweet spot." },
+      title: { "zh-Hant": "有租車，墨爾本可改自駕版", en: "The Melbourne segment can be self-drive now" },
+      desc: { "zh-Hant": "你 5/24 11:00 就在墨爾本機場取車，市區、海岸或近郊的自由度會比原本高很多。", en: "With an airport pickup at 11:00 on May 24, Melbourne becomes much more flexible for city and scenic plans." },
     },
     {
       tag: { "zh-Hant": "雪梨", en: "Sydney" },
-      title: { "zh-Hant": "港灣和海灘各留半天", en: "Keep half a day for harbor and half for beach" },
-      desc: { "zh-Hant": "歌劇院、岩石區和邦代步道的節奏分開，拍照效果也比較好。", en: "Split the harbor and Bondi walk into separate windows for a better pace and better photos." },
+      title: { "zh-Hant": "已住雪梨達令港索菲特 2 晚", en: "Two nights at Sofitel Sydney Darling Harbour" },
+      desc: { "zh-Hant": "5/27 到 5/29 住達令港，最後兩天可以把港灣、購物和回機場節奏排得很順。", en: "Staying at Darling Harbour from May 27 to May 29 makes the final two days flow cleanly." },
     },
   ],
   importantAlerts: [
@@ -223,25 +223,29 @@ const data = {
     },
     {
       title: { "zh-Hant": "5/27 建議直接飛，不建議火車", en: "Fly on May 27 instead of taking the train" },
-      desc: { "zh-Hant": "墨爾本到雪梨火車太久，6 天行程會吃掉太多可玩時間。", en: "The train takes too long and would consume too much of a short trip." },
+      desc: { "zh-Hant": "這段現在已經有 JQ514，2026/05/27 13:00 從 MEL 起飛、14:25 抵達 SYD，時間很剛好。", en: "This leg is now set on JQ514, departing MEL at 13:00 on May 27, 2026 and arriving SYD at 14:25." },
     },
     {
       title: { "zh-Hant": "5/29 回程很晚，白天仍可排海邊或港灣", en: "Your late return flight keeps the last day usable" },
       desc: { "zh-Hant": "只要預留傍晚回飯店拿行李、再去機場即可。", en: "You only need to leave time in the evening to collect luggage and head to the airport." },
     },
+    {
+      title: { "zh-Hant": "租車已訂但要留意市區停車", en: "The rental car is booked, but city parking matters" },
+      desc: { "zh-Hant": "墨爾本市中心停車費不便宜，如果 5/24 想先輕鬆一點，建議確認飯店停車或只把車留給郊區日。", en: "CBD parking in Melbourne is not cheap, so check hotel parking and consider using the car mainly for the scenic day." },
+    },
   ],
   overviewNotes: [
     {
       title: { "zh-Hant": "先慢後亮", en: "Soft opening, stronger finish" },
-      desc: { "zh-Hant": "剛到澳洲先給墨爾本輕鬆城市感，後面再把雪梨最上鏡的海港和海岸收尾。", en: "Melbourne handles jet lag gently, while Sydney gives the trip a photogenic finish." },
+      desc: { "zh-Hant": "剛到澳洲先進 Dorsett Melbourne 放行李，前段走城市和自駕彈性，後段再用雪梨港灣收尾。", en: "Start by settling into Dorsett Melbourne, keep Melbourne flexible with the car, then finish with Sydney harbour." },
     },
     {
       title: { "zh-Hant": "城際移動放在第 4 天", en: "Move cities on day four" },
-      desc: { "zh-Hant": "這樣兩邊都能住得完整，不會有其中一座城市只踩到表面。", en: "This keeps both cities feeling complete instead of shallow." },
+      desc: { "zh-Hant": "你現在兩邊飯店都已經對上 JQ514 的節奏，5/27 中午飛最順。", en: "Your hotel dates now line up cleanly with the midday JQ514 transfer on May 27." },
     },
     {
-      title: { "zh-Hant": "預算先抓舒適版本", en: "Budget for comfort first" },
-      desc: { "zh-Hant": "澳洲住宿和餐費波動大，先抓高一點，之後只會更輕鬆。", en: "Australian hotel and dining costs swing a lot, so a comfortable estimate is the safest baseline." },
+      title: { "zh-Hant": "預算可以改成半實際版", en: "The budget can now be half actual, half estimated" },
+      desc: { "zh-Hant": "墨爾本飯店、雪梨飯店與租車都有實際金額，剩餐食、門票和 Jetstar 票價再保留浮動。", en: "Both hotels and the car now have real costs, leaving meals, tickets, and the Jetstar fare as the main flexible items." },
     },
   ],
   flights: [
@@ -269,47 +273,51 @@ const data = {
     },
     {
       title: { "zh-Hant": "中段飛雪梨最省時間", en: "A domestic flight is the cleanest city switch" },
-      desc: { "zh-Hant": "抓 5/27 上午或中午飛，抵達後還有半天可以排雪梨歌劇院或環形碼頭。", en: "Book a flight on May 27 in the late morning or around noon, and you still keep half a day in Sydney." },
+      desc: { "zh-Hant": "現在已訂 JQ514：2026/05/27 13:00 墨爾本起飛、14:25 抵達雪梨，第 4 航廈飛第 2 航廈。", en: "The domestic leg is now booked on JQ514: departing Melbourne at 13:00 and arriving Sydney at 14:25, Terminal 4 to Terminal 2." },
     },
     {
       title: { "zh-Hant": "最後一天保留機場緩衝", en: "Protect the airport buffer on the final day" },
       desc: { "zh-Hant": "雪梨國際線建議提早 3 小時到，5/29 晚上回機場不要拖太晚。", en: "Sydney international departures are more comfortable with a 3-hour buffer, so do not cut the evening too fine on May 29." },
     },
+    {
+      title: { "zh-Hant": "墨爾本租車已排在落地後", en: "The Melbourne car pickup is right after arrival" },
+      desc: { "zh-Hant": "2026/05/24 11:00 於墨爾本機場取 Toyota Corolla 或同級車，這會影響第一天是否直接自駕。", en: "A Toyota Corolla or similar is set for pickup at Melbourne Airport at 11:00 on May 24, which affects whether you drive straight away on arrival day." },
+    },
   ],
   stayPlan: {
-    title: { "zh-Hant": "建議住宿分配", en: "Suggested stay split" },
+    title: { "zh-Hant": "已訂住宿分配", en: "Booked stay split" },
     subtitle: {
-      "zh-Hant": "先把城市骨架排好，等你補上實際飯店後再替換地址與入住資訊。",
-      en: "Set the city structure first, then swap in real hotel details later.",
+      "zh-Hant": "這次兩邊住宿都已經補齊，網站可以直接以實際訂單內容呈現。",
+      en: "Both city stays are now known, so the site can show the actual booking setup.",
     },
     chips: [
-      { "zh-Hant": "墨爾本 3 晚", en: "3 nights Melbourne" },
-      { "zh-Hant": "雪梨 2 晚", en: "2 nights Sydney" },
-      { "zh-Hant": "兩間飯店就好", en: "Only two hotels" },
+      { "zh-Hant": "Dorsett Melbourne", en: "Dorsett Melbourne" },
+      { "zh-Hant": "Sofitel Sydney Darling Harbour", en: "Sofitel Sydney Darling Harbour" },
+      { "zh-Hant": "兩間飯店已接好日期", en: "Dates already align" },
     ],
     notes: [
       {
-        title: { "zh-Hant": "墨爾本住宿區", en: "Melbourne base" },
-        value: { "zh-Hant": "CBD / Southern Cross 附近", en: "CBD / near Southern Cross" },
+        title: { "zh-Hant": "墨爾本", en: "Melbourne" },
+        value: { "zh-Hant": "Dorsett Melbourne｜5/24 - 5/27｜NT$16,339", en: "Dorsett Melbourne | May 24 - May 27 | NT$16,339" },
       },
       {
-        title: { "zh-Hant": "雪梨住宿區", en: "Sydney base" },
-        value: { "zh-Hant": "CBD / Circular Quay / Town Hall", en: "CBD / Circular Quay / Town Hall" },
+        title: { "zh-Hant": "雪梨", en: "Sydney" },
+        value: { "zh-Hant": "索菲特達令港｜5/27 - 5/29｜NT$18,621", en: "Sofitel Darling Harbour | May 27 - May 29 | NT$18,621" },
       },
       {
-        title: { "zh-Hant": "中段交通", en: "Intercity move" },
-        value: { "zh-Hant": "澳洲國內線飛機", en: "Domestic flight" },
+        title: { "zh-Hant": "房型 / 位置", en: "Room and location" },
+        value: { "zh-Hant": "墨爾本雙床陽台房｜雪梨達令港", en: "Melbourne twin with balcony | Sydney Darling Harbour" },
       },
     ],
   },
   cityRhythm: [
     {
       title: { "zh-Hant": "墨爾本適合慢一點", en: "Melbourne likes a slower pace" },
-      desc: { "zh-Hant": "咖啡、巷弄、河岸和市場都靠近，住市中心會很省力。", en: "Coffee stops, laneways, river walks, and the market all stay easy from a central base." },
+      desc: { "zh-Hant": "Dorsett Melbourne 讓市區行程很好排，但因為這次有租車，要額外留意停車和還車節奏。", en: "Dorsett Melbourne is great for the city, but the rental car adds parking and return timing to think about." },
     },
     {
       title: { "zh-Hant": "雪梨景點更像一鏡到底", en: "Sydney rewards clean visual blocks" },
-      desc: { "zh-Hant": "把港灣和海灘拆開排，照片和腳程都更舒服。", en: "Separating the harbor and beach days improves both energy and photography." },
+      desc: { "zh-Hant": "住達令港很適合把歌劇院港灣、QVB 和最後採買拆成兩段慢慢走。", en: "A Darling Harbour base works nicely for splitting the harbour, QVB, and final shopping into separate pockets." },
     },
     {
       title: { "zh-Hant": "這樣回程壓力最小", en: "This also makes departure easier" },
@@ -319,75 +327,75 @@ const data = {
   moveDayTimeline: [
     {
       time: "09:00",
-      title: { "zh-Hant": "墨爾本退房", en: "Check out in Melbourne" },
-      desc: { "zh-Hant": "早餐後慢慢出門，保留市區到機場交通緩衝。", en: "Head out after breakfast and keep airport transfer time comfortable." },
+      title: { "zh-Hant": "墨爾本退房 / 還車", en: "Check out and return the car in Melbourne" },
+      desc: { "zh-Hant": "如果租車一路用到 5/27，早上先完成還車再進航廈會最穩。", en: "If you keep the car through May 27, returning it before entering the terminal is the cleanest flow." },
     },
     {
-      time: "12:00",
+      time: "13:00",
       title: { "zh-Hant": "飛往雪梨", en: "Fly to Sydney" },
-      desc: { "zh-Hant": "中午前後班機最剛好，不會太早起也不會吃掉晚上。", en: "A flight around noon is the best balance." },
+      desc: { "zh-Hant": "Jetstar JQ514，MEL 13:00 起飛，14:25 抵達 SYD。", en: "Jetstar JQ514 departs MEL at 13:00 and lands in SYD at 14:25." },
     },
     {
-      time: "16:00",
+      time: "16:30",
       title: { "zh-Hant": "雪梨入住後散步", en: "Check in and take an easy walk" },
-      desc: { "zh-Hant": "可先去 Circular Quay、The Rocks 或歌劇院外圍。", en: "Start with Circular Quay, The Rocks, or the Opera House exterior." },
+      desc: { "zh-Hant": "先到索菲特達令港放行李，再看體力去港灣或達令港周邊。", en: "Drop bags at Sofitel Darling Harbour first, then decide between the harbour or the Darling Harbour area." },
     },
   ],
   moveOptions: [
     {
-      title: { "zh-Hant": "Jetstar / Virgin / Qantas", en: "Jetstar / Virgin / Qantas" },
-      duration: { "zh-Hant": "約 1.5 小時", en: "About 1.5 hrs" },
-      start: { "zh-Hant": "墨爾本機場", en: "Melbourne Airport" },
-      destination: { "zh-Hant": "雪梨機場", en: "Sydney Airport" },
-      cost: { "zh-Hant": "常見 A$90 - A$180 / 人", en: "Often A$90 - A$180 pp" },
-      desc: { "zh-Hant": "最適合你這種 6 天行程，時間效率遠高於火車。", en: "Best fit for a 6-day trip and far more time-efficient than rail." },
+      title: { "zh-Hant": "Jetstar JQ514", en: "Jetstar JQ514" },
+      duration: { "zh-Hant": "1 小時 25 分", en: "1 hr 25 min" },
+      start: { "zh-Hant": "MEL 第 4 航廈", en: "MEL Terminal 4" },
+      destination: { "zh-Hant": "SYD 國內 T2", en: "SYD Domestic T2" },
+      cost: { "zh-Hant": "票價未補，但班機已確認", en: "Fare not added yet, flight confirmed" },
+      desc: { "zh-Hant": "這段已經不是建議，而是實際訂到的中段班機。", en: "This is no longer a suggestion. It is the actual booked intercity flight." },
     },
     {
-      title: { "zh-Hant": "火車", en: "Train" },
-      duration: { "zh-Hant": "超過 10 小時", en: "10+ hrs" },
-      start: { "zh-Hant": "墨爾本市區", en: "Melbourne city" },
-      destination: { "zh-Hant": "雪梨市區", en: "Sydney city" },
-      cost: { "zh-Hant": "不一定更便宜", en: "Not always cheaper" },
-      desc: { "zh-Hant": "如果不是專程想體驗，不建議把這麼長的時間放進短旅行。", en: "Only worth it if the train itself is part of the goal." },
+      title: { "zh-Hant": "Sixt 租車", en: "Sixt rental car" },
+      duration: { "zh-Hant": "5/24 11:00 取車", en: "Pickup on May 24, 11:00" },
+      start: { "zh-Hant": "墨爾本機場", en: "Melbourne Airport" },
+      destination: { "zh-Hant": "Toyota Corolla 或同級", en: "Toyota Corolla or similar" },
+      cost: { "zh-Hant": "NT$5,468｜付款待補", en: "NT$5,468 | payment pending" },
+      desc: { "zh-Hant": "這台車最適合留給近郊、自駕或 5/26 的郊區日，不一定要整段市區都開。", en: "The car is most useful for suburbs, scenic driving, or the day-trip slot, rather than for all CBD movement." },
     },
   ],
   itinerary: [
     {
       day: { "zh-Hant": "Day 1", en: "Day 1" },
       date: "2026-05-24",
-      plan: { "zh-Hant": "落地墨爾本，市區暖身", en: "Arrive in Melbourne and ease in" },
-      location: { "zh-Hant": "Southbank / Flinders Street / Hosier Lane", en: "Southbank / Flinders Street / Hosier Lane" },
-      costAud: 120,
-      transport: { "zh-Hant": "機場進市區 + 市區步行", en: "Airport transfer + city walking" },
-      reminder: { "zh-Hant": "晚上早點休息，隔天再排完整城市日。", en: "Rest early and use the next day for the full city plan." },
+      plan: { "zh-Hant": "落地墨爾本，取車後入住 Dorsett Melbourne", en: "Arrive in Melbourne, pick up the car, and check in at Dorsett Melbourne" },
+      location: { "zh-Hant": "墨爾本機場 / Dorsett Melbourne / Southbank", en: "Melbourne Airport / Dorsett Melbourne / Southbank" },
+      costAud: 190,
+      transport: { "zh-Hant": "機場取車 + 市區移動", en: "Airport car pickup + city movement" },
+      reminder: { "zh-Hant": "如果當天累，就只留 Southbank、Flinders Street 和晚餐，不要硬塞景點。", en: "If you feel tired, keep it to Southbank, Flinders Street, and dinner." },
       open: true,
     },
     {
       day: { "zh-Hant": "Day 2", en: "Day 2" },
       date: "2026-05-25",
-      plan: { "zh-Hant": "墨爾本巷弄、咖啡、市場日", en: "Melbourne laneways, coffee, and market day" },
-      location: { "zh-Hant": "Queen Victoria Market / Degraves Street / Fitzroy", en: "Queen Victoria Market / Degraves Street / Fitzroy" },
+      plan: { "zh-Hant": "墨爾本市區、巷弄、咖啡與市場日", en: "Melbourne CBD, laneways, coffee, and market day" },
+      location: { "zh-Hant": "Queen Victoria Market / Degraves Street / Fitzroy / Carlton", en: "Queen Victoria Market / Degraves Street / Fitzroy / Carlton" },
       costAud: 180,
-      transport: { "zh-Hant": "電車 + 步行", en: "Tram + walking" },
-      reminder: { "zh-Hant": "午餐與咖啡排漂亮一點，這天很適合拍街景。", en: "Make lunch and coffee choices count. This is your best urban photo day." },
+      transport: { "zh-Hant": "步行為主，車盡量少開", en: "Mostly walking, with minimal driving" },
+      reminder: { "zh-Hant": "有車不代表市區一定要開，這天反而適合把車停好慢慢走。", en: "Having a car does not mean you should drive the CBD all day." },
     },
     {
       day: { "zh-Hant": "Day 3", en: "Day 3" },
       date: "2026-05-26",
-      plan: { "zh-Hant": "大洋路一日遊或企鵝島二選一", en: "Choose Great Ocean Road or Phillip Island" },
-      location: { "zh-Hant": "維州郊區一日遊", en: "A signature Victoria day trip" },
-      costAud: 320,
-      transport: { "zh-Hant": "參加一日團最省心", en: "A guided day tour is easiest" },
-      reminder: { "zh-Hant": "6 天行程只排一個遠程日遊最剛好。", en: "One long day trip is the sweet spot for this trip length." },
+      plan: { "zh-Hant": "最適合安排自駕郊區日", en: "Best day for the self-drive scenic plan" },
+      location: { "zh-Hant": "大洋路 / 莫寧頓 / Yarra Valley 三選一", en: "Great Ocean Road / Mornington / Yarra Valley" },
+      costAud: 360,
+      transport: { "zh-Hant": "租車自駕", en: "Self-drive with the rental car" },
+      reminder: { "zh-Hant": "既然有 Corolla，這天比跟團更值得做成自駕版。", en: "Since you have the Corolla, this day is a stronger fit for self-driving than a guided tour." },
     },
     {
       day: { "zh-Hant": "Day 4", en: "Day 4" },
       date: "2026-05-27",
-      plan: { "zh-Hant": "飛往雪梨，下午看港灣", en: "Fly to Sydney and spend the afternoon by the harbor" },
-      location: { "zh-Hant": "Circular Quay / Sydney Opera House / The Rocks", en: "Circular Quay / Sydney Opera House / The Rocks" },
-      costAud: 240,
-      transport: { "zh-Hant": "國內線飛機 + 市區火車", en: "Domestic flight + airport train" },
-      reminder: { "zh-Hant": "這天下午盡量只放港灣，不要再塞海灘。", en: "Keep this afternoon harbor-only and save the beach for tomorrow." },
+      plan: { "zh-Hant": "還車後搭 JQ514 飛雪梨，入住索菲特達令港", en: "Return the car, fly to Sydney on JQ514, and check in at Sofitel Darling Harbour" },
+      location: { "zh-Hant": "MEL T4 / SYD T2 / Darling Harbour", en: "MEL T4 / SYD T2 / Darling Harbour" },
+      costAud: 230,
+      transport: { "zh-Hant": "租車還車 + 國內線 + 雪梨市區交通", en: "Car return + domestic flight + Sydney city transfer" },
+      reminder: { "zh-Hant": "這天下午只要把達令港和港灣排輕鬆版就很夠。", en: "A light Darling Harbour and harbour walk is enough for this afternoon." },
     },
     {
       day: { "zh-Hant": "Day 5", en: "Day 5" },
@@ -402,7 +410,7 @@ const data = {
       day: { "zh-Hant": "Day 6", en: "Day 6" },
       date: "2026-05-29",
       plan: { "zh-Hant": "雪梨最後半天，傍晚回飯店取行李後去機場", en: "Final Sydney half-day, then collect luggage and head to the airport" },
-      location: { "zh-Hant": "QVB / Hyde Park / Darling Harbour 或自由採買", en: "QVB / Hyde Park / Darling Harbour or flexible shopping" },
+      location: { "zh-Hant": "QVB / Hyde Park / Darling Harbour / 雪梨機場", en: "QVB / Hyde Park / Darling Harbour / Sydney Airport" },
       costAud: 150,
       transport: { "zh-Hant": "市區步行 + 機場線", en: "City walking + airport train" },
       reminder: { "zh-Hant": "國際線晚班機仍建議預留 3 小時報到。", en: "Keep a 3-hour buffer for the late-night international departure." },
@@ -413,26 +421,35 @@ const data = {
       item: { "zh-Hant": "國際機票", en: "International flights" },
       aud: 1000,
       note: { "zh-Hant": "先用兩人約 NT$20,700 換算", en: "Assumes about NT$20,700 total for two" },
+      booked: true,
     },
     {
       item: { "zh-Hant": "墨爾本住宿 3 晚", en: "Melbourne stay, 3 nights" },
-      aud: 660,
-      note: { "zh-Hant": "中段舒適型雙人房", en: "Comfort mid-range double room" },
+      aud: 789.3,
+      note: { "zh-Hant": "Dorsett Melbourne｜5/24 - 5/27｜NT$16,339", en: "Dorsett Melbourne | May 24 - May 27 | NT$16,339" },
+      booked: true,
     },
     {
       item: { "zh-Hant": "雪梨住宿 2 晚", en: "Sydney stay, 2 nights" },
-      aud: 520,
-      note: { "zh-Hant": "雪梨通常比墨爾本稍貴", en: "Sydney is usually a bit pricier" },
+      aud: 899.6,
+      note: { "zh-Hant": "索菲特達令港｜5/27 - 5/29｜NT$18,621", en: "Sofitel Darling Harbour | May 27 - May 29 | NT$18,621" },
+      booked: true,
     },
     {
       item: { "zh-Hant": "墨爾本 → 雪梨國內線", en: "Melbourne to Sydney domestic flight" },
       aud: 260,
-      note: { "zh-Hant": "兩人抓中間值", en: "Mid-range estimate for two" },
+      note: { "zh-Hant": "JQ514 已訂，但截圖未顯示票價，先保留估算", en: "JQ514 is booked, but the fare was not shown in the screenshot, so this stays estimated" },
     },
     {
-      item: { "zh-Hant": "機場 / 市區交通", en: "Airport and city transport" },
-      aud: 150,
-      note: { "zh-Hant": "含機場快線、電車、巴士", en: "Includes airport train, tram, and buses" },
+      item: { "zh-Hant": "墨爾本租車", en: "Melbourne rental car" },
+      aud: 264.2,
+      note: { "zh-Hant": "Toyota Corolla 或同級｜NT$5,468｜付款待補", en: "Toyota Corolla or similar | NT$5,468 | payment pending" },
+      booked: true,
+    },
+    {
+      item: { "zh-Hant": "機場 / 市區交通與停車", en: "Airport, city transport, and parking" },
+      aud: 180,
+      note: { "zh-Hant": "含雪梨機場線、墨爾本停車或加油彈性", en: "Includes Sydney airport rail plus Melbourne parking or fuel cushion" },
     },
     {
       item: { "zh-Hant": "餐食", en: "Food" },
@@ -465,6 +482,7 @@ const data = {
         { id: "mel-hotel", title: { "zh-Hant": "墨爾本飯店", en: "Melbourne hotel" }, desc: { "zh-Hant": "鎖定 5/24 到 5/27 的住宿。", en: "Lock in the stay from May 24 to May 27." } },
         { id: "syd-hotel", title: { "zh-Hant": "雪梨飯店", en: "Sydney hotel" }, desc: { "zh-Hant": "鎖定 5/27 到 5/29 的住宿。", en: "Lock in the stay from May 27 to May 29." } },
         { id: "domestic", title: { "zh-Hant": "澳洲內陸段機票", en: "Domestic Australia flight" }, desc: { "zh-Hant": "越早訂通常越划算。", en: "Usually cheaper when booked earlier." } },
+        { id: "car", title: { "zh-Hant": "墨爾本租車", en: "Melbourne rental car" }, desc: { "zh-Hant": "確認取車、還車與駕照文件。", en: "Confirm pickup, return, and driving documents." } },
       ],
     },
     {
@@ -473,6 +491,7 @@ const data = {
         { id: "layer", title: { "zh-Hant": "薄外套", en: "Light layer" }, desc: { "zh-Hant": "5 月澳洲入秋，早晚會涼。", en: "Australia is in autumn in May, so mornings and nights can feel cool." } },
         { id: "shoes", title: { "zh-Hant": "好走的鞋", en: "Walking shoes" }, desc: { "zh-Hant": "雪梨海岸步道會走比較久。", en: "The Sydney coastal walk is easier with good shoes." } },
         { id: "adapter", title: { "zh-Hant": "澳規轉接頭", en: "AU travel adapter" }, desc: { "zh-Hant": "澳洲插座規格和台灣不同。", en: "Australia uses a different plug type from Taiwan." } },
+        { id: "license", title: { "zh-Hant": "駕照 / 國際駕照", en: "Driver's license / IDP" }, desc: { "zh-Hant": "既然有租車，這個不要漏。", en: "Do not forget this if you are driving." } },
       ],
     },
   ],
@@ -481,13 +500,17 @@ const data = {
       title: { "zh-Hant": "航班", en: "Flights" },
       links: [
         { label: { "zh-Hant": "華航官網", en: "China Airlines" }, href: "https://www.china-airlines.com/" },
+        { label: { "zh-Hant": "Jetstar 管理訂單", en: "Jetstar manage booking" }, href: "https://booking.jetstar.com/" },
         { label: { "zh-Hant": "墨爾本機場", en: "Melbourne Airport" }, href: "https://www.melbourneairport.com.au/" },
         { label: { "zh-Hant": "雪梨機場", en: "Sydney Airport" }, href: "https://www.sydneyairport.com.au/" },
       ],
     },
     {
-      title: { "zh-Hant": "城市交通", en: "City transport" },
+      title: { "zh-Hant": "住宿與交通", en: "Hotels and transport" },
       links: [
+        { label: { "zh-Hant": "Dorsett Melbourne", en: "Dorsett Melbourne" }, href: "https://www.dorsetthotels.com/dorsett-melbourne/" },
+        { label: { "zh-Hant": "Sofitel Sydney Darling Harbour", en: "Sofitel Sydney Darling Harbour" }, href: "https://all.accor.com/hotel/8757/index.en.shtml" },
+        { label: { "zh-Hant": "Sixt 澳洲", en: "Sixt Australia" }, href: "https://www.sixt.com.au/" },
         { label: { "zh-Hant": "PTV 墨爾本交通", en: "PTV Melbourne" }, href: "https://www.ptv.vic.gov.au/" },
         { label: { "zh-Hant": "Transport NSW", en: "Transport NSW" }, href: "https://transportnsw.info/" },
       ],
@@ -705,7 +728,7 @@ function renderItinerary() {
 
 function renderBudget() {
   const totalAud = data.budgetRows.reduce((sum, item) => sum + item.aud, 0);
-  const bookedAud = data.budgetRows[0].aud;
+  const bookedAud = data.budgetRows.filter((item) => item.booked).reduce((sum, item) => sum + item.aud, 0);
   const perPersonAud = totalAud / 2;
   const flexibleAud = totalAud - bookedAud;
   document.getElementById("budgetSelectedHeading").textContent = state.currency;
