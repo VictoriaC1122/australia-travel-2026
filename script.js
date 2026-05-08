@@ -282,7 +282,7 @@ const data = {
       {
         name: { "zh-Hant": "Dorsett Melbourne", en: "Dorsett Melbourne" },
         dates: { "zh-Hant": "5/24 - 5/27", en: "May 24 - May 27" },
-        price: { "zh-Hant": "NT$16,339", en: "NT$16,339" },
+        priceAud: 789.3,
         note: { "zh-Hant": "市中心 base，前半段住這裡最穩。", en: "A steady central base for the first half of the trip." },
         image: "https://www.dorsetthotels.com/images/dorsett-melbourne/gallery/exterior/exteriormagic-thumb.webp",
         href: "https://www.dorsetthotels.com/dorsett-melbourne/",
@@ -290,15 +290,15 @@ const data = {
       {
         name: { "zh-Hant": "Sofitel Sydney Darling Harbour", en: "Sofitel Sydney Darling Harbour" },
         dates: { "zh-Hant": "5/27 - 5/29", en: "May 27 - May 29" },
-        price: { "zh-Hant": "NT$18,621", en: "NT$18,621" },
+        priceAud: 899.6,
         note: { "zh-Hant": "港景很強，最後兩晚收尾會很漂亮。", en: "A strong harbour-view finish for the final two nights." },
         image: "https://www.ahstatic.com/photos/9729_ho_00_p_1024x768.jpg",
         href: "https://all.accor.com/hotel/9729/index.en.shtml",
       },
     ],
     notes: [
-      { title: { "zh-Hant": "墨爾本", en: "Melbourne" }, value: { "zh-Hant": "Dorsett Melbourne｜5/24 - 5/27｜NT$16,339", en: "Dorsett Melbourne | May 24 - May 27 | NT$16,339" } },
-      { title: { "zh-Hant": "雪梨", en: "Sydney" }, value: { "zh-Hant": "索菲特達令港｜5/27 - 5/29｜NT$18,621", en: "Sofitel Darling Harbour | May 27 - May 29 | NT$18,621" } },
+      { title: { "zh-Hant": "墨爾本", en: "Melbourne" }, valuePrefix: { "zh-Hant": "Dorsett Melbourne｜5/24 - 5/27｜", en: "Dorsett Melbourne | May 24 - May 27 | " }, aud: 789.3 },
+      { title: { "zh-Hant": "雪梨", en: "Sydney" }, valuePrefix: { "zh-Hant": "索菲特達令港｜5/27 - 5/29｜", en: "Sofitel Darling Harbour | May 27 - May 29 | " }, aud: 899.6 },
       { title: { "zh-Hant": "房型 / 位置", en: "Room and location" }, value: { "zh-Hant": "墨爾本雙床陽台房｜雪梨達令港", en: "Melbourne twin with balcony | Sydney Darling Harbour" } },
     ],
   },
@@ -319,7 +319,8 @@ const data = {
       duration: { "zh-Hant": "5/24 11:00 取車", en: "Pickup on May 24, 11:00" },
       start: { "zh-Hant": "墨爾本機場", en: "Melbourne Airport" },
       destination: { "zh-Hant": "Toyota Corolla 或同級", en: "Toyota Corolla or similar" },
-      cost: { "zh-Hant": "NT$5,468｜已付款", en: "NT$5,468 | paid" },
+      costAud: 264.2,
+      costSuffix: { "zh-Hant": "｜已付款", en: " | paid" },
       desc: { "zh-Hant": "這台車很適合拿來跑近郊、自駕景點或 5/26 的郊區日，市區段則可以保留步行節奏。", en: "The car is a good match for nearby scenic plans, suburbs, or the dedicated drive day while the city sections can stay walkable." },
       image: "./assets/corolla-rental-card.svg",
       imageAlt: { "zh-Hant": "Toyota Corolla 租車插畫", en: "Toyota Corolla rental illustration" },
@@ -771,6 +772,8 @@ function renderFlights() {
 
 function renderStays() {
   const stay = data.stayPlan;
+  const formatStayLine = (item) => (item.aud ? `${getText(item.valuePrefix)}${formatCurrency(item.aud)}` : getText(item.value));
+  const formatStayCost = (aud, suffix) => `${formatCurrency(aud)}${suffix ? getText(suffix) : ""}`;
   dom.stayPlanCard.innerHTML = `
     <h3>${getText(stay.title)}</h3>
     <p class="budget-original">${getText(stay.subtitle)}</p>
@@ -788,7 +791,8 @@ function renderStays() {
                   <div class="route-title">${getText(hotel.name)}</div>
                   <span class="route-chip">${getText(hotel.dates)}</span>
                 </div>
-                <div class="price-value">${getText(hotel.price)}</div>
+                <div class="price-value">${formatCurrency(hotel.priceAud)}</div>
+                <div class="budget-original">${formatCurrency(hotel.priceAud, "AUD")}</div>
                 <div class="bullet-desc">${getText(hotel.note)}</div>
                 <a class="hotel-spotlight-link" href="${hotel.href}" target="_blank" rel="noreferrer" aria-label="${getText(hotel.name)}">${t[state.lang].openLink}</a>
               </div>
@@ -803,7 +807,8 @@ function renderStays() {
           (item) => `
             <div class="price-row">
               <div class="price-label">${getText(item.title)}</div>
-              <div class="price-value">${getText(item.value)}</div>
+              <div class="price-value">${formatStayLine(item)}</div>
+              ${item.aud ? `<div class="budget-original">${formatCurrency(item.aud, "AUD")}</div>` : ""}
             </div>
           `
         )
@@ -843,7 +848,7 @@ function renderStays() {
           </div>
           <div class="info-line"><span class="info-label">${t[state.lang].fromLabel}</span><span class="info-value">${getText(item.start)}</span></div>
           <div class="info-line"><span class="info-label">${t[state.lang].toLabel}</span><span class="info-value">${getText(item.destination)}</span></div>
-          <div class="info-line"><span class="info-label">${t[state.lang].costCardLabel}</span><span class="info-value">${getText(item.cost)}</span></div>
+          <div class="info-line"><span class="info-label">${t[state.lang].costCardLabel}</span><span class="info-value">${item.costAud ? formatStayCost(item.costAud, item.costSuffix) : getText(item.cost)}</span></div>
           ${item.specs ? `<div class="route-spec-grid">${item.specs
             .map(
               (spec) => `
@@ -1150,6 +1155,7 @@ function updateCurrency(nextCurrency) {
   localStorage.setItem(STORAGE_KEYS.currency, state.currency);
   syncControls();
   renderBudget();
+  renderStays();
   renderItinerary();
 }
 

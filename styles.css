@@ -119,6 +119,7 @@ a {
   z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: 8px;
   margin: 0 auto 10px;
   width: min(100%, 520px);
@@ -127,6 +128,7 @@ a {
 .compact-control {
   display: grid;
   gap: 6px;
+  min-width: 0;
   padding: 9px;
   border-radius: var(--radius-md);
   background: rgba(255, 250, 245, 0.52);
@@ -166,6 +168,7 @@ a {
   color: var(--text-500);
   font-size: 13px;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
   transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
 }
@@ -1184,6 +1187,26 @@ a {
 }
 
 @media (max-width: 767px) {
+  .control-dock {
+    position: relative;
+    z-index: 3;
+    margin-bottom: 12px;
+  }
+
+  .compact-control {
+    padding: 8px;
+  }
+
+  .compact-segment {
+    gap: 4px;
+  }
+
+  .pill-btn {
+    min-height: 34px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
   .summary-card,
   .section-card,
   .content-panel,
@@ -1279,6 +1302,10 @@ a {
 
   .compact-control {
     padding: 8px;
+  }
+
+  .compact-segment {
+    padding: 3px;
   }
 
   .compact-label,
