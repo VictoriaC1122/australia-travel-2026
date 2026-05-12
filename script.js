@@ -1307,23 +1307,38 @@ function renderBudget() {
     button.textContent = t[state.lang][labelKey];
   });
 
-  dom.budgetHighlights.innerHTML = [
+  const budgetHighlights = [
     { label: t[state.lang].totalTripCostLabel, note: t[state.lang].totalTripCostNote, aud: totalAud, primary: true },
     { label: t[state.lang].averageDailyLabel, note: t[state.lang].averageDailyNote, aud: averageDailyAud },
     { label: t[state.lang].perPersonCostLabel, note: t[state.lang].perPersonCostNote, aud: perPersonAud },
     { label: t[state.lang].bookedLabel, note: t[state.lang].bookedNote, aud: bookedAud },
     { label: t[state.lang].flexibleLabel, note: t[state.lang].flexibleNote, aud: flexibleAud },
-  ]
-    .map(
-      (item) => `
-        <article class="budget-highlight-card ${item.primary ? "budget-highlight-primary" : ""}">
-          <div class="bullet-title">${item.label}</div>
-          <div class="budget-main">${formatCurrency(item.aud)}</div>
-          <div class="budget-original">${formatCurrency(item.aud, "AUD")} · ${item.note}</div>
-        </article>
-      `
-    )
-    .join("");
+  ];
+
+  const [primaryHighlight, ...secondaryHighlights] = budgetHighlights;
+
+  dom.budgetHighlights.innerHTML = `
+    <article class="budget-overview-card budget-highlight-card budget-highlight-primary">
+      <div class="summary-label">${primaryHighlight.label}</div>
+      <div class="budget-main">${formatCurrency(primaryHighlight.aud)}</div>
+      <div class="budget-original">${formatCurrency(primaryHighlight.aud, "AUD")}</div>
+      <div class="budget-overview-note">${primaryHighlight.note}</div>
+    </article>
+    <div class="budget-overview-stats">
+      ${secondaryHighlights
+        .map(
+          (item) => `
+            <article class="budget-highlight-card budget-stat-card">
+              <div class="summary-label">${item.label}</div>
+              <div class="budget-main">${formatCurrency(item.aud)}</div>
+              <div class="budget-original">${formatCurrency(item.aud, "AUD")}</div>
+              <div class="budget-stat-note">${item.note}</div>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+  `;
 
   dom.budgetTableBody.innerHTML = budgetRows
     .map(
@@ -1342,21 +1357,27 @@ function renderBudget() {
     .map(
       (item) => `
         <article class="budget-card">
-          <div class="flight-topline">
-            <div class="summary-label">${getText(item.item)}</div>
+          <div class="budget-card-top">
+            <div>
+              <div class="summary-label">${getText(item.item)}</div>
+              <div class="budget-card-note">${getText(item.note)}</div>
+            </div>
             <span class="route-chip">${getStatusLabel(item)}</span>
           </div>
-          <div class="budget-card-metrics">
-            <div>
-              <div class="price-label">TWD</div>
-              <div class="budget-main">${formatCurrency(item.aud, "TWD")}</div>
+          <div class="budget-card-total">
+            <div class="budget-main">${formatCurrency(item.aud)}</div>
+            <div class="budget-original">${formatCurrency(item.aud, "AUD")}</div>
+          </div>
+          <div class="budget-card-breakdown">
+            <div class="budget-card-line">
+              <span class="price-label">${state.currency}</span>
+              <span class="info-value">${formatCurrency(item.aud, state.currency)}</span>
             </div>
-            <div>
-              <div class="price-label">AUD</div>
-              <div class="budget-main">${formatCurrency(item.aud, "AUD")}</div>
+            <div class="budget-card-line">
+              <span class="price-label">AUD</span>
+              <span class="info-value">${formatCurrency(item.aud, "AUD")}</span>
             </div>
           </div>
-          <div class="budget-original">${getText(item.note)}</div>
         </article>
       `
     )
