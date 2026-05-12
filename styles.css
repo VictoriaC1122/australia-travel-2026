@@ -2,7 +2,6 @@
   --font-ui: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
   --font-en-ui: "Manrope", "Helvetica Neue", Arial, sans-serif;
   --font-en-display: "Cormorant Garamond", "Times New Roman", serif;
-  --font-doodle: "Yomogi", "Noto Sans TC", sans-serif;
   --ocean-900: #3c6677;
   --ocean-700: #5f8ea3;
   --ocean-500: #93b8c7;
@@ -286,15 +285,15 @@ a {
 }
 
 .hero h1 {
-  font-size: 32px;
-  line-height: 1.08;
+  font-size: 34px;
+  line-height: 1.05;
   font-weight: 800;
 }
 
 .hero-subtitle {
   margin-top: 10px;
-  font-size: 15px;
-  line-height: 1.62;
+  font-size: 16px;
+  line-height: 1.58;
   color: var(--text-700);
 }
 
@@ -335,18 +334,18 @@ a {
 }
 
 .hero-visual {
-  margin-top: 14px;
+  margin-top: 16px;
   overflow: hidden;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.58);
-  box-shadow: 0 16px 30px rgba(101, 118, 128, 0.14);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow: 0 20px 36px rgba(101, 118, 128, 0.16);
 }
 
 .hero-visual img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 5 / 3;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
 }
 
@@ -757,16 +756,6 @@ a {
   background: rgba(255, 255, 255, 0.42);
 }
 
-.photo-journal-frame::before {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border: 1.5px solid rgba(255, 255, 255, 0.62);
-  border-radius: 20px;
-  pointer-events: none;
-  mix-blend-mode: screen;
-}
-
 .photo-journal-image {
   display: block;
   width: 100%;
@@ -778,71 +767,9 @@ a {
   height: 360px;
 }
 
-.photo-journal-doodles {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.photo-note {
-  position: absolute;
-  max-width: 168px;
-  color: #fffefb;
-  font-family: var(--font-doodle);
-  font-size: 18px;
-  line-height: 1.35;
-  text-shadow:
-    0 1px 0 rgba(50, 58, 60, 0.18),
-    0 0 8px rgba(44, 56, 65, 0.16);
-}
-
-.photo-note span {
-  position: relative;
-  display: inline-block;
-  padding: 4px 0;
-}
-
-.photo-note span::before {
-  content: "";
-  position: absolute;
-  inset: -6px -10px;
-  border: 1.6px solid rgba(255, 255, 255, 0.88);
-  border-radius: 28px 20px 26px 18px;
-  opacity: 0.9;
-}
-
-.photo-note::before {
-  content: "";
-  position: absolute;
-  left: var(--line-left);
-  top: var(--line-top);
-  width: var(--line-width);
-  border-top: 1.6px dashed rgba(255, 255, 255, 0.9);
-  transform: rotate(var(--line-rotate));
-  transform-origin: left center;
-}
-
-.photo-note::after {
-  content: "✦";
-  position: absolute;
-  right: -10px;
-  top: -12px;
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 14px;
-}
-
-.photo-note.overall span::before {
-  border-radius: 18px 26px 20px 28px;
-}
-
-.photo-note.overall::after {
-  content: "♡";
-  right: -8px;
-  top: -10px;
-  font-size: 15px;
-}
-
 .photo-journal-meta {
+  display: grid;
+  gap: 4px;
   padding: 0 4px;
 }
 
@@ -1532,6 +1459,14 @@ a {
     padding: 0 12px calc(124px + env(safe-area-inset-bottom));
   }
 
+  .page-section {
+    display: none;
+  }
+
+  .page-section.active {
+    display: block;
+  }
+
   .control-dock {
     position: relative;
     z-index: 3;
@@ -1557,8 +1492,8 @@ a {
   }
 
   .hero-shell {
-    padding: 16px 15px 14px;
-    border-radius: 26px;
+    padding: 14px 14px 12px;
+    border-radius: 24px;
   }
 
   .hero-chip-row {
@@ -1567,23 +1502,23 @@ a {
   }
 
   .hero-destinations {
-    margin-top: 12px;
-    font-size: 12.5px;
-    line-height: 1.66;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.62;
   }
 
   .hero-visual {
-    margin-top: 12px;
+    margin-top: 14px;
     border-radius: 20px;
   }
 
   .hero-summary-grid {
     gap: 9px;
-    margin-top: 12px;
+    margin-top: 14px;
   }
 
   .summary-card {
-    padding: 13px 12px;
+    padding: 12px 11px;
   }
 
   .summary-card,
@@ -1683,29 +1618,15 @@ a {
   }
 
   .photo-journal-frame {
-    border-radius: 22px;
-  }
-
-  .photo-journal-frame::before {
-    inset: 9px;
-    border-radius: 18px;
+    border-radius: 20px;
   }
 
   .photo-journal-image {
-    height: 212px;
+    height: 188px;
   }
 
   .photo-journal-card.featured .photo-journal-image {
-    height: 310px;
-  }
-
-  .photo-note {
-    max-width: 140px;
-    font-size: 15px;
-  }
-
-  .photo-note span::before {
-    inset: -5px -8px;
+    height: 280px;
   }
 
   .accordion-body {
@@ -1990,7 +1911,7 @@ a {
 
 @media (max-width: 430px) {
   .hero h1 {
-    font-size: 31px;
+    font-size: 33px;
   }
 
   .summary-value,
@@ -2022,8 +1943,8 @@ a {
   }
 
   .hero-shell {
-    padding: 16px 14px 15px;
-    border-radius: 24px;
+    padding: 14px 13px 12px;
+    border-radius: 22px;
   }
 
   .control-dock {

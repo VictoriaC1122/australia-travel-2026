@@ -47,11 +47,11 @@ const t = {
     navSouvenirs: "名產",
     navNotes: "清單",
     overviewKicker: "Overview",
-    overviewTitle: "這趟怎麼走",
-    overviewLead: "墨爾本先住穩，後面把雪梨港灣和散步收進來。",
+    overviewTitle: "這趟怎麼玩",
+    overviewLead: "前半段墨爾本，後半段雪梨。",
     overviewSnapshotKicker: "Travel Notes",
-    overviewSnapshotTitle: "這趟想收進相簿的畫面",
-    overviewSnapshotLead: "把最期待的幾個畫面先放在前面，打開就比較有出發感。",
+    overviewSnapshotTitle: "這趟想看到的畫面",
+    overviewSnapshotLead: "先把幾個最期待的景色放在前面。",
     shortcutFlights: "航班",
     shortcutFlightsNote: "先看時間和航廈",
     shortcutItinerary: "每日行程",
@@ -164,11 +164,11 @@ const t = {
     navSouvenirs: "Souvenirs",
     navNotes: "Checklist",
     overviewKicker: "Overview",
-    overviewTitle: "How this trip flows",
-    overviewLead: "Melbourne first, then Sydney harbour days.",
+    overviewTitle: "Trip shape",
+    overviewLead: "Melbourne first, then Sydney.",
     overviewSnapshotKicker: "Travel Notes",
-    overviewSnapshotTitle: "The frames worth looking forward to",
-    overviewSnapshotLead: "A few image-first moments so the page opens with more mood and less explanation.",
+    overviewSnapshotTitle: "The views to look forward to",
+    overviewSnapshotLead: "A few scenes worth keeping in mind before the trip starts.",
     shortcutFlights: "Flights",
     shortcutFlightsNote: "Check times and terminals first",
     shortcutItinerary: "Daily plan",
@@ -303,99 +303,23 @@ const data = {
     {
       featured: true,
       title: { "zh-Hant": "雪梨歌劇院", en: "Sydney Opera House" },
-      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sydney%20Opera%20House%20from%20the%20Rocks.jpg",
+      image: "./assets/opera-house-harbour.jpg",
       alt: { "zh-Hant": "雪梨歌劇院與海港景色", en: "Sydney Opera House with the harbour" },
-      notes: [
-        {
-          text: { "zh-Hant": "最想看到的就是這個角度", en: "this is the view" },
-          top: "12%",
-          left: "7%",
-          lineWidth: "74px",
-          lineRotate: "18deg",
-          lineLeft: "100%",
-          lineTop: "64%",
-        },
-        {
-          text: { "zh-Hant": "海的顏色很剛好", en: "the water tone..." },
-          top: "58%",
-          left: "8%",
-          lineWidth: "58px",
-          lineRotate: "-12deg",
-          lineLeft: "92%",
-          lineTop: "42%",
-        },
-        {
-          text: { "zh-Hant": "白白的殼在發光", en: "glowing shells" },
-          top: "20%",
-          right: "8%",
-          lineWidth: "66px",
-          lineRotate: "155deg",
-          lineLeft: "-62px",
-          lineTop: "68%",
-        },
-        {
-          text: { "zh-Hant": "今天有點幸福～", en: "this feels so good" },
-          top: "74%",
-          right: "9%",
-          lineWidth: "52px",
-          lineRotate: "188deg",
-          lineLeft: "-48px",
-          lineTop: "28%",
-          overall: true,
-        },
-      ],
+      caption: { "zh-Hant": "最想先看到的就是這裡。", en: "This is the first view I want." },
     },
     {
       featured: false,
       title: { "zh-Hant": "墨爾本散步感", en: "Melbourne city mood" },
-      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Degraves%20Street%20Melbourne.jpg",
+      image: "./assets/melbourne-degraves.jpg",
       alt: { "zh-Hant": "墨爾本街景與咖啡氣氛", en: "Melbourne laneway and cafe mood" },
-      notes: [
-        {
-          text: { "zh-Hant": "喜歡這種慢慢走的感覺", en: "slow city mood" },
-          top: "10%",
-          left: "8%",
-          lineWidth: "58px",
-          lineRotate: "16deg",
-          lineLeft: "100%",
-          lineTop: "64%",
-        },
-        {
-          text: { "zh-Hant": "咖啡一定要喝", en: "coffee stop!" },
-          top: "72%",
-          right: "9%",
-          lineWidth: "44px",
-          lineRotate: "196deg",
-          lineLeft: "-42px",
-          lineTop: "30%",
-        },
-      ],
+      caption: { "zh-Hant": "想留一段慢慢走的時間。", en: "Saving time for a slow city walk." },
     },
     {
       featured: false,
       title: { "zh-Hant": "十二門徒岩", en: "Twelve Apostles" },
-      image: "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Twelve%20Apostles%2C%20Great%20Ocean%20Road%2C%20Victoria%2C%20Australia.jpg",
+      image: "./assets/twelve-apostles.jpg",
       alt: { "zh-Hant": "十二門徒岩海岸景色", en: "The Twelve Apostles coastline" },
-      notes: [
-        {
-          text: { "zh-Hant": "風景應該會很誇張", en: "this one will hit" },
-          top: "12%",
-          left: "8%",
-          lineWidth: "62px",
-          lineRotate: "20deg",
-          lineLeft: "100%",
-          lineTop: "70%",
-        },
-        {
-          text: { "zh-Hant": "海風感覺會很強", en: "windy in a good way" },
-          top: "70%",
-          right: "8%",
-          lineWidth: "50px",
-          lineRotate: "188deg",
-          lineLeft: "-46px",
-          lineTop: "34%",
-        },
-      ],
+      caption: { "zh-Hant": "這天應該會很值得。", en: "This day should be worth it." },
     },
   ],
   flights: [
@@ -1088,31 +1012,10 @@ function renderOverviewPhotoJournal() {
         <article class="photo-journal-card ${item.featured ? "featured" : ""}">
           <div class="photo-journal-frame">
             <img class="photo-journal-image" src="${item.image}" alt="${getText(item.alt)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
-            <div class="photo-journal-doodles" aria-hidden="true">
-              ${item.notes
-                .map(
-                  (note) => `
-                    <div
-                      class="photo-note ${note.overall ? "overall" : ""}"
-                      style="
-                        top: ${note.top};
-                        ${note.left ? `left: ${note.left};` : ""}
-                        ${note.right ? `right: ${note.right};` : ""}
-                        --line-width: ${note.lineWidth};
-                        --line-rotate: ${note.lineRotate};
-                        --line-left: ${note.lineLeft};
-                        --line-top: ${note.lineTop};
-                      "
-                    >
-                      <span>${getText(note.text)}</span>
-                    </div>
-                  `
-                )
-                .join("")}
-            </div>
           </div>
           <div class="photo-journal-meta">
             <div class="route-title">${getText(item.title)}</div>
+            <div class="bullet-desc">${getText(item.caption)}</div>
           </div>
         </article>
       `
@@ -1660,13 +1563,8 @@ function syncPageNavigation() {
 
   document.querySelectorAll("[data-page-panel]").forEach((panel) => {
     const active = panel.dataset.pagePanel === state.page;
-    if (isMobileLayout()) {
-      panel.hidden = false;
-      panel.classList.add("active");
-    } else {
-      panel.hidden = !active;
-      panel.classList.toggle("active", active);
-    }
+    panel.hidden = !active;
+    panel.classList.toggle("active", active);
   });
 }
 
@@ -1679,11 +1577,7 @@ function setPage(page, { scroll = true } = {}) {
 
   if (!scroll) return;
 
-  if (isMobileLayout()) {
-    document.getElementById(`section-${page}`)?.scrollIntoView({ block: "start", behavior: "smooth" });
-  } else {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function bindUIEvents() {
@@ -1751,7 +1645,7 @@ function bindMobileSectionObserver() {
 
   const observer = new IntersectionObserver(
     (entries) => {
-      if (!isMobileLayout()) return;
+      if (isMobileLayout()) return;
       let nextPage = "";
       let highestRatio = 0;
 
