@@ -468,6 +468,8 @@ const data = {
       costAud: 190,
       transport: { "zh-Hant": "機場取車 + 市區移動", en: "Airport car pickup + city movement" },
       reminder: { "zh-Hant": "Southbank、Flinders Street 和晚餐可以放在這天。", en: "Southbank, Flinders Street, and dinner can sit on this day." },
+      image: "./assets/day1-melbourne-skyline.jpg",
+      imageAlt: { "zh-Hant": "墨爾本 Southbank 天際線", en: "Melbourne Southbank skyline" },
       timeline: [
         { time: { "zh-Hant": "10:40", en: "10:40" }, title: { "zh-Hant": "抵達墨爾本", en: "Land in Melbourne" }, note: { "zh-Hant": "先過關、領行李，讓身體跟上時差。", en: "Clear immigration, get bags, and ease into the day." } },
         { time: { "zh-Hant": "11:00", en: "11:00" }, title: { "zh-Hant": "在機場取車", en: "Pick up the rental car" }, note: { "zh-Hant": "Toyota Corolla 或同級，順手確認導航和保險文件。", en: "Collect the Toyota Corolla or similar and check navigation plus insurance." } },
@@ -486,6 +488,8 @@ const data = {
       costAud: 320,
       transport: { "zh-Hant": "跟團或自駕｜大洋路", en: "Tour or self-drive | Great Ocean Road" },
       reminder: { "zh-Hant": "晚上回飯店休息就好，這天不建議再排別的。", en: "Keep the evening easy back at the hotel. It is better not to add more after this." },
+      image: "./assets/twelve-apostles.jpg",
+      imageAlt: { "zh-Hant": "十二門徒岩海岸風景", en: "Twelve Apostles coastline" },
       timeline: [
         { time: { "zh-Hant": "07:00－08:00", en: "07:00-08:00" }, title: { "zh-Hant": "從墨爾本出發", en: "Leave Melbourne" }, note: { "zh-Hant": "這天建議跟團最輕鬆，或直接自駕。", en: "A guided day tour is the easiest option here, otherwise go by self-drive." } },
         { time: { "zh-Hant": "09:30", en: "09:30" }, title: { "zh-Hant": "沿路小鎮休息", en: "Pause in a coastal town" }, note: { "zh-Hant": "常見會停 Apollo Bay 或 Lorne，剛好吃早餐、咖啡、休息一下。", en: "Apollo Bay or Lorne are common break points for breakfast, coffee, and a short rest." } },
@@ -506,6 +510,8 @@ const data = {
       costAud: 260,
       transport: { "zh-Hant": "租車自駕｜Phillip Island", en: "Self-drive | Phillip Island" },
       reminder: { "zh-Hant": "企鵝歸巢通常不能拍照，晚上海邊很冷，厚外套一定要帶。", en: "Photography is usually not allowed at Penguin Parade, and the coast gets very cold at night, so bring a proper outer layer." },
+      image: "./assets/day3-phillip-island-sunset.jpg",
+      imageAlt: { "zh-Hant": "Phillip Island 夕陽海景", en: "Phillip Island sunset coastline" },
       timeline: [
         { time: { "zh-Hant": "上午", en: "Morning" }, title: { "zh-Hant": "睡晚一點", en: "Sleep in a little" }, note: { "zh-Hant": "前一天大洋路會比較累，這天早上放慢一點比較舒服。", en: "The Great Ocean Road day is a long one, so an easier morning fits better here." } },
         { time: { "zh-Hant": "中午", en: "Midday" }, title: { "zh-Hant": "市區輕鬆吃飯", en: "Easy lunch in the city" }, note: { "zh-Hant": "可以排 brunch、咖啡廳，或 Queen Victoria Market 這種輕鬆一點的走法。", en: "This is a good window for brunch, a cafe, or an easy stop like Queen Victoria Market." } },
@@ -525,6 +531,8 @@ const data = {
       costAud: 230,
       transport: { "zh-Hant": "租車還車 + 國內線 + 雪梨市區交通", en: "Car return + domestic flight + Sydney transfer" },
       reminder: { "zh-Hant": "下午接達令港和飯店入住。", en: "The afternoon continues with Darling Harbour and check-in." },
+      image: "./assets/day4-darling-harbour.jpg",
+      imageAlt: { "zh-Hant": "雪梨達令港景色", en: "Sydney Darling Harbour view" },
       timeline: [
         { time: { "zh-Hant": "09:00", en: "09:00" }, title: { "zh-Hant": "退房並處理還車", en: "Check out and return the car" }, note: { "zh-Hant": "先把租車收乾淨，進航廈心情會差很多。", en: "Finishing the car return early makes the airport leg much easier." } },
         { time: { "zh-Hant": "13:00", en: "13:00" }, title: { "zh-Hant": "搭乘 Jetstar JQ514", en: "Board Jetstar JQ514" }, note: { "zh-Hant": "MEL 第 4 航廈出發，14:25 抵達雪梨。", en: "Depart from MEL Terminal 4 and arrive in Sydney at 14:25." } },
@@ -542,6 +550,8 @@ const data = {
       costAud: 220,
       transport: { "zh-Hant": "步行 + 輕軌 / 市區交通", en: "Walking + light rail / city transport" },
       reminder: { "zh-Hant": "早餐和歌劇院都排在上午。", en: "Breakfast and the Opera House are both set in the morning." },
+      image: "./assets/opera-house-harbour.jpg",
+      imageAlt: { "zh-Hant": "雪梨歌劇院與港灣", en: "Sydney Opera House and harbour" },
       timeline: [
         { time: { "zh-Hant": "08:00", en: "08:00" }, title: { "zh-Hant": "歌劇院 view 早餐", en: "Opera House view breakfast" }, note: { "zh-Hant": "這天先排港邊早餐。", en: "Start the day with breakfast by the harbour." } },
         { time: { "zh-Hant": "10:00", en: "10:00" }, title: { "zh-Hant": "雪梨歌劇院 / Circular Quay", en: "Sydney Opera House / Circular Quay" }, note: { "zh-Hant": "早餐後接歌劇院和 Circular Quay。", en: "Continue with the Opera House and Circular Quay after breakfast." } },
@@ -559,6 +569,8 @@ const data = {
       costAud: 150,
       transport: { "zh-Hant": "市區步行 + 機場線", en: "City walking + airport train" },
       reminder: { "zh-Hant": "這天晚上是國際線回程。", en: "The international return flight is on this evening." },
+      image: "./assets/day6-qvb-sydney.jpg",
+      imageAlt: { "zh-Hant": "雪梨 QVB 與市中心街景", en: "Sydney QVB and city streets" },
       timeline: [
         { time: { "zh-Hant": "09:30", en: "09:30" }, title: { "zh-Hant": "最後一段市區散步", en: "One last city walk" }, note: { "zh-Hant": "白天還可以留在市區。", en: "The daytime can stay in the city." } },
         { time: { "zh-Hant": "13:00", en: "13:00" }, title: { "zh-Hant": "午餐＋最後補買", en: "Lunch and final shopping" }, note: { "zh-Hant": "中午接午餐和補買。", en: "Use midday for lunch and any last shopping." } },
@@ -1209,6 +1221,9 @@ function renderItinerary() {
       (item) => `
         <details class="itinerary-card" ${item.open ? "open" : ""}>
           <summary class="accordion-summary">
+            <figure class="itinerary-cover">
+              <img class="itinerary-cover-image" src="${item.image}" alt="${getText(item.imageAlt)}" loading="lazy" decoding="async" />
+            </figure>
             <div class="itinerary-summary-header">
               <span class="day-chip">${getText(item.day)}</span>
               <span class="date-label">${item.date}</span>
