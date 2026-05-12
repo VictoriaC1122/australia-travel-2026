@@ -1,6 +1,6 @@
 :root {
-  --font-ui: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-  --font-en-ui: "Instrument Sans", "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --font-ui: "Noto Serif TC", "Noto Serif", serif;
+  --font-en-ui: "Noto Serif", "Noto Serif TC", serif;
   --ocean-900: #3c6677;
   --ocean-700: #5f8ea3;
   --ocean-500: #93b8c7;
@@ -48,7 +48,7 @@ body {
   font-family: var(--font-ui);
   font-size: 16px;
   line-height: 1.7;
-  letter-spacing: 0.008em;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-variant-numeric: tabular-nums;
@@ -61,12 +61,12 @@ h3,
 h4 {
   font-family: var(--font-ui);
   font-weight: 700;
-  letter-spacing: -0.022em;
+  letter-spacing: 0.01em;
 }
 
 html[lang="en"] body {
   font-family: var(--font-en-ui);
-  letter-spacing: 0;
+  letter-spacing: 0.01em;
 }
 
 html[lang="en"] h1,
@@ -75,7 +75,7 @@ html[lang="en"] h3,
 html[lang="en"] h4 {
   font-family: var(--font-en-ui);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
 }
 
 html[lang="en"] .hero-kicker,
@@ -101,11 +101,11 @@ html[lang="en"] .city-chip,
 html[lang="en"] .route-chip,
 html[lang="en"] .progress-pill {
   font-family: var(--font-en-ui);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
 }
 
 html[lang="en"] .hero h1 {
-  letter-spacing: -0.035em;
+  letter-spacing: 0.01em;
 }
 
 html[lang="en"] .hero-subtitle,
@@ -133,7 +133,7 @@ html[lang="en"] .bullet-title,
 html[lang="en"] .check-title {
   font-family: var(--font-en-ui);
   font-weight: 700;
-  letter-spacing: -0.018em;
+  letter-spacing: 0.01em;
 }
 
 .hero h1,
@@ -151,7 +151,7 @@ html[lang="en"] .check-title {
 .check-title {
   font-family: var(--font-ui);
   font-weight: 700;
-  letter-spacing: -0.018em;
+  letter-spacing: 0.01em;
 }
 
 .hero-subtitle,
@@ -311,8 +311,8 @@ a {
   font-family: var(--font-ui);
   font-size: 11px;
   line-height: 1.2;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(125, 98, 84, 0.9);
 }
@@ -474,7 +474,7 @@ a {
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -622,7 +622,7 @@ a {
   font-family: var(--font-ui);
   font-size: 17px;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
 }
 
 .home-shortcut-note {
