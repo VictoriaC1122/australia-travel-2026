@@ -1,0 +1,33 @@
+<svg width="1600" height="1100" viewBox="0 0 1600 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1100" rx="48" fill="#F4EEE8"/>
+  <rect x="72" y="72" width="1456" height="956" rx="42" fill="url(#bg)"/>
+  <ellipse cx="1220" cy="210" rx="220" ry="150" fill="#E6D0BA" fill-opacity="0.9"/>
+  <ellipse cx="300" cy="830" rx="240" ry="180" fill="#DDE9EC" fill-opacity="0.82"/>
+  <g transform="translate(390 220)">
+    <rect x="0" y="0" width="340" height="560" rx="28" fill="#D7A56F"/>
+    <rect x="24" y="24" width="292" height="512" rx="20" fill="#E1B07A"/>
+    <rect x="108" y="-36" width="124" height="90" rx="18" fill="#292624"/>
+    <rect x="150" y="-78" width="40" height="56" rx="12" fill="#1E1B1A"/>
+    <rect x="56" y="154" width="228" height="164" rx="16" fill="#F4EEE7"/>
+    <text x="170" y="238" text-anchor="middle" fill="#272321" font-family="Georgia, serif" font-size="62" font-weight="700">Aesop</text>
+    <text x="170" y="286" text-anchor="middle" fill="#6A5B50" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" letter-spacing="4">RESURRECTION HAND BALM</text>
+  </g>
+  <g transform="translate(840 360)">
+    <text x="0" y="0" fill="#443F3B" font-family="Georgia, serif" font-size="106" font-weight="700">Aesop</text>
+    <text x="0" y="72" fill="#786E67" font-family="'Helvetica Neue', Arial, sans-serif" font-size="32" letter-spacing="8">HAND BALM · AROMATIQUE CARE</text>
+  </g>
+  <g transform="translate(860 560)">
+    <rect x="0" y="0" width="250" height="72" rx="36" fill="#EFE5D8"/>
+    <text x="125" y="46" text-anchor="middle" fill="#6D5A4D" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600">giftable</text>
+  </g>
+  <g transform="translate(1140 652)">
+    <rect x="0" y="0" width="280" height="72" rx="36" fill="#DCEBF0"/>
+    <text x="140" y="46" text-anchor="middle" fill="#466C7D" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700">Australian brand</text>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="160" y1="140" x2="1440" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF6F0"/>
+      <stop offset="1" stop-color="#EFE2D6"/>
+    </linearGradient>
+  </defs>
+</svg>

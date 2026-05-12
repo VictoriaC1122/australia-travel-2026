@@ -624,7 +624,7 @@ const data = {
     {
       name: { "zh-Hant": "澳洲蛋白石飾品", en: "Australian opal jewellery" },
       subname: { "zh-Hant": "Opal ring / pendant / earrings", en: "Opal ring / pendant / earrings" },
-      image: "https://commons.wikimedia.org/wiki/Special:FilePath/A%20close%20up%20photography%20of%20an%20Australian%20Opal.jpg",
+      image: "./assets/souvenir-opal.jpg",
       tags: [
         { "zh-Hant": "辨識度高", en: "iconic" },
         { "zh-Hant": "送禮體面", en: "giftable" },
@@ -643,7 +643,7 @@ const data = {
     {
       name: { "zh-Hant": "Tim Tam / 澳洲零食", en: "Tim Tam and Australia snacks" },
       subname: { "zh-Hant": "Tim Tam / 巧克力餅乾 / 超市伴手禮", en: "Tim Tam / chocolate biscuits / supermarket gifts" },
-      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Tim%20Tam%20%2851838492422%29.jpg",
+      image: "./assets/souvenir-timtam-card.svg",
       tags: [
         { "zh-Hant": "最好買", en: "easy buy" },
         { "zh-Hant": "機場也能補", en: "airport friendly" },
@@ -662,7 +662,7 @@ const data = {
     {
       name: { "zh-Hant": "Aesop 護手霜 / 香氛保養", en: "Aesop hand balm and skincare" },
       subname: { "zh-Hant": "Aesop", en: "Aesop" },
-      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Aesop%20store%20on%20Albion%20Street%20Surry%20Hills.jpg",
+      image: "./assets/souvenir-aesop-card.svg",
       tags: [
         { "zh-Hant": "澳洲品牌", en: "Australian brand" },
         { "zh-Hant": "高級感", en: "elevated" },
@@ -679,28 +679,9 @@ const data = {
       href: "https://www.aesop.com/",
     },
     {
-      name: { "zh-Hant": "澳洲原住民藝術 / 設計品", en: "First Nations art and design" },
-      subname: { "zh-Hant": "Aboriginal art / ethically sourced gifts", en: "Aboriginal art / ethically sourced gifts" },
-      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Aboriginal%20art%20%2848019167157%29.jpg",
-      tags: [
-        { "zh-Hant": "文化感強", en: "cultural" },
-        { "zh-Hant": "適合挑件好的", en: "worth choosing well" },
-      ],
-      note: {
-        "zh-Hant": "如果想帶回一點更有澳洲文化感的東西，這類禮物會比制式紀念品更有意思。",
-        en: "If you want something with stronger cultural meaning, this feels far more special than generic souvenir stock.",
-      },
-      buy: {
-        "zh-Hant": "建議挑有清楚來源說明、支持原住民藝術家的店家或合作品牌。",
-        en: "Look for shops that clearly describe sourcing and support Aboriginal and Torres Strait Islander artists.",
-      },
-      range: { "zh-Hant": "價格帶：從卡片、杯墊到畫作都有", en: "Price range: from cards and coasters to larger art pieces" },
-      href: "https://indigenousartcode.org/",
-    },
-    {
       name: { "zh-Hant": "美麗諾羊毛 / 澳洲製羊毛小物", en: "Merino wool and Australian-made wool goods" },
       subname: { "zh-Hant": "Merino scarf / throw / knit accessories", en: "Merino scarf / throw / knit accessories" },
-      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ugg%20boots.jpg",
+      image: "./assets/souvenir-merino.jpg",
       tags: [
         { "zh-Hant": "秋冬實用", en: "useful" },
         { "zh-Hant": "有質感", en: "textural" },
@@ -714,25 +695,6 @@ const data = {
         en: "Look for Australian-made pieces or at least very clear fibre labels. They work well both as gifts and personal keepsakes.",
       },
       range: { "zh-Hant": "價格帶：中價位到高價位都有", en: "Price range: mid to premium" },
-      href: "https://www.sydney.com/articles/best-souvenirs-from-australia",
-    },
-    {
-      name: { "zh-Hant": "夏威夷豆 / 澳洲堅果", en: "Macadamias and Australian nuts" },
-      subname: { "zh-Hant": "Macadamia nuts", en: "Macadamia nuts" },
-      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Macadamia%20nuts%20in%20shell%20and%20kernel.jpg",
-      tags: [
-        { "zh-Hant": "送人安全牌", en: "safe gift" },
-        { "zh-Hant": "超市就能買", en: "easy to find" },
-      ],
-      note: {
-        "zh-Hant": "如果不想全帶甜食，堅果類會是更穩的選擇，體面又好分送。",
-        en: "If you do not want to bring back only sweets, macadamias are a very safe, easy-to-share option.",
-      },
-      buy: {
-        "zh-Hant": "超市、伴手禮店、機場都很常見，原味或鹽味最不容易膩。",
-        en: "Very easy to find in supermarkets, gift shops, and airports. Plain roasted or lightly salted is the safest pick.",
-      },
-      range: { "zh-Hant": "價格帶：平價到中價位", en: "Price range: affordable to mid-range" },
       href: "https://www.sydney.com/articles/best-souvenirs-from-australia",
     },
   ],
