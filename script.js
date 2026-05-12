@@ -802,6 +802,19 @@ const data = {
       ],
     },
     {
+      title: { "zh-Hant": "卡片 / 哩程", en: "Card / miles" },
+      links: [
+        {
+          label: { "zh-Hant": "中信華航聯名卡｜鼎尊無限卡", en: "CTBC China Airlines co-branded card | Infinite" },
+          href: "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/CTBCCI/product/index.html",
+        },
+        {
+          label: { "zh-Hant": "鼎尊無限卡權益", en: "Infinite card benefits" },
+          href: "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/CTBCCI/product/feature.html",
+        },
+      ],
+    },
+    {
       title: { "zh-Hant": "住宿與交通", en: "Hotels and transport" },
       links: [
         { label: { "zh-Hant": "Dorsett Melbourne", en: "Dorsett Melbourne" }, href: "https://www.dorsetthotels.com/dorsett-melbourne/" },
