@@ -1,8 +1,6 @@
 :root {
   --font-ui: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-  --font-display: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
   --font-en-ui: "Instrument Sans", "Manrope", "Helvetica Neue", Arial, sans-serif;
-  --font-en-display: "Cormorant Garamond", "Times New Roman", serif;
   --ocean-900: #3c6677;
   --ocean-700: #5f8ea3;
   --ocean-500: #93b8c7;
@@ -61,9 +59,9 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.018em;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  letter-spacing: -0.022em;
 }
 
 html[lang="en"] body {
@@ -75,8 +73,8 @@ html[lang="en"] h1,
 html[lang="en"] h2,
 html[lang="en"] h3,
 html[lang="en"] h4 {
-  font-family: var(--font-en-display);
-  font-weight: 600;
+  font-family: var(--font-en-ui);
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
@@ -133,9 +131,9 @@ html[lang="en"] .flight-time,
 html[lang="en"] .route-title,
 html[lang="en"] .bullet-title,
 html[lang="en"] .check-title {
-  font-family: var(--font-en-display);
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-family: var(--font-en-ui);
+  font-weight: 700;
+  letter-spacing: -0.018em;
 }
 
 .hero h1,
@@ -151,9 +149,9 @@ html[lang="en"] .check-title {
 .route-title,
 .bullet-title,
 .check-title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  letter-spacing: -0.018em;
 }
 
 .hero-subtitle,
@@ -313,7 +311,7 @@ a {
   font-family: var(--font-ui);
   font-size: 11px;
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(125, 98, 84, 0.9);
@@ -322,7 +320,7 @@ a {
 .hero h1 {
   font-size: 34px;
   line-height: 1.08;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .hero-subtitle {
@@ -621,9 +619,9 @@ a {
 }
 
 .home-shortcut-label {
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
