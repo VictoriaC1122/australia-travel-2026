@@ -410,12 +410,26 @@ a {
   box-shadow: var(--shadow-md);
   -webkit-backdrop-filter: saturate(1.02) blur(12px);
   backdrop-filter: blur(12px);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
 }
 
 .summary-card {
   padding: 14px;
   background: rgba(255, 251, 247, 0.62);
   border-color: rgba(255, 255, 255, 0.42);
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -12% -48% auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(215, 232, 240, 0.42), transparent 68%);
+  pointer-events: none;
 }
 
 .summary-value,
@@ -504,6 +518,18 @@ a {
   max-width: 34rem;
 }
 
+.section-card > .content-grid,
+.section-card > .overview-grid,
+.section-card > .home-shortcuts,
+.section-card > .budget-summary-strip,
+.section-card > .budget-card-list,
+.section-card > .flight-grid,
+.section-card > .route-card-list,
+.section-card > .accordion-list,
+.section-card > .souvenir-grid {
+  margin-top: 18px;
+}
+
 .key-info-grid,
 .content-grid,
 .overview-grid,
@@ -554,6 +580,7 @@ a {
 .key-info-card {
   display: grid;
   gap: 6px;
+  min-height: 92px;
 }
 
 .quick-info-grid {
@@ -563,6 +590,8 @@ a {
 .quick-info-card {
   padding: 14px;
   min-height: 88px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 248, 0.96), rgba(241, 247, 249, 0.92));
 }
 
 .compact-checklist {
@@ -616,6 +645,7 @@ a {
   background: rgba(255, 255, 255, 0.58);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .home-shortcut-label {
@@ -636,6 +666,7 @@ a {
   background:
     radial-gradient(circle at top left, rgba(221, 191, 159, 0.18), transparent 44%),
     linear-gradient(180deg, rgba(255, 251, 247, 0.95), rgba(242, 248, 249, 0.9));
+  min-height: 104px;
 }
 
 .mini-stat-value {
@@ -674,6 +705,8 @@ a {
 .flight-card {
   display: grid;
   gap: 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 247, 0.98), rgba(241, 247, 249, 0.92));
 }
 
 .airline-badge {
@@ -788,6 +821,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.58);
   box-shadow: 0 18px 34px rgba(108, 122, 129, 0.12);
   background: rgba(255, 255, 255, 0.42);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
 }
 
 .photo-journal-image {
@@ -819,6 +853,7 @@ a {
   border: 1px solid rgba(95, 142, 163, 0.1);
   background: linear-gradient(180deg, rgba(255, 251, 247, 0.96), rgba(244, 248, 249, 0.9));
   box-shadow: 0 12px 24px rgba(108, 122, 129, 0.08);
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
 }
 
 .souvenir-image-link {
@@ -830,12 +865,18 @@ a {
   width: 100%;
   height: 196px;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .souvenir-body {
   display: grid;
   gap: 10px;
   padding: 14px;
+}
+
+.souvenir-heading .route-title,
+.hotel-spotlight-heading .route-title {
+  line-height: 1.24;
 }
 
 .souvenir-heading {
@@ -867,6 +908,7 @@ a {
   border: 1px solid rgba(95, 142, 163, 0.1);
   background: linear-gradient(180deg, rgba(255, 251, 247, 0.96), rgba(244, 248, 249, 0.9));
   box-shadow: 0 12px 24px rgba(108, 122, 129, 0.08);
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
 }
 
 .hotel-spotlight-fallback .hotel-spotlight-image-link {
@@ -886,6 +928,7 @@ a {
   width: 100%;
   height: 176px;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .hotel-spotlight-body {
@@ -972,6 +1015,8 @@ a {
 .route-card {
   display: grid;
   gap: 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 247, 0.98), rgba(242, 248, 249, 0.92));
 }
 
 .route-card-image {
@@ -982,6 +1027,7 @@ a {
   border-radius: 18px;
   border: 1px solid rgba(95, 142, 163, 0.12);
   background: rgba(255, 255, 255, 0.52);
+  transition: transform 0.5s ease, box-shadow 0.24s ease;
 }
 
 .route-spec-grid {
@@ -1015,6 +1061,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.64);
   box-shadow: 0 16px 30px rgba(108, 122, 129, 0.12);
   background: rgba(255, 255, 255, 0.42);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
 }
 
 .itinerary-cover-image {
@@ -1023,6 +1070,7 @@ a {
   height: 192px;
   object-fit: cover;
   object-position: center;
+  transition: transform 0.55s ease;
 }
 
 .accordion-summary::-webkit-details-marker {
@@ -1042,6 +1090,8 @@ a {
 
 .itinerary-card {
   padding: 18px 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 247, 0.98), rgba(243, 248, 249, 0.9));
 }
 
 .itinerary-focus-card {
@@ -1176,6 +1226,8 @@ a {
   display: grid;
   gap: 6px;
   padding: 18px;
+  position: relative;
+  overflow: hidden;
 }
 
 .budget-overview-stats {
@@ -1188,6 +1240,8 @@ a {
   display: grid;
   gap: 5px;
   min-height: 132px;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 247, 0.98), rgba(242, 248, 249, 0.9));
 }
 
 .budget-overview-note,
@@ -1266,6 +1320,8 @@ a {
   gap: 14px;
   padding: 18px 16px;
   border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 247, 0.98), rgba(242, 248, 249, 0.92));
 }
 
 .budget-card-top {
@@ -1333,6 +1389,53 @@ a {
 .link-block h3 {
   font-size: 18px;
   line-height: 1.2;
+}
+
+.large-link-button,
+.hotel-spotlight-link,
+.map-day-button,
+.map-card-button,
+.route-card,
+.flight-card,
+.itinerary-card,
+.budget-card,
+.budget-highlight-card,
+.home-shortcut,
+.souvenir-card,
+.hotel-spotlight-card,
+.photo-journal-frame {
+  will-change: transform;
+}
+
+.home-shortcut:hover,
+.home-shortcut:focus-visible,
+.souvenir-card:hover,
+.souvenir-card:focus-within,
+.hotel-spotlight-card:hover,
+.hotel-spotlight-card:focus-within,
+.itinerary-card:hover,
+.budget-card:hover,
+.budget-highlight-card:hover,
+.route-card:hover,
+.flight-card:hover,
+.photo-journal-frame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px rgba(108, 122, 129, 0.12);
+  border-color: rgba(147, 184, 199, 0.18);
+}
+
+.souvenir-card:hover .souvenir-image,
+.hotel-spotlight-card:hover .hotel-spotlight-image,
+.route-card:hover .route-card-image,
+.itinerary-card:hover .itinerary-cover-image,
+.photo-journal-frame:hover .photo-journal-image {
+  transform: scale(1.025);
+}
+
+.home-shortcut:hover,
+.home-shortcut:focus-visible {
+  background: rgba(255, 255, 255, 0.76);
+  border-color: rgba(147, 184, 199, 0.16);
 }
 
 .link-list {
@@ -2385,6 +2488,7 @@ a {
     color: var(--ocean-900);
     background: linear-gradient(135deg, #d7e8f0, #c3ddea);
     box-shadow: 0 14px 24px rgba(147, 184, 199, 0.22);
+    transform: translateY(-1px);
   }
 
   .container {
@@ -2450,6 +2554,10 @@ a {
     gap: 16px;
   }
 
+  .itinerary-card {
+    padding: 22px 22px 20px;
+  }
+
   .content-panel,
   .flight-card,
   .route-card,
@@ -2471,7 +2579,7 @@ a {
   }
 
   .itinerary-cover-image {
-    height: 220px;
+    height: 232px;
   }
 
   .timeline-card,
@@ -2522,6 +2630,7 @@ a {
     border-radius: 22px;
     border: 1px solid var(--line);
     background: var(--glass-strong);
+    box-shadow: 0 18px 34px rgba(108, 122, 129, 0.08);
   }
 
   .budget-table {
