@@ -1679,7 +1679,7 @@ a {
 
 @media (max-width: 767px) {
   .container {
-    padding: 0 12px calc(124px + env(safe-area-inset-bottom));
+    padding: 0 12px calc(96px + env(safe-area-inset-bottom));
   }
 
   .page-section {
@@ -1855,6 +1855,14 @@ a {
     border-radius: 22px;
   }
 
+  .dashboard-card .photo-journal-panel {
+    display: none;
+  }
+
+  #section-overview .section-card:nth-of-type(2) {
+    display: none;
+  }
+
   .section-card + .section-card {
     margin-top: 14px;
   }
@@ -1896,9 +1904,16 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .map-frame-wrap,
-  #mapFrame {
-    min-height: 300px;
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .map-list {
+    gap: 10px;
+  }
+
+  .map-frame-wrap {
+    display: none;
   }
 
   .main-nav {
@@ -2216,19 +2231,28 @@ a {
   .bottom-nav {
     left: 10px;
     right: 10px;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 6px 4px;
-    padding: 9px 8px 10px;
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 8px 8px 9px;
     border-radius: 24px;
     box-shadow: 0 16px 34px rgba(102, 113, 121, 0.16);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bottom-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .bottom-nav-item {
-    min-height: 42px;
+    flex: 0 0 68px;
+    min-height: 44px;
     gap: 3px;
-    padding: 6px 2px 5px;
-    font-size: 10px;
+    padding: 6px 4px 5px;
+    font-size: 9.5px;
     line-height: 1.22;
     border-radius: 14px;
   }
@@ -2356,14 +2380,15 @@ a {
   .bottom-nav {
     left: 8px;
     right: 8px;
-    gap: 5px 3px;
+    gap: 5px;
     padding: 8px 7px 9px;
     border-radius: 22px;
   }
 
   .bottom-nav-item {
+    flex-basis: 64px;
     min-height: 40px;
-    font-size: 9px;
+    font-size: 8.8px;
   }
 
   .tab-icon {
