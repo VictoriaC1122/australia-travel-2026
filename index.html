@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <title>Australia Travel Handbook 2026 | Victoria Cheng</title>
+    <title>2026 Australia Travel Guide | Victoria Cheng</title>
     <meta
       name="description"
-      content="Australia Travel Handbook 2026 for Victoria Cheng: Melbourne arrival, Sydney departure, itinerary, budget, checklist, and useful links."
+      content="2026 澳洲旅行手冊：墨爾本、Great Ocean Road、Phillip Island 到雪梨港灣的每日指南，含航班、住宿、交通、穿搭、餐食與實用提醒。"
     />
-    <meta name="theme-color" content="#0f5b73" />
+    <meta name="theme-color" content="#123948" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Australia Travel Handbook 2026 | Victoria Cheng" />
+    <meta property="og:title" content="2026 Australia Travel Guide | Victoria Cheng" />
     <meta
       property="og:description"
-      content="An iPhone-style Australia travel dashboard with flights, hotels, itinerary, budget, checklist, and practical links."
+      content="從墨爾本街區、海岸公路到雪梨港灣的澳洲旅行手冊，整理每日行程、交通、穿搭與旅途中真正會用到的資訊。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Serif:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
@@ -27,19 +27,20 @@
     <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
 
     <header class="hero">
-      <div class="hero-backdrop hero-backdrop-sunrise"></div>
-      <div class="hero-backdrop hero-backdrop-ocean"></div>
+      <div class="hero-backdrop hero-backdrop-sun"></div>
+      <div class="hero-backdrop hero-backdrop-grid"></div>
+      <div class="hero-backdrop hero-backdrop-coast"></div>
 
       <div class="control-dock" aria-label="Language and currency controls">
         <div class="compact-control">
-          <span class="compact-label" data-i18n="languageSwitcher">Language</span>
+          <span class="compact-label" data-i18n="languageSwitcher">語言</span>
           <div class="compact-segment" role="tablist" aria-label="Language switcher">
             <button class="pill-btn active" type="button" data-lang="zh-Hant" aria-label="切換成繁體中文">繁中</button>
             <button class="pill-btn" type="button" data-lang="en" aria-label="Switch to English">EN</button>
           </div>
         </div>
         <div class="compact-control">
-          <span class="compact-label" data-i18n="currencySwitcher">Currency</span>
+          <span class="compact-label" data-i18n="currencySwitcher">幣別</span>
           <div class="compact-segment" role="tablist" aria-label="Currency switcher">
             <button class="pill-btn active" type="button" data-currency="TWD" aria-label="切換成台幣">TWD</button>
             <button class="pill-btn" type="button" data-currency="AUD" aria-label="Switch currency to AUD">AUD</button>
@@ -48,111 +49,102 @@
       </div>
 
       <div class="hero-shell">
-        <p class="hero-kicker" data-i18n="heroKicker">Australia travel handbook</p>
-        <h1 data-i18n="heroTitle">澳洲旅行 2026</h1>
-        <p class="hero-subtitle" data-i18n="heroSubtitle">2026 年 5 月 · 墨爾本進、雪梨出</p>
-        <div class="hero-chip-row" aria-label="Trip summary chips">
-          <span class="hero-chip" data-i18n="heroChipDates">2026 / 05 / 23 - 2026 / 05 / 30</span>
-          <span class="hero-chip" data-i18n="heroChipRoute">TPE → MEL · SYD → TPE</span>
-          <span class="hero-chip" data-i18n="heroChipCities">Melbourne · Sydney</span>
+        <div class="hero-copy">
+          <p class="hero-kicker" id="heroKicker"></p>
+          <h1 id="heroTitle"></h1>
+          <p class="hero-subtitle" id="heroSubtitle"></p>
+          <div class="hero-chip-row" id="heroChipRow" aria-label="Trip summary chips"></div>
+          <p class="hero-lead" id="heroLead"></p>
+          <p class="hero-destinations" id="heroDestinations"></p>
+          <div class="hero-rhythm-row" id="heroRhythm" aria-label="Trip rhythm highlights"></div>
         </div>
-        <p class="hero-destinations" data-i18n="heroDestinations">Melbourne · Great Ocean Road · Sydney · Bondi · The Rocks</p>
-        <figure class="hero-visual">
-          <img src="./assets/opera-house-harbour.jpg" alt="Sydney Opera House and harbour view" loading="eager" decoding="async" />
-        </figure>
-        <div class="hero-summary-grid" id="heroSummary" aria-label="Hero summary cards"></div>
+
+        <div class="hero-visual-column">
+          <figure class="hero-visual">
+            <img src="./assets/opera-house-harbour.jpg" alt="Sydney Opera House and harbour view" loading="eager" decoding="async" />
+          </figure>
+          <div class="hero-summary-grid" id="heroSummary" aria-label="Hero summary cards"></div>
+        </div>
       </div>
     </header>
 
     <nav class="main-nav" aria-label="Primary desktop navigation">
-      <button class="nav-item active" type="button" data-page-link="overview" aria-label="查看總覽" data-i18n="navOverview">總覽</button>
-      <button class="nav-item" type="button" data-page-link="flights" aria-label="查看航班" data-i18n="navFlights">航班</button>
-      <button class="nav-item" type="button" data-page-link="stays" aria-label="查看住宿與移動" data-i18n="navStays">住宿</button>
-      <button class="nav-item" type="button" data-page-link="itinerary" aria-label="查看行程" data-i18n="navItinerary">行程</button>
-      <button class="nav-item" type="button" data-page-link="map" aria-label="查看地圖" data-i18n="navMap">地圖</button>
-      <button class="nav-item" type="button" data-page-link="budget" aria-label="查看預算" data-i18n="navBudget">預算</button>
-      <button class="nav-item" type="button" data-page-link="souvenirs" aria-label="查看名產" data-i18n="navSouvenirs">名產</button>
-      <button class="nav-item" type="button" data-page-link="notes" aria-label="查看清單與連結" data-i18n="navNotes">清單</button>
+      <button class="nav-item active" type="button" data-page-link="overview" aria-label="查看旅程入口" data-i18n="navOverview">旅程入口</button>
+      <button class="nav-item" type="button" data-page-link="flights" aria-label="查看航班與機場" data-i18n="navFlights">航班</button>
+      <button class="nav-item" type="button" data-page-link="stays" aria-label="查看住宿與移動" data-i18n="navStays">住宿移動</button>
+      <button class="nav-item" type="button" data-page-link="itinerary" aria-label="查看每日指南" data-i18n="navItinerary">每日指南</button>
+      <button class="nav-item" type="button" data-page-link="map" aria-label="查看地圖與動線" data-i18n="navMap">地圖</button>
+      <button class="nav-item" type="button" data-page-link="budget" aria-label="查看旅費" data-i18n="navBudget">旅費</button>
+      <button class="nav-item" type="button" data-page-link="souvenirs" aria-label="查看澳洲選物" data-i18n="navSouvenirs">帶回家</button>
+      <button class="nav-item" type="button" data-page-link="notes" aria-label="查看出發前資訊" data-i18n="navNotes">出發前</button>
     </nav>
 
     <main class="container">
       <section class="page-section active" id="section-overview" data-page-panel="overview">
-        <article class="section-card dashboard-card">
-          <div class="section-label" data-i18n="overviewKicker">Overview</div>
-          <h2 data-i18n="overviewTitle">這趟大概這樣玩</h2>
-          <p class="lead" data-i18n="overviewLead">前半段放在墨爾本，節奏舒服一點；後半段換到雪梨，把港灣和海邊收進來，整體不會太趕。</p>
-
-          <div class="key-info-grid" id="keyInfoBar"></div>
-
-          <div class="content-grid two-col dashboard-grid">
-            <section class="content-panel">
-              <div class="panel-kicker" data-i18n="quickInfoTitle">快速資訊</div>
-              <div class="quick-info-grid" id="quickInfoGrid"></div>
-            </section>
-            <section class="content-panel">
-              <div class="panel-kicker" data-i18n="compactChecklistTitle">出發前確認</div>
-              <div class="compact-checklist" id="overviewMiniChecklist"></div>
-            </section>
-          </div>
-
-          <section class="content-panel photo-journal-panel">
-            <div class="panel-kicker" data-i18n="overviewSnapshotKicker">Travel Notes</div>
-            <h3 data-i18n="overviewSnapshotTitle">這趟想收進相簿的畫面</h3>
-            <p class="lead photo-journal-lead" data-i18n="overviewSnapshotLead">把最期待的幾個畫面先放在前面，打開網站就會比較有出發感。</p>
-            <div class="photo-journal-grid" id="overviewPhotoJournal"></div>
-          </section>
-
-          <div class="home-shortcuts">
-            <button class="home-shortcut" type="button" data-page-link="flights" aria-label="跳到航班">
-              <span class="home-shortcut-label" data-i18n="shortcutFlights">航班</span>
-              <span class="home-shortcut-note" data-i18n="shortcutFlightsNote">先看時間和航廈</span>
-            </button>
-            <button class="home-shortcut" type="button" data-page-link="itinerary" aria-label="跳到每日行程">
-              <span class="home-shortcut-label" data-i18n="shortcutItinerary">每日行程</span>
-              <span class="home-shortcut-note" data-i18n="shortcutItineraryNote">每天去哪直接看這頁</span>
-            </button>
-            <button class="home-shortcut" type="button" data-page-link="budget" aria-label="跳到預算">
-              <span class="home-shortcut-label" data-i18n="shortcutBudget">預算</span>
-              <span class="home-shortcut-note" data-i18n="shortcutBudgetNote">實際花費和預估都在這</span>
-            </button>
-            <button class="home-shortcut" type="button" data-page-link="notes" aria-label="跳到清單">
-              <span class="home-shortcut-label" data-i18n="shortcutChecklist">清單</span>
-              <span class="home-shortcut-note" data-i18n="shortcutChecklistNote">出發前最後再確認</span>
-            </button>
-          </div>
+        <article class="section-card">
+          <div class="section-label" data-i18n="overviewKicker">Trip Snapshot</div>
+          <h2 data-i18n="overviewTitle">先看懂這趟旅程的節奏</h2>
+          <p class="section-lead" data-i18n="overviewLead">
+            首頁把城市、海岸線、公路日和港灣夜色一次整理成旅程入口，先讓整趟旅行一眼看懂。
+          </p>
+          <div class="snapshot-grid" id="tripSnapshotGrid"></div>
+          <div class="theme-cluster" id="tripThemeChips" aria-label="Trip themes"></div>
+          <div class="pace-strip" id="paceStrip"></div>
         </article>
 
         <article class="section-card">
-          <div class="section-label" data-i18n="overviewHighlightsKicker">Highlights</div>
-          <h2 data-i18n="overviewHighlightsTitle">這次安排的重點</h2>
-          <div class="overview-grid" id="overviewRecommendations"></div>
+          <div class="section-label" data-i18n="overviewRouteKicker">Route Flow</div>
+          <h2 data-i18n="overviewRouteTitle">城市、海岸與自然景觀動線</h2>
+          <p class="section-lead" data-i18n="overviewRouteLead">
+            每天的重點不是分散景點，而是把同一區的節奏排順，讓移動、吃飯和看風景都自然接起來。
+          </p>
+          <div class="route-overview-grid" id="routeFlowGrid"></div>
+        </article>
 
-          <div class="content-grid two-col">
-            <section class="content-panel">
-              <div class="panel-kicker" data-i18n="overviewAlertsTitle">重要提醒</div>
-              <div class="alert-stack" id="importantAlerts"></div>
-            </section>
-            <section class="content-panel">
-              <div class="panel-kicker" data-i18n="overviewNotesTitle">為什麼這樣排</div>
-              <div class="bullet-stack" id="overviewNotes"></div>
-            </section>
-          </div>
+        <article class="section-card">
+          <div class="section-label" data-i18n="overviewHighlightsKicker">Journey Highlights</div>
+          <h2 data-i18n="overviewHighlightsTitle">整趟旅程最值得期待的畫面</h2>
+          <p class="section-lead" data-i18n="overviewHighlightsLead">
+            從街區晨光、海岸斷崖到港灣早餐，把這趟最有旅行感的片段先收成一頁。
+          </p>
+          <div class="highlight-grid" id="journeyHighlights"></div>
+        </article>
+
+        <article class="section-card">
+          <div class="section-label" data-i18n="overviewDaysKicker">Day-by-Day Preview</div>
+          <h2 data-i18n="overviewDaysTitle">每日故事卡</h2>
+          <p class="section-lead" data-i18n="overviewDaysLead">
+            先知道今天主要在哪個區域、需不需要早起、步行量大不大，再進入詳細行程。
+          </p>
+          <div class="day-preview-grid" id="dayPreviewGrid"></div>
+        </article>
+
+        <article class="section-card">
+          <div class="section-label" data-i18n="overviewPracticalKicker">Practical Info</div>
+          <h2 data-i18n="overviewPracticalTitle">旅途中最常翻的資訊</h2>
+          <p class="section-lead" data-i18n="overviewPracticalLead">
+            需要提早出門、帶外套、看海風、查機場或補買東西時，先翻這一區就夠。
+          </p>
+          <div class="practical-accordion-list" id="practicalInfoGrid"></div>
         </article>
       </section>
 
       <section class="page-section" id="section-flights" data-page-panel="flights">
         <article class="section-card">
-          <div class="section-label" data-i18n="flightsKicker">Flights</div>
-          <h2 data-i18n="flightsTitle">航班</h2>
-          <p class="lead" data-i18n="flightsLead">國際線是墨爾本進、雪梨出，中間再接一段國內線，城市轉換會很順。</p>
+          <div class="section-label" data-i18n="flightsKicker">Flights & Airports</div>
+          <h2 data-i18n="flightsTitle">航班與機場動線</h2>
+          <p class="section-lead" data-i18n="flightsLead">
+            這趟的三段飛行各有不同節奏：跨夜抵達、城市轉場，以及最後一天晚上的回程。
+          </p>
+          <div class="flight-grid" id="flightCards"></div>
           <div class="content-grid two-col">
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="flightsSummaryTitle">航班資訊</div>
-              <div class="flight-grid" id="flightCards"></div>
+              <div class="panel-kicker" data-i18n="flightPlanTitle">機場節奏</div>
+              <div class="bullet-stack" id="flightNotes"></div>
             </section>
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="flightPlanTitle">移動提醒</div>
-              <div class="bullet-stack" id="flightNotes"></div>
+              <div class="panel-kicker" data-i18n="airportGuidesTitle">當天怎麼抓時間</div>
+              <div class="bullet-stack" id="airportGuides"></div>
             </section>
           </div>
         </article>
@@ -160,81 +152,52 @@
 
       <section class="page-section" id="section-stays" data-page-panel="stays">
         <article class="section-card">
-          <div class="section-label" data-i18n="staysKicker">Stay</div>
-          <h2 data-i18n="staysTitle">住宿 / 移動</h2>
-          <p class="lead" data-i18n="staysLead">兩邊飯店都訂好了，現在這頁就直接看實際住宿、換城市的節奏，還有租車怎麼搭配最順。</p>
+          <div class="section-label" data-i18n="staysKicker">Stay & Movement</div>
+          <h2 data-i18n="staysTitle">住宿與城際移動</h2>
+          <p class="section-lead" data-i18n="staysLead">
+            前半段以墨爾本市中心為 base，後半段落在達令港；只要把 Day 4 的還車、機場和入住抓好，整趟節奏就很順。
+          </p>
+          <div class="stay-grid" id="stayCards"></div>
           <div class="content-grid two-col">
-            <section class="content-panel" id="stayPlanCard"></section>
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="cityRhythmTitle">這樣住的好處</div>
-              <div class="bullet-stack" id="cityRhythm"></div>
+              <div class="panel-kicker" data-i18n="stayAdvantagesTitle">住這裡的好處</div>
+              <div class="bullet-stack" id="stayAdvantages"></div>
             </section>
-          </div>
-          <div class="content-grid two-col">
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="moveDayTitle">城際移動日</div>
+              <div class="panel-kicker" data-i18n="moveDayTitle">Day 4 轉場節奏</div>
               <div class="timeline-list" id="moveDayTimeline"></div>
             </section>
-            <section class="content-panel">
-              <div class="panel-kicker" data-i18n="moveOptionsTitle">已訂交通 / 租車</div>
-              <div class="route-card-list" id="moveOptions"></div>
-            </section>
           </div>
+          <section class="content-panel wide-panel">
+            <div class="panel-kicker" data-i18n="moveOptionsTitle">已訂與旅途中會用到的移動</div>
+            <div class="route-card-list" id="moveOptions"></div>
+          </section>
         </article>
       </section>
 
       <section class="page-section" id="section-itinerary" data-page-panel="itinerary">
         <article class="section-card">
-          <div class="section-label" data-i18n="itineraryKicker">Itinerary</div>
-          <h2 data-i18n="itineraryTitle">每日行程</h2>
-          <p class="lead" data-i18n="itineraryLead">先照你現在的訂單把骨架排好，留一點彈性，不做那種從早衝到晚的滿版行程。</p>
-          <div class="panel-kicker" data-i18n="itineraryActualKicker">Actual itinerary</div>
-          <div class="accordion-list" id="itineraryList"></div>
-          <div class="itinerary-recommend-wrap">
-            <div class="panel-kicker" data-i18n="itineraryRecommendKicker">Recommended itinerary</div>
-            <p class="budget-original" data-i18n="itineraryRecommendLead">下面這組不是實際行程，只是如果你想換玩法時可以參考的推薦版本。</p>
-            <div class="recommend-card-list" id="recommendedItineraryList"></div>
-          </div>
-        </article>
-      </section>
-
-      <section class="page-section" id="section-budget" data-page-panel="budget">
-        <article class="section-card">
-          <div class="section-label" data-i18n="budgetKicker">Budget</div>
-          <h2 data-i18n="budgetTitle">預算</h2>
-          <p class="lead" data-i18n="budgetLead">這頁現在是半實際、半預估。飯店和租車用已訂金額，其它還能再慢慢修。</p>
-          <div class="budget-filter-row">
-            <button class="budget-filter-btn active" type="button" data-budget-filter="all" aria-label="顯示全部預算項目">全部</button>
-            <button class="budget-filter-btn" type="button" data-budget-filter="actual" aria-label="只顯示實際預算項目">實際</button>
-            <button class="budget-filter-btn" type="button" data-budget-filter="estimated" aria-label="只顯示預估預算項目">預估</button>
-          </div>
-          <div class="budget-summary-strip" id="budgetHighlights"></div>
-          <div class="budget-table-wrap">
-            <table class="budget-table" aria-label="Budget breakdown table">
-              <thead>
-                <tr>
-                  <th data-i18n="budgetItemHeading">Item</th>
-                  <th id="budgetSelectedHeading">TWD</th>
-                  <th data-i18n="budgetOriginalHeading">AUD</th>
-                  <th data-i18n="budgetNoteHeading">Note</th>
-                </tr>
-              </thead>
-              <tbody id="budgetTableBody"></tbody>
-            </table>
-          </div>
-          <div class="budget-card-list" id="budgetCards"></div>
+          <div class="section-label" data-i18n="itineraryKicker">Daily Guide</div>
+          <h2 data-i18n="itineraryTitle">每日澳洲旅行指南</h2>
+          <p class="section-lead" data-i18n="itineraryLead">
+            每一天都先看區域、步行量、穿搭和移動方式，再往下看今日路線、時間節奏與貼心提醒。
+          </p>
+          <div class="day-selector-grid" id="daySelector"></div>
+          <div class="day-detail-wrap" id="dayDetail"></div>
         </article>
       </section>
 
       <section class="page-section" id="section-map" data-page-panel="map">
         <article class="section-card">
           <div class="section-label" data-i18n="mapKicker">Map</div>
-          <h2 data-i18n="mapTitle">地圖</h2>
-          <p class="lead" data-i18n="mapLead">把每天會跑到的重點放成可以切換的大圖地圖，找路和整理節奏都比較直覺。</p>
+          <h2 data-i18n="mapTitle">地圖與區域動線</h2>
+          <p class="section-lead" data-i18n="mapLead">
+            先選今天會跑哪一區，再開大圖地圖；找方向時會比把所有點攤成一長串更直覺。
+          </p>
           <div class="map-actions">
             <a class="large-link-button map-route-button" id="fullRouteLink" href="#" target="_blank" rel="noreferrer" aria-label="開啟完整路線">
               <span data-i18n="mapRouteLink">開啟完整路線</span>
-              <span class="link-button-meta" data-i18n="openLink">開啟</span>
+              <span class="link-button-meta" data-i18n="openLink">查看</span>
             </a>
           </div>
           <div class="map-day-routes-wrap">
@@ -250,19 +213,51 @@
         </article>
       </section>
 
+      <section class="page-section" id="section-budget" data-page-panel="budget">
+        <article class="section-card">
+          <div class="section-label" data-i18n="budgetKicker">Budget</div>
+          <h2 data-i18n="budgetTitle">旅費概覽</h2>
+          <p class="section-lead" data-i18n="budgetLead">
+            這頁把已訂金額和還有彈性的部分拆開看，旅途中想快速確認花費分配會更直覺。
+          </p>
+          <div class="budget-filter-row">
+            <button class="budget-filter-btn active" type="button" data-budget-filter="all" aria-label="顯示全部旅費項目">全部</button>
+            <button class="budget-filter-btn" type="button" data-budget-filter="actual" aria-label="只顯示已知金額項目">已有金額</button>
+            <button class="budget-filter-btn" type="button" data-budget-filter="estimated" aria-label="只顯示估算項目">估算中</button>
+          </div>
+          <div class="budget-summary-strip" id="budgetHighlights"></div>
+          <div class="budget-table-wrap">
+            <table class="budget-table" aria-label="Budget breakdown table">
+              <thead>
+                <tr>
+                  <th data-i18n="budgetItemHeading">項目</th>
+                  <th id="budgetSelectedHeading">TWD</th>
+                  <th data-i18n="budgetOriginalHeading">AUD</th>
+                  <th data-i18n="budgetNoteHeading">備註</th>
+                </tr>
+              </thead>
+              <tbody id="budgetTableBody"></tbody>
+            </table>
+          </div>
+          <div class="budget-card-list" id="budgetCards"></div>
+        </article>
+      </section>
+
       <section class="page-section" id="section-souvenirs" data-page-panel="souvenirs">
         <article class="section-card">
           <div class="section-label" data-i18n="souvenirsKicker">Souvenirs</div>
-          <h2 data-i18n="souvenirsTitle">名產 / 值得買</h2>
-          <p class="lead" data-i18n="souvenirsLead">這頁整理的是這趟澳洲真的值得買、而且帶回去不會後悔的幾樣。以好買、辨識度高、送人也體面為主。</p>
+          <h2 data-i18n="souvenirsTitle">適合帶回家的澳洲選物</h2>
+          <p class="section-lead" data-i18n="souvenirsLead">
+            如果最後一天還想慢慢挑一點東西帶回家，這裡整理的是好帶、好買，而且回來真的還會用到的選擇。
+          </p>
           <div class="souvenir-grid" id="souvenirsGrid"></div>
           <div class="content-grid two-col">
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="souvenirsTipsTitle">買法備忘</div>
+              <div class="panel-kicker" data-i18n="souvenirsTipsTitle">怎麼買比較順</div>
               <div class="bullet-stack" id="souvenirTips"></div>
             </section>
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="souvenirsSourcesTitle">資料方向</div>
+              <div class="panel-kicker" data-i18n="souvenirsSourcesTitle">挑選方向</div>
               <div class="bullet-stack" id="souvenirSources"></div>
             </section>
           </div>
@@ -271,16 +266,18 @@
 
       <section class="page-section" id="section-notes" data-page-panel="notes">
         <article class="section-card">
-          <div class="section-label" data-i18n="notesKicker">Notes</div>
-          <h2 data-i18n="notesTitle">清單 / 連結</h2>
-          <p class="lead" data-i18n="notesLead">最後一頁就放出發前真的會反覆打開的東西，少翻頁。</p>
+          <div class="section-label" data-i18n="notesKicker">Before Departure</div>
+          <h2 data-i18n="notesTitle">出發前與旅途工具箱</h2>
+          <p class="section-lead" data-i18n="notesLead">
+            臨出門、在機場，或旅途中突然要找官方頁面時，這一頁會是最省時間的備忘。
+          </p>
           <div class="content-grid note-stack">
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="checklistTitle">行前清單</div>
+              <div class="panel-kicker" data-i18n="checklistTitle">出發前確認</div>
               <div class="checklist-groups" id="checklistGroups"></div>
             </section>
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="linksTitle">實用連結</div>
+              <div class="panel-kicker" data-i18n="linksTitle">旅途中會用到的連結</div>
               <div class="link-card-list" id="linksGrid"></div>
             </section>
           </div>
@@ -289,14 +286,14 @@
     </main>
 
     <nav class="bottom-nav" aria-label="Primary mobile navigation">
-      <button class="bottom-nav-item active" type="button" data-page-link="overview" aria-label="前往總覽">
+      <button class="bottom-nav-item active" type="button" data-page-link="overview" aria-label="前往旅程入口">
         <span class="tab-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M4.5 10.75L12 4.75L19.5 10.75V18.25C19.5 18.9404 18.9404 19.5 18.25 19.5H5.75C5.05964 19.5 4.5 18.9404 4.5 18.25V10.75Z" />
             <path d="M9.25 19.5V13.75H14.75V19.5" />
           </svg>
         </span>
-        <span data-i18n="navOverview">總覽</span>
+        <span data-i18n="navOverview">旅程入口</span>
       </button>
       <button class="bottom-nav-item" type="button" data-page-link="flights" aria-label="前往航班">
         <span class="tab-icon" aria-hidden="true">
@@ -306,7 +303,7 @@
         </span>
         <span data-i18n="navFlights">航班</span>
       </button>
-      <button class="bottom-nav-item" type="button" data-page-link="stays" aria-label="前往住宿">
+      <button class="bottom-nav-item" type="button" data-page-link="stays" aria-label="前往住宿與移動">
         <span class="tab-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M4.5 18.5V8.75C4.5 8.05964 5.05964 7.5 5.75 7.5H18.25C18.9404 7.5 19.5 8.05964 19.5 8.75V18.5" />
@@ -315,9 +312,9 @@
             <path d="M4.5 18.5H19.5" />
           </svg>
         </span>
-        <span data-i18n="navStays">住宿</span>
+        <span data-i18n="navStays">住宿移動</span>
       </button>
-      <button class="bottom-nav-item" type="button" data-page-link="itinerary" aria-label="前往行程">
+      <button class="bottom-nav-item" type="button" data-page-link="itinerary" aria-label="前往每日指南">
         <span class="tab-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M8 6.75H19.5" />
@@ -328,9 +325,9 @@
             <path d="M4.75 17.25H4.76" />
           </svg>
         </span>
-        <span data-i18n="navItinerary">行程</span>
+        <span data-i18n="navItinerary">每日指南</span>
       </button>
-      <button class="bottom-nav-item" type="button" data-page-link="map" aria-label="前往地圖">
+      <button class="bottom-nav-item" type="button" data-page-link="map" aria-label="前往地圖與動線">
         <span class="tab-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M12 20C15.75 16.2 18.5 13.25 18.5 9.75C18.5 6.29822 15.7018 3.5 12.25 3.5C8.79822 3.5 6 6.29822 6 9.75C6 13.25 8.75 16.2 12.5 20" />
@@ -339,16 +336,16 @@
         </span>
         <span data-i18n="navMap">地圖</span>
       </button>
-      <button class="bottom-nav-item" type="button" data-page-link="budget" aria-label="前往預算">
+      <button class="bottom-nav-item" type="button" data-page-link="budget" aria-label="前往旅費">
         <span class="tab-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M8.5 15.5C8.5 17.1569 10.067 18.5 12 18.5C13.933 18.5 15.5 17.1569 15.5 15.5C15.5 13.8431 13.933 12.5 12 12.5C10.067 12.5 8.5 11.1569 8.5 9.5C8.5 7.84315 10.067 6.5 12 6.5C13.933 6.5 15.5 7.84315 15.5 9.5" />
             <path d="M12 4.5V20" />
           </svg>
         </span>
-        <span data-i18n="navBudget">預算</span>
+        <span data-i18n="navBudget">旅費</span>
       </button>
-      <button class="bottom-nav-item" type="button" data-page-link="souvenirs" aria-label="前往名產">
+      <button class="bottom-nav-item" type="button" data-page-link="souvenirs" aria-label="前往帶回家">
         <span class="tab-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M6 8.5H18L17 19.5H7L6 8.5Z" />
@@ -357,16 +354,16 @@
             <path d="M14 12.25H14.01" />
           </svg>
         </span>
-        <span data-i18n="navSouvenirs">名產</span>
+        <span data-i18n="navSouvenirs">帶回家</span>
       </button>
-      <button class="bottom-nav-item" type="button" data-page-link="notes" aria-label="前往清單">
+      <button class="bottom-nav-item" type="button" data-page-link="notes" aria-label="前往出發前資訊">
         <span class="tab-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M8 11.75L10.75 14.5L16.5 8.75" />
             <path d="M7 4.5H17C18.3807 4.5 19.5 5.61929 19.5 7V17C19.5 18.3807 18.3807 19.5 17 19.5H7C5.61929 19.5 4.5 18.3807 4.5 17V7C4.5 5.61929 5.61929 4.5 7 4.5Z" />
           </svg>
         </span>
-        <span data-i18n="navNotes">清單</span>
+        <span data-i18n="navNotes">出發前</span>
       </button>
     </nav>
 

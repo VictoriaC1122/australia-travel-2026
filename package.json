@@ -1,0 +1,11 @@
+{
+  "name": "australia-travel-2026",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static Australia travel guide for GitHub Pages.",
+  "scripts": {
+    "build": "node tools/build-check.mjs",
+    "check": "node tools/build-check.mjs",
+    "serve": "python3 -m http.server 4173 --bind 127.0.0.1"
+  }
+}
