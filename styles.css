@@ -1134,6 +1134,45 @@ input {
   margin-top: 18px;
 }
 
+.day-detail-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.day-detail-nav-btn {
+  display: grid;
+  gap: 8px;
+  min-height: 82px;
+  padding: 16px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: rgba(255, 251, 246, 0.92);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.day-detail-nav-btn.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.day-detail-nav-label {
+  color: var(--text-500);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.day-detail-nav-value {
+  color: var(--text-950);
+  font-family: var(--font-display);
+  font-size: 1.04rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
 .day-guide-card {
   overflow: hidden;
 }
@@ -1940,6 +1979,10 @@ input:focus-visible + .check-body {
   .day-guide-overlay,
   .day-guide-content {
     padding: 18px;
+  }
+
+  .day-detail-nav {
+    grid-template-columns: 1fr;
   }
 
   .day-guide-city {

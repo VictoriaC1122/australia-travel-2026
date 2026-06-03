@@ -122,6 +122,8 @@ const t = {
     glanceTransport: "移動方式",
     glanceBooking: "預約 / 提醒",
     previewOpen: "看當日詳細指南",
+    previousDay: "上一天",
+    nextDay: "下一天",
   },
   en: {
     languageSwitcher: "Language",
@@ -225,6 +227,8 @@ const t = {
     glanceTransport: "Transport",
     glanceBooking: "Booking note",
     previewOpen: "Open full day guide",
+    previousDay: "Previous day",
+    nextDay: "Next day",
   },
 };
 
@@ -2071,6 +2075,11 @@ function getSelectedDay() {
   return data.days.find((day) => day.id === state.selectedDay) || data.days[0];
 }
 
+function getSelectedDayIndex() {
+  const index = data.days.findIndex((day) => day.id === state.selectedDay);
+  return index >= 0 ? index : 0;
+}
+
 function cacheDom() {
   dom.pageProgress = document.getElementById("pageProgress");
   dom.heroKicker = document.getElementById("heroKicker");
@@ -2415,6 +2424,9 @@ function renderItinerary() {
     .join("");
 
   const day = getSelectedDay();
+  const dayIndex = getSelectedDayIndex();
+  const previousDay = data.days[dayIndex - 1] || null;
+  const nextDay = data.days[dayIndex + 1] || null;
 
   dom.dayDetail.innerHTML = `
     <article class="day-guide-card">
@@ -2489,6 +2501,16 @@ function renderItinerary() {
             ${day.reminders.map((item) => `<article class="reminder-card"><div class="bullet-desc" style="margin-top: 0;">${getText(item)}</div></article>`).join("")}
           </div>
         </section>
+        <div class="day-detail-nav">
+          <button class="day-detail-nav-btn ${previousDay ? "" : "disabled"}" type="button" ${previousDay ? `data-day-select="${previousDay.id}"` : "disabled"} aria-label="${t[state.lang].previousDay}">
+            <span class="day-detail-nav-label">${t[state.lang].previousDay}</span>
+            <span class="day-detail-nav-value">${previousDay ? `${getText(previousDay.day)} · ${getText(previousDay.city)}` : "—"}</span>
+          </button>
+          <button class="day-detail-nav-btn ${nextDay ? "" : "disabled"}" type="button" ${nextDay ? `data-day-select="${nextDay.id}"` : "disabled"} aria-label="${t[state.lang].nextDay}">
+            <span class="day-detail-nav-label">${t[state.lang].nextDay}</span>
+            <span class="day-detail-nav-value">${nextDay ? `${getText(nextDay.day)} · ${getText(nextDay.city)}` : "—"}</span>
+          </button>
+        </div>
       </div>
     </article>
   `;

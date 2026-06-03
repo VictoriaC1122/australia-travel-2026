@@ -35,6 +35,29 @@ function checkHtmlAssetRefs() {
 
   assert(html.includes('href="./styles.css"'), "index.html must keep a relative styles.css path");
   assert(html.includes('src="./script.js"'), "index.html must keep a relative script.js path");
+  assert(!html.match(/(?:src|href)="\/(?!\/)/), "index.html should not use root-absolute internal asset paths");
+}
+
+function checkScriptAssetRefs() {
+  const script = readFileSync(path.join(root, "script.js"), "utf8");
+  const matches = [...script.matchAll(/"\.\/([^"]+\.(?:svg|png|jpg|jpeg|webp|mjs|js|css))"/g)];
+
+  matches.forEach((match) => {
+    const assetPath = match[1];
+    assert(existsSync(path.join(root, assetPath)), `Missing script-referenced asset: ${assetPath}`);
+  });
+}
+
+function checkCssAssetRefs() {
+  const css = readFileSync(path.join(root, "styles.css"), "utf8");
+  const matches = [...css.matchAll(/url\("\.\/([^"]+)"\)/g)];
+
+  matches.forEach((match) => {
+    const assetPath = match[1];
+    assert(existsSync(path.join(root, assetPath)), `Missing CSS-referenced asset: ${assetPath}`);
+  });
+
+  assert(!css.match(/url\("\/(?!\/)/), "styles.css should not use root-absolute internal asset paths");
 }
 
 function checkPagesWorkflow() {
@@ -57,6 +80,8 @@ function run() {
   checkRequiredFiles();
   checkScriptSyntax();
   checkHtmlAssetRefs();
+  checkScriptAssetRefs();
+  checkCssAssetRefs();
   checkPagesWorkflow();
   checkPagePanels();
   console.log("Build check passed.");
