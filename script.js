@@ -19,6 +19,29 @@ const rates = {
 const dom = {};
 let progressFrame = 0;
 
+const storage = {
+  get(key) {
+    try {
+      return window.localStorage?.getItem(key) ?? null;
+    } catch (error) {
+      return null;
+    }
+  },
+  set(key, value) {
+    try {
+      window.localStorage?.setItem(key, value);
+    } catch (error) {
+      return false;
+    }
+
+    return true;
+  },
+};
+
+function prefersReducedMotion() {
+  return window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+}
+
 const t = {
   "zh-Hant": {
     languageSwitcher: "語言",
@@ -2034,14 +2057,30 @@ const data = {
   },
 };
 
+function getInitialPage() {
+  const hashPage = window.location.hash.replace(/^#/, "").split("/")[0];
+  const storedPage = storage.get(STORAGE_KEYS.page);
+
+  if (PAGE_IDS.includes(hashPage)) return hashPage;
+  return PAGE_IDS.includes(storedPage) ? storedPage : "overview";
+}
+
+function getInitialBudgetFilter() {
+  const storedBudgetFilter = storage.get(STORAGE_KEYS.budgetFilter);
+  return ["all", "actual", "estimated"].includes(storedBudgetFilter) ? storedBudgetFilter : "all";
+}
+
+function getInitialSelectedDay() {
+  const storedDay = storage.get(STORAGE_KEYS.day);
+  return data.days.some((day) => day.id === storedDay) ? storedDay : data.days[0].id;
+}
+
 const state = {
-  lang: localStorage.getItem(STORAGE_KEYS.lang) || "zh-Hant",
-  currency: localStorage.getItem(STORAGE_KEYS.currency) || "TWD",
-  page: PAGE_IDS.includes(localStorage.getItem(STORAGE_KEYS.page)) ? localStorage.getItem(STORAGE_KEYS.page) : "overview",
-  budgetFilter: ["all", "actual", "estimated"].includes(localStorage.getItem(STORAGE_KEYS.budgetFilter))
-    ? localStorage.getItem(STORAGE_KEYS.budgetFilter)
-    : "all",
-  selectedDay: data.days.some((day) => day.id === localStorage.getItem(STORAGE_KEYS.day)) ? localStorage.getItem(STORAGE_KEYS.day) : data.days[0].id,
+  lang: storage.get(STORAGE_KEYS.lang) || "zh-Hant",
+  currency: storage.get(STORAGE_KEYS.currency) || "TWD",
+  page: getInitialPage(),
+  budgetFilter: getInitialBudgetFilter(),
+  selectedDay: getInitialSelectedDay(),
 };
 
 function getText(entry) {
@@ -2082,6 +2121,7 @@ function getSelectedDayIndex() {
 
 function cacheDom() {
   dom.pageProgress = document.getElementById("pageProgress");
+  dom.pageAnnouncer = document.getElementById("pageAnnouncer");
   dom.heroKicker = document.getElementById("heroKicker");
   dom.heroTitle = document.getElementById("heroTitle");
   dom.heroSubtitle = document.getElementById("heroSubtitle");
@@ -2123,11 +2163,35 @@ function cacheDom() {
 }
 
 function checklistState() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEYS.checklist) || "{}");
+  try {
+    return JSON.parse(storage.get(STORAGE_KEYS.checklist) || "{}");
+  } catch (error) {
+    return {};
+  }
 }
 
 function saveChecklist(next) {
-  localStorage.setItem(STORAGE_KEYS.checklist, JSON.stringify(next));
+  storage.set(STORAGE_KEYS.checklist, JSON.stringify(next));
+}
+
+function scrollToMainContent() {
+  const target = document.getElementById("mainContent");
+  if (!target) return;
+  target.scrollIntoView({ block: "start", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+}
+
+function announce(message) {
+  if (!dom.pageAnnouncer || !message) return;
+  dom.pageAnnouncer.textContent = "";
+  window.setTimeout(() => {
+    dom.pageAnnouncer.textContent = message;
+  }, 20);
+}
+
+function syncUrlHash() {
+  const nextHash = state.page === "overview" ? "" : `#${state.page}`;
+  const nextUrl = `${window.location.pathname}${window.location.search}${nextHash}`;
+  window.history.replaceState(null, "", nextUrl);
 }
 
 function updateDocumentTitle() {
@@ -2414,7 +2478,7 @@ function renderItinerary() {
   dom.daySelector.innerHTML = data.days
     .map(
       (day) => `
-        <button class="day-selector-btn ${day.id === state.selectedDay ? "active" : ""}" type="button" data-day-select="${day.id}" aria-label="${getText(day.day)}">
+        <button class="day-selector-btn ${day.id === state.selectedDay ? "active" : ""}" type="button" data-day-select="${day.id}" aria-label="${getText(day.day)}" aria-pressed="${day.id === state.selectedDay}">
           <div class="day-selector-day">${getText(day.day)}</div>
           <div class="day-selector-city">${getText(day.city)}</div>
           <div class="day-selector-meta">${formatDateLabel(day.date, true)}</div>
@@ -2737,7 +2801,7 @@ function renderMap() {
   dom.mapDayRoutes.innerHTML = data.map.dayRoutes
     .map(
       (route) => `
-        <button class="map-day-button ${route.embed === currentEmbed ? "active" : ""}" type="button" data-map-embed="${route.embed}" aria-label="${getText(route.label)}">
+        <button class="map-day-button ${route.embed === currentEmbed ? "active" : ""}" type="button" data-map-embed="${route.embed}" aria-label="${getText(route.label)}" aria-pressed="${route.embed === currentEmbed}">
           <span>${getText(route.label)}</span>
           <span class="map-drive-time">${getText(route.driveTime)}</span>
         </button>
@@ -2795,7 +2859,11 @@ function syncPageNavigation() {
   document.querySelectorAll("[data-page-link]").forEach((button) => {
     const active = button.dataset.pageLink === state.page;
     button.classList.toggle("active", active);
-    button.setAttribute("aria-current", active ? "page" : "false");
+    if (active) {
+      button.setAttribute("aria-current", "page");
+    } else {
+      button.removeAttribute("aria-current");
+    }
   });
 
   document.querySelectorAll("[data-page-panel]").forEach((panel) => {
@@ -2808,26 +2876,28 @@ function syncPageNavigation() {
 function updateLanguage(nextLang) {
   if (!nextLang || nextLang === state.lang) return;
   state.lang = nextLang;
-  localStorage.setItem(STORAGE_KEYS.lang, state.lang);
+  storage.set(STORAGE_KEYS.lang, state.lang);
   syncControls();
   renderAll();
   syncPageNavigation();
+  announce(state.lang === "zh-Hant" ? "已切換成繁體中文" : "Switched to English");
 }
 
 function updateCurrency(nextCurrency) {
   if (!nextCurrency || nextCurrency === state.currency) return;
   state.currency = nextCurrency;
-  localStorage.setItem(STORAGE_KEYS.currency, state.currency);
+  storage.set(STORAGE_KEYS.currency, state.currency);
   syncControls();
   renderStays();
   renderItinerary();
   renderBudget();
+  announce(`${state.currency} ${state.lang === "zh-Hant" ? "已更新" : "updated"}`);
 }
 
 function updateBudgetFilter(nextFilter) {
   if (!nextFilter || nextFilter === state.budgetFilter) return;
   state.budgetFilter = nextFilter;
-  localStorage.setItem(STORAGE_KEYS.budgetFilter, state.budgetFilter);
+  storage.set(STORAGE_KEYS.budgetFilter, state.budgetFilter);
   renderBudget();
 }
 
@@ -2842,17 +2912,27 @@ function updateChecklistItem(id, checked) {
 function setPage(page, { scroll = true } = {}) {
   if (!PAGE_IDS.includes(page)) return;
   state.page = page;
-  localStorage.setItem(STORAGE_KEYS.page, page);
+  storage.set(STORAGE_KEYS.page, page);
+  syncUrlHash();
   updateDocumentTitle();
   syncPageNavigation();
-  if (scroll) window.scrollTo({ top: 0, behavior: "smooth" });
+  if (scroll) {
+    if (page === "overview") {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    } else {
+      scrollToMainContent();
+    }
+  }
+  announce(t[state.lang][`nav${page.charAt(0).toUpperCase()}${page.slice(1)}`] || page);
 }
 
 function setDay(dayId, { switchPage = false } = {}) {
   if (!data.days.some((day) => day.id === dayId)) return;
   state.selectedDay = dayId;
-  localStorage.setItem(STORAGE_KEYS.day, dayId);
+  storage.set(STORAGE_KEYS.day, dayId);
   renderItinerary();
+  const selectedDay = getSelectedDay();
+  announce(`${getText(selectedDay.day)} · ${getText(selectedDay.city)}`);
 
   if (switchPage) {
     setPage("itinerary");
@@ -2928,9 +3008,32 @@ function bindProgress() {
   window.addEventListener("resize", queueProgressUpdate, { passive: true });
 }
 
-cacheDom();
-renderAll();
-syncControls();
-syncPageNavigation();
-bindUIEvents();
-bindProgress();
+function initApp() {
+  cacheDom();
+  renderAll();
+  syncControls();
+  syncPageNavigation();
+  syncUrlHash();
+  bindUIEvents();
+  bindProgress();
+  document.body.dataset.appReady = "true";
+  window.__travelGuideReady = true;
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    try {
+      initApp();
+    } catch (error) {
+      document.body.dataset.appReady = "error";
+      console.error("[travel-guide:init]", error);
+    }
+  }, { once: true });
+} else {
+  try {
+    initApp();
+  } catch (error) {
+    document.body.dataset.appReady = "error";
+    console.error("[travel-guide:init]", error);
+  }
+}

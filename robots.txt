@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://victoriac1122.github.io/australia-travel-2026/sitemap.xml
