@@ -36,7 +36,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260822" />
+    <link rel="stylesheet" href="./styles.css?v=20260825" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -117,7 +117,7 @@
     </header>
 
     <nav class="main-nav" aria-label="Primary desktop navigation">
-      <button class="nav-item active" type="button" data-page-link="overview" aria-label="查看旅程入口" data-i18n="navOverview">旅程入口</button>
+      <button class="nav-item active" type="button" data-page-link="overview" aria-label="查看旅程總覽" data-i18n="navOverview">旅程總覽</button>
       <button class="nav-item" type="button" data-page-link="flights" aria-label="查看航班與機場" data-i18n="navFlights">航班</button>
       <button class="nav-item" type="button" data-page-link="stays" aria-label="查看住宿與移動" data-i18n="navStays">住宿移動</button>
       <button class="nav-item" type="button" data-page-link="itinerary" aria-label="查看每日指南" data-i18n="navItinerary">每日指南</button>
@@ -130,10 +130,10 @@
     <main class="container" id="mainContent" tabindex="-1">
       <section class="page-section active" id="section-overview" data-page-panel="overview">
         <article class="section-card">
-          <div class="section-label" data-i18n="overviewKicker">Trip Snapshot</div>
-          <h2 data-i18n="overviewTitle">先看懂這趟旅程的節奏</h2>
+          <div class="section-label" data-i18n="overviewKicker">The Journey</div>
+          <h2 data-i18n="overviewTitle">六天，從墨爾本走到雪梨港灣</h2>
           <p class="section-lead" data-i18n="overviewLead">
-            首頁把城市、海岸線、公路日和港灣夜色一次整理成旅程入口，先讓整趟旅行一眼看懂。
+            前半程住在墨爾本，安排市區散步、大洋路與 Phillip Island；5 月 27 日飛往雪梨，最後兩天留給港灣與市中心。
           </p>
           <div class="snapshot-grid" id="tripSnapshotGrid"></div>
           <div class="theme-cluster" id="tripThemeChips" aria-label="Trip themes"></div>
@@ -141,37 +141,37 @@
         </article>
 
         <article class="section-card">
-          <div class="section-label" data-i18n="overviewRouteKicker">Route Flow</div>
-          <h2 data-i18n="overviewRouteTitle">城市、海岸與自然景觀動線</h2>
+          <div class="section-label" data-i18n="overviewRouteKicker">Route Notes</div>
+          <h2 data-i18n="overviewRouteTitle">旅程沿著城市、海岸與港灣前進</h2>
           <p class="section-lead" data-i18n="overviewRouteLead">
-            每天的重點不是分散景點，而是把同一區的節奏排順，讓移動、吃飯和看風景都自然接起來。
+            同一區的景點排在一起，長途日只留必要停靠；走路、用餐與交通都能順著當天的方向安排。
           </p>
           <div class="route-overview-grid" id="routeFlowGrid"></div>
         </article>
 
         <article class="section-card">
-          <div class="section-label" data-i18n="overviewHighlightsKicker">Journey Highlights</div>
-          <h2 data-i18n="overviewHighlightsTitle">整趟旅程最值得期待的畫面</h2>
+          <div class="section-label" data-i18n="overviewHighlightsKicker">Highlights</div>
+          <h2 data-i18n="overviewHighlightsTitle">沿途會記得的幾個片刻</h2>
           <p class="section-lead" data-i18n="overviewHighlightsLead">
-            從街區晨光、海岸斷崖到港灣早餐，把這趟最有旅行感的片段先收成一頁。
+            墨爾本巷弄的第一杯咖啡、大洋路的海風、企鵝上岸，以及雪梨港邊的早晨。
           </p>
           <div class="highlight-grid" id="journeyHighlights"></div>
         </article>
 
         <article class="section-card">
-          <div class="section-label" data-i18n="overviewDaysKicker">Day-by-Day Preview</div>
-          <h2 data-i18n="overviewDaysTitle">每日故事卡</h2>
+          <div class="section-label" data-i18n="overviewDaysKicker">Daily Notes</div>
+          <h2 data-i18n="overviewDaysTitle">六天行程，先看每天的重點</h2>
           <p class="section-lead" data-i18n="overviewDaysLead">
-            先知道今天主要在哪個區域、需不需要早起、步行量大不大，再進入詳細行程。
+            日期、區域、步行量與出發提醒都放在卡片上；需要早起或長途移動的日子一眼就能辨認。
           </p>
           <div class="day-preview-grid" id="dayPreviewGrid"></div>
         </article>
 
         <article class="section-card">
-          <div class="section-label" data-i18n="overviewPracticalKicker">Practical Info</div>
-          <h2 data-i18n="overviewPracticalTitle">旅途中最常翻的資訊</h2>
+          <div class="section-label" data-i18n="overviewPracticalKicker">On The Road</div>
+          <h2 data-i18n="overviewPracticalTitle">上路前，先把這些放在手邊</h2>
           <p class="section-lead" data-i18n="overviewPracticalLead">
-            需要提早出門、帶外套、看海風、查機場或補買東西時，先翻這一區就夠。
+            航班、住宿、交通、穿搭與退稅分區收好，需要時展開查看，不必在長篇文字裡找資料。
           </p>
           <div class="practical-accordion-list" id="practicalInfoGrid"></div>
         </article>
@@ -179,19 +179,19 @@
 
       <section class="page-section" id="section-flights" data-page-panel="flights">
         <article class="section-card">
-          <div class="section-label" data-i18n="flightsKicker">Flights & Airports</div>
-          <h2 data-i18n="flightsTitle">航班與機場動線</h2>
+          <div class="section-label" data-i18n="flightsKicker">Flight Notes</div>
+          <h2 data-i18n="flightsTitle">三段航班，一次看清</h2>
           <p class="section-lead" data-i18n="flightsLead">
-            這趟的三段飛行各有不同節奏：跨夜抵達、城市轉場，以及最後一天晚上的回程。
+            5 月 23 日深夜從台北出發；5 月 27 日由墨爾本轉往雪梨；5 月 29 日晚間搭機返台。
           </p>
           <div class="flight-grid" id="flightCards"></div>
           <div class="content-grid two-col">
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="flightPlanTitle">機場節奏</div>
+              <div class="panel-kicker" data-i18n="flightPlanTitle">機場時間</div>
               <div class="bullet-stack" id="flightNotes"></div>
             </section>
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="airportGuidesTitle">當天怎麼抓時間</div>
+              <div class="panel-kicker" data-i18n="airportGuidesTitle">出發與抵達安排</div>
               <div class="bullet-stack" id="airportGuides"></div>
             </section>
           </div>
@@ -200,24 +200,24 @@
 
       <section class="page-section" id="section-stays" data-page-panel="stays">
         <article class="section-card">
-          <div class="section-label" data-i18n="staysKicker">Stay & Movement</div>
-          <h2 data-i18n="staysTitle">住宿與城際移動</h2>
+          <div class="section-label" data-i18n="staysKicker">Where We Stay</div>
+          <h2 data-i18n="staysTitle">兩座城市的落腳處</h2>
           <p class="section-lead" data-i18n="staysLead">
-            前半段以墨爾本市中心為 base，後半段落在達令港；只要把 Day 4 的還車、機場和入住抓好，整趟節奏就很順。
+            墨爾本住 Dorsett Melbourne，雪梨住 Sofitel Darling Harbour。5 月 27 日集中處理還車、國內線與入住。
           </p>
           <div class="stay-grid" id="stayCards"></div>
           <div class="content-grid two-col">
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="stayAdvantagesTitle">住這裡的好處</div>
+              <div class="panel-kicker" data-i18n="stayAdvantagesTitle">住宿位置與周邊動線</div>
               <div class="bullet-stack" id="stayAdvantages"></div>
             </section>
             <section class="content-panel">
-              <div class="panel-kicker" data-i18n="moveDayTitle">Day 4 轉場節奏</div>
+              <div class="panel-kicker" data-i18n="moveDayTitle">5 月 27 日｜墨爾本到雪梨</div>
               <div class="timeline-list" id="moveDayTimeline"></div>
             </section>
           </div>
           <section class="content-panel wide-panel">
-            <div class="panel-kicker" data-i18n="moveOptionsTitle">已訂與旅途中會用到的移動</div>
+            <div class="panel-kicker" data-i18n="moveOptionsTitle">已確認的交通與備選方案</div>
             <div class="route-card-list" id="moveOptions"></div>
           </section>
         </article>
@@ -225,10 +225,10 @@
 
       <section class="page-section" id="section-itinerary" data-page-panel="itinerary">
         <article class="section-card">
-          <div class="section-label" data-i18n="itineraryKicker">Daily Guide</div>
-          <h2 data-i18n="itineraryTitle">每日澳洲旅行指南</h2>
+          <div class="section-label" data-i18n="itineraryKicker">Day By Day</div>
+          <h2 data-i18n="itineraryTitle">六天每日指南</h2>
           <p class="section-lead" data-i18n="itineraryLead">
-            每一天都先看區域、步行量、穿搭和移動方式，再往下看今日路線、時間節奏與貼心提醒。
+            每一天先列出出發時間、活動區域、步行量、穿搭與交通，再依上午、下午與晚間閱讀完整路線。
           </p>
           <div class="day-selector-grid" id="daySelector"></div>
           <div class="day-detail-wrap" id="dayDetail"></div>
@@ -237,10 +237,10 @@
 
       <section class="page-section" id="section-map" data-page-panel="map">
         <article class="section-card">
-          <div class="section-label" data-i18n="mapKicker">Map</div>
-          <h2 data-i18n="mapTitle">地圖與區域動線</h2>
+          <div class="section-label" data-i18n="mapKicker">Route Map</div>
+          <h2 data-i18n="mapTitle">每日路線與地圖</h2>
           <p class="section-lead" data-i18n="mapLead">
-            先選今天會跑哪一區，再開大圖地圖；找方向時會比把所有點攤成一長串更直覺。
+            先選日期，再查看當天的主要區域與地圖；長途路線和市區散步分開呈現。
           </p>
           <div class="map-actions">
             <a class="large-link-button map-route-button" id="fullRouteLink" href="#" target="_blank" rel="noreferrer" aria-label="開啟完整路線">
@@ -263,10 +263,10 @@
 
       <section class="page-section" id="section-budget" data-page-panel="budget">
         <article class="section-card">
-          <div class="section-label" data-i18n="budgetKicker">Budget</div>
+          <div class="section-label" data-i18n="budgetKicker">Trip Costs</div>
           <h2 data-i18n="budgetTitle">旅費概覽</h2>
           <p class="section-lead" data-i18n="budgetLead">
-            這頁把已訂金額和還有彈性的部分拆開看，旅途中想快速確認花費分配會更直覺。
+            已付款、已有金額與尚待估算的項目分開標示，可切換幣別查看兩人總額與每人預算。
           </p>
           <div class="budget-filter-row">
             <button class="budget-filter-btn active" type="button" data-budget-filter="all" aria-label="顯示全部旅費項目">全部</button>
@@ -293,10 +293,10 @@
 
       <section class="page-section" id="section-souvenirs" data-page-panel="souvenirs">
         <article class="section-card">
-          <div class="section-label" data-i18n="souvenirsKicker">Souvenirs</div>
-          <h2 data-i18n="souvenirsTitle">適合帶回家的澳洲選物</h2>
+          <div class="section-label" data-i18n="souvenirsKicker">Bring Home</div>
+          <h2 data-i18n="souvenirsTitle">從澳洲帶回來</h2>
           <p class="section-lead" data-i18n="souvenirsLead">
-            如果最後一天還想慢慢挑一點東西帶回家，這裡整理的是好帶、好買，而且回來真的還會用到的選擇。
+            超市零食可以提早買；蛋白石、Aesop 與羊毛小物留到市中心行程，再依來源、材質與行李空間挑選。
           </p>
           <div class="souvenir-grid" id="souvenirsGrid"></div>
           <div class="content-grid two-col">
@@ -314,10 +314,10 @@
 
       <section class="page-section" id="section-notes" data-page-panel="notes">
         <article class="section-card">
-          <div class="section-label" data-i18n="notesKicker">Before Departure</div>
-          <h2 data-i18n="notesTitle">出發前與旅途工具箱</h2>
+          <div class="section-label" data-i18n="notesKicker">Good To Know</div>
+          <h2 data-i18n="notesTitle">出發文件與旅途備忘</h2>
           <p class="section-lead" data-i18n="notesLead">
-            臨出門、在機場，或旅途中突然要找官方頁面時，這一頁會是最省時間的備忘。
+            護照、ETA、訂單、穿搭與官方連結集中在這裡；出門前確認一次，途中也能快速重開。
           </p>
           <div class="content-grid note-stack">
             <section class="content-panel">
@@ -334,14 +334,14 @@
     </main>
 
     <nav class="bottom-nav" aria-label="Primary mobile navigation">
-      <button class="bottom-nav-item active" type="button" data-page-link="overview" aria-label="前往旅程入口">
+      <button class="bottom-nav-item active" type="button" data-page-link="overview" aria-label="前往旅程總覽">
         <span class="tab-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M4.5 10.75L12 4.75L19.5 10.75V18.25C19.5 18.9404 18.9404 19.5 18.25 19.5H5.75C5.05964 19.5 4.5 18.9404 4.5 18.25V10.75Z" />
             <path d="M9.25 19.5V13.75H14.75V19.5" />
           </svg>
         </span>
-        <span data-i18n="navOverview">旅程入口</span>
+        <span data-i18n="navOverview">旅程總覽</span>
       </button>
       <button class="bottom-nav-item" type="button" data-page-link="flights" aria-label="前往航班">
         <span class="tab-icon" aria-hidden="true">
@@ -415,6 +415,6 @@
       </button>
     </nav>
 
-    <script src="./script.js?v=20260822" defer></script>
+    <script src="./script.js?v=20260825" defer></script>
   </body>
 </html>
