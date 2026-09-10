@@ -11,8 +11,12 @@
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="theme-color" content="#123948" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Australia 2026" />
     <link rel="canonical" href="https://victoriac1122.github.io/australia-travel-2026/" />
     <link rel="icon" href="./assets/opera-house-hero.svg" type="image/svg+xml" />
+    <link rel="manifest" href="./manifest.webmanifest" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="2026 Australia Travel Guide | Victoria Cheng" />
     <meta property="og:url" content="https://victoriac1122.github.io/australia-travel-2026/" />
@@ -36,7 +40,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260825" />
+    <link rel="stylesheet" href="./styles.css?v=20260911-r2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -65,6 +69,7 @@
     <a class="skip-link" href="#mainContent">跳到主要內容</a>
     <div class="sr-only" id="pageAnnouncer" aria-live="polite" aria-atomic="true"></div>
     <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+    <div class="network-status" id="networkStatus" role="status" hidden></div>
 
     <header class="hero">
       <div class="hero-backdrop hero-backdrop-sun"></div>
@@ -97,6 +102,7 @@
           <p class="hero-lead" id="heroLead"></p>
           <p class="hero-destinations" id="heroDestinations"></p>
           <div class="hero-rhythm-row" id="heroRhythm" aria-label="Trip rhythm highlights"></div>
+          <section class="trip-now-card" id="tripNowCard" aria-live="polite"></section>
         </div>
 
         <div class="hero-visual-column">
@@ -184,6 +190,7 @@
           <p class="section-lead" data-i18n="flightsLead">
             5 月 23 日深夜從台北出發；5 月 27 日由墨爾本轉往雪梨；5 月 29 日晚間搭機返台。
           </p>
+          <div class="data-status-bar" id="flightDataStatus"></div>
           <div class="flight-grid" id="flightCards"></div>
           <div class="content-grid two-col">
             <section class="content-panel">
@@ -205,6 +212,7 @@
           <p class="section-lead" data-i18n="staysLead">
             墨爾本住 Dorsett Melbourne，雪梨住 Sofitel Darling Harbour。5 月 27 日集中處理還車、國內線與入住。
           </p>
+          <div class="data-status-bar" id="stayDataStatus"></div>
           <div class="stay-grid" id="stayCards"></div>
           <div class="content-grid two-col">
             <section class="content-panel">
@@ -268,6 +276,16 @@
           <p class="section-lead" data-i18n="budgetLead">
             已付款、已有金額與尚待估算的項目分開標示，可切換幣別查看兩人總額與每人預算。
           </p>
+          <div class="exchange-rate-card">
+            <div>
+              <div class="info-label" data-i18n="exchangeRateTitle">預算換算匯率</div>
+              <div class="exchange-rate-note" data-i18n="exchangeRateNote">這是手動估算值，不是即時牌告匯率。</div>
+            </div>
+            <label class="exchange-rate-control" for="exchangeRateInput">
+              <span>1 AUD = NT$</span>
+              <input id="exchangeRateInput" type="number" min="1" max="100" step="0.1" inputmode="decimal" aria-label="一澳幣換算台幣匯率" />
+            </label>
+          </div>
           <div class="budget-filter-row">
             <button class="budget-filter-btn active" type="button" data-budget-filter="all" aria-label="顯示全部旅費項目">全部</button>
             <button class="budget-filter-btn" type="button" data-budget-filter="actual" aria-label="只顯示已知金額項目">已有金額</button>
@@ -341,26 +359,7 @@
             <path d="M9.25 19.5V13.75H14.75V19.5" />
           </svg>
         </span>
-        <span data-i18n="navOverview">旅程總覽</span>
-      </button>
-      <button class="bottom-nav-item" type="button" data-page-link="flights" aria-label="前往航班">
-        <span class="tab-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M21 16.25L13.75 13.75L9.25 19.5L7.75 19L9 12.75L3.25 10.75V9.25L9 9.75L7.75 3.5L9.25 3L13.75 8.75L21 6.25V16.25Z" />
-          </svg>
-        </span>
-        <span data-i18n="navFlights">航班</span>
-      </button>
-      <button class="bottom-nav-item" type="button" data-page-link="stays" aria-label="前往住宿與移動">
-        <span class="tab-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M4.5 18.5V8.75C4.5 8.05964 5.05964 7.5 5.75 7.5H18.25C18.9404 7.5 19.5 8.05964 19.5 8.75V18.5" />
-            <path d="M4.5 13.5H19.5" />
-            <path d="M7.5 10.5H10.5" />
-            <path d="M4.5 18.5H19.5" />
-          </svg>
-        </span>
-        <span data-i18n="navStays">住宿移動</span>
+        <span data-i18n="mobileNavOverview">總覽</span>
       </button>
       <button class="bottom-nav-item" type="button" data-page-link="itinerary" aria-label="前往每日指南">
         <span class="tab-icon" aria-hidden="true">
@@ -373,7 +372,7 @@
             <path d="M4.75 17.25H4.76" />
           </svg>
         </span>
-        <span data-i18n="navItinerary">每日指南</span>
+        <span data-i18n="mobileNavItinerary">行程</span>
       </button>
       <button class="bottom-nav-item" type="button" data-page-link="map" aria-label="前往地圖與動線">
         <span class="tab-icon" aria-hidden="true">
@@ -384,37 +383,54 @@
         </span>
         <span data-i18n="navMap">地圖</span>
       </button>
-      <button class="bottom-nav-item" type="button" data-page-link="budget" aria-label="前往旅費">
+      <button class="bottom-nav-item" type="button" data-page-link="stays" aria-label="前往住宿與移動">
         <span class="tab-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
-            <path d="M8.5 15.5C8.5 17.1569 10.067 18.5 12 18.5C13.933 18.5 15.5 17.1569 15.5 15.5C15.5 13.8431 13.933 12.5 12 12.5C10.067 12.5 8.5 11.1569 8.5 9.5C8.5 7.84315 10.067 6.5 12 6.5C13.933 6.5 15.5 7.84315 15.5 9.5" />
-            <path d="M12 4.5V20" />
+            <path d="M4.5 18.5V8.75C4.5 8.05964 5.05964 7.5 5.75 7.5H18.25C18.9404 7.5 19.5 8.05964 19.5 8.75V18.5" />
+            <path d="M4.5 13.5H19.5" />
+            <path d="M7.5 10.5H10.5" />
+            <path d="M4.5 18.5H19.5" />
           </svg>
         </span>
-        <span data-i18n="navBudget">旅費</span>
+        <span data-i18n="mobileNavStays">住宿</span>
       </button>
-      <button class="bottom-nav-item" type="button" data-page-link="souvenirs" aria-label="前往帶回家">
+      <button class="bottom-nav-item" id="moreMenuButton" type="button" data-more-menu aria-label="開啟更多功能" aria-haspopup="dialog" aria-controls="moreMenu" aria-expanded="false">
         <span class="tab-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
-            <path d="M6 8.5H18L17 19.5H7L6 8.5Z" />
-            <path d="M9 8.5V7.5C9 5.84315 10.3431 4.5 12 4.5C13.6569 4.5 15 5.84315 15 7.5V8.5" />
-            <path d="M10 12.25H10.01" />
-            <path d="M14 12.25H14.01" />
+            <circle cx="5" cy="12" r="1.25" />
+            <circle cx="12" cy="12" r="1.25" />
+            <circle cx="19" cy="12" r="1.25" />
           </svg>
         </span>
-        <span data-i18n="navSouvenirs">帶回家</span>
-      </button>
-      <button class="bottom-nav-item" type="button" data-page-link="notes" aria-label="前往出發前資訊">
-        <span class="tab-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M8 11.75L10.75 14.5L16.5 8.75" />
-            <path d="M7 4.5H17C18.3807 4.5 19.5 5.61929 19.5 7V17C19.5 18.3807 18.3807 19.5 17 19.5H7C5.61929 19.5 4.5 18.3807 4.5 17V7C4.5 5.61929 5.61929 4.5 7 4.5Z" />
-          </svg>
-        </span>
-        <span data-i18n="navNotes">出發前</span>
+        <span data-i18n="mobileNavMore">更多</span>
       </button>
     </nav>
 
-    <script src="./script.js?v=20260825" defer></script>
+    <dialog class="more-menu" id="moreMenu" aria-labelledby="moreMenuTitle">
+      <div class="more-menu-sheet">
+        <div class="more-menu-handle" aria-hidden="true"></div>
+        <div class="more-menu-heading">
+          <div>
+            <div class="section-label">Travel Toolkit</div>
+            <h2 id="moreMenuTitle" data-i18n="mobileMoreTitle">旅途工具</h2>
+          </div>
+          <button class="more-menu-close" type="button" data-more-close data-i18n="close" aria-label="關閉更多功能">關閉</button>
+        </div>
+        <div class="more-menu-grid">
+          <button class="more-menu-link" type="button" data-page-link="flights"><span data-i18n="navFlights">航班</span><span>Flight notes</span></button>
+          <button class="more-menu-link" type="button" data-page-link="budget"><span data-i18n="navBudget">旅費</span><span>Trip costs</span></button>
+          <button class="more-menu-link" type="button" data-page-link="souvenirs"><span data-i18n="navSouvenirs">帶回家</span><span>Bring home</span></button>
+          <button class="more-menu-link" type="button" data-page-link="notes"><span data-i18n="navNotes">出發前</span><span>Good to know</span></button>
+        </div>
+        <button class="install-app-button" id="installAppButton" type="button" hidden>
+          <span data-i18n="installGuide">加入手機主畫面</span>
+          <span data-i18n="installGuideNote">離線時也能打開行程</span>
+        </button>
+        <p class="install-help" data-i18n="installHelp">iPhone 可用 Safari 的「分享 → 加入主畫面」保留離線版本。</p>
+        <p class="more-menu-footnote" data-i18n="dataFreshnessNote">手冊更新 2026.09.11；航班、票券、營業時間與即時路況請在出發前向官方再次確認。</p>
+      </div>
+    </dialog>
+
+    <script src="./script.js?v=20260911-r2" defer></script>
   </body>
 </html>

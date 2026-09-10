@@ -2,22 +2,28 @@ const STORAGE_KEYS = {
   lang: "australia-handbook-lang",
   currency: "australia-handbook-currency",
   checklist: "australia-handbook-checklist-v3",
-  page: "australia-handbook-page",
   budgetFilter: "australia-handbook-budget-filter",
   day: "australia-handbook-day",
+  exchangeRate: "australia-handbook-twd-rate",
 };
 
 const PAGE_IDS = ["overview", "flights", "stays", "itinerary", "map", "budget", "souvenirs", "notes"];
+const MORE_PAGE_IDS = new Set(["flights", "budget", "souvenirs", "notes"]);
 
 const DAY_GLANCE_ORDER = ["start", "area", "highlights", "energy", "walk", "wear", "food", "transport", "booking"];
 
-const rates = {
-  AUD: { symbol: "A$", audPerUnit: 1 },
-  TWD: { symbol: "NT$", audPerUnit: 20.7 },
+const CURRENCY_META = {
+  AUD: { symbol: "A$" },
+  TWD: { symbol: "NT$" },
 };
+const DEFAULT_TWD_RATE = 20.7;
+const TRIP_START = "2026-05-23";
+const TRIP_END = "2026-05-30";
 
 const dom = {};
 let progressFrame = 0;
+let exchangeRateTimer = 0;
+let deferredInstallPrompt = null;
 
 const storage = {
   get(key) {
@@ -54,6 +60,40 @@ const t = {
     navBudget: "旅費",
     navSouvenirs: "帶回家",
     navNotes: "出發前",
+    mobileNavOverview: "總覽",
+    mobileNavItinerary: "行程",
+    mobileNavStays: "住宿",
+    mobileNavMore: "更多",
+    mobileMoreTitle: "旅途工具",
+    close: "關閉",
+    installGuide: "加入手機主畫面",
+    installGuideNote: "離線時也能打開行程",
+    installHelp: "iPhone 可用 Safari 的「分享 → 加入主畫面」保留離線版本。",
+    dataFreshnessNote: "手冊更新 2026.09.11；航班、票券、營業時間與即時路況請在出發前向官方再次確認。",
+    flightDataStatus: "手冊已列入三段航班；出發前請回航空公司訂單頁複核航廈與時間。",
+    stayDataStatus: "兩間飯店與入住區域已整理；房型、入住規則與訂單狀態請以訂房紀錄為準。",
+    exchangeRateTitle: "預算換算匯率",
+    exchangeRateNote: "這是手動估算值，不是即時牌告匯率。",
+    offlineStatus: "目前離線，仍可查看已儲存的行程。地圖與外部連結需恢復網路後使用。",
+    onlineStatus: "網路已恢復。",
+    tripBeforeLabel: "行前準備",
+    tripActiveLabel: "今天的旅程",
+    tripAfterLabel: "旅程手冊",
+    tripDepartureLabel: "今晚出發",
+    tripReturnLabel: "回程日",
+    tripDatePassed: "原行程日期已過，所有路線與資料仍可作為旅行紀錄查看。",
+    daysUntilTrip: "天後出發",
+    openDayGuide: "打開當日指南",
+    openFirstDay: "先看第一天",
+    openRouteMap: "查看路線地圖",
+    openStay: "查看住宿",
+    openDepartureNotes: "查看出發前確認",
+    quickStart: "出發",
+    quickWear: "穿搭",
+    quickMove: "移動",
+    guideDataNote: "手冊更新 2026.09.11｜非即時資料",
+    fixedSchedule: "固定時段",
+    stayReference: "住宿參考",
     overviewKicker: "The Journey",
     overviewTitle: "六天，從墨爾本走到雪梨港灣",
     overviewLead: "前半程住在墨爾本，安排市區散步、大洋路與 Phillip Island；5 月 27 日飛往雪梨，最後兩天留給港灣與市中心。",
@@ -159,6 +199,40 @@ const t = {
     navBudget: "Budget",
     navSouvenirs: "Souvenirs",
     navNotes: "Before You Go",
+    mobileNavOverview: "Overview",
+    mobileNavItinerary: "Guide",
+    mobileNavStays: "Stay",
+    mobileNavMore: "More",
+    mobileMoreTitle: "Travel toolkit",
+    close: "Close",
+    installGuide: "Add to home screen",
+    installGuideNote: "Keep the guide available offline",
+    installHelp: "On iPhone, use Safari Share → Add to Home Screen to keep the offline guide close.",
+    dataFreshnessNote: "Guide updated Sep 11, 2026. Recheck flights, tickets, opening hours, and live road conditions with official sources before travel.",
+    flightDataStatus: "All three flights are listed here. Recheck terminals and times in the airline booking before departure.",
+    stayDataStatus: "Both hotels and areas are organised here. Use the booking record for room type, policies, and confirmation status.",
+    exchangeRateTitle: "Budget exchange rate",
+    exchangeRateNote: "A manual planning rate, not a live quoted rate.",
+    offlineStatus: "You are offline. Saved itinerary details remain available; maps and external links need a connection.",
+    onlineStatus: "Connection restored.",
+    tripBeforeLabel: "Before the trip",
+    tripActiveLabel: "Today's journey",
+    tripAfterLabel: "Travel handbook",
+    tripDepartureLabel: "Departure tonight",
+    tripReturnLabel: "Return day",
+    tripDatePassed: "The original dates have passed, but every route remains available as a travel record.",
+    daysUntilTrip: "days to departure",
+    openDayGuide: "Open today's guide",
+    openFirstDay: "Start with Day 1",
+    openRouteMap: "Open route map",
+    openStay: "Open stay details",
+    openDepartureNotes: "Open departure notes",
+    quickStart: "Start",
+    quickWear: "Wear",
+    quickMove: "Move",
+    guideDataNote: "Guide updated Sep 11, 2026 | static data",
+    fixedSchedule: "Fixed timing",
+    stayReference: "Stay reference",
     overviewKicker: "The Journey",
     overviewTitle: "Six days from Melbourne to Sydney Harbour",
     overviewLead: "The first half covers Melbourne, the Great Ocean Road, and Phillip Island. Fly to Sydney on May 27, then finish with two harbour and city days.",
@@ -878,6 +952,7 @@ const data = {
       id: "day1",
       day: { "zh-Hant": "Day 1", en: "Day 1" },
       date: "2026-05-24",
+      status: { label: { "zh-Hant": "保留彈性", en: "Flexible" }, tone: "flexible" },
       city: { "zh-Hant": "Melbourne CBD / Southbank", en: "Melbourne CBD / Southbank" },
       theme: { "zh-Hant": "咖啡街區與河岸散步", en: "Laneways, coffee, and a riverside first day" },
       preview: {
@@ -1018,6 +1093,7 @@ const data = {
       id: "day2",
       day: { "zh-Hant": "Day 2", en: "Day 2" },
       date: "2026-05-25",
+      status: { label: { "zh-Hant": "早起長途", en: "Early long drive" }, tone: "drive" },
       city: { "zh-Hant": "Great Ocean Road", en: "Great Ocean Road" },
       theme: { "zh-Hant": "海岸線、公路與斷崖大景", en: "Coastline, road air, and cliff-edge views" },
       preview: {
@@ -1158,6 +1234,7 @@ const data = {
       id: "day3",
       day: { "zh-Hant": "Day 3", en: "Day 3" },
       date: "2026-05-26",
+      status: { label: { "zh-Hant": "票券先確認", en: "Confirm tickets" }, tone: "booking" },
       city: { "zh-Hant": "Melbourne → Phillip Island", en: "Melbourne → Phillip Island" },
       theme: { "zh-Hant": "慢城市午後，接上海風與企鵝歸巢", en: "A slower city morning that turns into sea wind and Penguin Parade" },
       preview: {
@@ -1306,6 +1383,7 @@ const data = {
       id: "day4",
       day: { "zh-Hant": "Day 4", en: "Day 4" },
       date: "2026-05-27",
+      status: { label: { "zh-Hant": "固定航班", en: "Fixed flight" }, tone: "fixed" },
       city: { "zh-Hant": "Melbourne → Sydney", en: "Melbourne → Sydney" },
       theme: { "zh-Hant": "墨爾本收尾，午後飛往雪梨", en: "Wrap Melbourne, then fly into Sydney" },
       preview: {
@@ -1446,6 +1524,7 @@ const data = {
       id: "day5",
       day: { "zh-Hant": "Day 5", en: "Day 5" },
       date: "2026-05-28",
+      status: { label: { "zh-Hant": "票券先確認", en: "Confirm tickets" }, tone: "booking" },
       city: { "zh-Hant": "Sydney Harbour / Darling Harbour", en: "Sydney Harbour / Darling Harbour" },
       theme: { "zh-Hant": "港灣晨光、歌劇院與海生館的一天", en: "Harbour morning light, the Opera House, and the aquarium" },
       preview: {
@@ -1586,6 +1665,7 @@ const data = {
       id: "day6",
       day: { "zh-Hant": "Day 6", en: "Day 6" },
       date: "2026-05-29",
+      status: { label: { "zh-Hant": "回程時間固定", en: "Fixed return" }, tone: "fixed" },
       city: { "zh-Hant": "Sydney CBD / Airport", en: "Sydney CBD / Airport" },
       theme: { "zh-Hant": "最後半天的城市節奏，晚上回程", en: "A final city half-day, then the night flight home" },
       preview: {
@@ -2057,12 +2137,35 @@ const data = {
   },
 };
 
-function getInitialPage() {
-  const hashPage = window.location.hash.replace(/^#/, "").split("/")[0];
-  const storedPage = storage.get(STORAGE_KEYS.page);
+function localDateKey(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
 
-  if (PAGE_IDS.includes(hashPage)) return hashPage;
-  return PAGE_IDS.includes(storedPage) ? storedPage : "overview";
+function getTripContext(date = new Date()) {
+  const today = localDateKey(date);
+  const day = data.days.find((item) => item.date === today) || null;
+
+  if (today < TRIP_START) {
+    const current = new Date(`${today}T12:00:00`);
+    const departure = new Date(`${TRIP_START}T12:00:00`);
+    return { phase: "before", daysUntil: Math.ceil((departure - current) / 86400000), day: null };
+  }
+  if (today > TRIP_END) return { phase: "after", day: null };
+  if (today === TRIP_START) return { phase: "departure", day: data.days[0] };
+  if (today === TRIP_END) return { phase: "return", day: data.days.at(-1) };
+  return { phase: "active", day: day || data.days[0] };
+}
+
+function getHashParts() {
+  return window.location.hash.replace(/^#/, "").split("/").filter(Boolean);
+}
+
+function getInitialPage() {
+  const [hashPage] = getHashParts();
+  return PAGE_IDS.includes(hashPage) ? hashPage : "overview";
 }
 
 function getInitialBudgetFilter() {
@@ -2071,8 +2174,19 @@ function getInitialBudgetFilter() {
 }
 
 function getInitialSelectedDay() {
+  const [, hashDay] = getHashParts();
+  if (data.days.some((day) => day.id === hashDay)) return hashDay;
+
+  const tripContext = getTripContext();
+  if (["active", "departure", "return"].includes(tripContext.phase) && tripContext.day) return tripContext.day.id;
+
   const storedDay = storage.get(STORAGE_KEYS.day);
   return data.days.some((day) => day.id === storedDay) ? storedDay : data.days[0].id;
+}
+
+function getInitialExchangeRate() {
+  const value = Number(storage.get(STORAGE_KEYS.exchangeRate));
+  return Number.isFinite(value) && value >= 1 && value <= 100 ? value : DEFAULT_TWD_RATE;
 }
 
 const state = {
@@ -2081,6 +2195,7 @@ const state = {
   page: getInitialPage(),
   budgetFilter: getInitialBudgetFilter(),
   selectedDay: getInitialSelectedDay(),
+  exchangeRate: getInitialExchangeRate(),
 };
 
 function getText(entry) {
@@ -2090,8 +2205,8 @@ function getText(entry) {
 }
 
 function formatCurrency(aud, currency = state.currency) {
-  const meta = rates[currency];
-  return `${meta.symbol}${Math.round(aud * meta.audPerUnit).toLocaleString()}`;
+  const factor = currency === "TWD" ? state.exchangeRate : 1;
+  return `${CURRENCY_META[currency].symbol}${Math.round(aud * factor).toLocaleString()}`;
 }
 
 function formatDateLabel(dateString, compact = false) {
@@ -2110,6 +2225,19 @@ function renderTag(tag, className = "travel-tag") {
   return `<span class="${className}${tag.tone ? ` tone-${tag.tone}` : ""}">${getText(tag.label ?? tag)}</span>`;
 }
 
+function renderItems(target, items, template) {
+  if (!target) return;
+  target.innerHTML = items.map(template).join("");
+}
+
+function renderBulletCards(target, items) {
+  renderItems(
+    target,
+    items,
+    (item) => `<article class="bullet-card"><div class="bullet-title">${getText(item.title)}</div><div class="bullet-desc">${getText(item.desc)}</div></article>`
+  );
+}
+
 function getSelectedDay() {
   return data.days.find((day) => day.id === state.selectedDay) || data.days[0];
 }
@@ -2120,46 +2248,18 @@ function getSelectedDayIndex() {
 }
 
 function cacheDom() {
-  dom.pageProgress = document.getElementById("pageProgress");
-  dom.pageAnnouncer = document.getElementById("pageAnnouncer");
-  dom.heroKicker = document.getElementById("heroKicker");
-  dom.heroTitle = document.getElementById("heroTitle");
-  dom.heroSubtitle = document.getElementById("heroSubtitle");
-  dom.heroChipRow = document.getElementById("heroChipRow");
-  dom.heroLead = document.getElementById("heroLead");
-  dom.heroDestinations = document.getElementById("heroDestinations");
-  dom.heroRhythm = document.getElementById("heroRhythm");
-  dom.heroSummary = document.getElementById("heroSummary");
-  dom.tripSnapshotGrid = document.getElementById("tripSnapshotGrid");
-  dom.tripThemeChips = document.getElementById("tripThemeChips");
-  dom.paceStrip = document.getElementById("paceStrip");
-  dom.routeFlowGrid = document.getElementById("routeFlowGrid");
-  dom.journeyHighlights = document.getElementById("journeyHighlights");
-  dom.dayPreviewGrid = document.getElementById("dayPreviewGrid");
-  dom.practicalInfoGrid = document.getElementById("practicalInfoGrid");
-  dom.flightCards = document.getElementById("flightCards");
-  dom.flightNotes = document.getElementById("flightNotes");
-  dom.airportGuides = document.getElementById("airportGuides");
-  dom.stayCards = document.getElementById("stayCards");
-  dom.stayAdvantages = document.getElementById("stayAdvantages");
-  dom.moveDayTimeline = document.getElementById("moveDayTimeline");
-  dom.moveOptions = document.getElementById("moveOptions");
-  dom.daySelector = document.getElementById("daySelector");
-  dom.dayDetail = document.getElementById("dayDetail");
-  dom.mapDayRoutes = document.getElementById("mapDayRoutes");
-  dom.mapList = document.getElementById("mapList");
-  dom.mapFrame = document.getElementById("mapFrame");
-  dom.fullRouteLink = document.getElementById("fullRouteLink");
-  dom.budgetSelectedHeading = document.getElementById("budgetSelectedHeading");
-  dom.budgetHighlights = document.getElementById("budgetHighlights");
-  dom.budgetTableBody = document.getElementById("budgetTableBody");
-  dom.budgetCards = document.getElementById("budgetCards");
+  const ids = [
+    "pageProgress", "pageAnnouncer", "networkStatus", "heroKicker", "heroTitle", "heroSubtitle", "heroChipRow", "heroLead", "heroDestinations",
+    "heroRhythm", "heroSummary", "tripNowCard", "tripSnapshotGrid", "tripThemeChips", "paceStrip", "routeFlowGrid", "journeyHighlights",
+    "dayPreviewGrid", "practicalInfoGrid", "flightDataStatus", "flightCards", "flightNotes", "airportGuides", "stayDataStatus", "stayCards",
+    "stayAdvantages", "moveDayTimeline", "moveOptions", "daySelector", "dayDetail", "mapDayRoutes", "mapList", "mapFrame", "fullRouteLink",
+    "exchangeRateInput", "budgetSelectedHeading", "budgetHighlights", "budgetTableBody", "budgetCards", "souvenirsGrid", "souvenirTips",
+    "souvenirSources", "checklistGroups", "linksGrid", "moreMenu", "moreMenuButton", "installAppButton"
+  ];
+  ids.forEach((id) => {
+    dom[id] = document.getElementById(id);
+  });
   dom.budgetFilterButtons = Array.from(document.querySelectorAll("[data-budget-filter]"));
-  dom.souvenirsGrid = document.getElementById("souvenirsGrid");
-  dom.souvenirTips = document.getElementById("souvenirTips");
-  dom.souvenirSources = document.getElementById("souvenirSources");
-  dom.checklistGroups = document.getElementById("checklistGroups");
-  dom.linksGrid = document.getElementById("linksGrid");
 }
 
 function checklistState() {
@@ -2188,10 +2288,26 @@ function announce(message) {
   }, 20);
 }
 
-function syncUrlHash() {
-  const nextHash = state.page === "overview" ? "" : `#${state.page}`;
+function syncUrlHash(mode = "replace") {
+  const dayPath = state.page === "itinerary" ? `/${state.selectedDay}` : "";
+  const nextHash = state.page === "overview" ? "" : `#${state.page}${dayPath}`;
   const nextUrl = `${window.location.pathname}${window.location.search}${nextHash}`;
-  window.history.replaceState(null, "", nextUrl);
+  window.history[`${mode}State`](null, "", nextUrl);
+}
+
+function applyUrlState() {
+  const [hashPage, hashDay] = getHashParts();
+  const nextPage = PAGE_IDS.includes(hashPage) ? hashPage : "overview";
+  const dayChanged = nextPage === "itinerary" && data.days.some((day) => day.id === hashDay) && hashDay !== state.selectedDay;
+
+  state.page = nextPage;
+  if (dayChanged) {
+    state.selectedDay = hashDay;
+    storage.set(STORAGE_KEYS.day, hashDay);
+    renderItinerary();
+  }
+  updateDocumentTitle();
+  syncPageNavigation();
 }
 
 function updateDocumentTitle() {
@@ -2218,6 +2334,96 @@ function renderI18n() {
   updateDocumentTitle();
 }
 
+function renderTripNow() {
+  const context = getTripContext();
+  const fallbackDay = context.day || data.days[0];
+  let label = t[state.lang].tripAfterLabel;
+  let title = state.lang === "zh-Hant" ? "墨爾本、海岸公路與雪梨港灣" : "Melbourne, the coast road, and Sydney Harbour";
+  let note = t[state.lang].tripDatePassed;
+  let metrics = [
+    [state.lang === "zh-Hant" ? "日期" : "Dates", state.lang === "zh-Hant" ? "2026.05.23 - 05.30" : "May 23 - May 30, 2026"],
+    [state.lang === "zh-Hant" ? "主行程" : "Core trip", state.lang === "zh-Hant" ? "6 天 5 夜" : "6 days / 5 nights"],
+    [t[state.lang].quickMove, "Melbourne → Sydney"],
+  ];
+  let actions = `
+    <button class="trip-now-action primary" type="button" data-open-day="${fallbackDay.id}" data-target-page="itinerary">${t[state.lang].openFirstDay}</button>
+    <button class="trip-now-action" type="button" data-open-map-day="${fallbackDay.id}">${t[state.lang].openRouteMap}</button>
+  `;
+
+  if (context.phase === "before") {
+    label = t[state.lang].tripBeforeLabel;
+    title = state.lang === "zh-Hant" ? `${context.daysUntil} ${t[state.lang].daysUntilTrip}` : `${context.daysUntil} ${t[state.lang].daysUntilTrip}`;
+    note = state.lang === "zh-Hant" ? "先把證件、航班與長途日整理好，出發後就能只看今天真正需要的資訊。" : "Prepare documents, flights, and the long-drive days now, so the guide can stay focused once the trip begins.";
+    metrics = [
+      [t[state.lang].quickStart, "05/23 · 23:30 CI0057"],
+      [state.lang === "zh-Hant" ? "第一站" : "First stop", "Melbourne CBD"],
+      [state.lang === "zh-Hant" ? "先準備" : "Pack first", state.lang === "zh-Hant" ? "護照 / ETA / 薄外套" : "Passport / ETA / light layer"],
+    ];
+    actions = `
+      <button class="trip-now-action primary" type="button" data-page-link="notes">${t[state.lang].openDepartureNotes}</button>
+      <button class="trip-now-action" type="button" data-open-day="day1" data-target-page="itinerary">${t[state.lang].openFirstDay}</button>
+    `;
+  }
+
+  if (context.phase === "active" && context.day) {
+    const day = context.day;
+    label = `${t[state.lang].tripActiveLabel}｜${getText(day.day)}`;
+    title = getText(day.theme);
+    note = `${formatDateLabel(day.date)} · ${getText(day.city)}`;
+    metrics = [
+      [t[state.lang].quickStart, getText(day.glance.start.value)],
+      [t[state.lang].quickWear, getText(day.glance.wear.value)],
+      [t[state.lang].quickMove, getText(day.glance.transport.value)],
+    ];
+    actions = `
+      <button class="trip-now-action primary" type="button" data-open-day="${day.id}" data-target-page="itinerary">${t[state.lang].openDayGuide}</button>
+      <button class="trip-now-action" type="button" data-open-map-day="${day.id}">${t[state.lang].openRouteMap}</button>
+      <button class="trip-now-action" type="button" data-page-link="stays">${t[state.lang].openStay}</button>
+    `;
+  }
+
+  if (context.phase === "departure") {
+    label = t[state.lang].tripDepartureLabel;
+    title = state.lang === "zh-Hant" ? "23:30 從桃園出發，明早抵達墨爾本" : "Depart Taoyuan at 23:30 and land in Melbourne tomorrow";
+    note = state.lang === "zh-Hant" ? "今晚先把護照、ETA、充電設備與薄外套放在最容易拿的位置。" : "Keep the passport, ETA, charging gear, and a light layer within easy reach tonight.";
+    metrics = [
+      [t[state.lang].quickStart, "CI0057 · TPE T2"],
+      [state.lang === "zh-Hant" ? "抵達" : "Arrival", "05/24 · 10:40 MEL T2"],
+      [state.lang === "zh-Hant" ? "抵達後" : "After landing", state.lang === "zh-Hant" ? "通關 / 取車 / 進市區" : "Immigration / car / city"],
+    ];
+    actions = `
+      <button class="trip-now-action primary" type="button" data-page-link="flights">${state.lang === "zh-Hant" ? "查看航班" : "Open flights"}</button>
+      <button class="trip-now-action" type="button" data-open-day="day1" data-target-page="itinerary">${t[state.lang].openFirstDay}</button>
+    `;
+  }
+
+  if (context.phase === "return") {
+    label = t[state.lang].tripReturnLabel;
+    title = state.lang === "zh-Hant" ? "清晨返抵台北，旅程在這裡收尾" : "Arrive back in Taipei this morning";
+    note = state.lang === "zh-Hant" ? "護照、退稅單據與隨身電子用品，下機前再確認一次。" : "Check passport, tax-refund papers, and personal electronics once more before leaving the aircraft.";
+    metrics = [
+      [state.lang === "zh-Hant" ? "航班" : "Flight", "CI0052"],
+      [state.lang === "zh-Hant" ? "抵達" : "Arrival", "05:40 · TPE T2"],
+      [state.lang === "zh-Hant" ? "最後確認" : "Final check", state.lang === "zh-Hant" ? "護照 / 單據 / 隨身物" : "Passport / papers / carry-on"],
+    ];
+    actions = `<button class="trip-now-action primary" type="button" data-open-day="day6" data-target-page="itinerary">${state.lang === "zh-Hant" ? "重看最後一天" : "Review the final day"}</button>`;
+  }
+
+  dom.tripNowCard.innerHTML = `
+    <div class="trip-now-topline">
+      <span class="trip-status-dot phase-${context.phase}" aria-hidden="true"></span>
+      <span class="trip-now-label">${label}</span>
+      <span class="trip-now-data">${t[state.lang].guideDataNote}</span>
+    </div>
+    <div class="trip-now-title">${title}</div>
+    <div class="trip-now-note">${note}</div>
+    <div class="trip-now-metrics">
+      ${metrics.map(([metricLabel, value]) => `<div><span>${metricLabel}</span><strong>${value}</strong></div>`).join("")}
+    </div>
+    <div class="trip-now-actions">${actions}</div>
+  `;
+}
+
 function renderHero() {
   const hero = data.trip.hero;
 
@@ -2240,6 +2446,7 @@ function renderHero() {
       `
     )
     .join("");
+  renderTripNow();
 }
 
 function renderOverview() {
@@ -2310,6 +2517,7 @@ function renderOverview() {
             <div class="day-preview-city">${getText(day.city)}</div>
             <div class="day-preview-date">${getText(day.day)} · ${formatDateLabel(day.date, true)}</div>
           </div>
+          ${renderTag(day.status, "status-pill")}
           <div class="day-preview-theme">${getText(day.theme)}</div>
           <div class="day-preview-highlights">
             ${day.highlights.slice(0, 4).map((item) => `<span class="day-preview-highlight">${getText(item)}</span>`).join("")}
@@ -2361,6 +2569,8 @@ function renderFlights() {
   const formatStop = (stop) =>
     [`${t[state.lang].countryLabel}｜${getText(stop.country)}`, `${t[state.lang].cityLabel}｜${getText(stop.city)}`, `${t[state.lang].airportLabel}｜${getText(stop.airport)}`, `${t[state.lang].terminalLabel}｜${getText(stop.terminal)}`].join("<br />");
 
+  dom.flightDataStatus.innerHTML = `<span class="status-pill tone-fixed">${t[state.lang].fixedSchedule}</span><span>${t[state.lang].flightDataStatus}</span>`;
+
   dom.flightCards.innerHTML = data.flights
     .map(
       (flight) => `
@@ -2381,16 +2591,12 @@ function renderFlights() {
     )
     .join("");
 
-  dom.flightNotes.innerHTML = data.flightNotes
-    .map((item) => `<article class="bullet-card"><div class="bullet-title">${getText(item.title)}</div><div class="bullet-desc">${getText(item.desc)}</div></article>`)
-    .join("");
-
-  dom.airportGuides.innerHTML = data.airportGuides
-    .map((item) => `<article class="bullet-card"><div class="bullet-title">${getText(item.title)}</div><div class="bullet-desc">${getText(item.desc)}</div></article>`)
-    .join("");
+  renderBulletCards(dom.flightNotes, data.flightNotes);
+  renderBulletCards(dom.airportGuides, data.airportGuides);
 }
 
 function renderStays() {
+  dom.stayDataStatus.innerHTML = `<span class="status-pill tone-flexible">${t[state.lang].stayReference}</span><span>${t[state.lang].stayDataStatus}</span>`;
   dom.stayCards.innerHTML = data.stays.hotels
     .map(
       (hotel) => `
@@ -2421,9 +2627,7 @@ function renderStays() {
     )
     .join("");
 
-  dom.stayAdvantages.innerHTML = data.stays.advantages
-    .map((item) => `<article class="bullet-card"><div class="bullet-title">${getText(item.title)}</div><div class="bullet-desc">${getText(item.desc)}</div></article>`)
-    .join("");
+  renderBulletCards(dom.stayAdvantages, data.stays.advantages);
 
   dom.moveDayTimeline.innerHTML = data.stays.moveDayTimeline
     .map(
@@ -2475,17 +2679,28 @@ function renderStays() {
 }
 
 function renderItinerary() {
+  const tripContext = getTripContext();
+  const currentDayId = tripContext.phase === "active" ? tripContext.day?.id : null;
+
   dom.daySelector.innerHTML = data.days
     .map(
       (day) => `
-        <button class="day-selector-btn ${day.id === state.selectedDay ? "active" : ""}" type="button" data-day-select="${day.id}" aria-label="${getText(day.day)}" aria-pressed="${day.id === state.selectedDay}">
+        <button class="day-selector-btn ${day.id === state.selectedDay ? "active" : ""} ${day.id === currentDayId ? "is-today" : ""}" type="button" data-day-select="${day.id}" aria-label="${getText(day.day)}" aria-pressed="${day.id === state.selectedDay}">
           <div class="day-selector-day">${getText(day.day)}</div>
           <div class="day-selector-city">${getText(day.city)}</div>
           <div class="day-selector-meta">${formatDateLabel(day.date, true)}</div>
+          <div class="day-selector-status">${getText(day.status.label)}</div>
         </button>
       `
     )
     .join("");
+
+  window.requestAnimationFrame(() => {
+    const activeButton = dom.daySelector.querySelector(".day-selector-btn.active");
+    if (!activeButton || dom.daySelector.scrollWidth <= dom.daySelector.clientWidth) return;
+    const left = activeButton.offsetLeft - (dom.daySelector.clientWidth - activeButton.offsetWidth) / 2;
+    dom.daySelector.scrollTo({ left: Math.max(0, left), behavior: "auto" });
+  });
 
   const day = getSelectedDay();
   const dayIndex = getSelectedDayIndex();
@@ -2500,6 +2715,7 @@ function renderItinerary() {
           <div class="day-guide-dayline">
             <span class="day-chip">${getText(day.day)}</span>
             <span class="day-guide-date">${formatDateLabel(day.date)}</span>
+            ${renderTag(day.status, "status-pill")}
           </div>
           <h3 class="day-guide-city">${getText(day.city)}</h3>
           <div class="day-guide-theme">${getText(day.theme)}</div>
@@ -2532,7 +2748,7 @@ function renderItinerary() {
                     <div class="route-flow-period">${getText(item.period)}</div>
                     <div class="route-flow-title">${getText(item.title)}</div>
                     <div class="route-flow-desc">${getText(item.desc)}</div>
-                    ${item.tags ? `<div class="tag-row" style="margin-top: 12px;">${item.tags.map((tag) => renderTag(tag)).join("")}</div>` : ""}
+                    ${item.tags ? `<div class="tag-row route-flow-tags">${item.tags.map((tag) => renderTag(tag)).join("")}</div>` : ""}
                   </article>
                 `
               )
@@ -2551,7 +2767,7 @@ function renderItinerary() {
                       <span class="timeline-event-tag">${getText(item.label)}</span>
                       <div class="timeline-event-title">${getText(item.title)}</div>
                       <div class="timeline-event-note">${getText(item.note)}</div>
-                      ${item.flags ? `<div class="timeline-flags" style="margin-top: 12px;">${item.flags.map((flag) => renderTag(flag, "timeline-flag")).join("")}</div>` : ""}
+                      ${item.flags ? `<div class="timeline-flags">${item.flags.map((flag) => renderTag(flag, "timeline-flag")).join("")}</div>` : ""}
                     </div>
                   </article>
                 `
@@ -2562,7 +2778,7 @@ function renderItinerary() {
         <section class="content-panel">
           <div class="panel-kicker">${t[state.lang].reminderTitle}</div>
           <div class="reminder-grid">
-            ${day.reminders.map((item) => `<article class="reminder-card"><div class="bullet-desc" style="margin-top: 0;">${getText(item)}</div></article>`).join("")}
+            ${day.reminders.map((item) => `<article class="reminder-card"><div class="bullet-desc">${getText(item)}</div></article>`).join("")}
           </div>
         </section>
         <div class="day-detail-nav">
@@ -2589,6 +2805,7 @@ function renderBudget() {
   const flexibleAud = totalAud - bookedAud;
   const getStatusLabel = (item) => (item.status === "actual" ? t[state.lang].budgetStatusActual : t[state.lang].budgetStatusEstimated);
 
+  dom.exchangeRateInput.value = state.exchangeRate.toFixed(1);
   dom.budgetSelectedHeading.textContent = state.currency;
 
   dom.budgetFilterButtons.forEach((button) => {
@@ -2702,13 +2919,8 @@ function renderSouvenirs() {
     )
     .join("");
 
-  dom.souvenirTips.innerHTML = data.souvenirTips
-    .map((item) => `<article class="bullet-card"><div class="bullet-title">${getText(item.title)}</div><div class="bullet-desc">${getText(item.desc)}</div></article>`)
-    .join("");
-
-  dom.souvenirSources.innerHTML = data.souvenirSources
-    .map((item) => `<article class="bullet-card"><div class="bullet-title">${getText(item.title)}</div><div class="bullet-desc">${getText(item.desc)}</div></article>`)
-    .join("");
+  renderBulletCards(dom.souvenirTips, data.souvenirTips);
+  renderBulletCards(dom.souvenirSources, data.souvenirSources);
 }
 
 function renderChecklist() {
@@ -2873,6 +3085,11 @@ function syncPageNavigation() {
     panel.hidden = !active;
     panel.classList.toggle("active", active);
   });
+
+  const moreActive = MORE_PAGE_IDS.has(state.page);
+  dom.moreMenuButton?.classList.toggle("active", moreActive);
+  if (moreActive) dom.moreMenuButton?.setAttribute("aria-current", "page");
+  else dom.moreMenuButton?.removeAttribute("aria-current");
 }
 
 function updateLanguage(nextLang) {
@@ -2882,6 +3099,7 @@ function updateLanguage(nextLang) {
   syncControls();
   renderAll();
   syncPageNavigation();
+  updateNetworkStatus();
   announce(state.lang === "zh-Hant" ? "已切換成繁體中文" : "Switched to English");
 }
 
@@ -2903,6 +3121,21 @@ function updateBudgetFilter(nextFilter) {
   renderBudget();
 }
 
+function updateExchangeRate(value) {
+  const nextRate = Number(value);
+  if (!Number.isFinite(nextRate) || nextRate < 1 || nextRate > 100) {
+    dom.exchangeRateInput.value = state.exchangeRate.toFixed(1);
+    return;
+  }
+
+  state.exchangeRate = Math.round(nextRate * 10) / 10;
+  storage.set(STORAGE_KEYS.exchangeRate, String(state.exchangeRate));
+  renderStays();
+  renderItinerary();
+  renderBudget();
+  announce(state.lang === "zh-Hant" ? `估算匯率已更新為 ${state.exchangeRate}` : `Planning rate updated to ${state.exchangeRate}`);
+}
+
 function updateChecklistItem(id, checked) {
   if (!id) return;
   const next = checklistState();
@@ -2913,9 +3146,10 @@ function updateChecklistItem(id, checked) {
 
 function setPage(page, { scroll = true } = {}) {
   if (!PAGE_IDS.includes(page)) return;
+  const pageChanged = state.page !== page;
   state.page = page;
-  storage.set(STORAGE_KEYS.page, page);
-  syncUrlHash();
+  if (dom.moreMenu?.open) dom.moreMenu.close();
+  syncUrlHash(pageChanged ? "push" : "replace");
   updateDocumentTitle();
   syncPageNavigation();
   if (scroll) {
@@ -2938,15 +3172,92 @@ function setDay(dayId, { switchPage = false, scroll = true } = {}) {
 
   if (switchPage) {
     setPage("itinerary");
-  } else if (scroll) {
+  } else {
+    syncUrlHash();
+  }
+
+  if (!switchPage && scroll) {
     window.requestAnimationFrame(() => {
       dom.dayDetail?.scrollIntoView({ block: "start", behavior: prefersReducedMotion() ? "auto" : "smooth" });
     });
   }
 }
 
+function openDayMap(dayId) {
+  const dayIndex = data.days.findIndex((day) => day.id === dayId);
+  const route = data.map.dayRoutes[dayIndex];
+  if (!route) return;
+  setMapEmbed(route.embed);
+  setPage("map");
+}
+
+function openMoreMenu() {
+  if (!dom.moreMenu?.showModal) return;
+  dom.moreMenu.showModal();
+  dom.moreMenuButton?.setAttribute("aria-expanded", "true");
+}
+
+function updateNetworkStatus({ restored = false } = {}) {
+  if (!dom.networkStatus) return;
+  const offline = !navigator.onLine;
+  dom.networkStatus.textContent = offline ? t[state.lang].offlineStatus : t[state.lang].onlineStatus;
+  dom.networkStatus.hidden = !offline && !restored;
+  dom.networkStatus.classList.toggle("is-online", !offline);
+
+  if (restored && !offline) {
+    window.setTimeout(() => {
+      dom.networkStatus.hidden = true;
+    }, 2400);
+  }
+}
+
+function setupInstallPrompt() {
+  window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    dom.installAppButton.hidden = false;
+  });
+
+  window.addEventListener("appinstalled", () => {
+    deferredInstallPrompt = null;
+    dom.installAppButton.hidden = true;
+    if (dom.moreMenu?.open) dom.moreMenu.close();
+  });
+}
+
+async function installGuide() {
+  if (!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  await deferredInstallPrompt.userChoice;
+  deferredInstallPrompt = null;
+  dom.installAppButton.hidden = true;
+}
+
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator) || window.location.protocol === "file:") return;
+  navigator.serviceWorker.register("./sw.js").catch((error) => console.warn("[travel-guide:offline]", error));
+}
+
 function bindUIEvents() {
   document.addEventListener("click", (event) => {
+    const moreButton = event.target.closest("[data-more-menu]");
+    if (moreButton) {
+      openMoreMenu();
+      return;
+    }
+
+    const closeMoreButton = event.target.closest("[data-more-close]");
+    if (closeMoreButton) {
+      dom.moreMenu?.close();
+      return;
+    }
+
+    const installButton = event.target.closest("#installAppButton");
+    if (installButton) {
+      installGuide();
+      return;
+    }
+
     const langButton = event.target.closest("[data-lang]");
     if (langButton) {
       updateLanguage(langButton.dataset.lang);
@@ -2962,6 +3273,12 @@ function bindUIEvents() {
     const pageButton = event.target.closest("[data-page-link]");
     if (pageButton) {
       setPage(pageButton.dataset.pageLink);
+      return;
+    }
+
+    const openMapButton = event.target.closest("[data-open-map-day]");
+    if (openMapButton) {
+      openDayMap(openMapButton.dataset.openMapDay);
       return;
     }
 
@@ -2992,7 +3309,25 @@ function bindUIEvents() {
   document.addEventListener("change", (event) => {
     const checkInput = event.target.closest("[data-check]");
     if (checkInput) updateChecklistItem(checkInput.dataset.check, checkInput.checked);
+
+    if (event.target === dom.exchangeRateInput) updateExchangeRate(event.target.value);
   });
+
+  document.addEventListener("input", (event) => {
+    if (event.target !== dom.exchangeRateInput) return;
+    window.clearTimeout(exchangeRateTimer);
+    exchangeRateTimer = window.setTimeout(() => updateExchangeRate(event.target.value), 320);
+  });
+
+  dom.moreMenu?.addEventListener("click", (event) => {
+    if (event.target === dom.moreMenu) dom.moreMenu.close();
+  });
+  dom.moreMenu?.addEventListener("close", () => dom.moreMenuButton?.setAttribute("aria-expanded", "false"));
+
+  window.addEventListener("offline", () => updateNetworkStatus());
+  window.addEventListener("online", () => updateNetworkStatus({ restored: true }));
+  window.addEventListener("hashchange", applyUrlState);
+  window.addEventListener("popstate", applyUrlState);
 }
 
 function updateProgress() {
@@ -3022,6 +3357,9 @@ function initApp() {
   syncUrlHash();
   bindUIEvents();
   bindProgress();
+  setupInstallPrompt();
+  updateNetworkStatus();
+  registerServiceWorker();
   document.body.dataset.appReady = "true";
   window.__travelGuideReady = true;
 

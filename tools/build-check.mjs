@@ -3,7 +3,16 @@ import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const requiredFiles = ["index.html", "styles.css", "script.js", "robots.txt", "sitemap.xml", ".github/workflows/deploy-pages.yml"];
+const requiredFiles = [
+  "index.html",
+  "styles.css",
+  "script.js",
+  "manifest.webmanifest",
+  "sw.js",
+  "robots.txt",
+  "sitemap.xml",
+  ".github/workflows/deploy-pages.yml",
+];
 
 function assert(condition, message) {
   if (!condition) {
@@ -22,11 +31,16 @@ function checkScriptSyntax() {
     cwd: root,
     stdio: "inherit",
   });
+  execFileSync("node", ["--check", "sw.js"], {
+    cwd: root,
+    stdio: "inherit",
+  });
 }
 
 function checkHtmlAssetRefs() {
   const html = readFileSync(path.join(root, "index.html"), "utf8");
   const matches = [...html.matchAll(/(?:src|href)="\.\/([^"?]+)(?:\?[^"]*)?"/g)];
+  const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
 
   matches.forEach((match) => {
     const assetPath = match[1];
@@ -38,6 +52,7 @@ function checkHtmlAssetRefs() {
   assert(!html.match(/(?:src|href)="\/(?!\/)/), "index.html should not use root-absolute internal asset paths");
   assert(html.includes('rel="canonical" href="https://victoriac1122.github.io/australia-travel-2026/"'), "index.html should keep the canonical GitHub Pages URL");
   assert(html.includes('property="og:image" content="https://victoriac1122.github.io/australia-travel-2026/assets/opera-house-harbour.jpg"'), "index.html should define an absolute og:image");
+  assert(ids.length === new Set(ids).size, "index.html should not contain duplicate IDs");
 }
 
 function checkScriptAssetRefs() {
@@ -76,6 +91,24 @@ function checkSeoSupportFiles() {
   assert(sitemap.includes("<loc>https://victoriac1122.github.io/australia-travel-2026/</loc>"), "sitemap.xml should include the production site URL");
 }
 
+function checkOfflineSupport() {
+  const html = readFileSync(path.join(root, "index.html"), "utf8");
+  const manifest = JSON.parse(readFileSync(path.join(root, "manifest.webmanifest"), "utf8"));
+  const serviceWorker = readFileSync(path.join(root, "sw.js"), "utf8");
+  const stylesheetRef = html.match(/href="(\.\/styles\.css\?v=[^"]+)"/)?.[1];
+  const scriptRef = html.match(/src="(\.\/script\.js\?v=[^"]+)"/)?.[1];
+
+  assert(manifest.start_url === "./", "manifest start_url must stay relative for the GitHub Pages base path");
+  assert(manifest.scope === "./", "manifest scope must stay relative for the GitHub Pages base path");
+  manifest.icons.forEach((icon) => {
+    assert(icon.src.startsWith("./"), "manifest icons must use relative paths");
+    assert(existsSync(path.join(root, icon.src.slice(2))), `Missing manifest icon: ${icon.src}`);
+  });
+  assert(serviceWorker.includes('"./index.html"'), "service worker should cache the offline page shell");
+  assert(stylesheetRef && serviceWorker.includes(`"${stylesheetRef}"`), "service worker should cache the current versioned stylesheet");
+  assert(scriptRef && serviceWorker.includes(`"${scriptRef}"`), "service worker should cache the current versioned app script");
+}
+
 function checkPagePanels() {
   const html = readFileSync(path.join(root, "index.html"), "utf8");
   const requiredPanels = ["overview", "flights", "stays", "itinerary", "map", "budget", "souvenirs", "notes"];
@@ -95,6 +128,7 @@ function run() {
   checkPagesWorkflow();
   checkPagePanels();
   checkSeoSupportFiles();
+  checkOfflineSupport();
   console.log("Build check passed.");
 }
 

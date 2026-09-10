@@ -1,0 +1,19 @@
+{
+  "name": "2026 Australia Travel Guide",
+  "short_name": "Australia 2026",
+  "description": "墨爾本、大洋路、Phillip Island 與雪梨的六日旅行手冊。",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4efe7",
+  "theme_color": "#123948",
+  "icons": [
+    {
+      "src": "./assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
