@@ -1,9 +1,9 @@
-const CACHE_NAME = "australia-guide-v20260911-r2";
+const CACHE_NAME = "australia-guide-v20261002-r1";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=20260911-r2",
-  "./script.js?v=20260911-r2",
+  "./styles.css?v=20261002-r1",
+  "./script.js?v=20261002-r1",
   "./manifest.webmanifest",
   "./assets/app-icon.svg",
   "./assets/opera-house-hero.svg",

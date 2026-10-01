@@ -67,21 +67,21 @@ const t = {
     mobileMoreTitle: "旅途工具",
     close: "關閉",
     installGuide: "加入手機主畫面",
-    installGuideNote: "離線時也能打開行程",
-    installHelp: "iPhone 可用 Safari 的「分享 → 加入主畫面」保留離線版本。",
-    dataFreshnessNote: "手冊更新 2026.09.11；航班、票券、營業時間與即時路況請在出發前向官方再次確認。",
-    flightDataStatus: "手冊已列入三段航班；出發前請回航空公司訂單頁複核航廈與時間。",
-    stayDataStatus: "兩間飯店與入住區域已整理；房型、入住規則與訂單狀態請以訂房紀錄為準。",
+    installGuideNote: "行程可離線開啟",
+    installHelp: "iPhone：Safari「分享 → 加入主畫面」。",
+    dataFreshnessNote: "版本 2026.10.02｜航班、票券、營業時間與路況以官方資訊為準。",
+    flightDataStatus: "CI0057、JQ514、CI0052｜出發前複核航廈與時間。",
+    stayDataStatus: "Dorsett Melbourne（3 晚）／Sofitel Darling Harbour（2 晚）｜房型與入住規則以訂單為準。",
     exchangeRateTitle: "預算換算匯率",
-    exchangeRateNote: "這是手動估算值，不是即時牌告匯率。",
-    offlineStatus: "目前離線，仍可查看已儲存的行程。地圖與外部連結需恢復網路後使用。",
+    exchangeRateNote: "手動估算，非即時牌告。",
+    offlineStatus: "離線模式｜行程可讀；地圖與外部連結暫停。",
     onlineStatus: "網路已恢復。",
     tripBeforeLabel: "行前準備",
     tripActiveLabel: "今天的旅程",
     tripAfterLabel: "旅程手冊",
     tripDepartureLabel: "今晚出發",
     tripReturnLabel: "回程日",
-    tripDatePassed: "原行程日期已過，所有路線與資料仍可作為旅行紀錄查看。",
+    tripDatePassed: "原行程｜2026.05.23 - 05.30",
     daysUntilTrip: "天後出發",
     openDayGuide: "打開當日指南",
     openFirstDay: "先看第一天",
@@ -91,24 +91,24 @@ const t = {
     quickStart: "出發",
     quickWear: "穿搭",
     quickMove: "移動",
-    guideDataNote: "手冊更新 2026.09.11｜非即時資料",
+    guideDataNote: "版本 2026.10.02｜靜態資料",
     fixedSchedule: "固定時段",
     stayReference: "住宿參考",
     overviewKicker: "The Journey",
     overviewTitle: "六天，從墨爾本走到雪梨港灣",
-    overviewLead: "前半程住在墨爾本，安排市區散步、大洋路與 Phillip Island；5 月 27 日飛往雪梨，最後兩天留給港灣與市中心。",
+    overviewLead: "墨爾本巷弄、大洋路、Phillip Island，接著飛往雪梨；六天從城市走到海岸，再回到港灣。",
     overviewRouteKicker: "Route Notes",
     overviewRouteTitle: "旅程沿著城市、海岸與港灣前進",
-    overviewRouteLead: "同一區的景點排在一起，長途日只留必要停靠；走路、用餐與交通都能順著當天的方向安排。",
+    overviewRouteLead: "Melbourne CBD → Great Ocean Road → Phillip Island → Darling Harbour → Circular Quay。",
     overviewHighlightsKicker: "Highlights",
     overviewHighlightsTitle: "沿途會記得的幾個片刻",
-    overviewHighlightsLead: "墨爾本巷弄的第一杯咖啡、大洋路的海風、企鵝上岸，以及雪梨港邊的早晨。",
+    overviewHighlightsLead: "巷弄咖啡、斷崖海風、日落後的企鵝，以及雪梨港邊的早晨。",
     overviewDaysKicker: "Daily Notes",
-    overviewDaysTitle: "六天行程，先看每天的重點",
-    overviewDaysLead: "日期、區域、步行量與出發提醒都放在卡片上；需要早起或長途移動的日子一眼就能辨認。",
+    overviewDaysTitle: "六天，六種旅行節奏",
+    overviewDaysLead: "城市散步、海岸公路、野生動物、跨城飛行與港灣晨光。",
     overviewPracticalKicker: "On The Road",
-    overviewPracticalTitle: "上路前，先把這些放在手邊",
-    overviewPracticalLead: "航班、住宿、交通、穿搭與退稅分區收好，需要時展開查看，不必在長篇文字裡找資料。",
+    overviewPracticalTitle: "旅途實用資料",
+    overviewPracticalLead: "航班、住宿、交通、穿搭、付款與退稅。",
     flightsKicker: "Flight Notes",
     flightsTitle: "三段航班，一次看清",
     flightsLead: "5 月 23 日深夜從台北出發；5 月 27 日由墨爾本轉往雪梨；5 月 29 日晚間搭機返台。",
@@ -116,29 +116,29 @@ const t = {
     airportGuidesTitle: "出發與抵達安排",
     staysKicker: "Where We Stay",
     staysTitle: "兩座城市的落腳處",
-    staysLead: "墨爾本住 Dorsett Melbourne，雪梨住 Sofitel Darling Harbour。5 月 27 日集中處理還車、國內線與入住。",
+    staysLead: "Dorsett Melbourne 3 晚，Sofitel Darling Harbour 2 晚；5 月 27 日還車後飛往雪梨。",
     stayAdvantagesTitle: "住宿位置與周邊動線",
     moveDayTitle: "5 月 27 日｜墨爾本到雪梨",
     moveOptionsTitle: "已確認的交通與備選方案",
     itineraryKicker: "Day By Day",
     itineraryTitle: "六天每日指南",
-    itineraryLead: "每一天先列出出發時間、活動區域、步行量、穿搭與交通，再依上午、下午與晚間閱讀完整路線。",
+    itineraryLead: "每天的區域、步行量、穿搭、交通與固定時段。",
     mapKicker: "Route Map",
     mapTitle: "每日路線與地圖",
-    mapLead: "先選日期，再查看當天的主要區域與地圖；長途路線和市區散步分開呈現。",
+    mapLead: "市區步行、海岸公路與跨城移動，按日期查看。",
     mapDayLabel: "每日路線",
     mapRouteLink: "開啟完整路線",
     budgetKicker: "Trip Costs",
     budgetTitle: "旅費概覽",
-    budgetLead: "已付款、已有金額與尚待估算的項目分開標示，可切換幣別查看兩人總額與每人預算。",
+    budgetLead: "已付款、已有金額與估算項目；支援 AUD／TWD 切換。",
     souvenirsKicker: "Bring Home",
     souvenirsTitle: "從澳洲帶回來",
-    souvenirsLead: "超市零食可以提早買；蛋白石、Aesop 與羊毛小物留到市中心行程，再依來源、材質與行李空間挑選。",
-    souvenirsTipsTitle: "怎麼買比較順",
-    souvenirsSourcesTitle: "挑選方向",
+    souvenirsLead: "超市零食、蛋白石、Aesop 與羊毛小物；分散採買，Day 6 補齊。",
+    souvenirsTipsTitle: "採買節奏",
+    souvenirsSourcesTitle: "挑選筆記",
     notesKicker: "Good To Know",
     notesTitle: "出發文件與旅途備忘",
-    notesLead: "護照、ETA、訂單、穿搭與官方連結集中在這裡；出門前確認一次，途中也能快速重開。",
+    notesLead: "護照、ETA、訂單、穿搭與官方連結。",
     checklistTitle: "出發前確認",
     linksTitle: "旅途中會用到的連結",
     budgetItemHeading: "項目",
@@ -149,16 +149,16 @@ const t = {
     budgetFilterAll: "全部",
     budgetFilterActual: "已有金額",
     budgetFilterEstimated: "估算中",
-    totalTripCostLabel: "兩人整趟抓法",
+    totalTripCostLabel: "兩人總額",
     totalTripCostNote: "含機票、住宿、城際移動、餐食與門票",
     averageDailyLabel: "平均每日",
     averageDailyNote: "以 6 天主行程估算",
-    perPersonCostLabel: "每人抓法",
+    perPersonCostLabel: "每人預算",
     perPersonCostNote: "以兩人平均分攤估算",
     bookedLabel: "已先鎖定",
-    bookedNote: "目前已經有金額或已付款的部分",
+    bookedNote: "已有金額或已付款",
     flexibleLabel: "還有彈性",
-    flexibleNote: "餐食、門票與部分交通仍可微調",
+    flexibleNote: "餐食、門票與部分交通",
     openLink: "查看",
     dateText: "日期",
     classText: "班機 / 航段",
@@ -206,11 +206,11 @@ const t = {
     mobileMoreTitle: "Travel toolkit",
     close: "Close",
     installGuide: "Add to home screen",
-    installGuideNote: "Keep the guide available offline",
-    installHelp: "On iPhone, use Safari Share → Add to Home Screen to keep the offline guide close.",
-    dataFreshnessNote: "Guide updated Sep 11, 2026. Recheck flights, tickets, opening hours, and live road conditions with official sources before travel.",
-    flightDataStatus: "All three flights are listed here. Recheck terminals and times in the airline booking before departure.",
-    stayDataStatus: "Both hotels and areas are organised here. Use the booking record for room type, policies, and confirmation status.",
+    installGuideNote: "Available offline",
+    installHelp: "iPhone: Safari Share → Add to Home Screen.",
+    dataFreshnessNote: "Version 2026.10.02 | Check flights, tickets, opening hours, and roads with official sources.",
+    flightDataStatus: "CI0057, JQ514, CI0052 | Recheck terminals and times before departure.",
+    stayDataStatus: "Dorsett Melbourne (3 nights) / Sofitel Darling Harbour (2 nights) | Booking terms apply.",
     exchangeRateTitle: "Budget exchange rate",
     exchangeRateNote: "A manual planning rate, not a live quoted rate.",
     offlineStatus: "You are offline. Saved itinerary details remain available; maps and external links need a connection.",
@@ -220,7 +220,7 @@ const t = {
     tripAfterLabel: "Travel handbook",
     tripDepartureLabel: "Departure tonight",
     tripReturnLabel: "Return day",
-    tripDatePassed: "The original dates have passed, but every route remains available as a travel record.",
+    tripDatePassed: "Original itinerary | May 23-30, 2026",
     daysUntilTrip: "days to departure",
     openDayGuide: "Open today's guide",
     openFirstDay: "Start with Day 1",
@@ -230,7 +230,7 @@ const t = {
     quickStart: "Start",
     quickWear: "Wear",
     quickMove: "Move",
-    guideDataNote: "Guide updated Sep 11, 2026 | static data",
+    guideDataNote: "Version 2026.10.02 | static data",
     fixedSchedule: "Fixed timing",
     stayReference: "Stay reference",
     overviewKicker: "The Journey",
@@ -244,10 +244,10 @@ const t = {
     overviewHighlightsLead: "Coffee in Melbourne's laneways, sea wind on the Great Ocean Road, penguins ashore, and breakfast by Sydney Harbour.",
     overviewDaysKicker: "Daily Notes",
     overviewDaysTitle: "The six-day outline",
-    overviewDaysLead: "Each card shows the date, area, walking load, and the days that require an early start or a longer transfer.",
+    overviewDaysLead: "City walks, coastal roads, wildlife, a domestic flight, and harbour mornings.",
     overviewPracticalKicker: "On The Road",
     overviewPracticalTitle: "Keep these details close",
-    overviewPracticalLead: "Flights, hotels, transport, clothing, and tax-refund notes are grouped into short sections for quick reference.",
+    overviewPracticalLead: "Flights, hotels, transport, clothing, payment, and tax refund.",
     flightsKicker: "Flight Notes",
     flightsTitle: "Three flights at a glance",
     flightsLead: "Depart Taipei late on May 23, fly from Melbourne to Sydney on May 27, and return from Sydney on the evening of May 29.",
@@ -261,7 +261,7 @@ const t = {
     moveOptionsTitle: "Confirmed transport and alternatives",
     itineraryKicker: "Day By Day",
     itineraryTitle: "Six-day travel guide",
-    itineraryLead: "Start with departure time, area, walking load, clothing, and transport, then read the full route by morning, afternoon, and evening.",
+    itineraryLead: "Daily areas, walking load, clothing, transport, and fixed times.",
     mapKicker: "Route Map",
     mapTitle: "Daily routes and maps",
     mapLead: "Choose a day to view its main area and map. Long drives and city walks are kept separate.",
@@ -277,7 +277,7 @@ const t = {
     souvenirsSourcesTitle: "Selection logic",
     notesKicker: "Good To Know",
     notesTitle: "Travel documents and quick references",
-    notesLead: "Passport, ETA, bookings, packing notes, and official links are kept together for departure day and on-the-road checks.",
+    notesLead: "Passport, ETA, bookings, packing notes, and official links.",
     checklistTitle: "Before you go",
     linksTitle: "Links you may actually use",
     budgetItemHeading: "Item",
@@ -340,8 +340,8 @@ const data = {
       },
       lead: {
         "zh-Hant":
-          "六天裡，先走墨爾本的巷弄與河岸，再開往大洋路和 Phillip Island；後半程換到雪梨，在港灣晨光與城市街區之間散步。",
-        en: "The trip opens with Melbourne laneways and the river, stretches through coastline and road-trip air, then closes with Sydney harbour light, coffee, and a softer city rhythm.",
+          "先走墨爾本巷弄與河岸，再開往大洋路和 Phillip Island；後半程在雪梨港灣與城市街區收尾。",
+        en: "Melbourne laneways and the Yarra, two coastal drives, then Sydney Harbour and the central city.",
       },
       destinations: {
         "zh-Hant": "Melbourne · Great Ocean Road · Phillip Island · Sydney Harbour · Darling Harbour · Sydney CBD",
@@ -357,22 +357,22 @@ const data = {
       {
         label: { "zh-Hant": "主行程", en: "Core travel days" },
         value: { "zh-Hant": "5/24 - 5/29", en: "May 24 - May 29" },
-        note: { "zh-Hant": "5/23 晚班出發，5/30 清晨回到台北", en: "Late flight out on May 23, back in Taipei early on May 30" },
+        note: { "zh-Hant": "5/23 深夜出發｜5/30 清晨返抵台北", en: "Late flight out on May 23, back in Taipei early on May 30" },
       },
       {
         label: { "zh-Hant": "兩座落腳處", en: "Two hotel bases" },
         value: { "zh-Hant": "Melbourne CBD / Darling Harbour", en: "Melbourne CBD / Darling Harbour" },
-        note: { "zh-Hant": "前半段住墨爾本市中心，後半段住達令港，兩邊都方便早出晚歸", en: "A central city base first, then a harbour base for the Sydney half" },
+        note: { "zh-Hant": "墨爾本市中心 3 晚｜達令港 2 晚", en: "A central city base first, then a harbour base for the Sydney half" },
       },
       {
         label: { "zh-Hant": "需留時間的日子", en: "Long-move days" },
         value: { "zh-Hant": "Day 2 / Day 3 / Day 4", en: "Day 2 / Day 3 / Day 4" },
-        note: { "zh-Hant": "大洋路早起、Phillip Island 晚歸、第四天飛雪梨", en: "The coast day starts early, Phillip Island ends late, and Day 4 moves cities" },
+        note: { "zh-Hant": "大洋路早出｜Phillip Island 晚歸｜Day 4 飛雪梨", en: "The coast day starts early, Phillip Island ends late, and Day 4 moves cities" },
       },
       {
-        label: { "zh-Hant": "隨身重點", en: "Keep in the bag" },
+        label: { "zh-Hant": "隨身裝備", en: "Keep in the bag" },
         value: { "zh-Hant": "好走鞋 / 薄外套 / 防曬", en: "Walking shoes / light layer / sunscreen" },
-        note: { "zh-Hant": "海邊與夜晚較冷，白天戶外行程仍需做好防曬", en: "Coast and evenings cool down faster, but daylight still calls for sun protection" },
+        note: { "zh-Hant": "海邊與夜晚偏冷；白天戶外注意日曬", en: "Coast and evenings cool down faster, but daylight still calls for sun protection" },
       },
     ],
     heroRhythm: [
@@ -385,42 +385,42 @@ const data = {
       {
         label: { "zh-Hant": "天數", en: "Length" },
         value: { "zh-Hant": "6 天 5 夜主行程", en: "6 days / 5 nights" },
-        note: { "zh-Hant": "實際飛行跨兩個晚上，主行程集中在 5/24 到 5/29", en: "The flights span two nights, while the core land itinerary sits between May 24 and May 29" },
+        note: { "zh-Hant": "飛行跨 2 晚｜陸上行程 5/24 - 5/29", en: "The flights span two nights, while the core land itinerary sits between May 24 and May 29" },
       },
       {
         label: { "zh-Hant": "主要城市 / 區域", en: "Main areas" },
         value: { "zh-Hant": "墨爾本 / 大洋路 / Phillip Island / 雪梨", en: "Melbourne / Great Ocean Road / Phillip Island / Sydney" },
-        note: { "zh-Hant": "前半段城市加海岸，後半段港灣加市中心散步", en: "City and coast first, then harbour light and central Sydney" },
+        note: { "zh-Hant": "城市 → 海岸 → 港灣", en: "City and coast first, then harbour light and central Sydney" },
       },
       {
         label: { "zh-Hant": "旅行主題", en: "Trip themes" },
         value: { "zh-Hant": "城市散步、海岸線、公路風景、咖啡、野生動物", en: "City walking, coastline, road views, coffee, and wildlife" },
-        note: { "zh-Hant": "兩個長途戶外日完整保留，其餘行程依區域安排", en: "The goal is not to cram the days full, but to leave the signature scenes enough room" },
+        note: { "zh-Hant": "2 天長線戶外｜其餘依街區步行", en: "Two long outdoor days, with the rest grouped by neighbourhood" },
       },
       {
         label: { "zh-Hant": "移動方式", en: "Transport" },
         value: { "zh-Hant": "飛機 / 租車 / 步行 / 市區交通", en: "Flights / rental car / walking / city transit" },
-        note: { "zh-Hant": "墨爾本靠租車串長線，雪梨回到步行和大眾運輸", en: "Melbourne uses the car for the longer drives, while Sydney shifts back to walking and transit" },
+        note: { "zh-Hant": "墨爾本長線自駕｜雪梨步行與大眾運輸", en: "Melbourne uses the car for the longer drives, while Sydney shifts back to walking and transit" },
       },
       {
         label: { "zh-Hant": "住宿區域", en: "Stay areas" },
         value: { "zh-Hant": "Dorsett Melbourne + Sofitel Darling Harbour", en: "Dorsett Melbourne + Sofitel Darling Harbour" },
-        note: { "zh-Hant": "市中心與港邊各住一段，減少拖行李與跨區往返", en: "Both bases are comfortable for heading out early or returning later" },
+        note: { "zh-Hant": "市中心與港邊各一段", en: "A city-centre base followed by a harbour stay" },
       },
       {
         label: { "zh-Hant": "體力節奏", en: "Energy rhythm" },
         value: { "zh-Hant": "2 天戶外長線 + 2 天城市散步 + 1 天轉場 + 1 天收尾", en: "2 outdoor long-line days + 2 city walk days + 1 transfer day + 1 landing day" },
-        note: { "zh-Hant": "Day 2、Day 3 車程長，Day 4 需要處理城際轉場", en: "Day 2, Day 3, and Day 4 need the most breathing room" },
+        note: { "zh-Hant": "Day 2、3 長途自駕｜Day 4 跨城轉場", en: "Day 2 and Day 3 are long drives; Day 4 changes cities" },
       },
       {
         label: { "zh-Hant": "天氣與穿搭", en: "Weather and wear" },
         value: { "zh-Hant": "5 月入秋，市區溫和，海邊與夜晚偏涼", en: "Autumn in May, comfortable by day and cooler on the coast or at night" },
-        note: { "zh-Hant": "好走鞋、可收納外套、防曬與墨鏡請隨身攜帶", en: "A light layer, walking shoes, sunscreen, and sunglasses all earn their place" },
+        note: { "zh-Hant": "好走鞋、可收納外套、防曬、墨鏡", en: "Walking shoes, a packable layer, sunscreen, and sunglasses" },
       },
       {
         label: { "zh-Hant": "行前先記", en: "Watch first" },
         value: { "zh-Hant": "Day 2 早起、Day 3 晚歸、Day 4 飛機、Day 6 晚班機", en: "Day 2 early start, Day 3 late return, Day 4 flight, Day 6 late departure" },
-        note: { "zh-Hant": "這四天先確認交通時間，再安排用餐與散步", en: "Leave those key windows to transport first and the rest of the trip becomes much easier" },
+        note: { "zh-Hant": "交通固定後，再排用餐與散步", en: "Lock transport first, then meals and walks" },
       },
     ],
     themes: [
@@ -436,11 +436,11 @@ const data = {
     pace: [
       {
         title: { "zh-Hant": "最早出門｜Day 2", en: "The earliest day" },
-        desc: { "zh-Hant": "07:00 前離開墨爾本，午間在沿路小鎮補給，下午留給十二門徒岩與 Loch Ard Gorge。", en: "Day 2 needs the earliest start so the coast drive and major viewpoints still feel unhurried." },
+        desc: { "zh-Hant": "07:00 前離開墨爾本；小鎮午餐，午後走十二門徒岩與 Loch Ard Gorge。", en: "Leave Melbourne before 07:00; lunch in a coastal town, then Twelve Apostles and Loch Ard Gorge." },
       },
       {
         title: { "zh-Hant": "最晚回飯店｜Day 3", en: "The latest finish" },
-        desc: { "zh-Hant": "企鵝歸巢結束後才開車回墨爾本；上午只排早午餐與近距離散步。", en: "Day 3 returns late from Penguin Parade, so the morning is better kept deliberately light." },
+        desc: { "zh-Hant": "上午早午餐與近距離散步；企鵝歸巢後夜間返回墨爾本。", en: "Brunch and a nearby walk in the morning; return to Melbourne after Penguin Parade." },
       },
       {
         title: { "zh-Hant": "轉場日｜Day 4", en: "The day that needs space" },
@@ -448,7 +448,7 @@ const data = {
       },
       {
         title: { "zh-Hant": "城市散步｜Day 5–6", en: "The slowest stroll" },
-        desc: { "zh-Hant": "歌劇院、Circular Quay、達令港與 QVB 分成兩天走，避免在回程日前跨區奔波。", en: "Day 5 and Day 6 both work best when you leave room for the harbour, the streets, and a comfortable meal." },
+        desc: { "zh-Hant": "Day 5 走歌劇院、Circular Quay 與達令港；Day 6 留給 QVB、Hyde Park 與回程。", en: "Day 5 covers the Opera House, Circular Quay, and Darling Harbour; Day 6 stays with QVB, Hyde Park, and departure." },
       },
     ],
     routeFlow: [
@@ -456,8 +456,8 @@ const data = {
         title: { "zh-Hant": "墨爾本市中心與 Southbank", en: "Melbourne CBD and Southbank" },
         days: { "zh-Hant": "Day 1 + Day 4 上午", en: "Day 1 + Day 4 morning" },
         desc: {
-          "zh-Hant": "Degraves Street、Flinders Street Station、State Library 與 Yarra River 可一路步行串連；抵達日走前半段，離開墨爾本前再補周邊。",
-          en: "Degraves Street, Flinders Street Station, the State Library, and the Yarra can all be linked naturally on foot, which is why this area works both as an opening and a soft half-day finish.",
+          "zh-Hant": "Degraves Street → Flinders Street Station → State Library → Yarra River；抵達日走主線，離城前補周邊。",
+          en: "Walk Degraves Street, Flinders Street Station, the State Library, and the Yarra in one central route.",
         },
         meta: { "zh-Hant": "步行 / 市區短移動", en: "Walking / short city transfers" },
       },
@@ -465,7 +465,7 @@ const data = {
         title: { "zh-Hant": "Great Ocean Road 西段", en: "The western Great Ocean Road stretch" },
         days: { "zh-Hant": "Day 2", en: "Day 2" },
         desc: {
-          "zh-Hant": "Lorne、Apollo Bay 作為午間補給，十二門徒岩、Loch Ard Gorge 與 London Arch 集中在下午，減少沿路折返。",
+          "zh-Hant": "Lorne、Apollo Bay 午間補給；十二門徒岩、Loch Ard Gorge、London Arch 集中在午後。",
           en: "The point of this day is not to collect the most stops, but to keep the long drive, the food breaks, and the major afternoon viewpoints in one smooth coastal run.",
         },
         meta: { "zh-Hant": "租車 / 一日遊", en: "Rental car / day tour" },
@@ -474,8 +474,8 @@ const data = {
         title: { "zh-Hant": "Phillip Island 海岸與企鵝", en: "Phillip Island coast and penguins" },
         days: { "zh-Hant": "Day 3 下午到深夜", en: "Day 3 afternoon into late night" },
         desc: {
-          "zh-Hant": "上午留在墨爾本，午後自駕前往海岸；The Cerberus Beach House、Nobbies Centre 與 Penguin Parade 依序銜接。",
-          en: "Keeping the morning soft and moving to the coast later makes the seaside dinner, the wind, and Penguin Parade feel like one connected experience instead of separate tasks.",
+          "zh-Hant": "上午墨爾本，午後自駕往海岸；The Cerberus Beach House → Nobbies Centre → Penguin Parade。",
+          en: "Melbourne in the morning, then The Cerberus Beach House, Nobbies Centre, and Penguin Parade.",
         },
         meta: { "zh-Hant": "租車自駕", en: "Self-drive" },
       },
@@ -483,8 +483,8 @@ const data = {
         title: { "zh-Hant": "達令港到 Circular Quay", en: "Darling Harbour to Circular Quay" },
         days: { "zh-Hant": "Day 4 晚上 + Day 5", en: "Day 4 evening + Day 5" },
         desc: {
-          "zh-Hant": "抵達雪梨當晚先入住達令港；隔天從歌劇院與 Circular Quay 往回走，下午接海生館，晚上回到飯店周邊。",
-          en: "Anchoring the hotel base first and saving the Opera House, Circular Quay, and aquarium for the next day keeps Sydney much calmer than trying to rush into the sights on arrival.",
+          "zh-Hant": "抵達當晚入住達令港；隔天從歌劇院、Circular Quay 走回海生館，夜晚回到飯店周邊。",
+          en: "Check in at Darling Harbour, then cover the Opera House, Circular Quay, and aquarium on Day 5.",
         },
         meta: { "zh-Hant": "步行 / 火車 / 輕軌 / Uber", en: "Walking / train / light rail / Uber" },
       },
@@ -492,19 +492,19 @@ const data = {
         title: { "zh-Hant": "雪梨 CBD 與回程夜晚", en: "Sydney CBD and the departure night" },
         days: { "zh-Hant": "Day 6", en: "Day 6" },
         desc: {
-          "zh-Hant": "QVB、Hyde Park 與午餐集中在市中心；17:30 回飯店取行李，19:00 前往 Sydney Airport。",
-          en: "Keeping QVB, Hyde Park, and the final shopping in the same area makes it much easier to head back for luggage and get to the airport without the last day feeling scattered.",
+          "zh-Hant": "QVB、Hyde Park 與午餐留在市中心；17:30 取行李，19:00 前往 Sydney Airport。",
+          en: "Keep QVB, Hyde Park, lunch, and final shopping within central Sydney before the airport transfer.",
         },
         meta: { "zh-Hant": "步行 + Airport Line / Uber", en: "Walking + airport line / Uber" },
       },
     ],
     highlights: [
       {
-        title: { "zh-Hant": "墨爾本的晨間街區", en: "Melbourne in its morning city mood" },
+        title: { "zh-Hant": "墨爾本的晨間街區", en: "A morning in Melbourne's laneways" },
         meta: { "zh-Hant": "Day 1｜Melbourne CBD", en: "Day 1 | Melbourne CBD" },
         desc: {
-          "zh-Hant": "在 Degraves Street 吃早午餐，再走到老車站與州立圖書館。第一天先熟悉街區，也替長途飛行後保留體力。",
-          en: "The trip does not open on a giant sight. It opens with coffee lanes, the old station, and the library, which feels much more true to the city itself.",
+          "zh-Hant": "Degraves Street 早午餐，接著走老車站與州立圖書館；傍晚沿 Yarra River 收尾。",
+          en: "Brunch on Degraves Street, followed by the old station, State Library, and the Yarra at dusk.",
         },
         image: "./assets/melbourne-degraves.jpg",
         alt: { "zh-Hant": "墨爾本巷弄與咖啡街氣氛", en: "Melbourne laneway and coffee mood" },
@@ -513,8 +513,8 @@ const data = {
         title: { "zh-Hant": "大洋路的海平線與斷崖", en: "The horizon and cliffs of the Great Ocean Road" },
         meta: { "zh-Hant": "Day 2｜Great Ocean Road", en: "Day 2 | Great Ocean Road" },
         desc: {
-          "zh-Hant": "海景公路、小鎮停靠與斷崖觀景台構成一整天；十二門徒岩是主景，沿途路段同樣值得留意。",
-          en: "The beauty of this day is not only the Apostles. It is the way the road, the wind, and the pauses along the coast slowly add up.",
+          "zh-Hant": "海景公路、小鎮停靠與斷崖觀景台串成一日；十二門徒岩是午後主景。",
+          en: "Coastal road, town stops, and cliff lookouts, with the Twelve Apostles as the afternoon centrepiece.",
         },
         image: "./assets/twelve-apostles.jpg",
         alt: { "zh-Hant": "大洋路與十二門徒岩", en: "Great Ocean Road and the Twelve Apostles" },
@@ -524,7 +524,7 @@ const data = {
         meta: { "zh-Hant": "Day 3｜Phillip Island", en: "Day 3 | Phillip Island" },
         desc: {
           "zh-Hant": "下午抵達 Phillip Island，先走海岸步道、吃晚餐，日落後再進場等候企鵝歸巢。",
-          en: "The softer city rhythm gives way to coastline light and finally the penguins making their way back from the sea.",
+          en: "An afternoon coast drive, dinner by the water, and penguins coming ashore after sunset.",
         },
         image: "./assets/day3-phillip-island-sunset.jpg",
         alt: { "zh-Hant": "Phillip Island 海岸夕陽", en: "Phillip Island sunset coast" },
@@ -533,18 +533,18 @@ const data = {
         title: { "zh-Hant": "雪梨港灣的早餐時光", en: "A Sydney harbour breakfast" },
         meta: { "zh-Hant": "Day 5｜Circular Quay", en: "Day 5 | Circular Quay" },
         desc: {
-          "zh-Hant": "早餐安排在 Opera Quays 或 MCA Cafe，晨間光線較柔和，也能直接接上歌劇院與 Circular Quay 散步。",
-          en: "Putting breakfast by the harbour lets the Opera House, the light, and the city waking up all belong to the same morning.",
+          "zh-Hant": "Opera Quays 或 MCA Cafe 早餐；沿歌劇院、Circular Quay 開始港灣散步。",
+          en: "Breakfast at Opera Quays or MCA Cafe, followed by the Opera House and Circular Quay.",
         },
         image: "./assets/opera-house-harbour.jpg",
         alt: { "zh-Hant": "雪梨歌劇院與港灣景色", en: "Sydney Opera House and harbour view" },
       },
       {
-        title: { "zh-Hant": "達令港夜色與最後的市區半日", en: "Darling Harbour nights and the final soft half-day" },
+        title: { "zh-Hant": "達令港夜色與最後的市區半日", en: "Darling Harbour nights and the final city half-day" },
         meta: { "zh-Hant": "Day 4 - Day 6｜Sydney", en: "Day 4 - Day 6 | Sydney" },
         desc: {
-          "zh-Hant": "兩晚都住達令港，Day 5 走港灣與海生館，Day 6 再到 QVB 和 Hyde Park，傍晚回飯店取行李。",
-          en: "From Darling Harbour nights to the aquarium and a final QVB walk, Sydney closes the trip by settling into the city rather than rushing into another attraction sprint.",
+          "zh-Hant": "Day 5 港灣與海生館；Day 6 QVB、Hyde Park，傍晚回飯店取行李。",
+          en: "Day 5 covers the harbour and aquarium; Day 6 stays with QVB, Hyde Park, and the return flight.",
         },
         image: "./assets/day6-qvb-sydney.jpg",
         alt: { "zh-Hant": "雪梨 QVB 與市中心街景", en: "Sydney QVB and central city streets" },
@@ -553,20 +553,20 @@ const data = {
     practicalInfo: [
       {
         title: { "zh-Hant": "航班與機場交通", en: "Flights and airport movement" },
-        note: { "zh-Hant": "抵達、城際轉場與晚班回程", en: "Three flight segments, three different rhythms" },
+        note: { "zh-Hant": "抵達、國內線、晚班回程", en: "Arrival, domestic transfer, and late return" },
         open: true,
         bullets: [
           {
-            "zh-Hant": "5/24 10:40 抵達墨爾本後，通關、取車再進市區，第一天不適合再往太遠的地方衝。",
-            en: "After the 10:40 Melbourne arrival, immigration, car pickup, and getting into town already fill the first part of the day, so it is better not to push too far.",
+            "zh-Hant": "5/24 10:40 抵達墨爾本；通關、取車後進市區，午後走 CBD。",
+            en: "Arrive in Melbourne at 10:40, clear immigration, collect the car, and spend the afternoon in the CBD.",
           },
           {
-            "zh-Hant": "5/27 的 JQ514 13:00 起飛，上午只安排飯店周邊、取行李與還車。",
+            "zh-Hant": "5/27 JQ514 13:00 起飛；上午留在飯店周邊，11:30 前取行李、還車。",
             en: "JQ514 departs at 13:00 on May 27, so the morning should stay near the city centre and the hotel luggage pickup.",
           },
           {
-            "zh-Hant": "5/29 晚上從雪梨回程，傍晚先回飯店拿行李，再進機場會比邊逛邊拖著箱子輕鬆。",
-            en: "The Sydney return flight is late at night, so it is much easier to reclaim the bags first and then head to the airport cleanly.",
+            "zh-Hant": "5/29 晚班回程；17:30 取行李，19:00 前往 Sydney Airport T1。",
+            en: "For the late Sydney return, collect bags at 17:30 and leave for Terminal 1 at 19:00.",
           },
         ],
         links: [
@@ -576,19 +576,19 @@ const data = {
       },
       {
         title: { "zh-Hant": "城市間移動", en: "Moving between places" },
-        note: { "zh-Hant": "墨爾本靠車，雪梨回到步行", en: "Drive in Melbourne, walk again in Sydney" },
+        note: { "zh-Hant": "墨爾本自駕｜雪梨步行與大眾運輸", en: "Drive in Melbourne; walk and take transit in Sydney" },
         bullets: [
           {
-            "zh-Hant": "墨爾本段的大洋路和 Phillip Island 都是長線移動，租車可以把沿路停靠和回程節奏抓得比較自在。",
+            "zh-Hant": "大洋路與 Phillip Island 為長線自駕；沿途停靠依日照、路況調整。",
             en: "The Great Ocean Road and Phillip Island days both cover a lot of ground, and the rental car gives those stops more freedom.",
           },
           {
-            "zh-Hant": "雪梨段改回步行、火車、輕軌與 Uber 的混搭，會比在港灣附近開車省心很多。",
-            en: "In Sydney, mixing walking, train, light rail, and the occasional Uber is much easier than trying to keep a car around the harbour zones.",
+            "zh-Hant": "雪梨使用步行、火車、輕軌與 Uber；港灣區不留租車。",
+            en: "Use walking, trains, light rail, and Uber in Sydney; return the car before the flight.",
           },
           {
-            "zh-Hant": "Day 4 的重點是還車、機場、國內線與入住，不要再加一個遠點，整體會順很多。",
-            en: "Day 4 works best when it is treated as a car return, airport, domestic flight, and check-in day without another far-away stop added on.",
+            "zh-Hant": "Day 4｜取行李、還車、國內線、入住；不排遠程停靠。",
+            en: "Day 4 covers bags, car return, the domestic flight, and hotel check-in; no distant stops.",
           },
         ],
       },
@@ -597,124 +597,124 @@ const data = {
         note: { "zh-Hant": "市中心三晚，達令港兩晚", en: "Both bases are practical" },
         bullets: [
           {
-            "zh-Hant": "Dorsett Melbourne 讓 Day 1 的巷弄散步、Day 2 的一早出發和 Day 4 的最後半天都很方便。",
+            "zh-Hant": "Dorsett Melbourne｜Day 1 巷弄散步、Day 2 早出、Day 4 市區半日。",
             en: "Dorsett Melbourne makes the laneway day, the early coast departure, and the final Melbourne half-day all easy to handle.",
           },
           {
-            "zh-Hant": "Sofitel Darling Harbour 讓 Day 5 的港灣日和 Day 6 的最後補買都可以用步行加短程交通解決。",
+            "zh-Hant": "Sofitel Darling Harbour｜Day 5 港灣、Day 6 補買；步行搭配短程交通。",
             en: "Sofitel Darling Harbour keeps the harbour day and the final Sydney shopping day manageable with walking plus short transit hops.",
           },
           {
-            "zh-Hant": "最後一晚已經在雪梨，不用再為回程前搬行李，心情會輕鬆很多。",
+            "zh-Hant": "最後兩晚皆住雪梨；回程日不更換住宿。",
             en: "Being in Sydney already on the final night removes an extra luggage move before the return flight.",
           },
         ],
       },
       {
         title: { "zh-Hant": "餐桌與咖啡", en: "Meals and coffee" },
-        note: { "zh-Hant": "把吃飯也當成旅行的一部分", en: "Meals are part of the travel rhythm too" },
+        note: { "zh-Hant": "巷弄咖啡、海邊晚餐、港灣早餐", en: "Laneway coffee, seaside dinner, harbour breakfast" },
         bullets: [
           {
-            "zh-Hant": "Day 1 在 Degraves Street 安排早午餐，抵達後可直接從咖啡街開始市區步行。",
-            en: "Degraves Street is the right kind of slow opener for Melbourne and a good way to let the city wake up around you.",
+            "zh-Hant": "Day 1｜Degraves Street 早午餐，接 CBD 步行路線。",
+            en: "Day 1: brunch on Degraves Street, followed by the central walking route.",
           },
           {
-            "zh-Hant": "Day 3 可在 The Cerberus Beach House 用餐，再前往 Nobbies Centre 與 Penguin Parade。",
-            en: "The Cerberus Beach House is not only a dinner stop; it also helps the coast rhythm begin before Penguin Parade.",
+            "zh-Hant": "Day 3｜The Cerberus Beach House 晚餐，接 Nobbies Centre 與 Penguin Parade。",
+            en: "Day 3: dinner at The Cerberus Beach House before Nobbies Centre and Penguin Parade.",
           },
           {
-            "zh-Hant": "Day 5 早餐排在歌劇院附近，用餐後直接步行 Circular Quay，省下一次跨區移動。",
-            en: "Placing breakfast near the Opera House gives the harbour morning more grace than treating it as a pure attraction sprint.",
+            "zh-Hant": "Day 5｜歌劇院附近早餐，接 Circular Quay 港灣步行。",
+            en: "Day 5: breakfast near the Opera House, followed by Circular Quay on foot.",
           },
         ],
       },
       {
         title: { "zh-Hant": "天氣與穿搭", en: "Weather and what to wear" },
-        note: { "zh-Hant": "5 月入秋，市區與海岸溫差明顯", en: "May sits in autumn, so layers work best" },
+        note: { "zh-Hant": "5 月入秋｜市區溫和，海岸與夜晚偏冷", en: "Autumn in May; mild cities, cooler coast and evenings" },
         bullets: [
           {
-            "zh-Hant": "市區白天大多舒服，但海邊、日落後和企鵝歸巢這種戶外時段會明顯變冷。",
-            en: "Daytime in the cities should feel comfortable, but the coast, sunset hours, and Penguin Parade all cool down noticeably faster.",
+            "zh-Hant": "市區白天溫和；海邊、日落後與企鵝歸巢時段明顯轉冷。",
+            en: "City days are mild; the coast, sunset, and Penguin Parade turn noticeably cooler.",
           },
           {
             "zh-Hant": "短袖或薄長袖打底，包內再放一件可收納的防風外套。",
             en: "The most reliable setup is a tee or light long sleeve with a packable layer on top.",
           },
           {
-            "zh-Hant": "鞋子請以長時間走路舒服為第一優先，尤其是 Day 1、Day 5 和 Day 6。",
+            "zh-Hant": "Day 1、5、6 步行較多；穿長時間走路不磨腳的鞋。",
             en: "Comfortable walking shoes matter more than anything else, especially on Day 1, Day 5, and Day 6.",
           },
         ],
       },
       {
         title: { "zh-Hant": "防曬與戶外裝備", en: "Sun and outdoor gear" },
-        note: { "zh-Hant": "海邊風大，但日照還是不能忽略", en: "Windy coast, still strong daylight" },
+        note: { "zh-Hant": "海邊風強｜日照仍明顯", en: "Windy coast, still strong daylight" },
         bullets: [
           {
-            "zh-Hant": "Day 2 大洋路、Day 3 Phillip Island 和 Day 5 港灣步行都建議帶防曬、墨鏡和水。",
-            en: "The Great Ocean Road, Phillip Island, and the Sydney harbour day all deserve sunscreen, sunglasses, and water.",
+            "zh-Hant": "Day 2、3、5｜防曬、墨鏡、飲水。",
+            en: "Days 2, 3, and 5: sunscreen, sunglasses, and water.",
           },
           {
-            "zh-Hant": "帽子最好是能固定的款式，海邊風大時會比純造型款更實際。",
-            en: "A hat that can handle wind works far better on the coast than one that is only for styling.",
+            "zh-Hant": "海岸帽款選可固定、防風的款式。",
+            en: "Use a secure, wind-resistant hat on the coast.",
           },
           {
-            "zh-Hant": "行動電源、面紙和小包裝零食在長途移動日也很有用。",
+            "zh-Hant": "長途日隨身：行動電源、面紙、小包裝零食。",
             en: "A power bank, tissues, and a small snack become surprisingly useful on the longer movement days.",
           },
         ],
       },
       {
         title: { "zh-Hant": "購物與退稅", en: "Shopping and tax refund prep" },
-        note: { "zh-Hant": "最後補買盡量集中在 Day 6", en: "Keep the last shopping mostly on Day 6" },
+        note: { "zh-Hant": "Day 6 集中補買", en: "Final shopping on Day 6" },
         bullets: [
           {
-            "zh-Hant": "QVB、Hyde Park 一帶適合留最後一段補買，不需要在轉場日硬塞購物。",
+            "zh-Hant": "QVB、Hyde Park 一帶留給最後補買；Day 4 轉場日不排購物。",
             en: "QVB and the streets nearby are a good place to keep the final shopping, without forcing it into the transfer day.",
           },
           {
-            "zh-Hant": "如果想在機場處理退稅，發票、護照資訊和商品最好先整理在一起，再多留一點回程前的時間。",
+            "zh-Hant": "機場退稅：發票、護照資料與商品集中收納；回程提早到場。",
             en: "If you plan to handle tax refund steps at the airport, keep receipts, passport details, and relevant items together and leave extra time before the flight.",
           },
           {
-            "zh-Hant": "零食或超市伴手禮可以在前幾天先分批買，不用留到最後一晚才集中處理。",
-            en: "Snacks and supermarket gifts are easier to pick up in smaller rounds earlier in the trip rather than all at once at the end.",
+            "zh-Hant": "零食與超市伴手禮分批採買，最後一晚只補缺口。",
+            en: "Buy supermarket gifts in small rounds; use Day 6 only to fill gaps.",
           },
         ],
       },
       {
         title: { "zh-Hant": "網路、付款與插座", en: "Connectivity, payment, and plugs" },
-        note: { "zh-Hant": "這些小事往往在旅途中最常用", en: "These are the quiet essentials" },
+        note: { "zh-Hant": "澳規插座、行動網路、付款備援", en: "AU plug, mobile data, and payment backup" },
         bullets: [
           {
-            "zh-Hant": "澳洲插座和台灣不同，澳規轉接頭一定要先放進行李。",
+            "zh-Hant": "澳洲使用 Type I 插座；攜帶澳規轉接頭。",
             en: "Australia uses a different plug type from Taiwan, so the AU adapter needs to be packed before anything else.",
           },
           {
-            "zh-Hant": "信用卡和手機支付大多夠用，但還是留一點小額現金當備用會安心。",
+            "zh-Hant": "主要使用信用卡與手機支付；另備少量現金。",
             en: "Cards and mobile payments should cover most of the trip, though a small cash buffer is still reassuring.",
           },
           {
-            "zh-Hant": "eSIM 或漫遊方案建議出發前就先確定，抵達日、長途移動日和回程夜晚都會很依賴網路。",
-            en: "It is worth confirming the eSIM or roaming plan before departure, because the arrival day, long-drive days, and return night all lean on good signal.",
+            "zh-Hant": "出發前啟用 eSIM 或漫遊；抵達、長途自駕與回程皆需網路。",
+            en: "Activate eSIM or roaming before departure; arrival, road trips, and the return night need data.",
           },
         ],
       },
       {
         title: { "zh-Hant": "貼心提醒", en: "Gentle reminders" },
-        note: { "zh-Hant": "四個需要特別抓時間的時段", en: "Save your energy for the scenes that matter" },
+        note: { "zh-Hant": "四個固定節點", en: "Four fixed timing points" },
         bullets: [
           {
-            "zh-Hant": "Day 2 早起、Day 3 晚歸、Day 4 搭國內線、Day 6 搭晚班機，這四天請先確認交通時間。",
+            "zh-Hant": "Day 2 早出｜Day 3 晚歸｜Day 4 國內線｜Day 6 晚班機。",
             en: "Day 2 early start, Day 3 late return, Day 4 flight, and Day 6 late departure are the four windows that need the most breathing room.",
           },
           {
-            "zh-Hant": "大洋路和 Phillip Island 都不要在回程後再加碼夜生活，隔天的感受會差很多。",
-            en: "Both the Great Ocean Road and Phillip Island days are better without extra nightlife piled on after the return drive.",
+            "zh-Hant": "大洋路與 Phillip Island 回程後直接休息，不續排夜間行程。",
+            en: "Return directly to the hotel after Great Ocean Road and Phillip Island.",
           },
           {
-            "zh-Hant": "如果想拍照，把時間留給早上港灣光線和傍晚河岸，比多塞一個點更值得。",
-            en: "If photos matter, time spent on harbour morning light and riverside dusk is usually more rewarding than squeezing in one more stop.",
+            "zh-Hant": "拍照時段：雪梨港灣早晨、Yarra River 傍晚。",
+            en: "Photo windows: Sydney Harbour in the morning and the Yarra at dusk.",
           },
         ],
       },
@@ -789,21 +789,21 @@ const data = {
     {
       title: { "zh-Hant": "去程是跨夜抵達", en: "The outbound is an overnight arrival" },
       desc: {
-        "zh-Hant": "5/24 10:40 抵達墨爾本後，還有通關、取車和進市區的時間，第一天適合排城市慢步調，不適合再壓一個長線景點。",
-        en: "Landing in Melbourne at 10:40 still leaves immigration, car pickup, and the ride into town, so the first day works much better as a slow city day than a long-distance push.",
+        "zh-Hant": "5/24 10:40 抵達；通關、取車後進市區。第一天僅走 Melbourne CBD 與 Southbank。",
+        en: "Arrive in Melbourne at 10:40; clear immigration, collect the car, and spend the afternoon in the CBD and Southbank.",
       },
     },
     {
       title: { "zh-Hant": "JQ514 是整趟最關鍵的轉場", en: "JQ514 is the key transfer of the trip" },
       desc: {
-        "zh-Hant": "5/27 13:00 從墨爾本飛雪梨，上午只留近距離活動和拿行李，會比勉強塞一個景點更輕鬆。",
+        "zh-Hant": "5/27 13:00 墨爾本飛雪梨；上午留在 CBD，11:30 前取行李並前往機場。",
         en: "The May 27 flight from Melbourne to Sydney is the main pivot of the trip, which is why the morning should stay close and luggage-friendly.",
       },
     },
     {
       title: { "zh-Hant": "回程是晚班國際線", en: "The return is a late-night international flight" },
       desc: {
-        "zh-Hant": "Day 6 白天留在雪梨市中心，17:30 回飯店拿行李，國際線至少預留 3 小時。",
+        "zh-Hant": "Day 6 白天留在 Sydney CBD；17:30 取行李，國際線預留至少 3 小時。",
         en: "Day 6 still leaves a useful half-day in central Sydney, but the evening should first return for the luggage and then leave a generous airport buffer.",
       },
     },
@@ -812,21 +812,21 @@ const data = {
     {
       title: { "zh-Hant": "抵達墨爾本", en: "Landing in Melbourne" },
       desc: {
-        "zh-Hant": "通關、取車與進市區約需半天；抵達後先吃早午餐，再依時間走車站、圖書館與河岸。",
-        en: "Treat Day 1 as arrival, move into town, settle into a comfortable brunch, and only then start the city walk.",
+        "zh-Hant": "通關、取車、進市區約半天；早午餐後走車站、圖書館與河岸。",
+        en: "Immigration, car pickup, and the city transfer take roughly half a day; begin with brunch, then walk the station, library, and river.",
       },
     },
     {
       title: { "zh-Hant": "墨爾本飛雪梨", en: "Flying Melbourne to Sydney" },
       desc: {
-        "zh-Hant": "上午行程以 Melbourne Central、Emporium、Bourke Street 這種彼此靠近的區域為主，隨時可以折回飯店拿行李。",
+        "zh-Hant": "上午範圍：Melbourne Central、Emporium、Bourke Street；11:30 前回飯店取行李。",
         en: "Keep the morning around Melbourne Central, Emporium, and Bourke Street, so turning back for luggage stays easy.",
       },
     },
     {
       title: { "zh-Hant": "雪梨回程夜晚", en: "The Sydney departure night" },
       desc: {
-        "zh-Hant": "如果最後一天有補買或散步，最好都留在 QVB、Hyde Park、Darling Harbour 這一帶，晚上回飯店拿行李不會太折返。",
+        "zh-Hant": "最後半日：QVB、Hyde Park、Darling Harbour；17:30 回飯店取行李。",
         en: "If the final day includes shopping or a walk, keeping it around QVB, Hyde Park, and Darling Harbour makes the hotel return much cleaner.",
       },
     },
@@ -845,8 +845,8 @@ const data = {
           { label: { "zh-Hant": "市中心住宿", en: "Central base" }, tone: "city" },
           { label: { "zh-Hant": "大洋路前半段", en: "Melbourne half" }, tone: "coast" },
         ],
-        feature: { "zh-Hant": "適合第一天城市散步，也方便第二天一早往海岸線出發。", en: "Useful for the first city day and very convenient for the early coast departure." },
-        note: { "zh-Hant": "連住三晚，市區行程可步行銜接，大洋路與 Phillip Island 也從同一處出發。", en: "The Melbourne half stays here, which keeps the laneways, the city, and the drive-out rhythm in one place." },
+        feature: { "zh-Hant": "Melbourne CBD 步行圈｜大洋路與 Phillip Island 自駕起點。", en: "Melbourne CBD walking base and departure point for both road trips." },
+        note: { "zh-Hant": "連住 3 晚；Day 1 市區、Day 2 大洋路、Day 3 Phillip Island。", en: "Three nights covering the city, Great Ocean Road, and Phillip Island." },
         href: "https://www.dorsetthotels.com/dorsett-melbourne/",
       },
       {
@@ -861,30 +861,30 @@ const data = {
           { label: { "zh-Hant": "港邊夜景", en: "Harbour nights" }, tone: "night" },
           { label: { "zh-Hant": "回程前住宿", en: "Final base" }, tone: "transfer" },
         ],
-        feature: { "zh-Hant": "適合 Day 5 的港灣日、Day 6 的最後散步，也讓回程夜晚乾淨俐落。", en: "Well placed for the harbour day, the final Sydney walk, and a cleaner return-night routine." },
-        note: { "zh-Hant": "連住兩晚；步行可到海生館與達令港，前往 Circular Quay 或 QVB 再搭短程交通。", en: "The Sydney half sits by Darling Harbour, so both evening views and daytime movement out to Circular Quay stay easy." },
+        feature: { "zh-Hant": "Darling Harbour 水岸｜步行至海生館，短程前往 Circular Quay 與 QVB。", en: "Darling Harbour waterfront, walkable to the aquarium and a short ride to Circular Quay or QVB." },
+        note: { "zh-Hant": "連住 2 晚；Day 5 港灣、Day 6 市中心與回程。", en: "Two nights covering the harbour, central city, and departure day." },
         href: "https://all.accor.com/hotel/9729/index.en.shtml",
       },
     ],
     advantages: [
       {
-        title: { "zh-Hant": "墨爾本市中心步行範圍", en: "Melbourne holds the city rhythm in the first base" },
+        title: { "zh-Hant": "墨爾本市中心步行範圍", en: "Central Melbourne walking area" },
         desc: {
-          "zh-Hant": "Degraves Street、Flinders Street Station、State Library 與 Southbank 可依南北方向步行串連。",
-          en: "Degraves Street, Flinders Street Station, the State Library, and Southbank can all live within one connected central-city rhythm.",
+          "zh-Hant": "Degraves Street、Flinders Street Station、State Library、Southbank 皆在 CBD 步行動線。",
+          en: "Degraves Street, Flinders Street Station, the State Library, and Southbank share one CBD walking route.",
         },
       },
       {
-        title: { "zh-Hant": "達令港串連港灣行程", en: "Sydney keeps the harbour mood in the second base" },
+        title: { "zh-Hant": "達令港串連港灣行程", en: "Darling Harbour as the Sydney base" },
         desc: {
-          "zh-Hant": "Day 5 的港灣早餐、歌劇院和海生館，回到達令港收夜色剛剛好。",
+          "zh-Hant": "Day 5：港灣早餐、歌劇院、Circular Quay、海生館，夜晚回到達令港。",
           en: "The harbour breakfast, Opera House, and aquarium day all close naturally back into Darling Harbour.",
         },
       },
       {
-        title: { "zh-Hant": "回程前不用再搬一次行李", en: "No extra luggage move before the return" },
+        title: { "zh-Hant": "最後兩晚固定住雪梨", en: "No extra luggage move before the return" },
         desc: {
-          "zh-Hant": "最後一晚已經在雪梨，讓 Day 6 可以把心力放在最後半天怎麼走，而不是再處理一次換飯店。",
+          "zh-Hant": "最後兩晚不換住宿；Day 6 退房後寄放行李，傍晚取回。",
           en: "Being in Sydney already on the final night means Day 6 can focus on the city instead of another hotel transfer.",
         },
       },
@@ -893,12 +893,12 @@ const data = {
       {
         time: "09:00",
         title: { "zh-Hant": "墨爾本市區最後半日", en: "One last easy Melbourne window" },
-        desc: { "zh-Hant": "早午餐、近距離購物或最後一段 city walk 都留在市中心，不用再拉遠。", en: "Keep brunch, short shopping, or the final city walk right in the centre rather than reaching farther out." },
+        desc: { "zh-Hant": "早午餐、近距離購物或 city walk；範圍留在 Melbourne CBD。", en: "Brunch, nearby shopping, or a city walk within Melbourne CBD." },
       },
       {
         time: "11:30 - 12:00",
         title: { "zh-Hant": "回飯店拿行李，往機場走", en: "Pick up the bags and head for the airport" },
-        desc: { "zh-Hant": "最晚 12:00 前離開市區，並把還車與國內線報到時間一起計入。", en: "Getting this part right is what makes the domestic flight feel easy." },
+        desc: { "zh-Hant": "11:30 前取行李；還車與國內線報到納入移動時間。", en: "Collect bags by 11:30, allowing time for the car return and domestic check-in." },
       },
       {
         time: "13:00",
@@ -907,8 +907,8 @@ const data = {
       },
       {
         time: "16:30 後",
-        title: { "zh-Hant": "入住達令港，晚餐留在附近", en: "Check in at Darling Harbour and keep the night soft" },
-        desc: { "zh-Hant": "辦理入住後只安排達令港散步與晚餐，歌劇院和 Circular Quay 留到隔天。", en: "Settle gently into the new city and save the full harbour run for the next day." },
+        title: { "zh-Hant": "入住達令港，晚餐留在附近", en: "Check in and dine near Darling Harbour" },
+        desc: { "zh-Hant": "入住後走達令港與晚餐；歌劇院、Circular Quay 排在 Day 5。", en: "Check in, walk Darling Harbour, and have dinner; Opera House and Circular Quay follow on Day 5." },
       },
     ],
     moveOptions: [
@@ -918,7 +918,7 @@ const data = {
         start: { "zh-Hant": "MEL 第 4 航廈", en: "MEL Terminal 4" },
         destination: { "zh-Hant": "SYD 國內線 T2", en: "SYD Domestic T2" },
         cost: { "zh-Hant": "票價未補，但班機已確認", en: "Fare not added yet, flight confirmed" },
-        desc: { "zh-Hant": "這一段是整趟最重要的城市轉場，上午請不要排得太滿。", en: "This is the key city transfer of the trip, so the morning should stay intentionally light." },
+        desc: { "zh-Hant": "Day 4 固定航班；上午只排 CBD 近距離行程。", en: "Fixed Day 4 flight; keep the morning within central Melbourne." },
       },
       {
         title: { "zh-Hant": "Sixt 租車", en: "Sixt rental car" },
@@ -927,7 +927,7 @@ const data = {
         destination: { "zh-Hant": "Toyota Corolla 或同級", en: "Toyota Corolla or similar" },
         costAud: 264.2,
         costSuffix: { "zh-Hant": "｜已付款", en: " | paid" },
-        desc: { "zh-Hant": "Day 2 大洋路和 Day 3 Phillip Island 都靠這台車，把長線日的彈性留在自己手上。", en: "This car holds the Great Ocean Road and Phillip Island days together and keeps the longer days more flexible." },
+        desc: { "zh-Hant": "Day 2 大洋路、Day 3 Phillip Island；長線行程依天候與路況調整停靠。", en: "For Great Ocean Road on Day 2 and Phillip Island on Day 3; stops adjust to weather and traffic." },
         image: "./assets/corolla-rental-card.svg",
         imageAlt: { "zh-Hant": "Toyota Corolla 租車卡片", en: "Toyota Corolla rental card" },
         specs: [
@@ -939,11 +939,11 @@ const data = {
       },
       {
         title: { "zh-Hant": "Sydney Airport Line / Uber", en: "Sydney Airport Line / Uber" },
-        duration: { "zh-Hant": "Day 6 晚上會用到", en: "Useful on the final evening" },
+        duration: { "zh-Hant": "Day 6 晚間", en: "Final evening" },
         start: { "zh-Hant": "Darling Harbour / Sydney CBD", en: "Darling Harbour / Sydney CBD" },
         destination: { "zh-Hant": "Sydney Airport T1", en: "Sydney Airport T1" },
-        cost: { "zh-Hant": "依行李量與當晚體力選擇", en: "Choose based on luggage and energy that evening" },
-        desc: { "zh-Hant": "如果最後一天買得多或想省體力，就直接 Uber；若想穩定抓時間，Airport Line 也很直覺。", en: "If the last day ends with more shopping or lower energy, Uber is the easier call; if you want more predictable timing, the airport line is still straightforward." },
+        cost: { "zh-Hant": "依行李量與即時車資選擇", en: "Choose based on luggage and live fare" },
+        desc: { "zh-Hant": "行李多時搭 Uber；Airport Line 班次較固定。", en: "Use Uber with more luggage; Airport Line offers fixed schedules." },
       },
     ],
   },
@@ -957,11 +957,11 @@ const data = {
       theme: { "zh-Hant": "咖啡街區與河岸散步", en: "Laneways, coffee, and a riverside first day" },
       preview: {
         "zh-Hant": "10:40 抵達墨爾本。取車進市區後，從 Degraves Street、老車站一路走到 Yarra 河岸。",
-        en: "There is no need to rush far on arrival. Let Melbourne laneways, the old station, and the Yarra open the trip slowly.",
+        en: "Arrive in Melbourne at 10:40, collect the car, then walk from Degraves Street and the old station to the Yarra.",
       },
       intro: {
-        "zh-Hant": "長途飛行後先留在市中心活動。午餐從 Degraves Street 開始，下午走車站與圖書館，傍晚到 Yarra 河邊吃飯；穿好走的鞋，包裡放一件薄外套。",
-        en: "Today follows a city-waking-up pace. Good walking shoes, coffee, laneways, and the river all fit better than trying to force a bigger plan onto the arrival day.",
+        "zh-Hant": "抵達日留在市中心。Degraves Street 早午餐，午後走車站與圖書館，傍晚沿 Yarra River 用餐；好走鞋，薄外套隨身。",
+        en: "Arrival day stays central: Degraves Street brunch, the station and library, then dinner by the Yarra. Pack walking shoes and a light layer.",
       },
       image: "./assets/day1-melbourne-skyline.jpg",
       imageAlt: { "zh-Hant": "墨爾本 Southbank 天際線", en: "Melbourne Southbank skyline" },
@@ -979,19 +979,19 @@ const data = {
       glance: {
         start: {
           value: { "zh-Hant": "10:40 抵達後進市區", en: "Into the city after the 10:40 arrival" },
-          note: { "zh-Hant": "通關與取車後，抵達市區大約已接近中午", en: "After immigration and the car pickup, the city walk really starts closer to midday" },
+          note: { "zh-Hant": "通關、取車後約中午抵達市區", en: "Reach the city around noon after immigration and car pickup" },
         },
         area: {
           value: { "zh-Hant": "Degraves Street / Flinders Street / State Library / Yarra River", en: "Degraves Street / Flinders Street / State Library / Yarra River" },
-          note: { "zh-Hant": "今天都留在同一個城市核心，移動不需要拉遠", en: "Everything stays in one central city zone today" },
+          note: { "zh-Hant": "全日集中在 CBD 與 Southbank", en: "Everything stays in one central city zone today" },
         },
         highlights: {
           value: { "zh-Hant": "晨間咖啡、老車站、圖書館圓頂、河岸夜色", en: "Coffee, the old station, the library dome, and river light" },
-          note: { "zh-Hant": "以城市氛圍為主，不用把點塞滿", en: "The mood matters more than the count of stops" },
+          note: { "zh-Hant": "巷弄、老建築、室內圓頂與河岸", en: "Laneways, old architecture, a domed interior, and the river" },
         },
         energy: {
           value: { "zh-Hant": "普通", en: "Steady" },
-          note: { "zh-Hant": "長途飛行後只排市中心行程，避免第一天過度消耗", en: "Keep the arrival day easy and let the body settle in" },
+          note: { "zh-Hant": "抵達日；市中心步行為主", en: "Arrival day with central-city walking" },
         },
         walk: {
           value: { "zh-Hant": "中等", en: "Moderate" },
@@ -999,44 +999,44 @@ const data = {
         },
         wear: {
           value: { "zh-Hant": "好走鞋 + 薄外套", en: "Walking shoes and a light layer" },
-          note: { "zh-Hant": "傍晚河邊會比白天再涼一點", en: "The river can feel cooler by evening" },
+          note: { "zh-Hant": "傍晚河岸降溫", en: "The river cools down by evening" },
         },
         food: {
           value: { "zh-Hant": "Degraves Street 早午餐 / 河邊晚餐", en: "Brunch on Degraves Street / dinner by the river" },
-          note: { "zh-Hant": "Day 1 的吃飯節奏可以慢一點", en: "The meal rhythm works best when kept slow" },
+          note: { "zh-Hant": "早午餐與晚餐皆在步行路線上", en: "Brunch and dinner sit on the walking route" },
         },
         transport: {
           value: { "zh-Hant": "機場取車後進市區，市區以步行為主", en: "Pick up the car at the airport, then mostly walk in the city" },
-          note: { "zh-Hant": "不需要再排一個遠距離景點", en: "No need to tack on a far-away stop" },
+          note: { "zh-Hant": "不離開市中心步行圈", en: "Stay within the central walking zone" },
         },
         booking: {
           value: { "zh-Hant": "無硬性預約", en: "No hard booking pressure" },
-          note: { "zh-Hant": "State Library 的圓頂閱覽室值得留一點時間", en: "Leave proper time for the domed reading room at the State Library" },
+          note: { "zh-Hant": "State Library 圓頂閱覽室預留停留時間", en: "Allow time for the State Library's domed reading room" },
         },
       },
       routeFlow: [
         {
           period: { "zh-Hant": "上午｜城市醒來", en: "Morning | The city wakes up" },
           title: { "zh-Hant": "Degraves Street 早午餐", en: "Brunch on Degraves Street" },
-          desc: { "zh-Hant": "抵達市區後先吃早午餐，順便確認取車、停車與飯店入住時間，再開始步行行程。", en: "Start with the coffee lane and let arrival day begin with a real brunch rather than a rushed dash toward a major sight." },
+          desc: { "zh-Hant": "抵達市區後吃早午餐；確認停車與入住時間，再開始步行。", en: "Brunch after reaching the city; confirm parking and check-in timing before the walk." },
           tags: [{ label: { "zh-Hant": "晨間咖啡", en: "Coffee" }, tone: "food" }],
         },
         {
           period: { "zh-Hant": "中午｜車站與廣場", en: "Midday | Station and square" },
           title: { "zh-Hant": "Flinders Street Station + Federation Square", en: "Flinders Street Station + Federation Square" },
-          desc: { "zh-Hant": "這兩個點可以一起走，距離剛好，也很適合把第一天的城市照片留在這裡。", en: "These two places sit naturally together and make an easy place to anchor the first set of city photos." },
+          desc: { "zh-Hant": "沿 Degraves Street 步行至老車站與 Federation Square；兩點隔街相望。", en: "Walk from Degraves Street to the old station and Federation Square across the road." },
           tags: [{ label: { "zh-Hant": "城市地標", en: "City icons" }, tone: "city" }],
         },
         {
           period: { "zh-Hant": "下午｜書頁與室內留白", en: "Afternoon | Pages and indoor pause" },
           title: { "zh-Hant": "State Library Victoria", en: "State Library Victoria" },
-          desc: { "zh-Hant": "圖書館是很好的室內緩衝點，圓頂閱覽室本身就很值得待一下。", en: "The library is a good indoor pause, and the domed reading room is worth a proper linger." },
+          desc: { "zh-Hant": "進入圓頂閱覽室，安排一段室內停留。", en: "Step into the domed reading room for an indoor pause." },
           tags: [{ label: { "zh-Hant": "室內留白", en: "Indoor pause" }, tone: "note" }],
         },
         {
           period: { "zh-Hant": "傍晚｜河岸收尾", en: "Evening | Finish by the river" },
           title: { "zh-Hant": "Yarra River 散步與晚餐", en: "Yarra River walk and dinner" },
-          desc: { "zh-Hant": "把第一天的最後留給河岸，散步加吃飯比再多塞一個點更剛好。", en: "Finishing the first day with the river, a walk, and dinner works much better than forcing one more stop." },
+          desc: { "zh-Hant": "沿 Yarra River 散步，在 Southbank 一帶用晚餐。", en: "Walk along the Yarra River and have dinner around Southbank." },
           tags: [{ label: { "zh-Hant": "河岸夜色", en: "Riverside evening" }, tone: "night" }],
         },
       ],
@@ -1045,7 +1045,7 @@ const data = {
           time: { "zh-Hant": "10:40", en: "10:40" },
           label: { "zh-Hant": "抵達", en: "Arrival" },
           title: { "zh-Hant": "抵達墨爾本，通關與取車", en: "Arrive in Melbourne, clear immigration, and collect the car" },
-          note: { "zh-Hant": "通關、取車與進市區後通常已接近中午，第一段行程請保留彈性。", en: "The city walk usually starts closer to midday, so this first stretch should not be packed tightly." },
+          note: { "zh-Hant": "通關、取車、進市區約需半天；抵達時間依現場調整。", en: "Immigration, car pickup, and the city transfer take roughly half a day." },
           eventClass: "event-transport",
           flags: [{ label: { "zh-Hant": "入境", en: "Immigration" }, tone: "transfer" }],
         },
@@ -1053,7 +1053,7 @@ const data = {
           time: { "zh-Hant": "12:00 左右", en: "Around 12:00" },
           label: { "zh-Hant": "咖啡", en: "Coffee" },
           title: { "zh-Hant": "Degraves Street 早午餐", en: "Brunch on Degraves Street" },
-          note: { "zh-Hant": "用餐後沿 Degraves Street 往 Flinders Street Station 移動。", en: "This stretch is there to bring in the Melbourne mood, not to be rushed." },
+          note: { "zh-Hant": "用餐後沿 Degraves Street 往 Flinders Street Station 移動。", en: "Walk from Degraves Street to Flinders Street Station after brunch." },
           eventClass: "event-meal",
           flags: [{ label: { "zh-Hant": "慢步調", en: "Slow pace" }, tone: "food" }],
         },
@@ -1061,7 +1061,7 @@ const data = {
           time: { "zh-Hant": "下午", en: "Afternoon" },
           label: { "zh-Hant": "城市", en: "City" },
           title: { "zh-Hant": "Flinders Street Station、廣場與圖書館", en: "Station, square, and library" },
-          note: { "zh-Hant": "這三段可以順著城市步行一路接起來，不必來回拉扯。", en: "These three parts can be connected in one natural city walk without unnecessary backtracking." },
+          note: { "zh-Hant": "Flinders Street → Federation Square → State Library，單向步行。", en: "Walk one way from Flinders Street to Federation Square and the State Library." },
           eventClass: "event-city",
           flags: [{ label: { "zh-Hant": "步行", en: "Walking" }, tone: "city" }],
         },
@@ -1069,23 +1069,23 @@ const data = {
           time: { "zh-Hant": "傍晚", en: "Evening" },
           label: { "zh-Hant": "河岸", en: "River" },
           title: { "zh-Hant": "Yarra River 晚餐與收尾", en: "Dinner and a finish by the Yarra" },
-          note: { "zh-Hant": "第一天不用追太多點，把夜色留在河邊就很剛好。", en: "The first day does not need more stops. Letting dusk settle by the river is enough." },
+          note: { "zh-Hant": "沿 Southbank 水岸散步並用晚餐。", en: "Walk the Southbank waterfront and stop for dinner." },
           eventClass: "event-highlight",
           flags: [{ label: { "zh-Hant": "夜色", en: "Evening light" }, tone: "night" }],
         },
       ],
       reminders: [
         {
-          "zh-Hant": "今天主要是城市步行，好走的鞋會比拍照鞋更重要。",
-          en: "This is mostly a city walking day, so comfortable shoes matter more than photo shoes.",
+          "zh-Hant": "城市步行日｜穿已走習慣、不磨腳的鞋。",
+          en: "City walking day: wear broken-in shoes.",
         },
         {
-          "zh-Hant": "傍晚河邊和室內外溫差會有感，薄外套放包裡最實際。",
-          en: "The river and the indoor-outdoor shift can feel cooler by evening, so a light layer is worth carrying.",
+          "zh-Hant": "傍晚河岸偏涼｜薄外套放在隨身包。",
+          en: "The river cools down at dusk; keep a light layer in the day bag.",
         },
         {
-          "zh-Hant": "通關與取車時間若比預期長，優先保留早午餐、圖書館與河岸，其餘景點可略過。",
-          en: "There is no need to prove anything on arrival day. Letting the trip begin slowly is often what makes it feel like a real start.",
+          "zh-Hant": "若入境延誤：保留早午餐、State Library、Yarra River；其餘略過。",
+          en: "If arrival runs late, keep brunch, the State Library, and the Yarra; skip the rest.",
         },
       ],
     },
@@ -1098,11 +1098,11 @@ const data = {
       theme: { "zh-Hant": "海岸線、公路與斷崖大景", en: "Coastline, road air, and cliff-edge views" },
       preview: {
         "zh-Hant": "07:00 前離開墨爾本，經 Lorne、Apollo Bay 前往十二門徒岩；全天車程長，晚上直接回飯店休息。",
-        en: "This day asks for an early start and a long drive, but the coastline steadily turns the hours into scenery.",
+        en: "Leave Melbourne before 07:00, pass Lorne and Apollo Bay, then continue to the Twelve Apostles; return to the hotel at night.",
       },
       intro: {
-        "zh-Hant": "今天是全程最長的公路日。午餐與補給放在沿路小鎮，下午集中走十二門徒岩、Loch Ard Gorge 與 London Arch；水、防曬、墨鏡與防風外套請隨身攜帶。",
-        en: "Today belongs to the coastline and the road. The beauty is not only the Apostles, but also the wind, the horizon, and the pauses along the way. Bring water, sunscreen, sunglasses, and a layer.",
+        "zh-Hant": "全程最長公路日。Lorne 或 Apollo Bay 午餐補給；午後走十二門徒岩、Loch Ard Gorge、London Arch。隨身帶水、防曬、墨鏡與防風外套。",
+        en: "The longest road day: lunch and supplies in a coastal town, then Twelve Apostles, Loch Ard Gorge, and London Arch. Pack water, sunscreen, sunglasses, and a wind layer.",
       },
       image: "./assets/twelve-apostles.jpg",
       imageAlt: { "zh-Hant": "大洋路海岸線與十二門徒岩", en: "Great Ocean Road coastline and the Twelve Apostles" },
@@ -1120,7 +1120,7 @@ const data = {
       glance: {
         start: {
           value: { "zh-Hant": "07:00 前離開墨爾本", en: "Leave Melbourne before 07:00" },
-          note: { "zh-Hant": "越早出發，沿路停靠和下午主景就越從容", en: "The earlier the start, the easier the coast stops and main viewpoints feel" },
+          note: { "zh-Hant": "06:30 - 07:00 離開市區", en: "Leave the city between 06:30 and 07:00" },
         },
         area: {
           value: { "zh-Hant": "Lorne / Apollo Bay / Twelve Apostles / Loch Ard Gorge / London Arch", en: "Lorne / Apollo Bay / Twelve Apostles / Loch Ard Gorge / London Arch" },
@@ -1128,11 +1128,11 @@ const data = {
         },
         highlights: {
           value: { "zh-Hant": "海景公路、小鎮停靠、斷崖大景", en: "Sea-road views, town pauses, and cliff-edge scenery" },
-          note: { "zh-Hant": "沿途公路視野與觀景停靠也是今天的重點", en: "The best part often builds gradually between the big sights" },
+          note: { "zh-Hant": "海景公路與沿途觀景停靠", en: "Coastal road views and lookout stops" },
         },
         energy: {
           value: { "zh-Hant": "偏累，長途移動日", en: "Tiring, long-move day" },
-          note: { "zh-Hant": "回到墨爾本通常已經不早，晚上就留給休息", en: "You will likely return to Melbourne late, so the night should stay easy" },
+          note: { "zh-Hant": "預計 20:00 - 22:00 返回墨爾本", en: "Expected Melbourne return: 20:00-22:00" },
         },
         walk: {
           value: { "zh-Hant": "中等", en: "Moderate" },
@@ -1140,44 +1140,44 @@ const data = {
         },
         wear: {
           value: { "zh-Hant": "好走鞋 + 防風薄外套 + 防曬", en: "Walking shoes, a wind layer, and sun protection" },
-          note: { "zh-Hant": "海邊風大，帽子最好是穩一點的款式", en: "The coast gets windy, so a secure hat works better than a loose one" },
+          note: { "zh-Hant": "海邊風強；帽款需可固定", en: "The coast gets windy; use a secure hat" },
         },
         food: {
           value: { "zh-Hant": "Lorne 或 Apollo Bay 午間補給", en: "Lunch and coffee around Lorne or Apollo Bay" },
-          note: { "zh-Hant": "沿路把休息點和吃飯放一起，回程會輕鬆很多", en: "Pairing lunch with a rest stop makes the return drive much easier" },
+          note: { "zh-Hant": "午餐、洗手間、補水與加油同站完成", en: "Combine lunch, toilets, water, and fuel in one stop" },
         },
         transport: {
           value: { "zh-Hant": "租車自駕或一日遊，全日以公路移動為主", en: "Self-drive or a tour, with the whole day centred on the road" },
-          note: { "zh-Hant": "自駕請記得預留休息、加油與停車緩衝", en: "If driving, leave room for rest, fuel, and parking pauses" },
+          note: { "zh-Hant": "預留休息、加油與停車時間", en: "Allow time for rest, fuel, and parking" },
         },
         booking: {
           value: { "zh-Hant": "集合時間 / 停靠節奏", en: "Tour timing or stop rhythm" },
-          note: { "zh-Hant": "如果跟團，重點是守集合時間；如果自駕，重點是不要貪多。", en: "If you join a tour, respect the timing. If you drive yourself, the key is not overloading the route." },
+          note: { "zh-Hant": "跟團：準時集合｜自駕：依路況刪減停靠", en: "Tour: meet on time; self-drive: trim stops for road conditions" },
         },
       },
       routeFlow: [
         {
           period: { "zh-Hant": "上午｜出發與沿途風景", en: "Morning | Depart and watch the coast open" },
-          title: { "zh-Hant": "07:00 前離開墨爾本", en: "Leave the city early and let the coastline take over" },
-          desc: { "zh-Hant": "避開市區車流，也替午間補給與下午觀景台保留足夠時間。", en: "The earlier you leave Melbourne, the more complete the afternoon around the major views becomes." },
+          title: { "zh-Hant": "07:00 前離開墨爾本", en: "Leave Melbourne before 07:00" },
+          desc: { "zh-Hant": "06:30 - 07:00 出發；避開市區尖峰，下午抵達主要觀景台。", en: "Leave between 06:30 and 07:00 to clear the city before peak traffic." },
           tags: [{ label: { "zh-Hant": "早起", en: "Early start" }, tone: "warm" }],
         },
         {
           period: { "zh-Hant": "中午｜小鎮補給", en: "Midday | Small-town fuel stop" },
           title: { "zh-Hant": "Lorne 或 Apollo Bay 午餐", en: "Lunch around Lorne or Apollo Bay" },
-          desc: { "zh-Hant": "午間休息放在沿路小鎮最剛好，補水、上洗手間和咖啡都能一起處理。", en: "A small coastal town pause works best for lunch, water, a toilet break, and another coffee if needed." },
+          desc: { "zh-Hant": "在沿路小鎮完成午餐、咖啡、補水、洗手間與加油。", en: "Stop in a coastal town for lunch, coffee, water, toilets, and fuel." },
           tags: [{ label: { "zh-Hant": "補給", en: "Fuel stop" }, tone: "food" }],
         },
         {
           period: { "zh-Hant": "下午｜大景集中段", en: "Afternoon | Main cliff-edge stretch" },
           title: { "zh-Hant": "Twelve Apostles、Loch Ard Gorge、London Arch", en: "Twelve Apostles, Loch Ard Gorge, and London Arch" },
-          desc: { "zh-Hant": "三個觀景點距離相對集中，依現場風勢、停車與日照狀況調整停留時間。", en: "The main viewpoints sit best together in the afternoon, with the horizon, cliffs, and wind carrying the whole stretch." },
+          desc: { "zh-Hant": "三個觀景點距離相對集中，依現場風勢、停車與日照狀況調整停留時間。", en: "The three main viewpoints sit close together; adjust time for wind, parking, and daylight." },
           tags: [{ label: { "zh-Hant": "海岸主景", en: "Coast highlight" }, tone: "coast" }],
         },
         {
           period: { "zh-Hant": "傍晚｜回程上路", en: "Evening | Begin the return" },
           title: { "zh-Hant": "傍晚開始返回墨爾本", en: "Let the return simply be the return" },
-          desc: { "zh-Hant": "回程依路況約需數小時，途中安排一次休息與加油，不再新增景點。", en: "The day is already long, so once the major viewpoints are done, it is best to get back to the city steadily." },
+          desc: { "zh-Hant": "回程依路況約需數小時，途中安排一次休息與加油，不再新增景點。", en: "The return takes several hours; stop once for rest and fuel, with no additional sights." },
           tags: [{ label: { "zh-Hant": "長途回程", en: "Long return" }, tone: "transfer" }],
         },
       ],
@@ -1186,7 +1186,7 @@ const data = {
           time: { "zh-Hant": "06:30 - 07:00", en: "06:30 - 07:00" },
           label: { "zh-Hant": "出發", en: "Depart" },
           title: { "zh-Hant": "離開墨爾本市區", en: "Leave Melbourne" },
-          note: { "zh-Hant": "這天一早就出發，能把最好的光線和最不趕的節奏留在海岸線上。", en: "Starting early keeps the better light and the least rushed pace for the coastline itself." },
+          note: { "zh-Hant": "06:30 - 07:00 出發；早餐可外帶上車。", en: "Leave between 06:30 and 07:00; breakfast can be taken away." },
           eventClass: "event-transport",
           flags: [{ label: { "zh-Hant": "提早", en: "Early" }, tone: "warm" }],
         },
@@ -1194,7 +1194,7 @@ const data = {
           time: { "zh-Hant": "上午", en: "Morning" },
           label: { "zh-Hant": "沿途", en: "En route" },
           title: { "zh-Hant": "Lorne、Apollo Bay 一帶停靠", en: "Coastal pauses around Lorne and Apollo Bay" },
-          note: { "zh-Hant": "在小鎮完成午餐、洗手間、補水與加油，避免下午主景之間再繞路。", en: "These stops are best used for rest, food, and fresh air, and they deepen the road-trip mood." },
+          note: { "zh-Hant": "午餐、洗手間、補水、加油集中處理。", en: "Combine lunch, toilets, water, and fuel in one stop." },
           eventClass: "event-city",
           flags: [{ label: { "zh-Hant": "小鎮補給", en: "Town break" }, tone: "city" }],
         },
@@ -1202,31 +1202,31 @@ const data = {
           time: { "zh-Hant": "下午", en: "Afternoon" },
           label: { "zh-Hant": "主景", en: "Highlights" },
           title: { "zh-Hant": "十二門徒岩與 Loch Ard Gorge", en: "Twelve Apostles and Loch Ard Gorge" },
-          note: { "zh-Hant": "下午主景集中，停車後多為短步道；風大時注意帽子與隨身物品。", en: "This is the part of the day that deserves the most time from the scenery itself." },
+          note: { "zh-Hant": "下午主景集中，停車後多為短步道；風大時注意帽子與隨身物品。", en: "Main viewpoints are in the afternoon; expect short walks and strong wind." },
           eventClass: "event-highlight",
           flags: [{ label: { "zh-Hant": "海岸", en: "Coast" }, tone: "coast" }],
         },
         {
           time: { "zh-Hant": "20:00 - 22:00", en: "20:00 - 22:00" },
           label: { "zh-Hant": "回程", en: "Return" },
-          title: { "zh-Hant": "回到墨爾本，晚上只留給休息", en: "Return to Melbourne and keep the night only for rest" },
-          note: { "zh-Hant": "這天的體力花在海岸線上就夠了，不需要再安排夜生活。", en: "The energy for this day is already spent on the road and the coast, so there is no need to add nightlife." },
+          title: { "zh-Hant": "返回墨爾本", en: "Return to Melbourne" },
+          note: { "zh-Hant": "依路況約 20:00 - 22:00 抵達；回飯店休息。", en: "Arrive around 20:00-22:00 depending on traffic, then rest at the hotel." },
           eventClass: "event-transport",
           flags: [{ label: { "zh-Hant": "休息", en: "Rest" }, tone: "note" }],
         },
       ],
       reminders: [
         {
-          "zh-Hant": "今天最重要的是早出發、沿路補水，還有不要把回程後的晚上再排滿。",
+          "zh-Hant": "06:30 - 07:00 出發｜沿路補水｜回程後不續排活動。",
           en: "The three priorities today are leaving early, staying hydrated, and not filling the night after the return.",
         },
         {
-          "zh-Hant": "海邊光線很好，但風也很大，防曬和防風要一起想。",
-          en: "The coast can offer beautiful light and strong wind at the same time, so think sun and wind together.",
+          "zh-Hant": "海岸日照與風勢並存｜防曬、防風外套、可固定帽款。",
+          en: "Coast conditions: bright sun and strong wind. Pack sunscreen and a wind layer.",
         },
         {
-          "zh-Hant": "自駕請依天候與體力刪減停靠點，優先保留十二門徒岩與 Loch Ard Gorge。",
-          en: "If one viewpoint feels especially right, stay with it a little longer instead of forcing every possible named stop.",
+          "zh-Hant": "自駕依天候與體力刪減停靠；優先保留十二門徒岩與 Loch Ard Gorge。",
+          en: "Trim stops for weather and energy; keep Twelve Apostles and Loch Ard Gorge first.",
         },
       ],
     },
@@ -1239,11 +1239,11 @@ const data = {
       theme: { "zh-Hant": "慢城市午後，接上海風與企鵝歸巢", en: "A slower city morning that turns into sea wind and Penguin Parade" },
       preview: {
         "zh-Hant": "上午留在墨爾本吃早午餐，午後自駕前往 Phillip Island；海岸步道、晚餐與企鵝歸巢排在同一路線。",
-        en: "Keep the morning softer and move to the coast later, so dinner by the sea and Penguin Parade feel like one complete arc.",
+        en: "Brunch in Melbourne, then drive to Phillip Island for the coast walk, dinner, and Penguin Parade.",
       },
       intro: {
-        "zh-Hant": "上午只安排近距離早午餐或逛街，午后再往 Phillip Island。抵達後先走 Nobbies Centre 一帶，晚餐後進場等候企鵝；夜間海風強，需準備保暖外套。",
-        en: "This is a good day for a little flexibility. Use the morning for a brunch or light browsing, then shift the mood toward coastline wind and the penguins returning ashore. The evening layer matters a lot.",
+        "zh-Hant": "上午在 Melbourne CBD 早午餐或逛街，14:00 左右前往 Phillip Island。抵達後走 Nobbies Centre，晚餐後進場等候企鵝；夜間海風強，攜帶保暖外套。",
+        en: "Brunch or nearby shopping in the morning; leave for Phillip Island around 14:00. Visit Nobbies Centre, dine before entry, and pack a warm outer layer.",
       },
       image: "./assets/day3-phillip-island-sunset.jpg",
       imageAlt: { "zh-Hant": "Phillip Island 夕陽海景", en: "Phillip Island sunset coastline" },
@@ -1260,20 +1260,20 @@ const data = {
       ],
       glance: {
         start: {
-          value: { "zh-Hant": "上午不必太早，14:00 左右再往海邊走", en: "No need for an early start; head out around 14:00" },
-          note: { "zh-Hant": "今天的重點在傍晚與晚上，不在早晨衝行程", en: "The weight of this day sits in the late afternoon and evening, not the morning" },
+          value: { "zh-Hant": "上午留白，14:00 左右往海邊", en: "Open morning; head to the coast around 14:00" },
+          note: { "zh-Hant": "上午留白｜14:00 左右出發", en: "Open morning; depart around 14:00" },
         },
         area: {
           value: { "zh-Hant": "Melbourne CBD / Phillip Island / Penguin Parade", en: "Melbourne CBD / Phillip Island / Penguin Parade" },
-          note: { "zh-Hant": "白天在市區，傍晚後轉為海岸戶外行程", en: "The city by day and the coast by night bring two very different moods" },
+          note: { "zh-Hant": "白天市區｜傍晚後海岸戶外", en: "City by day; coast outdoors after dusk" },
         },
         highlights: {
           value: { "zh-Hant": "brunch、海邊晚餐、企鵝歸巢", en: "Brunch, a seaside dinner, and Penguin Parade" },
-          note: { "zh-Hant": "海岸步道受風勢影響，出發前再確認天氣", en: "If the weather behaves, the whole day feels especially memorable" },
+          note: { "zh-Hant": "海岸步道依風勢調整；出發前查天氣", en: "Adjust the coast walk for wind; check weather before leaving" },
         },
         energy: {
           value: { "zh-Hant": "普通到偏累", en: "Steady to tiring" },
-          note: { "zh-Hant": "白天輕鬆，但回程會晚，體力還是要保留", en: "The daytime stays light, but the return comes late and still asks for energy" },
+          note: { "zh-Hant": "白天輕量｜深夜回到墨爾本", en: "Light daytime; late return to Melbourne" },
         },
         walk: {
           value: { "zh-Hant": "低到中等", en: "Low to moderate" },
@@ -1281,44 +1281,44 @@ const data = {
         },
         wear: {
           value: { "zh-Hant": "厚一點的外套 + 好走鞋", en: "A warmer outer layer and good shoes" },
-          note: { "zh-Hant": "企鵝歸巢後氣溫和海風都會明顯下來", en: "The temperature and wind feel very different once the penguin session starts" },
+          note: { "zh-Hant": "日落後降溫，觀景區海風強", en: "Temperatures drop after sunset and the viewing area is windy" },
         },
         food: {
           value: { "zh-Hant": "市區 brunch / The Cerberus Beach House 晚餐", en: "City brunch / dinner at The Cerberus Beach House" },
-          note: { "zh-Hant": "海邊晚餐剛好可以把海岸線節奏接進企鵝歸巢之前", en: "The seaside dinner bridges naturally into the penguin session" },
+          note: { "zh-Hant": "入園前完成晚餐與洗手間", en: "Finish dinner and toilets before entry" },
         },
         transport: {
           value: { "zh-Hant": "租車自駕，單程約 2 小時", en: "Self-drive, around 2 hours each way" },
-          note: { "zh-Hant": "回程會是深夜，回到市區不建議再加其它安排", en: "The return reaches back into the night, so it is best not to add anything after it" },
+          note: { "zh-Hant": "深夜回程；抵達市區後直接回飯店", en: "Late-night return; head straight to the hotel" },
         },
         booking: {
           value: { "zh-Hant": "企鵝歸巢票券 / 入場時段", en: "Penguin Parade tickets and entry timing" },
-          note: { "zh-Hant": "下午出發前再對一次，會比較安心", en: "It is worth checking again before you leave in the afternoon" },
+          note: { "zh-Hant": "出發前複核票券、入場與日落時間", en: "Recheck tickets, entry time, and sunset before departure" },
         },
       },
       routeFlow: [
         {
-          period: { "zh-Hant": "上午｜把城市放慢", en: "Morning | Slow the city down" },
-          title: { "zh-Hant": "睡晚一點、咖啡或輕鬆逛街", en: "Sleep in, take coffee, or browse lightly" },
-          desc: { "zh-Hant": "今天不需要像大洋路那樣一早就衝，把體力留給晚上的海邊風和回程。", en: "There is no need to push this morning like the coast day. Save the energy for the evening wind and late return." },
+          period: { "zh-Hant": "上午｜市區留白", en: "Morning | Open city time" },
+          title: { "zh-Hant": "早午餐或近距離逛街", en: "Brunch or nearby browsing" },
+          desc: { "zh-Hant": "活動範圍留在 Melbourne CBD；14:00 左右取車出發。", en: "Stay within Melbourne CBD and leave by car around 14:00." },
           tags: [{ label: { "zh-Hant": "留白", en: "Breathing room" }, tone: "note" }],
         },
         {
           period: { "zh-Hant": "下午｜往海邊切換", en: "Afternoon | Shift to the coast" },
           title: { "zh-Hant": "開往 Phillip Island", en: "Drive toward Phillip Island" },
-          desc: { "zh-Hant": "離開城市後，今天的光線、氣味和節奏都會變得很不一樣。", en: "Once you leave the city behind, the light, the air, and the whole pace change noticeably." },
+          desc: { "zh-Hant": "單程約 2 小時；途中安排一次短暫補給。", en: "The drive takes about two hours, with one short supply stop." },
           tags: [{ label: { "zh-Hant": "自駕", en: "Drive" }, tone: "transfer" }],
         },
         {
           period: { "zh-Hant": "傍晚｜海邊餐桌", en: "Late afternoon | Seaside table" },
           title: { "zh-Hant": "The Cerberus Beach House", en: "The Cerberus Beach House" },
-          desc: { "zh-Hant": "晚餐與洗手間在入園前處理完，避免 Penguin Parade 等候期間臨時離席。", en: "A proper dinner before the parade feels more like a real trip than rushing straight to the penguins." },
+          desc: { "zh-Hant": "晚餐與洗手間在入園前處理完，避免 Penguin Parade 等候期間臨時離席。", en: "Finish dinner and toilets before entering the Penguin Parade area." },
           tags: [{ label: { "zh-Hant": "海邊晚餐", en: "Seaside dinner" }, tone: "food" }],
         },
         {
           period: { "zh-Hant": "晚上｜企鵝歸巢", en: "Evening | Penguin Parade" },
-          title: { "zh-Hant": "日落後等候企鵝上岸", en: "Save the day for the moment that matters" },
-          desc: { "zh-Hant": "入場後依工作人員指引就座，日落後等待企鵝上岸；夜間請降低音量並遵守攝影規定。", en: "The moment the penguins come in from the sea is the part of the day worth truly slowing down for." },
+          title: { "zh-Hant": "Penguin Parade｜日落後企鵝上岸", en: "Penguin Parade after sunset" },
+          desc: { "zh-Hant": "入場後依工作人員指引就座，日落後等待企鵝上岸；夜間請降低音量並遵守攝影規定。", en: "Follow staff seating directions, keep voices low, and observe photography restrictions." },
           tags: [{ label: { "zh-Hant": "經典體驗", en: "Signature moment" }, tone: "outdoor" }],
         },
       ],
@@ -1327,7 +1327,7 @@ const data = {
           time: { "zh-Hant": "上午", en: "Morning" },
           label: { "zh-Hant": "城市", en: "City" },
           title: { "zh-Hant": "brunch、咖啡或最後一段輕鬆逛市區", en: "Brunch, coffee, or an easy final city wander" },
-          note: { "zh-Hant": "今天的上午是柔軟的，不需要跟 Day 2 一樣把身體拉到很早。", en: "The morning stays deliberately soft and does not need the same early strain as Day 2." },
+          note: { "zh-Hant": "早午餐、咖啡或近距離購物；不離開 CBD。", en: "Brunch, coffee, or nearby shopping within the CBD." },
           eventClass: "event-city",
           flags: [{ label: { "zh-Hant": "慢一點", en: "Take it slow" }, tone: "city" }],
         },
@@ -1343,7 +1343,7 @@ const data = {
           time: { "zh-Hant": "傍晚", en: "Late afternoon" },
           label: { "zh-Hant": "餐桌", en: "Dinner" },
           title: { "zh-Hant": "The Cerberus Beach House 海邊晚餐", en: "Dinner at The Cerberus Beach House" },
-          note: { "zh-Hant": "先把吃飯和風景接在一起，再進企鵝園區，心情會更完整。", en: "Linking dinner to the coast before the penguin session makes the evening feel more complete." },
+          note: { "zh-Hant": "用餐後完成洗手間，再前往企鵝園區。", en: "Finish dinner and toilets before heading to the penguin reserve." },
           eventClass: "event-meal",
           flags: [{ label: { "zh-Hant": "海邊", en: "Seaside" }, tone: "food" }],
         },
@@ -1351,7 +1351,7 @@ const data = {
           time: { "zh-Hant": "晚上", en: "Evening" },
           label: { "zh-Hant": "野生動物", en: "Wildlife" },
           title: { "zh-Hant": "企鵝歸巢", en: "Penguin Parade" },
-          note: { "zh-Hant": "通常不能拍照，適合把手機放下來，安靜看一段。", en: "Photography is usually restricted, which makes this a good moment to put the phone away and simply watch." },
+          note: { "zh-Hant": "依現場規定禁止攝影；降低音量並遵循工作人員指引。", en: "Photography is restricted; keep voices low and follow staff directions." },
           eventClass: "event-outdoor",
           flags: [{ label: { "zh-Hant": "海風強", en: "Windy" }, tone: "outdoor" }],
         },
@@ -1359,23 +1359,23 @@ const data = {
           time: { "zh-Hant": "深夜", en: "Late night" },
           label: { "zh-Hant": "回程", en: "Return" },
           title: { "zh-Hant": "開回墨爾本市區", en: "Drive back to central Melbourne" },
-          note: { "zh-Hant": "回到市區後直接休息，讓身體為隔天的轉場保留一點餘裕。", en: "Once back in Melbourne, it is best to rest directly and keep some margin for tomorrow's city transfer." },
+          note: { "zh-Hant": "深夜抵達；回飯店休息，隔日為飛雪梨轉場。", en: "Late arrival; return to the hotel before tomorrow's Sydney transfer." },
           eventClass: "event-transport",
           flags: [{ label: { "zh-Hant": "晚歸", en: "Late finish" }, tone: "night" }],
         },
       ],
       reminders: [
         {
-          "zh-Hant": "這天最重要的是晚上保暖，企鵝歸巢時的海風跟白天完全是不同世界。",
-          en: "The most important thing today is warmth at night; the sea wind during Penguin Parade feels very different from daytime city weather.",
+          "zh-Hant": "日落後明顯降溫｜保暖外套、防風層、好走鞋。",
+          en: "Temperatures drop after sunset: pack a warm outer layer, wind protection, and walking shoes.",
         },
         {
-          "zh-Hant": "企鵝歸巢前先完成晚餐與洗手間，入場後就不必臨時離席。",
-          en: "Sorting dinner and practical breaks before the parade makes the whole experience much more comfortable.",
+          "zh-Hant": "入園前完成晚餐與洗手間；入場後依工作人員指引。",
+          en: "Finish dinner and toilets before entry, then follow staff directions.",
         },
         {
           "zh-Hant": "企鵝歸巢後直接返回墨爾本，不再安排市區夜景或購物。",
-          en: "The return comes late, so resist the urge to add a final city stop on top of it. Tomorrow will feel much better.",
+          en: "Return directly to Melbourne after Penguin Parade; no additional city stops.",
         },
       ],
     },
@@ -1388,11 +1388,11 @@ const data = {
       theme: { "zh-Hant": "墨爾本收尾，午後飛往雪梨", en: "Wrap Melbourne, then fly into Sydney" },
       preview: {
         "zh-Hant": "上午在飯店附近吃早午餐，取行李、還車後搭 13:00 的 JQ514；抵達雪梨後先入住達令港。",
-        en: "This day is not about squeezing in another attraction. It is about giving Melbourne a clean final half-day before the flight to Sydney.",
+        en: "Brunch near the hotel, collect bags, return the car, and take JQ514 at 13:00; check in at Darling Harbour after arrival.",
       },
       intro: {
-        "zh-Hant": "今天以交通為主。上午活動範圍不要離飯店太遠，預留取行李、還車與國內線報到時間；抵達雪梨後只安排飯店周邊晚餐與散步。",
-        en: "Treat today as a transfer day. The morning can still hold brunch and a final city walk, but from midday onward the focus belongs to luggage, the airport, and the first evening in Sydney. Comfort matters most.",
+        "zh-Hant": "跨城轉場日。上午留在飯店與 Melbourne CBD 周邊；11:30 前取行李，還車後搭 13:00 JQ514。抵達雪梨後入住達令港，晚餐與散步留在飯店周邊。",
+        en: "Transfer day: stay near Melbourne CBD, collect bags by 11:30, return the car, and take JQ514 at 13:00. Dinner and a walk stay near Darling Harbour.",
       },
       image: "./assets/day4-darling-harbour.jpg",
       imageAlt: { "zh-Hant": "雪梨達令港與水岸夜景", en: "Darling Harbour waterside scene" },
@@ -1410,19 +1410,19 @@ const data = {
       glance: {
         start: {
           value: { "zh-Hant": "上午留在 Melbourne CBD", en: "Stay near Melbourne CBD in the morning" },
-          note: { "zh-Hant": "今天的上午最好不要拉遠，隨時能回飯店拿行李最重要", en: "The morning works best when it stays close enough to return for the luggage easily" },
+          note: { "zh-Hant": "11:30 前回飯店取行李", en: "Return to the hotel for bags by 11:30" },
         },
         area: {
           value: { "zh-Hant": "Melbourne Central / Emporium / MEL T4 / Darling Harbour", en: "Melbourne Central / Emporium / MEL T4 / Darling Harbour" },
-          note: { "zh-Hant": "整天其實就是兩段城市和一段航班", en: "The day really holds two city fragments with one flight between them" },
+          note: { "zh-Hant": "Melbourne CBD → MEL T4 → SYD T2 → Darling Harbour", en: "Melbourne CBD → MEL T4 → SYD T2 → Darling Harbour" },
         },
         highlights: {
           value: { "zh-Hant": "Melbourne 最後半天、JQ514、雪梨第一晚", en: "The last Melbourne half-day, JQ514, and the first Sydney evening" },
-          note: { "zh-Hant": "今天的亮點在節奏，不在點數量", en: "Today’s highlight is the rhythm itself, not the number of stops" },
+          note: { "zh-Hant": "上午墨爾本，傍晚達令港", en: "Melbourne in the morning, Darling Harbour by evening" },
         },
         energy: {
           value: { "zh-Hant": "普通", en: "Steady" },
-          note: { "zh-Hant": "轉場本身就會花心力，不建議再排過滿", en: "The transfer already takes energy, so the day should not be overloaded" },
+          note: { "zh-Hant": "國內線轉場；不排遠程景點", en: "Domestic transfer with no distant sights" },
         },
         walk: {
           value: { "zh-Hant": "中等", en: "Moderate" },
@@ -1430,44 +1430,44 @@ const data = {
         },
         wear: {
           value: { "zh-Hant": "舒服好穿、方便進出機場的層次", en: "Comfortable layers that work well in airports" },
-          note: { "zh-Hant": "這天不用為了拍照特別犧牲舒適度", en: "This is not the day to sacrifice comfort for an outfit" },
+          note: { "zh-Hant": "輕便分層；證件與充電線放隨身行李", en: "Comfortable layers; documents and charger in carry-on" },
         },
         food: {
           value: { "zh-Hant": "Melbourne brunch / 機場輕食 / 達令港晚餐", en: "Melbourne brunch / airport snack / dinner by Darling Harbour" },
-          note: { "zh-Hant": "不要讓機場時間把午餐拖得太狼狽", en: "Try not to let airport timing turn lunch into something messy" },
+          note: { "zh-Hant": "早午餐後出發；另備機場輕食", en: "Leave after brunch and keep an airport snack ready" },
         },
         transport: {
           value: { "zh-Hant": "市區 → 飯店拿行李 → 機場 → JQ514 → Sydney", en: "City → hotel bags → airport → JQ514 → Sydney" },
-          note: { "zh-Hant": "今天的移動方式很清楚，照節奏走就好", en: "The movement pattern is very clear today, and works best when left simple" },
+          note: { "zh-Hant": "固定順序：取行李、還車、報到、飛行、入住", en: "Fixed order: bags, car return, check-in, flight, hotel" },
         },
         booking: {
           value: { "zh-Hant": "13:00 JQ514", en: "13:00 JQ514" },
-          note: { "zh-Hant": "請把中午前回飯店拿行李這件事放在時間軸中心", en: "Keep the hotel bag pickup before noon as the main anchor of the day" },
+          note: { "zh-Hant": "11:30 取行李｜13:00 起飛｜14:25 抵達", en: "11:30 bags | 13:00 departure | 14:25 arrival" },
         },
       },
       routeFlow: [
         {
           period: { "zh-Hant": "上午｜墨爾本最後一段", en: "Morning | One last Melbourne window" },
           title: { "zh-Hant": "早午餐與近距離 city walk", en: "Brunch and a nearby city walk" },
-          desc: { "zh-Hant": "今天的活動範圍以飯店周邊和市中心商場街區為主，隨時能折返拿行李最重要。", en: "The useful zone today stays around the hotel and the central retail streets, because being able to turn back for luggage easily matters most." },
+          desc: { "zh-Hant": "飯店周邊、Melbourne Central、Emporium、Bourke Street；11:30 前折返取行李。", en: "Stay near the hotel, Melbourne Central, Emporium, and Bourke Street; collect bags by 11:30." },
           tags: [{ label: { "zh-Hant": "近距離", en: "Nearby" }, tone: "city" }],
         },
         {
           period: { "zh-Hant": "中午｜行李與機場", en: "Midday | Luggage and airport" },
-          title: { "zh-Hant": "把轉場本身排成主行程", en: "Make the transfer itself the main plan" },
-          desc: { "zh-Hant": "11:30 前回飯店取行李，接著還車、報到並搭乘 13:00 的 JQ514。", en: "What matters most today is moving yourself comfortably and on time from Melbourne to Sydney, not squeezing in one more sight." },
+          title: { "zh-Hant": "取行李、還車、國內線報到", en: "Bags, car return, and domestic check-in" },
+          desc: { "zh-Hant": "11:30 前回飯店取行李，接著還車、報到並搭乘 13:00 的 JQ514。", en: "Collect bags by 11:30, return the car, check in, and take JQ514 at 13:00." },
           tags: [{ label: { "zh-Hant": "轉場", en: "Transfer" }, tone: "transfer" }],
         },
         {
           period: { "zh-Hant": "下午｜飛往雪梨", en: "Afternoon | Fly to Sydney" },
-          title: { "zh-Hant": "JQ514 把旅程切成兩個城市節奏", en: "JQ514 divides the trip into two city moods" },
-          desc: { "zh-Hant": "航程約 1 小時 25 分；抵達 SYD T2 後，再轉乘市區交通前往達令港。", en: "The flight itself is short, but emotionally it becomes a clear hinge between two halves of the trip." },
+          title: { "zh-Hant": "JQ514｜Melbourne → Sydney", en: "JQ514 | Melbourne to Sydney" },
+          desc: { "zh-Hant": "航程約 1 小時 25 分；抵達 SYD T2 後，再轉乘市區交通前往達令港。", en: "Flight time is about 1 hour 25 minutes; transfer from SYD T2 to Darling Harbour." },
           tags: [{ label: { "zh-Hant": "班機", en: "Flight" }, tone: "warm" }],
         },
         {
-          period: { "zh-Hant": "傍晚｜先穩住新城市", en: "Evening | Settle the new city first" },
-          title: { "zh-Hant": "入住達令港，把雪梨留到明天完整展開", en: "Check in at Darling Harbour and let Sydney unfold properly tomorrow" },
-          desc: { "zh-Hant": "辦理入住後在達令港用餐，飯店周邊散步即可，不再跨區前往 Circular Quay。", en: "A night view, dinner, and rest all work better here than racing into sightseeing on the first Sydney evening." },
+          period: { "zh-Hant": "傍晚｜達令港入住", en: "Evening | Darling Harbour check-in" },
+          title: { "zh-Hant": "飯店周邊晚餐與水岸散步", en: "Dinner and a waterfront walk near the hotel" },
+          desc: { "zh-Hant": "辦理入住後在達令港用餐，飯店周邊散步即可，不再跨區前往 Circular Quay。", en: "Check in, dine at Darling Harbour, and stay within the hotel area for the evening." },
           tags: [{ label: { "zh-Hant": "港邊夜色", en: "Harbour night" }, tone: "night" }],
         },
       ],
@@ -1476,7 +1476,7 @@ const data = {
           time: { "zh-Hant": "上午", en: "Morning" },
           label: { "zh-Hant": "城市", en: "City" },
           title: { "zh-Hant": "Melbourne Central、Emporium、Bourke Street 周邊", en: "Around Melbourne Central, Emporium, and Bourke Street" },
-          note: { "zh-Hant": "這些點距離近，也最方便中途折回飯店。", en: "These areas stay close together and make the luggage return easiest." },
+          note: { "zh-Hant": "三區相鄰；步行後原路折返飯店。", en: "The three areas are adjacent and walkable from the hotel." },
           eventClass: "event-city",
           flags: [{ label: { "zh-Hant": "最後散步", en: "Final walk" }, tone: "city" }],
         },
@@ -1484,7 +1484,7 @@ const data = {
           time: { "zh-Hant": "11:30 - 12:00", en: "11:30 - 12:00" },
           label: { "zh-Hant": "行李", en: "Bags" },
           title: { "zh-Hant": "回飯店整理與取行李", en: "Return to the hotel for bags" },
-          note: { "zh-Hant": "上午請以取行李、還車與準時抵達機場為優先。", en: "The core of the day is not another stop, but keeping the transfer smooth." },
+          note: { "zh-Hant": "11:30 前取行李；接續還車與國內線報到。", en: "Collect bags by 11:30, then return the car and check in." },
           eventClass: "event-transport",
           flags: [{ label: { "zh-Hant": "重要", en: "Key anchor" }, tone: "transfer" }],
         },
@@ -1492,27 +1492,27 @@ const data = {
           time: { "zh-Hant": "13:00", en: "13:00" },
           label: { "zh-Hant": "飛行", en: "Flight" },
           title: { "zh-Hant": "JQ514 墨爾本飛雪梨", en: "JQ514 from Melbourne to Sydney" },
-          note: { "zh-Hant": "這段飛行把旅程正式帶進第二個城市。", en: "This flight is what moves the trip into its second city." },
+          note: { "zh-Hant": "13:00 MEL T4 起飛｜14:25 SYD T2 抵達。", en: "Depart MEL T4 at 13:00; arrive SYD T2 at 14:25." },
           eventClass: "event-transport",
           flags: [{ label: { "zh-Hant": "JQ514", en: "JQ514" }, tone: "warm" }],
         },
         {
           time: { "zh-Hant": "16:30 後", en: "After 16:30" },
           label: { "zh-Hant": "入住", en: "Check-in" },
-          title: { "zh-Hant": "抵達達令港，雪梨第一晚放輕一點", en: "Arrive at Darling Harbour and keep the first Sydney night light" },
-          note: { "zh-Hant": "今天晚上只要先把新城市收進來就好，重點放在明天。", en: "Tonight only needs to bring the new city into view. Save the bigger Sydney focus for tomorrow." },
+          title: { "zh-Hant": "抵達達令港", en: "Arrive at Darling Harbour" },
+          note: { "zh-Hant": "入住、晚餐、水岸散步；不跨區前往 Circular Quay。", en: "Check in, dinner, and a waterfront walk; no cross-city trip to Circular Quay." },
           eventClass: "event-highlight",
           flags: [{ label: { "zh-Hant": "新城市", en: "New city" }, tone: "night" }],
         },
       ],
       reminders: [
         {
-          "zh-Hant": "今天最重要的是不要把上午排太遠，回飯店拿行李的餘裕一定要留。",
+          "zh-Hant": "上午不離開 CBD｜11:30 前取行李｜預留還車與報到時間。",
           en: "The main rule today is not to drift too far in the morning; the hotel return for luggage needs breathing room.",
         },
         {
-          "zh-Hant": "穿著以長時間移動方便為主，證件、充電線與薄外套放在隨身行李。",
-          en: "Dress for comfort. A good transfer day mood usually comes from not fighting your luggage or the airport.",
+          "zh-Hant": "轉場穿搭｜輕便分層；證件、充電線、薄外套放隨身行李。",
+          en: "Wear light layers; keep documents, charging cable, and a light jacket in carry-on.",
         },
         {
           "zh-Hant": "雪梨第一晚留在達令港，歌劇院與 Circular Quay 排在隔天上午。",
@@ -1529,11 +1529,11 @@ const data = {
       theme: { "zh-Hant": "港灣晨光、歌劇院與海生館的一天", en: "Harbour morning light, the Opera House, and the aquarium" },
       preview: {
         "zh-Hant": "早餐從 Opera Quays 或 MCA Cafe 開始，沿 Circular Quay 走到歌劇院；下午回達令港逛海生館。",
-        en: "Today works best as a slower harbour line that lets breakfast, the light, the Opera House, and the aquarium all connect naturally.",
+        en: "Breakfast at Opera Quays or MCA Cafe, a Circular Quay and Opera House walk, then the aquarium at Darling Harbour.",
       },
       intro: {
-        "zh-Hant": "今天步行量較高，上午集中在歌劇院與 Circular Quay，下午轉入 SEA LIFE Sydney Aquarium，晚餐回達令港；請穿好走的鞋並準備防曬。",
-        en: "This is one of the most Sydney-feeling days of the trip. Wear comfortable shoes, leave room for the harbour and Circular Quay light, and resist the urge to hurry. Sydney often looks best when it is given a little patience.",
+        "zh-Hant": "港灣步行日。08:00 在 Opera Quays 或 MCA Cafe 早餐，上午走歌劇院與 Circular Quay；13:30 進 SEA LIFE Sydney Aquarium，晚餐回達令港。好走鞋、防曬、墨鏡。",
+        en: "Harbour walking day: breakfast at Opera Quays or MCA Cafe at 08:00, the Opera House and Circular Quay, then SEA LIFE at 13:30 and dinner at Darling Harbour.",
       },
       image: "./assets/opera-house-harbour.jpg",
       imageAlt: { "zh-Hant": "雪梨歌劇院與港灣", en: "Sydney Opera House and harbour" },
@@ -1551,64 +1551,64 @@ const data = {
       glance: {
         start: {
           value: { "zh-Hant": "08:00 左右港邊早餐", en: "Breakfast by the harbour around 08:00" },
-          note: { "zh-Hant": "早一點到，光線和座位都比較舒服", en: "An earlier arrival helps with both the light and the seating" },
+          note: { "zh-Hant": "提早抵達可預留候位與拍照時間", en: "Arrive early for seating and photos" },
         },
         area: {
           value: { "zh-Hant": "Circular Quay / Sydney Opera House / Darling Harbour", en: "Circular Quay / Sydney Opera House / Darling Harbour" },
-          note: { "zh-Hant": "上午集中在 Circular Quay，下午回到達令港", en: "The zone is concentrated today, so the day works best as a harbour-to-harbour glide" },
+          note: { "zh-Hant": "上午 Circular Quay｜下午 Darling Harbour", en: "Circular Quay in the morning; Darling Harbour in the afternoon" },
         },
         highlights: {
           value: { "zh-Hant": "港邊早餐、歌劇院、Circular Quay、SEA LIFE", en: "Harbour breakfast, the Opera House, Circular Quay, and SEA LIFE" },
-          note: { "zh-Hant": "早餐地點與港灣步行在同一區，可減少早上轉乘", en: "Including breakfast here makes the whole day feel more like a true travel day instead of a straight attraction run" },
+          note: { "zh-Hant": "早餐與上午步行位於同一港區", en: "Breakfast and the morning walk share one harbour zone" },
         },
         energy: {
           value: { "zh-Hant": "普通", en: "Steady" },
-          note: { "zh-Hant": "今天不需要早起到很辛苦，但步行時間會比 Day 4 長", en: "It does not need the strain of an early start, but there is more walking than Day 4" },
+          note: { "zh-Hant": "08:00 開始｜步行量高於 Day 4", en: "08:00 start with more walking than Day 4" },
         },
         walk: {
           value: { "zh-Hant": "中等偏多", en: "Moderate to moderately high" },
-          note: { "zh-Hant": "港灣和市中心之間會走不少路", en: "There is a fair amount of walking between the harbour points and the city edge" },
+          note: { "zh-Hant": "Circular Quay 與港邊步行時間較長", en: "Longer walking around Circular Quay and the waterfront" },
         },
         wear: {
           value: { "zh-Hant": "好走鞋、防曬、墨鏡、薄外套", en: "Walking shoes, sunscreen, sunglasses, and a light layer" },
-          note: { "zh-Hant": "白天日照明顯，傍晚回港邊時再加一層就好", en: "Daylight can feel quite bright, while the extra layer is mostly for later" },
+          note: { "zh-Hant": "白天日照明顯；傍晚港邊加薄外套", en: "Bright daylight; add a light layer by the harbour at dusk" },
         },
         food: {
           value: { "zh-Hant": "Wahlburgers Opera Quays 或 MCA Cafe / 達令港晚餐", en: "Wahlburgers Opera Quays or MCA Cafe / dinner at Darling Harbour" },
-          note: { "zh-Hant": "早餐是今天很重要的開場，不要太隨便略過", en: "Breakfast is a real part of the day here, not just something to rush through" },
+          note: { "zh-Hant": "08:00 港邊早餐｜18:00 達令港晚餐", en: "08:00 harbour breakfast; 18:00 dinner at Darling Harbour" },
         },
         transport: {
           value: { "zh-Hant": "步行 + 輕軌 / 市區火車", en: "Walking + light rail / city train" },
-          note: { "zh-Hant": "今天不太需要自駕，港灣步行反而是最好看的部分", en: "There is no real need for a car; walking the harbour is the day’s best feature" },
+          note: { "zh-Hant": "無自駕；跨區使用輕軌或市區火車", en: "No car; use light rail or city train between zones" },
         },
         booking: {
           value: { "zh-Hant": "早餐稍早到 / 海生館票券確認", en: "Arrive a bit early for breakfast / confirm aquarium tickets" },
-          note: { "zh-Hant": "想坐得更舒服或拍到好光線，早餐時間不要壓太晚", en: "If the seat and the light matter, do not leave breakfast too late" },
+          note: { "zh-Hant": "複核早餐營業時間與 SEA LIFE 票券", en: "Recheck breakfast opening hours and SEA LIFE tickets" },
         },
       },
       routeFlow: [
         {
           period: { "zh-Hant": "上午｜港灣早餐與晨間散步", en: "Morning | The harbour wakes slowly" },
-          title: { "zh-Hant": "早餐排在歌劇院附近", en: "Place breakfast near the Opera House" },
+          title: { "zh-Hant": "Opera Quays 或 MCA Cafe 早餐", en: "Breakfast at Opera Quays or MCA Cafe" },
           desc: { "zh-Hant": "選 Opera Quays 或 MCA Cafe，吃完可直接步行前往歌劇院與 Circular Quay。", en: "Putting breakfast by the harbour turns the day’s first light into part of the experience, not a thing you arrive at later." },
           tags: [{ label: { "zh-Hant": "港灣早餐", en: "Harbour breakfast" }, tone: "food" }],
         },
         {
           period: { "zh-Hant": "中午｜港邊散步", en: "Midday | Walk the harbour edge" },
           title: { "zh-Hant": "Circular Quay 與歌劇院一帶", en: "Circular Quay and the Opera House" },
-          desc: { "zh-Hant": "這段不用走得太急，風景本身就值得留一點慢時間。", en: "This stretch is not meant to be rushed. The harbour itself deserves time." },
+          desc: { "zh-Hant": "沿港邊步行，經 Circular Quay 前往歌劇院；途中補擦防曬。", en: "Walk the waterfront through Circular Quay to the Opera House; reapply sunscreen en route." },
           tags: [{ label: { "zh-Hant": "城市大景", en: "City icon" }, tone: "coast" }],
         },
         {
-          period: { "zh-Hant": "下午｜把重點換成室內", en: "Afternoon | Shift into an indoor note" },
+          period: { "zh-Hant": "下午｜海生館", en: "Afternoon | Aquarium" },
           title: { "zh-Hant": "SEA LIFE Sydney Aquarium", en: "SEA LIFE Sydney Aquarium" },
-          desc: { "zh-Hant": "下午接海生館剛好，也讓整天的節奏有一段室內緩衝。", en: "The aquarium fits the afternoon well and gives the day a useful indoor reset." },
+          desc: { "zh-Hant": "13:30 入場；下午轉入室內，結束後步行回飯店周邊。", en: "Enter at 13:30, then walk back toward the hotel area afterward." },
           tags: [{ label: { "zh-Hant": "室內段落", en: "Indoor pause" }, tone: "note" }],
         },
         {
           period: { "zh-Hant": "傍晚｜回到達令港", en: "Evening | Return to Darling Harbour" },
           title: { "zh-Hant": "晚餐與港灣夜色", en: "Dinner and harbour night light" },
-          desc: { "zh-Hant": "海生館結束後已回到飯店附近，可直接安排晚餐並沿水岸散步。", en: "Closing back at Darling Harbour feels right, because the day then moves cleanly from daytime harbour light into night-time water views." },
+          desc: { "zh-Hant": "海生館結束後已回到飯店附近，可直接安排晚餐並沿水岸散步。", en: "After the aquarium, dine near the hotel and walk the Darling Harbour waterfront." },
           tags: [{ label: { "zh-Hant": "夜景", en: "Night view" }, tone: "night" }],
         },
       ],
@@ -1617,7 +1617,7 @@ const data = {
           time: { "zh-Hant": "08:00", en: "08:00" },
           label: { "zh-Hant": "早餐", en: "Breakfast" },
           title: { "zh-Hant": "Wahlburgers Opera Quays 或 MCA Cafe", en: "Wahlburgers Opera Quays or MCA Cafe" },
-          note: { "zh-Hant": "讓這一天從港灣和餐桌一起開始，而不是空腹趕路。", en: "Let the day begin with the harbour and the table together rather than rushing out unfed." },
+          note: { "zh-Hant": "Opera Quays 看歌劇院；MCA Cafe 看 Circular Quay。", en: "Opera Quays faces the Opera House; MCA Cafe looks over Circular Quay." },
           eventClass: "event-meal",
           flags: [{ label: { "zh-Hant": "景好", en: "Great light" }, tone: "food" }],
         },
@@ -1625,7 +1625,7 @@ const data = {
           time: { "zh-Hant": "10:00 左右", en: "Around 10:00" },
           label: { "zh-Hant": "港灣", en: "Harbour" },
           title: { "zh-Hant": "歌劇院與 Circular Quay 散步", en: "Walk the Opera House and Circular Quay" },
-          note: { "zh-Hant": "港邊日照與風勢都明顯，途中補擦防曬並留意飲水。", en: "This is the part of the day most worth moving through slowly." },
+          note: { "zh-Hant": "港邊日照與風勢都明顯，途中補擦防曬並留意飲水。", en: "The harbour is bright and windy; reapply sunscreen and drink water." },
           eventClass: "event-highlight",
           flags: [{ label: { "zh-Hant": "慢走", en: "Slow walk" }, tone: "coast" }],
         },
@@ -1633,7 +1633,7 @@ const data = {
           time: { "zh-Hant": "13:30", en: "13:30" },
           label: { "zh-Hant": "室內", en: "Indoor" },
           title: { "zh-Hant": "SEA LIFE Sydney Aquarium", en: "SEA LIFE Sydney Aquarium" },
-          note: { "zh-Hant": "把室內段放在下午，很剛好也比較不容易累。", en: "An indoor stop in the afternoon balances the day nicely." },
+          note: { "zh-Hant": "13:30 入場；票券與最後入場時間事先複核。", en: "Enter at 13:30; recheck tickets and last entry time." },
           eventClass: "event-city",
           flags: [{ label: { "zh-Hant": "轉室內", en: "Indoors" }, tone: "note" }],
         },
@@ -1641,22 +1641,22 @@ const data = {
           time: { "zh-Hant": "18:00", en: "18:00" },
           label: { "zh-Hant": "夜色", en: "Evening" },
           title: { "zh-Hant": "達令港晚餐與散步", en: "Dinner and a walk in Darling Harbour" },
-          note: { "zh-Hant": "讓今天停在港邊的夜色就很好，不用再多塞點。", en: "Letting the day stop on harbour light is enough; there is no need to add more." },
+          note: { "zh-Hant": "18:00 晚餐；飯後沿 Darling Harbour 水岸散步。", en: "Dinner at 18:00, followed by a Darling Harbour waterfront walk." },
           eventClass: "event-highlight",
           flags: [{ label: { "zh-Hant": "港邊收尾", en: "Harbour finish" }, tone: "night" }],
         },
       ],
       reminders: [
         {
-          "zh-Hant": "今天步行量會比前一天高，好走鞋和防曬比任何穿搭靈感都重要。",
+          "zh-Hant": "港灣步行量較高｜好走鞋、防曬、墨鏡、飲水。",
           en: "Walking load climbs again today, so good shoes and sun protection matter more than outfit ideas.",
         },
         {
-          "zh-Hant": "早餐若想坐窗邊或拍晨間港景，建議提早抵達並預留候位時間。",
-          en: "If the breakfast spot feels especially right, stay a little longer. That kind of travel feeling is often worth more than rushing to the next stop.",
+          "zh-Hant": "窗邊座位與晨間港景｜提早抵達，預留候位時間。",
+          en: "For window seating and morning harbour photos, arrive early and allow queue time.",
         },
         {
-          "zh-Hant": "海生館安排在下午，可避開較強日照，也讓雙腳有一段室內休息。",
+          "zh-Hant": "13:30 海生館｜避開午後日照，轉入室內步行。",
           en: "The aquarium in the afternoon is not just convenient; it also gives the day a nice change in pace.",
         },
       ],
@@ -1670,11 +1670,11 @@ const data = {
       theme: { "zh-Hant": "最後半天的城市節奏，晚上回程", en: "A final city half-day, then the night flight home" },
       preview: {
         "zh-Hant": "上午走 QVB、Hyde Park 與周邊街區，午餐後完成最後採買；17:30 回飯店取行李，19:00 前往機場。",
-        en: "Today is about giving the final half-day to central Sydney, then heading back for the luggage and the airport cleanly in the evening.",
+        en: "Walk QVB, Hyde Park, and central Sydney; collect bags at 17:30 and leave for the airport at 19:00.",
       },
       intro: {
         "zh-Hant": "白天活動集中在雪梨市中心，不安排遠郊。購物結束後回達令港取行李，國際線至少保留三小時報到與安檢時間。",
-        en: "There is no need to squeeze out one more attraction. Let QVB, Hyde Park, and the final shopping take the daytime, then keep the evening for luggage and the flight home.",
+        en: "Keep the day in central Sydney: QVB, Hyde Park, lunch, and final shopping. Collect bags at 17:30 and allow at least three hours for the international flight.",
       },
       image: "./assets/day6-qvb-sydney.jpg",
       imageAlt: { "zh-Hant": "雪梨 QVB 與市中心街道", en: "Sydney QVB and city streets" },
@@ -1692,64 +1692,64 @@ const data = {
       glance: {
         start: {
           value: { "zh-Hant": "09:30 左右開始市中心散步", en: "Start the city walk around 09:30" },
-          note: { "zh-Hant": "今天不必太早，把精神留給最後一段整理和回程", en: "There is no need to start especially early today" },
+          note: { "zh-Hant": "上午退房並寄放行李", en: "Check out and store luggage in the morning" },
         },
         area: {
           value: { "zh-Hant": "QVB / Hyde Park / Darling Harbour / Sydney Airport", en: "QVB / Hyde Park / Darling Harbour / Sydney Airport" },
-          note: { "zh-Hant": "白天集中在同一區，晚上再往機場走", en: "Keep the daytime in one area, then pivot to the airport in the evening" },
+          note: { "zh-Hant": "白天 Sydney CBD｜傍晚 Darling Harbour｜晚上機場", en: "Sydney CBD by day, Darling Harbour at dusk, airport at night" },
         },
         highlights: {
           value: { "zh-Hant": "最後一段城市散步、午餐、補買與回程夜晚", en: "The final city walk, lunch, shopping, and the departure night" },
-          note: { "zh-Hant": "這一天的重點是收尾感，不是再衝一次景點", en: "The aim is a good ending, not another hard sightseeing push" },
+          note: { "zh-Hant": "市中心散步、午餐、採買、回程", en: "City walk, lunch, shopping, and departure" },
         },
         energy: {
           value: { "zh-Hant": "輕鬆", en: "Light" },
-          note: { "zh-Hant": "步調可以舒服一點，但晚上的國際線還是要留神", en: "The daytime can stay easy, but the evening flight still needs proper attention" },
+          note: { "zh-Hant": "白天輕量｜晚間固定航班", en: "Light daytime; fixed evening flight" },
         },
         walk: {
           value: { "zh-Hant": "中等", en: "Moderate" },
-          note: { "zh-Hant": "最後補買和市區散步會讓步數還是有感", en: "The shopping and city walk still add up in steps" },
+          note: { "zh-Hant": "QVB、Hyde Park 與市中心購物步行", en: "Walking around QVB, Hyde Park, and central shops" },
         },
         wear: {
           value: { "zh-Hant": "舒服、好收納，外套放手邊", en: "Comfortable, easy to pack, with a layer kept handy" },
-          note: { "zh-Hant": "晚上進機場前後溫度和冷氣都可能有差", en: "Airport air-conditioning and the evening temperature can feel different again" },
+          note: { "zh-Hant": "薄外套留在隨身行李，機場可直接取用", en: "Keep a light layer in carry-on for the airport" },
         },
         food: {
           value: { "zh-Hant": "市區午餐 / 機場前簡單補給", en: "Lunch in the city / a simple airport snack later" },
-          note: { "zh-Hant": "午餐時間可以順便把最後補買一起解決", en: "Lunch is a good time to fold in the last shopping round" },
+          note: { "zh-Hant": "午餐與採買集中在 QVB 周邊", en: "Keep lunch and shopping around QVB" },
         },
         transport: {
           value: { "zh-Hant": "步行 + Airport Line / Uber", en: "Walking + airport line / Uber" },
-          note: { "zh-Hant": "如果戰利品變多或體力下降，晚上直接 Uber 會更輕鬆", en: "If shopping bags increase or energy drops, Uber often becomes the kinder option" },
+          note: { "zh-Hant": "行李多：Uber｜時間固定：Airport Line", en: "More luggage: Uber; fixed schedule: Airport Line" },
         },
         booking: {
           value: { "zh-Hant": "22:10 國際線回程", en: "22:10 international departure" },
-          note: { "zh-Hant": "傍晚請先回飯店拿行李，國際線至少抓 3 小時緩衝", en: "Return for the luggage first in the late afternoon and keep at least a three-hour buffer for the international flight" },
+          note: { "zh-Hant": "17:30 取行李｜19:00 前往機場｜22:10 起飛", en: "17:30 bags | 19:00 airport transfer | 22:10 departure" },
         },
       },
       routeFlow: [
         {
           period: { "zh-Hant": "上午｜最後一段市區散步", en: "Morning | One last city walk" },
           title: { "zh-Hant": "QVB、Hyde Park 與周邊街區", en: "QVB, Hyde Park, and the surrounding streets" },
-          desc: { "zh-Hant": "這段很適合留給最後的城市感，不需要特別拉遠。", en: "This zone is enough for the final city feel without needing to reach farther away." },
+          desc: { "zh-Hant": "QVB → Hyde Park → 周邊街區；全程留在 Sydney CBD。", en: "QVB to Hyde Park and nearby streets, all within Sydney CBD." },
           tags: [{ label: { "zh-Hant": "市中心", en: "CBD" }, tone: "city" }],
         },
         {
           period: { "zh-Hant": "中午｜午餐與補買", en: "Midday | Lunch and the final shopping round" },
-          title: { "zh-Hant": "把最後想買的集中處理", en: "Handle the last things you want to buy" },
-          desc: { "zh-Hant": "集中購買已確認的品項，並預留行李整理與回飯店時間。", en: "The shopping does not need to be ambitious today; only the things you really want are enough." },
+          title: { "zh-Hant": "午餐與最後採買", en: "Lunch and final shopping" },
+          desc: { "zh-Hant": "集中購買已確認的品項，並預留行李整理與回飯店時間。", en: "Buy confirmed items only and allow time to repack and return to the hotel." },
           tags: [{ label: { "zh-Hant": "最後補買", en: "Last buys" }, tone: "food" }],
         },
         {
           period: { "zh-Hant": "傍晚｜回飯店與拿行李", en: "Late afternoon | Return and collect luggage" },
-          title: { "zh-Hant": "把回程變得乾淨俐落", en: "Make the departure feel clean and calm" },
-          desc: { "zh-Hant": "回飯店拿行李這一步請不要拖到太晚，會直接影響回程心情。", en: "Do not leave the luggage pickup too late, because it strongly shapes the whole feel of the departure." },
+          title: { "zh-Hant": "17:30 回飯店取行李", en: "Collect bags at 17:30" },
+          desc: { "zh-Hant": "核對護照、退稅單據、電子用品與隨身行李。", en: "Check passports, tax-refund documents, electronics, and carry-on bags." },
           tags: [{ label: { "zh-Hant": "時間緩衝", en: "Buffer" }, tone: "transfer" }],
         },
         {
           period: { "zh-Hant": "晚上｜往機場走", en: "Evening | Head to the airport" },
-          title: { "zh-Hant": "把雪梨最後留在夜色裡", en: "Let Sydney end in night light" },
-          desc: { "zh-Hant": "今晚只要好好收尾，不要讓回程變成最後的壓力。", en: "Tonight only needs to close the trip well without letting the return become the final stress point." },
+          title: { "zh-Hant": "19:00 前往 Sydney Airport T1", en: "Leave for Sydney Airport T1 at 19:00" },
+          desc: { "zh-Hant": "搭 Airport Line 或 Uber；國際線預留至少 3 小時。", en: "Take the Airport Line or Uber and allow at least three hours for the international flight." },
           tags: [{ label: { "zh-Hant": "回程夜晚", en: "Departure night" }, tone: "night" }],
         },
       ],
@@ -1758,7 +1758,7 @@ const data = {
           time: { "zh-Hant": "09:30", en: "09:30" },
           label: { "zh-Hant": "散步", en: "Walk" },
           title: { "zh-Hant": "QVB 與市中心街區", en: "QVB and the central streets" },
-          note: { "zh-Hant": "今天白天不用切很多區，把最後一段城市感留在同一個範圍裡最舒服。", en: "There is no need to split the day across too many zones; keeping the last city hours together feels best." },
+          note: { "zh-Hant": "QVB、Hyde Park 與周邊街區集中在 Sydney CBD。", en: "QVB, Hyde Park, and nearby streets stay within Sydney CBD." },
           eventClass: "event-city",
           flags: [{ label: { "zh-Hant": "收尾", en: "Final pass" }, tone: "city" }],
         },
@@ -1766,7 +1766,7 @@ const data = {
           time: { "zh-Hant": "13:00", en: "13:00" },
           label: { "zh-Hant": "午餐", en: "Lunch" },
           title: { "zh-Hant": "午餐與最後補買", en: "Lunch and the final shopping round" },
-          note: { "zh-Hant": "把最後想帶回家的東西在這段處理掉，傍晚就能輕鬆一點。", en: "Getting the last purchases out of the way around lunch makes the evening much cleaner." },
+          note: { "zh-Hant": "只購買已確認品項；預留整理行李時間。", en: "Buy only confirmed items and leave time to repack." },
           eventClass: "event-meal",
           flags: [{ label: { "zh-Hant": "補買", en: "Shopping" }, tone: "food" }],
         },
@@ -1774,7 +1774,7 @@ const data = {
           time: { "zh-Hant": "17:30", en: "17:30" },
           label: { "zh-Hant": "行李", en: "Bags" },
           title: { "zh-Hant": "回飯店拿行李", en: "Return to the hotel for luggage" },
-          note: { "zh-Hant": "不要拖到太晚，讓自己留著比較從容的國際線緩衝。", en: "Do not delay this too far into the evening; a more generous international buffer feels much better." },
+          note: { "zh-Hant": "固定節點；購物或用餐延誤時縮短市區行程。", en: "Fixed timing; shorten the city plan if lunch or shopping runs late." },
           eventClass: "event-transport",
           flags: [{ label: { "zh-Hant": "重要", en: "Important" }, tone: "transfer" }],
         },
@@ -1782,7 +1782,7 @@ const data = {
           time: { "zh-Hant": "19:00", en: "19:00" },
           label: { "zh-Hant": "機場", en: "Airport" },
           title: { "zh-Hant": "前往 Sydney Airport", en: "Head to Sydney Airport" },
-          note: { "zh-Hant": "今晚就讓移動乾乾淨淨地結束，不需要再硬加一個點。", en: "Let the final movement stay clean tonight rather than forcing in one more stop." },
+          note: { "zh-Hant": "Airport Line 或 Uber｜CI0052 22:10 起飛。", en: "Airport Line or Uber; CI0052 departs at 22:10." },
           eventClass: "event-transport",
           flags: [{ label: { "zh-Hant": "22:10 起飛", en: "22:10 departure" }, tone: "night" }],
         },
@@ -1794,7 +1794,7 @@ const data = {
         },
         {
           "zh-Hant": "戰利品較多或體力下降時，從飯店直接叫 Uber 前往機場。",
-          en: "If the day is feeling good already, there is no need to scramble the departure rhythm just to add one more stop.",
+          en: "If shopping or lunch runs late, shorten the city route and keep the 17:30 luggage pickup.",
         },
         {
           "zh-Hant": "護照、退稅單據與隨身電子用品在離開飯店前再確認一次。",
@@ -1811,8 +1811,8 @@ const data = {
     { item: { "zh-Hant": "墨爾本 → 雪梨國內線", en: "Melbourne to Sydney domestic flight" }, aud: 260, note: { "zh-Hant": "JQ514 已訂，但截圖未顯示票價，先保留估算", en: "JQ514 is booked, but the fare was not captured, so it stays estimated" }, status: "estimated" },
     { item: { "zh-Hant": "墨爾本租車", en: "Melbourne rental car" }, aud: 264.2, note: { "zh-Hant": "Toyota Corolla 或同級｜NT$5,468｜已付款", en: "Toyota Corolla or similar | NT$5,468 | paid" }, booked: true, status: "actual" },
     { item: { "zh-Hant": "機場 / 市區交通與停車", en: "Airport, city transport, and parking" }, aud: 180, note: { "zh-Hant": "含雪梨機場線、墨爾本停車或加油彈性", en: "Includes Sydney airport rail plus Melbourne parking or fuel buffer" }, status: "estimated" },
-    { item: { "zh-Hant": "餐食", en: "Meals" }, aud: 700, note: { "zh-Hant": "兩人 6 天舒服吃法", en: "A comfortable dining pace for two over the six core days" }, status: "estimated" },
-    { item: { "zh-Hant": "一日遊 / 門票", en: "Day tour / tickets" }, aud: 360, note: { "zh-Hant": "抓一個代表性日遊與門票緩衝", en: "Allows for one signature day outing and ticket buffer" }, status: "estimated" },
+    { item: { "zh-Hant": "餐食", en: "Meals" }, aud: 700, note: { "zh-Hant": "兩人 6 天餐食預算", en: "Meal budget for two over six days" }, status: "estimated" },
+    { item: { "zh-Hant": "一日遊 / 門票", en: "Day tour / tickets" }, aud: 360, note: { "zh-Hant": "一日遊與門票預留", en: "Allowance for a day tour and tickets" }, status: "estimated" },
     { item: { "zh-Hant": "購物與彈性", en: "Shopping and buffer" }, aud: 350, note: { "zh-Hant": "留給臨時加點或戰利品", en: "For extras, last-minute add-ons, or souvenirs" }, status: "estimated" },
   ],
   souvenirs: [
@@ -1825,14 +1825,14 @@ const data = {
         { label: { "zh-Hant": "紀念感強", en: "Keepsake" }, tone: "night" },
       ],
       note: {
-        "zh-Hant": "蛋白石是澳洲辨識度較高的珠寶選擇；若要購買，請把證書、產地與預算放在外觀之前確認。",
-        en: "If you want one souvenir that stays with the trip for a long time, opal still feels unmistakably Australian and quietly memorable.",
+        "zh-Hant": "澳洲代表性珠寶；購買前核對證書、產地、色澤與預算。",
+        en: "A recognisably Australian jewellery option; check certification, origin, colour, and budget before purchase.",
       },
       buy: {
-        "zh-Hant": "建議在市區珠寶店比較，優先確認證書、產地、色澤與售後資訊。",
-        en: "Best chosen slowly in a city jeweller, with more attention on certification, origin, and colour than on the cheapest ticket.",
+        "zh-Hant": "市區珠寶店比價；確認證書、產地、色澤與售後資訊。",
+        en: "Compare city jewellers and check certification, origin, colour, and after-sales information.",
       },
-      range: { "zh-Hant": "價格感：從小墜飾到正式珠寶差異很大", en: "Price feel: ranges from small pendants to serious jewellery" },
+      range: { "zh-Hant": "價格：小墜飾到正式珠寶，差異較大", en: "Price: from small pendants to fine jewellery" },
       href: "https://www.australia.com/en-us/facts-and-planning/about-australia/australian-souvenirs.html",
     },
     {
@@ -1840,18 +1840,18 @@ const data = {
       subname: { "zh-Hant": "Tim Tam / 巧克力餅乾 / 超市伴手禮", en: "Tim Tam / chocolate biscuits / supermarket gifts" },
       image: "./assets/souvenir-timtam-card.svg",
       tags: [
-        { label: { "zh-Hant": "最好買", en: "Easy buy" }, tone: "food" },
+        { label: { "zh-Hant": "容易採買", en: "Easy buy" }, tone: "food" },
         { label: { "zh-Hant": "機場也能補", en: "Airport friendly" }, tone: "transfer" },
       ],
       note: {
-        "zh-Hant": "Tim Tam 與超市零食適合送人，也容易控制預算與數量；可在前幾天分批購入。",
-        en: "If you want to clear the gift shopping early, Tim Tam and other supermarket snacks are still the easiest low-regret options.",
+        "zh-Hant": "送禮與分享用；價格、口味與數量容易控制，前幾天分批採買。",
+        en: "Easy gifts with controllable price and quantity; buy them in small rounds early in the trip.",
       },
       buy: {
-        "zh-Hant": "Coles、Woolworths 和機場商店都好買；提早分批買會比最後一天一次扛回來輕鬆。",
-        en: "They are easy to find at Coles, Woolworths, and the airport, and buying them in smaller rounds is easier than carrying them all on the last day.",
+        "zh-Hant": "Coles、Woolworths、機場商店皆有販售；分批購入，避免回程日集中裝箱。",
+        en: "Available at Coles, Woolworths, and airport shops; buy in small rounds instead of packing everything on Day 6.",
       },
-      range: { "zh-Hant": "價格感：平價，適合多買幾盒", en: "Price feel: affordable and easy to buy in multiples" },
+      range: { "zh-Hant": "價格：平價，可多盒分裝", en: "Price: affordable and easy to buy in multiples" },
       href: "https://www.australia.com/en-us/facts-and-planning/about-australia/australian-souvenirs.html",
     },
     {
@@ -1864,13 +1864,13 @@ const data = {
       ],
       note: {
         "zh-Hant": "Aesop 門市在兩座城市都容易找到，護手霜、香皂與小容量香氛也較方便放入行李。",
-        en: "If you want something more polished that you will still use later, Aesop is a very easy final-day pick.",
+        en: "Stores are available in both cities; hand balm, soap, and travel-size fragrance pack easily.",
       },
       buy: {
-        "zh-Hant": "墨爾本和雪梨門市都不少，護手霜、香皂和隨身噴霧都很適合旅行後繼續用。",
-        en: "Both Melbourne and Sydney have plenty of stores, and the smaller hand-care or aromatic items travel especially well.",
+        "zh-Hant": "墨爾本、雪梨皆有門市；護手霜、香皂與隨身噴霧較好收納。",
+        en: "Available in Melbourne and Sydney; smaller hand-care and aromatic products are easier to pack.",
       },
-      range: { "zh-Hant": "價格感：中高", en: "Price feel: mid to premium" },
+      range: { "zh-Hant": "價格：中高", en: "Price: mid to premium" },
       href: "https://www.aesop.com/",
     },
     {
@@ -1883,13 +1883,13 @@ const data = {
       ],
       note: {
         "zh-Hant": "小圍巾、披肩與羊毛配件比大件外套好收納；購買前先查看產地與材質比例。",
-        en: "Compared with a bulky coat, a scarf, shawl, or smaller wool piece is easier to carry and feels more like taking Australian autumn home.",
+        en: "Scarves, shawls, and small wool accessories pack more easily than coats; check origin and fibre content.",
       },
       buy: {
         "zh-Hant": "優先選擇澳洲製或材質標示清楚的款式，並確認保養方式與行李空間。",
-        en: "Pieces that are Australian-made or clearly labelled for fibre content are usually the safest bet for gifts or for yourself.",
+        en: "Choose Australian-made items or clear fibre labels; check care instructions and luggage space.",
       },
-      range: { "zh-Hant": "價格感：中價位到高價位都有", en: "Price feel: mid to premium" },
+      range: { "zh-Hant": "價格：中價位到高價位", en: "Price: mid to premium" },
       href: "https://www.sydney.com/articles/best-souvenirs-from-australia",
     },
   ],
@@ -1897,22 +1897,22 @@ const data = {
     {
       title: { "zh-Hant": "超市伴手禮提早分批買", en: "Clear the easy gifts first" },
       desc: {
-        "zh-Hant": "超市零食、Tim Tam 這種早一點買掉，最後一天才不會同時卡在購物、吃飯和回程節奏裡。",
-        en: "Buying the easy snack-style gifts earlier means the final day does not have to juggle shopping, meals, and departure timing all at once.",
+        "zh-Hant": "Tim Tam 與超市零食在前幾天分批購入；Day 6 僅補缺口。",
+        en: "Buy Tim Tam and supermarket snacks in small rounds; use Day 6 only to fill gaps.",
       },
     },
     {
       title: { "zh-Hant": "珠寶與保養品留在市中心挑", en: "Leave jewellery and polished buys for the end" },
       desc: {
         "zh-Hant": "蛋白石或 Aesop 可安排在 Day 6 的 QVB 與市中心區域，購買後再回飯店整理行李。",
-        en: "The buys that deserve slow attention, like opal or Aesop, fit much better into Day 6 around central Sydney.",
+        en: "Place opal or Aesop shopping around QVB and central Sydney on Day 6.",
       },
     },
     {
       title: { "zh-Hant": "羊毛和設計品先看來源", en: "Check provenance on wool and design buys" },
       desc: {
-        "zh-Hant": "只要來源和材質標示清楚，通常買起來會更安心，也比較有紀念價值。",
-        en: "When the provenance and material details are clearly shown, the purchase usually feels safer and more meaningful.",
+        "zh-Hant": "核對澳洲製標示、纖維比例、保養方式與退換規則。",
+        en: "Check Australian-made labels, fibre content, care instructions, and returns.",
       },
     },
   ],
@@ -1921,14 +1921,14 @@ const data = {
       title: { "zh-Hant": "挑選原則", en: "Selection logic" },
       desc: {
         "zh-Hant": "優先考量重量、保存方式、用途與澳洲產地標示，避免購買體積大或不易攜帶的品項。",
-        en: "This page leans toward things that travel well, feel recognisable, and still get used later, rather than souvenir ideas that only photograph well in the moment.",
+        en: "Prioritise weight, storage, practical use, and Australian origin labels.",
       },
     },
     {
-      title: { "zh-Hant": "與這趟路線相符", en: "An extension of the trip mood" },
+      title: { "zh-Hant": "與這趟路線相符", en: "Matched to this route" },
       desc: {
         "zh-Hant": "蛋白石、羊毛、澳洲品牌與超市零食，分別對應珠寶、秋季衣物、城市購物與送禮需求。",
-        en: "The shopping choices try to stay aligned with the route itself: coast, autumn, Australian brands, and city life rather than an arbitrary shopping list.",
+        en: "Opal, wool, Australian brands, and supermarket gifts cover jewellery, autumn clothing, city shopping, and gifts.",
       },
     },
   ],
@@ -1936,27 +1936,27 @@ const data = {
     {
       title: { "zh-Hant": "文件與入境", en: "Documents and entry" },
       items: [
-        { id: "passport", title: { "zh-Hant": "護照效期", en: "Passport validity" }, desc: { "zh-Hant": "確認回程日後仍有足夠效期，並把護照拍照留在手機。", en: "Make sure the passport stays valid beyond the return date and keep a copy on your phone." } },
-        { id: "eta", title: { "zh-Hant": "澳洲 ETA", en: "Australia ETA" }, desc: { "zh-Hant": "出發前務必完成，避免把入境文件拖到最後一刻。", en: "Finish the ETA before departure rather than leaving entry documents to the final moment." } },
-        { id: "insurance", title: { "zh-Hant": "旅遊保險", en: "Travel insurance" }, desc: { "zh-Hant": "保單號碼與聯絡方式一起存到手機裡。", en: "Keep the policy number and contact details on your phone as well." } },
+        { id: "passport", title: { "zh-Hant": "護照效期", en: "Passport validity" }, desc: { "zh-Hant": "效期涵蓋回程日；手機留存護照影本。", en: "Validity covers the return date; keep a copy on the phone." } },
+        { id: "eta", title: { "zh-Hant": "澳洲 ETA", en: "Australia ETA" }, desc: { "zh-Hant": "出發前完成並截圖核准狀態。", en: "Complete before departure and save a screenshot of approval." } },
+        { id: "insurance", title: { "zh-Hant": "旅遊保險", en: "Travel insurance" }, desc: { "zh-Hant": "手機留存保單號碼、承保內容與聯絡方式。", en: "Save the policy number, coverage, and contacts on the phone." } },
       ],
     },
     {
       title: { "zh-Hant": "訂單與票券", en: "Bookings and tickets" },
       items: [
-        { id: "mel-hotel", title: { "zh-Hant": "墨爾本飯店", en: "Melbourne hotel" }, desc: { "zh-Hant": "5/24 到 5/27 的住宿已確認，地址和入住資料請先截圖。", en: "The Melbourne stay is confirmed; screenshot the address and check-in details before departure." } },
-        { id: "syd-hotel", title: { "zh-Hant": "雪梨飯店", en: "Sydney hotel" }, desc: { "zh-Hant": "5/27 到 5/29 的住宿已確認，回程夜晚會用到。", en: "The Sydney stay is confirmed and becomes important again on the departure night." } },
-        { id: "domestic", title: { "zh-Hant": "JQ514 國內線", en: "JQ514 domestic flight" }, desc: { "zh-Hant": "起飛時間 13:00，Day 4 請把拿行李和機場緩衝一起抓進去。", en: "The flight leaves at 13:00, so keep the luggage pickup and airport buffer tied to it." } },
-        { id: "car", title: { "zh-Hant": "墨爾本租車", en: "Melbourne rental car" }, desc: { "zh-Hant": "取車、還車、駕照與信用卡文件放在同一個地方最安心。", en: "Keep the pickup, return, licence, and payment documents together for the rental day." } },
+        { id: "mel-hotel", title: { "zh-Hant": "墨爾本飯店", en: "Melbourne hotel" }, desc: { "zh-Hant": "5/24 - 5/27｜地址、訂單與入住資料離線截圖。", en: "May 24-27 | save the address, booking, and check-in details offline." } },
+        { id: "syd-hotel", title: { "zh-Hant": "雪梨飯店", en: "Sydney hotel" }, desc: { "zh-Hant": "5/27 - 5/29｜地址、訂單與行李寄放規則離線截圖。", en: "May 27-29 | save the address, booking, and luggage-storage rules offline." } },
+        { id: "domestic", title: { "zh-Hant": "JQ514 國內線", en: "JQ514 domestic flight" }, desc: { "zh-Hant": "13:00 起飛｜11:30 取行李｜預留還車與報到時間。", en: "13:00 departure | 11:30 bags | allow time for car return and check-in." } },
+        { id: "car", title: { "zh-Hant": "墨爾本租車", en: "Melbourne rental car" }, desc: { "zh-Hant": "取還車資料、駕照、國際駕照與信用卡集中收納。", en: "Keep pickup, return, licence, IDP, and card documents together." } },
       ],
     },
     {
       title: { "zh-Hant": "行李與穿搭", en: "Packing and layers" },
       items: [
-        { id: "layer", title: { "zh-Hant": "薄外套 / 稍厚外套", en: "Light layer and one warmer outer layer" }, desc: { "zh-Hant": "市區白天舒服，但大洋路、Phillip Island 和晚上回程都會用到。", en: "The cities can feel easy in the day, but the coast, Phillip Island, and the return night all call for it." } },
-        { id: "shoes", title: { "zh-Hant": "好走的鞋", en: "Walking shoes" }, desc: { "zh-Hant": "Day 1、Day 5、Day 6 的步行量都不小，比任何拍照鞋都更值得。", en: "Day 1, Day 5, and Day 6 all ask enough walking to make this more important than any photo-focused shoe." } },
-        { id: "adapter", title: { "zh-Hant": "澳規轉接頭", en: "AU plug adapter" }, desc: { "zh-Hant": "手機、相機、行動電源都會用到，這個不要留到最後想起來。", en: "Your phone, camera, and power bank all depend on this, so do not leave it to the last minute." } },
-        { id: "license", title: { "zh-Hant": "駕照 / 國際駕照", en: "Driver's licence / IDP" }, desc: { "zh-Hant": "Day 2、Day 3 的長線移動都靠它，和租車文件放一起最穩。", en: "The longer driving days depend on it, so keep it with the rental car paperwork." } },
+        { id: "layer", title: { "zh-Hant": "薄外套 / 保暖外套", en: "Light layer and one warmer outer layer" }, desc: { "zh-Hant": "薄外套用於市區與機場；保暖外套用於大洋路與 Phillip Island 夜間。", en: "Light layer for cities and airports; warmer layer for the coast and Phillip Island at night." } },
+        { id: "shoes", title: { "zh-Hant": "好走的鞋", en: "Walking shoes" }, desc: { "zh-Hant": "Day 1、5、6 城市步行；穿已走習慣、不磨腳的鞋。", en: "City walking on Days 1, 5, and 6; wear broken-in shoes." } },
+        { id: "adapter", title: { "zh-Hant": "澳規轉接頭", en: "AU plug adapter" }, desc: { "zh-Hant": "Type I 規格；供手機、相機與行動電源充電。", en: "Type I plug for phone, camera, and power-bank charging." } },
+        { id: "license", title: { "zh-Hant": "駕照 / 國際駕照", en: "Driver's licence / IDP" }, desc: { "zh-Hant": "Day 2、3 自駕使用；與租車文件放在一起。", en: "Required for driving on Days 2 and 3; store with rental documents." } },
       ],
     },
   ],
@@ -2059,7 +2059,7 @@ const data = {
       {
         title: { "zh-Hant": "Degraves Street", en: "Degraves Street" },
         note: { "zh-Hant": "Day 1 咖啡街區", en: "Day 1 coffee lane" },
-        driveTime: { "zh-Hant": "適合用早午餐打開旅程", en: "Good for opening the trip with brunch" },
+        driveTime: { "zh-Hant": "Day 1 早午餐起點", en: "Day 1 brunch start" },
         open: "https://www.google.com/maps/search/?api=1&query=Degraves+Street+Melbourne",
         embed: "https://www.google.com/maps?q=Degraves+Street+Melbourne&output=embed",
       },
@@ -2079,7 +2079,7 @@ const data = {
       },
       {
         title: { "zh-Hant": "Penguin Parade", en: "Penguin Parade" },
-        note: { "zh-Hant": "Phillip Island 晚上的重點", en: "The key evening moment on Phillip Island" },
+        note: { "zh-Hant": "Day 3 晚間固定行程", en: "Fixed evening event on Day 3" },
         driveTime: { "zh-Hant": "從墨爾本開車約 2 小時", en: "About 2 hr from Melbourne" },
         open: "https://www.google.com/maps/search/?api=1&query=Penguin+Parade+Phillip+Island",
         embed: "https://www.google.com/maps?q=Penguin+Parade+Phillip+Island&output=embed",
@@ -2094,7 +2094,7 @@ const data = {
       {
         title: { "zh-Hant": "Sofitel Sydney Darling Harbour", en: "Sofitel Sydney Darling Harbour" },
         note: { "zh-Hant": "雪梨兩晚住宿", en: "Sydney base" },
-        driveTime: { "zh-Hant": "Day 5、Day 6 都會以這裡為中心", en: "Day 5 and Day 6 both orbit from here" },
+        driveTime: { "zh-Hant": "Day 5、Day 6 住宿中心", en: "Base for Days 5 and 6" },
         open: "https://www.google.com/maps/search/?api=1&query=Sofitel+Sydney+Darling+Harbour",
         embed: "https://www.google.com/maps?q=Sofitel+Sydney+Darling+Harbour&output=embed",
       },
@@ -2129,7 +2129,7 @@ const data = {
       {
         title: { "zh-Hant": "QVB", en: "QVB" },
         note: { "zh-Hant": "Day 6 最後一段市中心", en: "Day 6 final city window" },
-        driveTime: { "zh-Hant": "適合最後補買與午餐", en: "Good for final shopping and lunch" },
+        driveTime: { "zh-Hant": "Day 6 午餐與最後採買", en: "Day 6 lunch and final shopping" },
         open: "https://www.google.com/maps/search/?api=1&query=QVB+Sydney",
         embed: "https://www.google.com/maps?q=QVB+Sydney&output=embed",
       },
@@ -2353,7 +2353,7 @@ function renderTripNow() {
   if (context.phase === "before") {
     label = t[state.lang].tripBeforeLabel;
     title = state.lang === "zh-Hant" ? `${context.daysUntil} ${t[state.lang].daysUntilTrip}` : `${context.daysUntil} ${t[state.lang].daysUntilTrip}`;
-    note = state.lang === "zh-Hant" ? "先把證件、航班與長途日整理好，出發後就能只看今天真正需要的資訊。" : "Prepare documents, flights, and the long-drive days now, so the guide can stay focused once the trip begins.";
+    note = state.lang === "zh-Hant" ? "行前確認｜護照、ETA、航班、長途日裝備" : "Pre-departure | passport, ETA, flights, and road-day gear";
     metrics = [
       [t[state.lang].quickStart, "05/23 · 23:30 CI0057"],
       [state.lang === "zh-Hant" ? "第一站" : "First stop", "Melbourne CBD"],
@@ -2385,7 +2385,7 @@ function renderTripNow() {
   if (context.phase === "departure") {
     label = t[state.lang].tripDepartureLabel;
     title = state.lang === "zh-Hant" ? "23:30 從桃園出發，明早抵達墨爾本" : "Depart Taoyuan at 23:30 and land in Melbourne tomorrow";
-    note = state.lang === "zh-Hant" ? "今晚先把護照、ETA、充電設備與薄外套放在最容易拿的位置。" : "Keep the passport, ETA, charging gear, and a light layer within easy reach tonight.";
+    note = state.lang === "zh-Hant" ? "隨身行李｜護照、ETA、充電設備、薄外套" : "Carry-on | passport, ETA, charging gear, and a light layer";
     metrics = [
       [t[state.lang].quickStart, "CI0057 · TPE T2"],
       [state.lang === "zh-Hant" ? "抵達" : "Arrival", "05/24 · 10:40 MEL T2"],
@@ -2399,8 +2399,8 @@ function renderTripNow() {
 
   if (context.phase === "return") {
     label = t[state.lang].tripReturnLabel;
-    title = state.lang === "zh-Hant" ? "清晨返抵台北，旅程在這裡收尾" : "Arrive back in Taipei this morning";
-    note = state.lang === "zh-Hant" ? "護照、退稅單據與隨身電子用品，下機前再確認一次。" : "Check passport, tax-refund papers, and personal electronics once more before leaving the aircraft.";
+    title = state.lang === "zh-Hant" ? "05:40 返抵台北" : "Arrive in Taipei at 05:40";
+    note = state.lang === "zh-Hant" ? "下機前確認｜護照、退稅單據、隨身電子用品" : "Before leaving the aircraft | passport, tax papers, electronics";
     metrics = [
       [state.lang === "zh-Hant" ? "航班" : "Flight", "CI0052"],
       [state.lang === "zh-Hant" ? "抵達" : "Arrival", "05:40 · TPE T2"],
@@ -2910,7 +2910,7 @@ function renderSouvenirs() {
             <div class="souvenir-note">${getText(item.note)}</div>
             <div class="souvenir-meta">
               <div class="info-line"><span class="info-label">${getText({ "zh-Hant": "怎麼買", en: "How to buy" })}</span><span class="info-value">${getText(item.buy)}</span></div>
-              <div class="info-line"><span class="info-label">${getText({ "zh-Hant": "價格感", en: "Price feel" })}</span><span class="info-value">${getText(item.range)}</span></div>
+              <div class="info-line"><span class="info-label">${getText({ "zh-Hant": "價格", en: "Price" })}</span><span class="info-value">${getText(item.range)}</span></div>
             </div>
             <a class="hotel-link" href="${item.href}" target="_blank" rel="noreferrer" aria-label="${getText(item.name)}">${t[state.lang].openLink}</a>
           </div>
